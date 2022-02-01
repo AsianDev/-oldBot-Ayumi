@@ -36,3 +36,9 @@
 31. banner command ✅
 32. guess the number ✅
 33. password generator
+
+
+// guess the number
+            if (msg.content > maxNumber) {
+              return message.delete()
+          }
