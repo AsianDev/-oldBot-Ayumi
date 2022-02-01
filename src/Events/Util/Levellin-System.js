@@ -3,8 +3,6 @@
 const Event = require("../../Handlers/Event.js");
 const Discord = require("discord.js")
 const Levels = require("discord-xp")
-const { mongooseConnectionString } = require("../../util/Data/config.json");
-Levels.setURL(mongooseConnectionString)
 module.exports = new Event("messageCreate", async (client, message) => {
     if(message.author.bot) return;
     if(!message.guild) return;

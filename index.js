@@ -1,13 +1,13 @@
 /** @format */
 console.clear();
 const Client = require("./src/Handlers/Client.js")
-const config = require("./src/util/Data/config.json");
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
-const fs = require("fs")
 const Canvas = require("canvas")
 const { registerFont } = require("canvas")
 registerFont( "./src/util/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
+const dotenv = require("dotenv")
+dotenv.config();
 // ---------------------CANVAS WELCOME AND LEAVE-------------------------- //
 var welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
@@ -51,12 +51,14 @@ process.on("unhandledRejection", (error, promise, origin) => {
       .setTimestamp()
       .setColor("#4D9AE6")
       console.log(error)
-      client.channels.cache.get("927762264696684544").send({embeds: [unhandledRejectionEmbed]})
-});
-//------------------------MONGOOSE-----------------------------//
-mongoose.connect(config.mongooseConnectionString, {
+      const m = client.channels.cache.get("937922889808740373")
+
+      if(!m) return;
+      
+      m.send({embeds: [unhandledRejectionEmbed]})})
+      //------------------------MONGOOSE-----------------------------//
+mongoose.connect(process.env.DATABASE_URL, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
 }).then(console.log('Connected to the Database.'))
-
-client.start(config.token)
+client.login(process.env.TOKEN)

@@ -22,6 +22,7 @@
     "discord-xp": "^1.1.16",
     "discord.js": "^13.6.0",
     "discordjs-button-pagination": "^1.0.7",
+    "dotenv": "^15.0.0",
     "flip-text": "^1.2.0",
     "fs": "^0.0.1-security",
     "got": "^4.2.0",

@@ -4,7 +4,6 @@ const Discord = require("discord.js");
 
 const Command = require("./Command.js");
 const Event = require("./Event.js");
-
 const intents = new Discord.Intents([
     "GUILDS",
     "GUILD_BANS",
@@ -20,22 +19,16 @@ const intents = new Discord.Intents([
     "GUILD_MESSAGE_REACTIONS",
 ]);
 
-
 const fs = require("fs");
-
 class Client extends Discord.Client {
 	constructor() {
-		super({ intents });
-
+		super({ intents })
 		/**
 		 * @type {Discord.Collection<string, Command>}
 		 */
 		this.commands = new Discord.Collection();
-
         this.aliases = new Discord.Collection();
-
         this.afk = new Discord.Collection();
-
 	}
 	start(token) {
             let slashcommands = []
@@ -85,7 +78,6 @@ class Client extends Discord.Client {
                 this.on(event.event, event.run.bind(null, this));
             });
         });
-
             this.login(token);
         }
     }
