@@ -29,6 +29,20 @@ module.exports = new Event("ready", (client) => {
     console.log(chalk.gray(`Running on Node ${process.version} on ${process.platform} ${process.arch}`))
     console.log(chalk.gray(`Memory: ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`))
 
+
+    console.log(
+      chalk.hex("#00ceff") ("██╗  ██╗ █████╗  ██████╗ ██████╗ ██╗        ██╗███████╗     ██████╗ ███╗   ██╗██╗███╗   ██╗███████╗      \n"),
+      chalk.hex("#dc00ff") ("██║ ██╔╝██╔══██╗██╔═══██╗██╔══██╗██║        ██║██╔════╝    ██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝      \n"),
+      chalk.hex("#00ceff") ("█████╔╝ ███████║██║   ██║██████╔╝██║        ██║███████╗    ██║   ██║██╔██╗ ██║██║██╔██╗ ██║█████╗        \n"),
+      chalk.hex("#dc00ff") ("██╔═██╗ ██╔══██║██║   ██║██╔══██╗██║        ██║╚════██║    ██║   ██║██║╚██╗██║██║██║╚██╗██║██╔══╝        \n"),
+      chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║    ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
+      chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝     ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
+
+
+   
+  )
+  
+
         // status
         const arrayOfStatus = [
           `with my friends`,
