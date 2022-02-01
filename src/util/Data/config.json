@@ -1,5 +1,5 @@
 {
-	"token": "OTI5OTc4OTkxNjIyOTA1ODg3.YdvMbQ.WN4Ev1F2QYe-Nzsn0sb3W18Cdiw", 
+	"token": "", 
 	"owners": ["569670023300382720", "926721472557363221"],
 	"imageapi": "a70300567666f82be7154ca8167a21a53b4b25f2ecfe4dd56ba18634dc12376ceac3519ecddcf71b526506250ef23c26fd3f731ee371365bc25bf31dfe987df2",
 	"mongooseConnectionString": "mongodb+srv://Ikigai:j2bUiZm3BlHVlFYB@cluster0.fu4m9.mongodb.net/KaoriBotDB"
