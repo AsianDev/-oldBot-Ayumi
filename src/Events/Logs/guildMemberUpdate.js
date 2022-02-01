@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 
 module.exports = new Event("guildMemberUpdate", async(client, oldMember, newMember) => {
     
-    const guildConfig = require('../../models/guildConfig.js')
+    const guildConfig = require('../../util/models/guildConfig.js')
     const data = guildConfig.findOne({guildId: newMember.guild.id})
     if (!data) return
     const channel = newMember.guild.channels.cache.find(c => c.id === data.BoostChannel)
