@@ -1,0 +1,5 @@
+pink: #FCAEEB
+light green: #90F781
+light red: #E6604D
+purple: #DD93F7
+lightish blue: #4D9AE6

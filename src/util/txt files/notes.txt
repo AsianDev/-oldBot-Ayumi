@@ -1,0 +1,173 @@
+
+╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    EVENT    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
+
+
+module.exports = new Event("guildMemberUpdate", (client, oldMember, newMember) => {
+(oldMember, newMember) => {
+
+    That's the line which defines message, client, member etc
+.addField('name', 'value', false) // the false part is if u want the field to be inlined or not
+
+╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    Ping    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
+
+
+content: `<@${member.user.id}>`,
+
+
+╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    ready.js    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
+
+
+client.user.setPresence({
+status: "online", // ➜ idle • online • dnd • invisible
+activity: `Your Text Here`, // Change this ofc
+type: "PLAYING" //➜ PLAYING • LISTENING • WATCHING • COMPETING • STREAMING
+url: "your_twitch_channel_URL" // -------- added this cus we wanted the streaming status
+})
+
+
+ㅤ<- invisible character
+
+\` <- you cant do just `
+
+
+╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    maintance    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
+
+
+const embed = new Discord.MessageEmbed()
+.setColor("RED")
+.setTitle("<:x_:904736839036993586> Sorry this command is currently going under maintance, command will be re launched on main server!")
+.setURL("https://discord.gg/RskdM62jdD")
+.setDescription("Due to some difficulties this command is disabled!")
+message.channel.send({embeds: [embed]})
+}})
+
+for when commands are disabled or under maintance
+
+
+
+kawaii api cmd list
+
+{"response":["alarm","amazing","ask","baka","bite","blush","blyat","boop","clap","coffee","confused","cry","cuddle","cute","dance","destroy","die","disappear","dodge","error","facedesk","facepalm","fbi","fight","happy","hide","highfive","hug","kill","kiss","laugh","lick","lonely","love","mad","money","nom","nosebleed","ok","party","pat","peek","poke","pout","protect","puke","punch","purr","pusheen","run","scared","scream","shame","shocked","shoot","shrug","sip","slap","sleepy","smile","smoke","smug","spin","stare","stomp","tickle","trap","triggered","uwu","wasted","wave","wiggle","yeet"]}
+
+
+   const error = new MessageEmbed()
+    .setColor("RED")
+    .setDescription("<:x_:904736839036993586> I do not have the permission to ( permission ). Please ensure i have Adminstrator permissions.")
+
+     if(!message.guild.me.permissions.has("Permission here")) return ({embeds: [error]})
+
+   .setImage(`https://cdn.discordapp.com/splashes/${message.guild.id}/${message.guild.splash}.png?size=2048`)
+
+      const roles = message.guild.roles.cache.sort((a, b) => b.position - a.position).map(role => role.toString());
+      const members = message.guild.members.cache;
+      const emojis = message.guild.emojis.cache;
+
+
+
+      	// ping
+	const prefixPing = new Discord.MessageEmbed()
+	.setColor("#FB7BEA")
+	.setTitle("Welcome to Ikigai!")
+	.setDescription(`My prefix is \`\`${client.prefix}\`\`  or  \`\`${client.prefix2}\`\``)
+
+	if(message.content.replace(/(<@|!|>){1}/g, '') == `${client.user.id}`) return message.reply({embeds: [prefixPing], allowedMentions: {repliedUser: false}})
+
+
+  			   let bannedWords = new Discord.MessageEmbed()
+			   .setColor("RED")
+			   .setTitle("Banned word has been deleted")
+			   .addField("● User Information", `> ${message.author}\n> Tag: ${message.author.tag}\n> ID: ${message.author.id}`, true)
+			   .addField("● Content", `${msgContent}`)
+			   .setThumbnail(`${client.user.displayAvatarURL()}`)
+			   .addField("● Other Information", `> Channel: ${message.channel}\n> Date: <t:${~~(Date.now() / 1000)}:f>\n`, true)
+			   message.guild.channels.cache.get("924889631303012363").send({ embeds: [bannedWords] })
+
+
+
+always keep this in mind when it say cannot read properties of undefined (reading 'anything') the thing before anything is undefined
+
+message.author = User
+message.member = GuildMember
+
+
+
+			   /** @format */
+
+const Discord = require("discord.js")
+const Event = require("../Structures/Event.js");
+module.exports = new Event("messageUpdate", async (client, oldMessage, newMessage) =>{
+  
+  const embed = new Discord.MessageEmbed()
+  .setTitle(`Message edited`)
+  .setURL(newMessage.url)
+  .setDescription(`<#${newMessage.channel.id}> by **${newMessage.member.displayName}**\n\n> **Original Content:**\n  ${oldMessage}`)
+  .addField("> New Content:", `${newMessage}`)
+  .setColor("GREEN")
+  client.channels.cache.get("927861780900872192").send({embeds: [embed]})}) 
+
+
+
+  
+    const DMSuccess = new Discord.MessageEmbed()
+    .setColor("#FFBC9B")
+    .setDescription(`You entry to [this giveaway](${msg.url}) has been approved.`)
+    .addField("Vote for extra entries!", `**[Vote here](https://top.gg/servers/873143392488525834)**`, true)
+    .addField("Invite people to Ikigai ♡", `[Invite](https://discord.gg/TQ3mTPE7Pf)`)
+
+
+    ctrl + f = global search
+
+    ctrl + shift + f = current file search
+
+
+        premium: true, < - for premium commands <3
+
+let command = message.content.split(" ")[1].toLowerCase(); <- for cmd name in a command
+
+Xemu — Today at 1:04 AM
+ Is there any way to remove components from message?
+
+A-007 — Today at 1:05 AM
+
+components: []
+This will delete the buttons or drop down menu
+
+            let url = `https://discord.com/api/guilds/${message.guild.id}/members/${member.user.id}/avatars/${res.data.avatar}.webp?size=4096`
+
+
+if(!message.member.roles.cache.has("ID")) return;
+
+
+
+
+╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
+
+Examples
+
+ms('2 days')  // 172800000
+ms('1d')      // 86400000
+ms('10h')     // 36000000
+ms('2.5 hrs') // 9000000
+ms('2h')      // 7200000
+ms('1m')      // 60000
+ms('5s')      // 5000
+ms('1y')      // 31557600000
+ms('100')     // 100
+ms('-3 days') // -259200000
+ms('-1h')     // -3600000
+ms('-200')    // -200
+
+Convert from Milliseconds
+
+ms(60000)             // "1m"
+ms(2 * 60000)         // "2m"
+ms(-3 * 60000)        // "-3m"
+ms(ms('10 hours'))    // "10h"
+
+Time Format Written-Out
+
+ms(60000, { long: true })             // "1 minute"
+ms(2 * 60000, { long: true })         // "2 minutes"
+ms(-3 * 60000, { long: true })        // "-3 minutes"
+ms(ms('10 hours'), { long: true })    // "10 hours"
+
