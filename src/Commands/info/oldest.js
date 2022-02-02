@@ -18,10 +18,12 @@ module.exports = new Command({
         let mem = message.guild.members.cache.filter(m => !m.user.bot).sort( (a,b) => a.user.createdAt - b.user.createdAt).first()
 
         const OldestUser = new Discord.MessageEmbed()
-        .setTitle(`Oldest member in ${message.guild.name}`)
+        .setAuthor({ name: `${mem.user.tag} is the oldest.`, iconURL: `${mem.user.displayAvatarURL()}`})
         .setColor("#4D9AE6")
-        .setDescription(`**${mem.user.tag}** is the oldest member in **${message.guild.name}**\n**Acount Creation Date:** ${formatDate(mem.user.createdAt)}\n**Join Date:** ${moment(mem.user.joinedAt).format("MM-DD-YYYY [at] HH:mm")}`)
-    
+        .setThumbnail(`${mem.user.displayAvatarURL({ dynamic: true })}`)
+        .setDescription(`**Oldest user:**\n*${mem.user.tag}* \n**Account Creation Date:** ${formatDate(mem.user.createdAt)}\n**Join Date:** ${moment(mem.user.joinedAt).format("MM-DD-YYYY [at] HH:mm")}`)
+        .setTimestamp()
+
         message.channel.send({ embeds: [OldestUser] })
     }
 })
