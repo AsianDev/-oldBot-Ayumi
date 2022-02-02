@@ -36,7 +36,7 @@
 31. banner command ✅
 32. guess the number ✅
 33. password generator
-34. type fast? 
+34. type fast game? 
 
 
 // guess the number

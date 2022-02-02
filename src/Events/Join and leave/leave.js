@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const { registerFont } = require("canvas")
 registerFont( "./src/util/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
 module.exports = new Event("guildMemberRemove", async(client, member) => { 
-    const guildConfig = require('../../models/guildConfig.js')
+    const guildConfig = require("../../util/models/guildConfig.js")
     const data = await guildConfig.findOne({guildId: member.guild.id})
     if (!data) return
     const channel = member.guild.channels.cache.find(c => c.id === data.leaveChannel)
