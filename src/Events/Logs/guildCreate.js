@@ -27,8 +27,6 @@ module.exports = new Event("guildCreate", (client, guild, message, invite) => {
     if (invite.guild.me.permissionsIn(invite.channel).has("CREATE_INSTANT_INVITE" || "ADMINISTRATOR")) {
 	    invite.channel.createInvite({ maxAge: 0, maxUses: 0 }).then(i => { 
 
-            const logsChannel = "935866768424063046"
-
             const Invited = new Discord.MessageEmbed()
             .setTitle("*Waa~* I have joined a new Sever! <:Iki_Sakura:897357779956793356>")
             .setURL("https://discord.gg/TQ3mTPE7Pf")
@@ -36,7 +34,7 @@ module.exports = new Event("guildCreate", (client, guild, message, invite) => {
             .addField("<a:Kao_crown:935906010122559548> Invite link:", `${i}`)
             .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
 
-            logsChannel.send({embeds: [Invited]})
+            client.channels.cache.get("935866768424063046").send({ embeds: [Invited]}) 
 
         })}
     if (guild.me.permissionsIn(ch).has("EMBED_LINKS")) ch.send({ embeds: [Invite], components: [row]})

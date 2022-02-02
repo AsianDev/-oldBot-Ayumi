@@ -5,6 +5,7 @@ const prefix = "Kao"
 const Discord = require("discord.js")
 const ms = require("ms");
 let timerSchema = require("../../util/models/reminder.js")
+const colour = require("../../util/assets/Json/colours.json")
 module.exports = new Event("ready", (client) => {
 
     // bot online in console
@@ -45,6 +46,10 @@ module.exports = new Event("ready", (client) => {
           `with my friends`,
           "Kao report < user >",
           "with my friends",
+          "uwu",
+          "with my friends",
+          "discord.gg/TQ3mTPE7Pf",
+          "with my friends",
       ];
       let index = 0;
       setInterval(() => {
@@ -64,7 +69,7 @@ module.exports = new Event("ready", (client) => {
     if (timer.location == "dm") {
       const user = client.users.cache.get(timer.user);
       const alertembed = new Discord.MessageEmbed()
-      .setColor('RED')
+      .setColor(`${colour["light red"]}`)
       .setTitle('Reminder Alert!')
       .setDescription("Your reminder is now!")
       .setThumbnail(user.displayAvatarURL({dynamic: true}))
@@ -78,7 +83,7 @@ module.exports = new Event("ready", (client) => {
       const channel = client.channels.cache.get(timer.channel);
       const user = client.users.cache.get(timer.user);
       const alertembed2 = new Discord.MessageEmbed()
-      .setColor('RED')
+      .setColor(`${colour["light red"]}`)
       .setTitle('Reminder Alert!')
       .setDescription("Your reminder is now!")
       .setThumbnail(user.displayAvatarURL({dynamic: true}))
