@@ -18,10 +18,10 @@ module.exports = new Command({
             }, async (err, data) => {
                 if (err) throw err
                 if (data) {
-                    const e = data.content.map((w, i) => `\n\n\`${i + 1}\` - **Moderator:** \`${message.guild.members.cache.get(w.moderator).user.tag}\` \n **Reason:** \`\`${w.reason}\`\``)
+                    const e = data.content.map((w, i) => `\n\n\`${i + 1}\` - **Moderator:** ${message.guild.members.cache.get(w.moderator).user} \n **Reason:** \`\`${w.reason}\`\``)
                     const embed = new MessageEmbed()
                     .setDescription(e.join(' '))
-                    .setTitle(`<:Iki_Mod:904219716195868752> ${target.user.tag}'s Warnings`)
+                    .setTitle(`<:Iki_Mod:904219716195868752> ${target.tag}'s Warnings`)
                     .setColor("#E6604D")
                     .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
                     .setThumbnail(`${target.displayAvatarURL({  dynamic: true })}`)
