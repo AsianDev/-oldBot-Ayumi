@@ -18,10 +18,11 @@ module.exports = new Command({
         let mem = message.guild.members.cache.filter(m => !m.user.bot).sort( (a,b) => b.user.createdAt - a.user.createdAt).first()
 
     const YoungestUser = new Discord.MessageEmbed()
-    .setTitle(`Youngest member in ${message.guild.name}`)
+    .setAuthor({ name: `${mem.user.tag} is the oldest.`, iconURL: `${mem.user.displayAvatarURL()}`})
     .setColor("#4D9AE6")
-    .setDescription(`**${mem.user.tag}** is the youngest member in **${message.guild.name}**\n**Account Creation Date:** ${formatDate(mem.user.createdAt)}\n**Join Date:** ${moment(mem.user.joinedAt).format("MM-DD-YYYY [at] HH:mm")}`)
-
+    .setThumbnail(`${mem.user.displayAvatarURL({ dynamic: true })}`)
+    .setDescription(`**Youngest user:**\n*${mem.user.tag}* \n**Account Creation Date:** ${formatDate(mem.user.createdAt)}\n**Join Date:** ${moment(mem.user.joinedAt).format("MM-DD-YYYY [at] HH:mm")}`)
+    .setTimestamp()
     message.channel.send({ embeds: [YoungestUser] })
     }
 })
