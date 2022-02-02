@@ -7,13 +7,13 @@
 
 <p align="left"> <a href="https://twitter.com/ikigai1337_" target="blank"><img src="https://img.shields.io/twitter/follow/ikigai1337_?logo=twitter&style=for-the-badge" alt="ikigai1337_" /></a> </p>
 
-- I’m currently working on: [Coding a bot for my Discord Server](https://discord.gg/TQ3mTPE7Pf)
+- I’m currently working on: **[Coding a bot for my Discord Server](https://discord.gg/TQ3mTPE7Pf)**
 
-- 📫 Dm me on Discord: [Sensei | 旭陽#6427](https://discordapp.com/users/569670023300382720)
+- 📫 Dm me on Discord: **[Sensei | 旭陽#6427](https://discordapp.com/users/569670023300382720)**
 
-- 🌱 I’m currently learning: [Discord.js](https://discord.js.org/)
+- 🌱 I’m currently learning: **[DJS](https://discord.js.org/)**
 
-- 🔗 Find my Socials [https://bio.link/ikigai](https://bio.link/ikigai)
+- 🔗 Find my Socials **[here](https://bio.link/ikigai)**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
