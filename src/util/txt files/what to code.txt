@@ -37,6 +37,7 @@
 32. guess the number ✅
 33. password generator
 34. type fast game? 
+35. the verify cmd needs to be easier -> kick on 2nd attempt
 
 
 // guess the number
