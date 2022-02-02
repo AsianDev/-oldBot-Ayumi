@@ -25,8 +25,9 @@ module.exports = new Command({
     if(message.channel !== Vchannel) return;
     const verifiedEmbed = new Discord.MessageEmbed()
     .setColor("#FEE4FA")
-    .setDescription("Congratulations on passing")
-    .setTitle("*Waa~* you managed to pass Congrats!")
+    .setDescription(`Congratulations on passing ${member.user.tag}`)
+    .setTitle("A user has verified themself!")
+    .addField("User:", `<@${member.user.id}>`)
 
 CaptchaSchema.findOne({ Guild: message.guild.id }, async (err, data) => {
     if(!data) return console.log("No data -> verify role has not been set.")
@@ -56,7 +57,7 @@ const captcha = new Captcha();
   const collector = msg.channel.createMessageCollector({
    filter: (m) =>
    m => m.author.id === msg.author.id,
-   max: 1,
+   max: 2,
    time: 60000,
    errors: ["time"],
   });
@@ -65,6 +66,7 @@ const captcha = new Captcha();
 		const verified = (m.content === captcha.text)
     if(verified) {
     member.roles.add(role)
+    client.channels.cache.get("935866768424063046").send({embeds: [verifiedEmbed]}) 
     } if(!verified) {
       try {
     member.send(`You have been kicked from **${member.guild.name}** for not answering the captcha correctly. Try again by joinging. https://discord.gg/TQ3mTPE7Pf`)
