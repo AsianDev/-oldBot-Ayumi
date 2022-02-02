@@ -19,7 +19,6 @@
     "captcha-canvas": "^3.1.0",
     "chalk": "^4.1.2",
     "discord-backup": "^3.0.1",
-    "discord-xp": "^1.1.16",
     "discord.js": "^13.6.0",
     "discordjs-button-pagination": "^1.0.7",
     "dotenv": "^15.0.0",

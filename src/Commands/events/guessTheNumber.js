@@ -33,8 +33,7 @@ module.exports = new Command({
 
         let max = args[2]
         let random = Math.floor(Math.random() * `${max}`) + 1
-       
-        message.channel.send(`Event started in ${EventChannel} and the number is || \`${random}\` || `)
+        client.channels.cache.get("873149666282311680").send(`Guess the number Event started in ${EventChannel} and the number is || \`${random}\` || `)
 
         const GtnRow = new Discord.MessageActionRow()        
         .addComponents(
@@ -76,6 +75,5 @@ module.exports = new Command({
           collector.on("end", async (collected) => {
             console.log("GTN event has ended")
           });      
-
     }
 })
