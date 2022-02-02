@@ -31,14 +31,14 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
             const BannedWords = new Discord.MessageEmbed()
             .setColor("WHITE")
-            .setTitle("<:Iki_info:936545458023698433> Banned word has been detected.\n")
+            .setTitle("<:Iki_pinkInfo:938460351576551444> Banned Word has been detected.\n")
             .setThumbnail(`${message.author.displayAvatarURL({ dynamic: true })}`)
             .addField("User:", `\`\`\`${message.author.tag} (${message.author.id})\`\`\``)
             .addField("Message Content:", `\`\`\`${message.content}\`\`\``)
             .setFooter({ text: `${message.author.tag} has been warned.`, iconURL: message.author.displayAvatarURL()})
       
           message.channel.send({embeds: [BannedWords]}).then((msg) => {
-              setTimeout(() => msg.delete(), 6000)
+              setTimeout(() => msg.delete(), 8000)
 
               client.channels.cache.get("924889631303012363").send({embeds: [BannedWords]})
                 
