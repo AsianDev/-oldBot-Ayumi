@@ -13,7 +13,11 @@
 
 - 🌱 I’m currently learning: **[DJS](https://discord.js.org/)**
 
+<<<<<<< HEAD
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
+=======
+- 🔗 Find my Socials **[Here](https://bio.link/ikigai)**
+>>>>>>> b5225fbaba5751b22ca5f91a82ad91a63da2e1d4
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
