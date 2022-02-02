@@ -4,7 +4,7 @@ const chalk = require("chalk")
 const prefix = "Kao"
 const Discord = require("discord.js")
 const ms = require("ms");
-let timerSchema = require("../../util/models/reminder.js");
+let timerSchema = require("../../util/models/reminder.js")
 module.exports = new Event("ready", (client) => {
 
     // bot online in console

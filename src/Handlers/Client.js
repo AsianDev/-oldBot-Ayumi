@@ -77,8 +77,8 @@ class Client extends Discord.Client {
                 const event = require(`../Events/${dir}/${file}`);
                 this.on(event.event, event.run.bind(null, this));
             });
-        });
+        })
             this.login(token);
-        }
+    }
     }
     module.exports = Client;

@@ -3,11 +3,10 @@ console.clear();
 const Client = require("./src/Handlers/Client.js")
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
+const config = require("./src/util/Data/config.json")
 const Canvas = require("canvas")
 const { registerFont } = require("canvas")
 registerFont( "./src/util/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
-const dotenv = require("dotenv")
-dotenv.config();
 // ---------------------CANVAS WELCOME AND LEAVE-------------------------- //
 var welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
@@ -36,10 +35,7 @@ Canvas.loadImage('./src/util/assets/image/leave.jpg').then(async (image) => {
   leaveCanvas.context.fill()
 })
 // ---------------------ERROR HANDLER-----------------------------------//
-const client = new Client({
-  restTimeOffset : 0,
-  shards: "auto"
-})
+const client = new Client()
 client.slashCommands = new Discord.Collection();
 process.on("unhandledRejection", (error, promise, origin) => {
   const unhandledRejectionEmbed = new Discord.MessageEmbed()
@@ -57,8 +53,8 @@ process.on("unhandledRejection", (error, promise, origin) => {
       
       m.send({embeds: [unhandledRejectionEmbed]})})
       //------------------------MONGOOSE-----------------------------//
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
 }).then(console.log('Connected to the Database.'))
-client.login(process.env.TOKEN)
+client.start(config.Token)
