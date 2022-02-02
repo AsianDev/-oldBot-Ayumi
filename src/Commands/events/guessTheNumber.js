@@ -9,31 +9,32 @@ module.exports = new Command({
     aliases: ["guessthenumber"], 
     description: "Start a gtn event!",
     type: "TEXT",
-    userPermissions: "KICK_MEMBERS",
+    userPermissions: "",
     botPermissions: "ADMINISTRATOR",
     cooldown: 4000,
+    owner: true,
 
     async run(message, args, client) {
 
-        const EventChannel = message.mentions.channels.first()
-        const maxNumber = args[2]
+        const EventChannel = message.channel;
+        const maxNumber = parseInt(args[1])
         if(maxNumber <= 10) return message.channel.send({
             embeds: [new Discord.MessageEmbed()
                 .setColor(`${colour['light red']}`)
                 .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
-                .setDescription("*Waa~* Please provide a number bigger than 10!")
+                .setDescription("*Waa~* Please provide a number bigger than **10**!")
                      ]})
 
         const noMaxNumber = new Discord.MessageEmbed()
         .setColor(`${colour['light red']}`)
         .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
         .setDescription("*Waa~* Please provide the max number!")
-        .addField("Example:", "```yaml\n Syntax: Kao <channel> <number>```")
+        .addField("Example:", "```yaml\n Syntax: Kao gtn <number>```")
         if(!maxNumber) return message.channel.send({embeds: [noMaxNumber]})
 
-        let max = args[2]
-        let random = Math.floor(Math.random() * `${max}`) + 1
-        client.channels.cache.get("873149666282311680").send(`Guess the number Event started in ${EventChannel} and the number is || \`${random}\` || `)
+        let max = args[1]
+        let random = Math.floor(Math.random() * parseInt(max))
+        client.channels.cache.get("935232212834603018").send(`Guess the number Event started in ${EventChannel} and the number is || \`${random}\` || `)
 
         const GtnRow = new Discord.MessageActionRow()        
         .addComponents(
@@ -47,29 +48,31 @@ module.exports = new Command({
             .setColor(`${colour.pink}`)
             .setDescription(`Guess the number has begun in ${EventChannel}!`)
             .setTimestamp()
-            .addField("How To Play:", `\`-\` Guess any number from 1 to ${maxNumber}\n\`-\` First person to guess the number wins!\n\`-\`You have unlimited guesses\n\`-\`Anyone can participate.`)
+            .addField("How To Play:", `\`-\` Guess any number from 0 to ${maxNumber}\n\`-\` First person to guess the number wins!\n\`-\`You have unlimited guesses\n\`-\`Anyone can participate.`)
             .setTitle(`🎉 Guess the number 🔢`)
             .setFooter({ text: `Hosted by: ${message.author.tag}`})], components: [GtnRow]})
-           const filter = (m) => parseInt(m.content) === parseInt(random)
-          const collector = message.channel.createMessageCollector({
-            filter
-          });
-      
+       
+            const filter = (m) => isNaN(m.content) === false
+            const collector = message.channel.createMessageCollector({ filter: filter});
           collector.on("collect", async (msg) => {
-            if (msg.content == random) {
+            // console.log(msg)
+
+            if (parseInt(msg.content) > maxNumber) {
+              msg.delete();
+            }
+        else if (parseInt(msg.content) == random) {
+
               EventChannel.send({embeds: [new Discord.MessageEmbed()
                 .setColor(`${colour.pink}`)
                 .setTitle(`🎉 Congratulations ${msg.member.user.username}`)
-                .setFooter({ text: `Range: 1 - ${maxNumber}`})
-                .setDescription("The number you have guess was right! The game has ended!")  
+                .setFooter({ text: `Range: 0 - ${maxNumber}`})
+                .setDescription("The number you have guessed was right! The game has ended!")  
                 .addField("Correct Number:", `\`${random}\``, true)
                 .setTimestamp()
                 .addField("Winner:", `<@${msg.member.user.id}>`, true)     
               ]}); 
-            } else if (msg.content !== random) {
-                return message.react(`${emotes.Error}`)
-            }
-            collector.stop("Winner");
+        }
+            // collector.stop("Winner");
           });
       
           collector.on("end", async (collected) => {
