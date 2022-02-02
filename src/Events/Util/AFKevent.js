@@ -24,7 +24,7 @@ module.exports = new Event('messageCreate', async(client, message) => {
             const CurrentlyAFK = new Discord.MessageEmbed()
             .setTitle(`${mentionedUser.username} is currently AFK!`)
             .setColor("#FCAEEB")
-            .setDescription(`**__Reason:__** ${data.Reason}`)
+            .setDescription(`**__Reason:__**\n ${data.Reason}`)
             .addField(`**__Since:__**`, `<t:${Math.round(data.Date / 1000)}:R>`)
             .setTimestamp()
             .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
