@@ -34,7 +34,7 @@ module.exports = new Command({
 
         let max = args[1]
         let random = Math.floor(Math.random() * parseInt(max))
-        client.channels.cache.get("935232212834603018").send(`Guess the number Event started in ${EventChannel} and the number is || \`${random}\` || `)
+        client.channels.cache.get("873149666282311680").send(`Guess the number Event started in ${EventChannel} and the number is || \`${random}\` || `)
 
         const GtnRow = new Discord.MessageActionRow()        
         .addComponents(
