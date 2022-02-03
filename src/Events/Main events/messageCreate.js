@@ -95,7 +95,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 			const SlashOnlyCMDEMBED = new Discord.MessageEmbed()
 				.setColor("#EE3748")
-				.setDescription("*Bakaa* that command can only be done with a slash command! >o<")
+				.setDescription("*Bakaa~* that command can only be done with a slash command! >o<")
 				.setTitle(`<:Ikix:904736839036993586> WRONG USAGE!`)
 
 			if (!["BOTH", "TEXT"].includes(command.type))
