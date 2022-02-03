@@ -1,4 +1,4 @@
-![MASTERHEAD](https://cdn.discordapp.com/attachments/935232281025576990/938473066265186384/Ikigai_2.jpg)
+![MASTERHEAD](https://cdn.discordapp.com/attachments/935232262407065610/937896587802333204/ikigaigiagkaori.jpg)
 
 <h1 align="center">Hello i am Asahi | 旭陽 👋</h1>
 <h3 align="center">About me:</h3>
@@ -13,11 +13,7 @@
 
 - 🌱 I’m currently learning: **[DJS](https://discord.js.org/)**
 
-<<<<<<< HEAD
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
-=======
-- 🔗 Find my Socials **[Here](https://bio.link/ikigai)**
->>>>>>> b5225fbaba5751b22ca5f91a82ad91a63da2e1d4
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
