@@ -135,9 +135,9 @@ This will delete the buttons or drop down menu
             let url = `https://discord.com/api/guilds/${message.guild.id}/members/${member.user.id}/avatars/${res.data.avatar}.webp?size=4096`
 
 
-if(!message.member.roles.cache.has("ID")) return;
-
-
+if(message.member.roles.cache.has('ID') || message.member.roles.cache.has('ID')){
+//do something
+} else { return message.reply('no roles')}
 
 
 ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
