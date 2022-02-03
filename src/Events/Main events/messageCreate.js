@@ -4,14 +4,40 @@ const Event = require("../../Handlers/Event.js");
 const Discord = require("discord.js")
 const { Collection } = require('discord.js')
 const Timeout = new Discord.Collection()
-const db = require('../../util/models/command.js');
 const ms = require("ms")
 const { owners } = require("../../util/Data/config.json");
 const config = require("../../util/Data/config.json");
-const premiumSchema = require("../../util/models/premium.js")
+const premiumSchema = require("../../util/models/premium.js");
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
+
+	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
+
+	const prefixes = [
+		"Kao ",
+		"kao ",
+		"Kaori ",
+		"KAO ",
+		"KAORI ",
+		"kaori ",
+		"K.",
+		"k.",
+		"k. ",
+		"K. ",
+		"k,",
+		"K,",
+		"k, ",
+		"K, ",
+		`<@$${client.user.id}>`,
+        `<@!${client.user.id}>`
+	]
+
+		const prefix = prefixes.find(x => message.content.startsWith(x));
+		if (!prefix) return;
+		const args = message.content.slice(prefix.length).trim().split(/ +/);
+		const command = client.commands.find(cmd => cmd.name == args[0].toLowerCase()) || client.commands.find(a => a.aliases && a.aliases.includes(args[0].toLowerCase()))
+		if (!command) return;
 
 	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
 
@@ -48,33 +74,6 @@ module.exports = new Event("messageCreate", async (client, message) => {
 	.setFooter({ text: `${client.commands.size} Commands in total • Thanks for the ping <3`, iconURL: `${message.guild.iconURL()}`})
 
 	 if(message.content.replace(/(<@|!|>){1}/g, '') == `${client.user.id}`) return message.reply({embeds: [pingedmeresponse], allowedMentions: {repliedUser: false}})	   
-
-	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
-
-	const prefixes = [
-		"Kao ",
-		"kao ",
-		"Kaori ",
-		"KAO ",
-		"KAORI ",
-		"kaori ",
-		"K.",
-		"k.",
-		"k. ",
-		"K. ",
-		"k,",
-		"K,",
-		"k, ",
-		"K, ",
-		`<@$${client.user.id}>`,
-        `<@!${client.user.id}>`
-	]
-
-		const prefix = prefixes.find(x => message.content.startsWith(x));
-		if (!prefix) return;
-		const args = message.content.slice(prefix.length).trim().split(/ +/);
-		const command = client.commands.find(cmd => cmd.name == args[0].toLowerCase()) || client.commands.find(a => a.aliases && a.aliases.includes(args[0].toLowerCase()))
-		if (!command) return;
 
 		
 		// -------------------------------- OWNER ONLY CHECKING --------------------------------- //
@@ -148,12 +147,12 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
-
+		const commandDb = require('../../util/models/command.js');
 		if (command) {
 			const DisabledCMD = new Discord.MessageEmbed()
 				.setColor("RANDOM")
 				.setDescription(`**Bakaa~!** ${command} is already disabled in this server!`)
-			const check = await db.findOne({ Guild: message.guild.id })
+			const check = await commandDb.findOne({ Guild: message.guild.id })
 			if (check) {
 				if (check.Cmds.includes(command.name)) return message.channel.send({ embeds: [DisabledCMD] })
 			}

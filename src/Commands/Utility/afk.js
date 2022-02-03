@@ -47,7 +47,7 @@ module.exports = new Command({
                 const AfkEmbed = new Discord.MessageEmbed()
                 .setColor("#17A8DA")
                 .setTitle("<a:AnimeWave:912596615028678656> You are now AFK!")
-                .setDescription(`<a:Kao_loading:935476484024455178> | <@${message.author.id}> Sending a message will bring you back.`)
+                .setDescription(`<a:Kao_loading:938867145331339264> | <@${message.author.id}> Sending a message will bring you back.`)
                 .addField("Reason to AFK:", `${Reason}`)
                 .setTimestamp()
                 .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})

@@ -8,6 +8,7 @@ module.exports = new Command({
   description: 'Backup system',
   type: "TEXT",
   userPermissions: [""],
+  owner: true,  
   botPermissions: ["ADMINISTRATOR"],
   aliases: ["back-up", "bkp", "bacup"],
   cooldown: 15000,

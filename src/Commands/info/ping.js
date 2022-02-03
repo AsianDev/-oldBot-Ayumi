@@ -3,7 +3,7 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const ms = require("ms")
-
+const emotes = require("../../util/assets/Json/emotes.json")
 module.exports = new Command({
 
 	name: "ping",
@@ -18,7 +18,7 @@ module.exports = new Command({
 
 		const Pinging = new Discord.MessageEmbed()
         .setColor('#E6604D')
-        .setDescription(`🏓 **Pinging...** <a:Loading:935258046186278912>`)
+        .setDescription(`🏓 **Pinging...** <a:Iki_loading:938868057890250882>`)
         message.reply({ embeds: [Pinging], allowedMentions: {repliedUser: false} }).then((msg) => {
             setTimeout(() => msg.edit({ embeds: [Pinged] }), ms('2 seconds'))
         })

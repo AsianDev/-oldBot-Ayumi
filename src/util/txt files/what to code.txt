@@ -13,13 +13,13 @@
 6. better ticket system? ❓
 7. more fun and image commands ✅
 8. timestamp generator cmd ✅ <- Reiner Braun#7958 gave code || i made changes oviously ||
-9. reaction roles?
+9. reaction roles? ⏰
 10. if boost event doesnt work, goota fix That => use canvas for it? (❓)
 11. premium commands ⏰
 12. NSFW for mods -> only did like 6 cmds lol ✅
 13. A suggestion cmd with accept and deny ❓
 14. better serverInfo command
-15. Invite tracker?
+15. Invite tracker? ⏰
 16. more logs -> role created, role deleted, channel updated, role added to user / removed from user, etc ✅
 17. anime search command -> its broken cause package doesnt work anymore ;-; ✅
 18. more Automod -> anti spam, anti emoji spam, anti caps, ( anti flood -> \n )
@@ -34,10 +34,11 @@
 27. set thread to auto un-archieve with command
 28. truth or dare (json - api suck)✅
 29. would you rather  (json - api suck)✅
-30. Thank system
+30. Thank system ⏰
 31. banner command ✅
 32. guess the number ✅
-33. password generator
-34. type fast game? 
+33. password generator ✅
+34. type fast game? ❌
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
 36. multiguild anti raid ⏰
+37. sourcebin command ✅ // archieved

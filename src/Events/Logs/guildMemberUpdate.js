@@ -4,9 +4,9 @@ const Discord = require('discord.js')
 module.exports = new Event("guildMemberUpdate", async(client, oldMember, newMember) => {
     
     const guildConfig = require('../../util/models/guildConfig.js')
-    const data = guildConfig.findOne({guildId: newMember.guild.id})
+    const data = guildConfig.findOne({guildId: oldMember.guild.id})
     if (!data) return
-    const channel = newMember.guild.channels.cache.find(c => c.id === data.BoostChannel)
+    const channel = oldMember.guild.channels.cache.find(c => c.id === data.BoostChannel)
     if (!channel) return;
 	if (oldMember.premiumSinceTimestamp === 0 && newMember.premiumSinceTimestamp > 0) {
         const boostembed = new Discord.MessageEmbed()
@@ -14,4 +14,6 @@ module.exports = new Event("guildMemberUpdate", async(client, oldMember, newMemb
         .setDescription(`Thanks for the boost <a:Nitro:892882975774097498>! We are now at ${message.guild.premiumSubscriptionCount} boosts!`)
         .setThumbnail(`${newMember.user.displayAvatarURL({ dynamic: true })}`)
         .setColor("#FEE4FA")
-        channel.send({embeds: [boostembed]})}})
+        channel.send({embeds: [boostembed]})
+    }
+})
