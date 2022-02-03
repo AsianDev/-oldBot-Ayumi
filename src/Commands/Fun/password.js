@@ -41,8 +41,8 @@ module.exports = new Command({
 
           let confirmationEmbed = new Discord.MessageEmbed()
           .setColor(`${colour['light red']}`)
-          .setTitle("Do you wish to be sent your password?")
-          .setThumbnail(`${client.user.displayAvatarURL()}`)
+          .setTitle("Please Read And Select:")
+          .setThumbnail(`${message.guild.iconURL()}`)
           .setDescription("Please press one of the following buttons below.")
           .addField("Accept:", "Pressing accept means you will be sent your password. \nPlease make sure to have your dms on **public!**")
           .addField("Decline:", "Press decline will result in your password being sent to this channel here.")
@@ -65,9 +65,9 @@ module.exports = new Command({
   
           collector.on('collect', async (m) => {
               if (m.customId === 'accept') {
+                a.setDisabled(true)
+                b.setDisabled(true)
                   message.author.send({embeds: [PasswordGen]})
-                  a.setDisabled(true)
-                  b.setDisabled(true)
               }
               else if (m.customId === 'decline') {
                 a.setDisabled(true)
