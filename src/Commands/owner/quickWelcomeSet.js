@@ -13,7 +13,7 @@ module.exports = new Command({
 
     async run(message, args, client) {
 
-        const guildConfig = require('../../models/guildConfig.js') // change it to the guild config schema directory
+        const guildConfig = require('../../util/models/guildConfig.js') // change it to the guild config schema directory
 
         const embed = new Discord.MessageEmbed()
             .setColor("GREEN")
