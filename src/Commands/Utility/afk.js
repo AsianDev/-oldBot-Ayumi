@@ -30,13 +30,10 @@ module.exports = new Command({
         }
         
         afkSchema.findOne(params, async(err, data) => {
-
             if(data) {
                 return;
             } 
-
             if(!data) try {
-                
                 new afkSchema({
                     Guild: message.guild.id,
                     User: message.author.id,
@@ -52,7 +49,6 @@ module.exports = new Command({
                 .setTimestamp()
                 .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
                 message.channel.send({embeds: [AfkEmbed]})
-            
                 } catch(err) {   
                 console.log(err)
               }

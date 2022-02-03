@@ -12,52 +12,76 @@ module.exports = new Command({
     cooldown: 10000,
 
     async run(message, args, client){
-
-        const guild = message.guild;
         
-        const members = await guild.members.fetch()
-        const humans = members.filter(member => !member.user.bot).size
-        const bots = members.filter(member => member.user.bot).size
-
-        const boosts = guild.premiumSubscriptionCount
-
-        const boosters = members
-        .filter( member => {
-          return member.premiumSince !== null
-        }).size
-        const boosterNames = members
-        .filter( member => {
-          return member.premiumSince !== null
-        }).map(member => member.user.tag)
-
         const vanityCode = message.guild.vanityURLCode;
         let vanityInvite = `https://discord.gg/${vanityCode}`;
         if (vanityCode === null) vanityInvite = 'No custom URL';
-        const roles = message.guild.roles.cache.filter(r => r.id !== message.guild.id).map(role => role.toString());
+        
         const embed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setTitle(`_${message.guild.name}_`)
-            .setThumbnail(message.guild.iconURL({
-                dynamic: true
-            }))
-            .addField('ID of server', message.guild.id)
-            .addField('👑 Owner', `${(await message.guild.fetchOwner()).user}`)
-            .addField("Description", `${guild.description || "No description"}`, true)
-            .addField("Rules Channel", `${guild.rulesChannel}`, true)
-            .addField("AFK Channel", `${guild.afkChannel}`, true)
-            .addField("Partnered?", `${guild.partnered}`, true)
-            .addField("Total members", `${guild.memberCount}`, true)
-            .addField("Humans",`${humans}`, true)
-            .addField("Bots", `${bots}`, true)          
-            .addField('No. of Text Channel\'s', message.guild.channels.cache.filter(channel => channel.type === 'GUILD_TEXT').size.toString())
-            .addField('No. of Voice Channel\'s', message.guild.channels.cache.filter(channel => channel.type === 'GUILD_VOICE').size.toString())
-            .addField('Total Amount of Roles', message.guild.roles.cache.size.toString())
-            .addField('🔗 Vanity Invite Link', `${vanityInvite}`)
-            .addField("Boost Count", `${guild.premiumSubscriptionCount || "0"}`)
-            .addField("Boost Tier", `${guild.premiumTier ? `Boost: ${guild.premiumTier}` : "None"}`)
-            .addField("Number of Boosters",`${boosters}`, true)
-            .addField('🔐 Verification Level', message.guild.verificationLevel.toString())
-            .addField(`Roles [${roles.length}]`, roles.length < 5 ? roles.join(' | ') : roles.length > 5 ? `${roles.slice(0, 5).join(' | ')} | \`+ ${roles.length - 5} roles...\`` : 'None')
+            .setThumbnail(message.guild.iconURL({dynamic: true}))
+            .addFields(
+              {
+              name: "🌍 | General",
+              value: 
+              `
+              - **Name**: ${message.guild.name}
+              - **Owner**: <@${message.guild.ownerId}>
+              - **Created**: <t:${parseInt(message.guild.createdTimestamp / 1000)}:R>
+             
+              - **Rules**: ${message.guild.rulesChannel || "No Rules Channel"}
+              - **AFK Channel**: ${message.guild.afkChannel || "No Afk Channel"}
+              - **Partnered**: ${message.guild.partnered}
+              - **Vanity URL**: ${vanityInvite}
+              `
+              },
+              {
+              name: "👥 | Users",
+              value: 
+              `
+              - **Members**: ${message.guild.members.cache.filter((m) => !m.user.bot).size}
+              - **Bots**: ${message.guild.members.cache.filter((m) => m.user.bot).size}
+              
+              - **Total**: ${message.guild.memberCount}
+              `
+              },
+              {
+              name: "📜 | Channels",
+              value:
+              `
+              - **Text**: ${message.guild.channels.cache.filter((c) => c.type === "GUILD_TEXT").size}
+              - **Voice**: ${message.guild.channels.cache.filter((c) => c.type === "GUILD_VOICE").size}
+              - **Threads**: ${message.guild.channels.cache.filter((c) => c.type === "GUILD_NEWS_THREAD" && "GUILD_PRIVATE_THREAD" && "PUILD_PUBLIC_THREAD").size}
+              - **Categories**: ${message.guild.channels.cache.filter((c) => c.type === "GUILD_CATEGORY").size}
+              - **Stages**: ${message.guild.channels.cache.filter((c) => c.type === "GUILD_STAGE_VOICE").size}
+             
+              - **Total**: ${message.guild.channels.cache.size}
+              `
+              },
+              {
+              name: "😁 | Emojis & Stickers",
+              value: 
+              `
+              - **Animated**: ${message.guild.emojis.cache.filter((e) => e.animated).size}
+              - **Normal**: ${message.guild.emojis.cache.filter((e) => !e.animated).size}
+              - **Stickers**: ${message.guild.stickers.cache.size}
+             
+              - **Total**: ${message.guild.stickers.cache.size + message.guild.emojis.cache.size}
+              
+              `
+              },
+              {
+              name: "🥳 | Boost Information",
+              value: 
+              `
+              - **Tier**: ${message.guild.premiumTier.replace("TIER_", "")}
+              - **Boosts**: ${message.guild.premiumSubscriptionCount}
+              - **Boosters**: ${message.guild.members.cache.filter((m) => m.premiumSince).size}
+              `
+              }
+              )
+
               if (message.guild.features.indexOf('BANNER') > -1) embed.setImage(`https://cdn.discordapp.com/banners/${message.guild.id}/${message.guild.banner}.png?size=2048`)
         message.channel.send({embeds: [embed]});
     }
