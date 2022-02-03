@@ -17,7 +17,7 @@ module.exports = new Command({
 
         function generateRandomString(length) {
             var chars =
-              "1234567890.-abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+              "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()|/.@#!$%^&+><?;:~*";
             var random_string = "";
             if (length > 0) {
               for (var i = 0; i < length; i++) {
@@ -29,8 +29,7 @@ module.exports = new Command({
             return random_string;
           }
           
-          const random = generateRandomString(12); 
-          
+          const random = generateRandomString(18);           
           password = `${random}`;
 
           const PasswordGen = new Discord.MessageEmbed()
@@ -40,7 +39,42 @@ module.exports = new Command({
           .addField("Your Password:", `> ${password}`)
           .setFooter({ text: `Not smart to use these as your passwords.`, iconURL: `${client.user.displayAvatarURL()}`})
 
-          message.channel.send({embeds: [PasswordGen]})
+          let confirmationEmbed = new Discord.MessageEmbed()
+          .setColor(`${colour['light red']}`)
+          .setTitle("Do you wish to be sent your password?")
+          .setThumbnail(`${client.user.displayAvatarURL()}`)
+          .setDescription("Please press one of the following buttons below.")
+          .addField("Accept:", "Pressing accept means you will be sent your password. \nPlease make sure to have your dms on **public!**")
+          .addField("Decline:", "Press decline will result in your password being sent to this channel here.")
 
+          let a = new Discord.MessageButton()
+          .setCustomId('accept')
+          .setStyle('SECONDARY')
+          .setLabel("Accept")
+          .setEmoji("916869194400796772")
+  
+          let b = new Discord.MessageButton()
+          .setCustomId('decline')
+          .setLabel("Decline")
+          .setStyle('SECONDARY')
+          .setEmoji("916869194400796772")
+    
+          let row = new Discord.MessageActionRow().addComponents(a, b)
+          const collector = message.channel.createMessageComponentCollector({componentType: 'BUTTON', time: 30000})
+          message.channel.send({embeds: [confirmationEmbed], components: [row]})
+  
+          collector.on('collect', async (m) => {
+              if (m.customId === 'accept') {
+                  message.author.send({embeds: [PasswordGen]})
+                  a.setDisabled(true)
+                  b.setDisabled(true)
+              }
+              else if (m.customId === 'decline') {
+                a.setDisabled(true)
+                b.setDisabled(true)
+                row = new Discord.MessageActionRow().addComponents(a, b)
+                m.update({embeds: [PasswordGen], components: [row]})
+              }
+            })
     }
 })
