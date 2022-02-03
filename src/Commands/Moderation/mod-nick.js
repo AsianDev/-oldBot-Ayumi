@@ -18,7 +18,7 @@ module.exports = new Command({
    async run(message, args, client) {
 let user = message.mentions.members.first();
 if (!user) {
-  user = message.guild.members.cache.get(args[0]);
+  user = message.guild.members.cache.get(args[1]);
 }
 if (!user) return message.reply({content: "*Waa~* please mention a user to mod nick!"});
 
