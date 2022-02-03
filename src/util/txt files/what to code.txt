@@ -1,20 +1,22 @@
 ❌ <= Will not do
 ✅ <= Done
    <= Havent got to it yet
-❓ <= Thinking on keeping or not, leaning to a no.   
+❓ <= leaning to a no
+⏰ <= Can not do yet / will have to wait
 
-1. snipe command & event for it 
+
+1. snipe command & event for it ⏰
 2. NQN feature? ❌
-3. giveaway with ms and djs only
+3. giveaway with ms and djs only ⏰
 4. afk -> works with restart ✅ (uses a db as well, so i can add a ping count feature || number 26 || )
-5. economy system
+5. economy system ⏰
 6. better ticket system? ❓
 7. more fun and image commands ✅
 8. timestamp generator cmd ✅ <- Reiner Braun#7958 gave code || i made changes oviously ||
 9. reaction roles?
 10. if boost event doesnt work, goota fix That => use canvas for it? (❓)
-11. premium commands
-12. NSFW for premium users?
+11. premium commands ⏰
+12. NSFW for mods -> only did like 6 cmds lol ✅
 13. A suggestion cmd with accept and deny ❓
 14. better serverInfo command
 15. Invite tracker?
@@ -37,10 +39,4 @@
 32. guess the number ✅
 33. password generator
 34. type fast game? 
-35. the verify cmd needs to be easier -> kick on 2nd attempt
-
-
-// guess the number
-            if (msg.content > maxNumber) {
-              return message.delete()
-          }
+35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
