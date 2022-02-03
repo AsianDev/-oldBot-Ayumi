@@ -9,7 +9,7 @@ module.exports = new Command({
   description: "shows NSFW commands",
   type: "TEXT",
   cooldown: 2000,
-  userPermissions: ["SEND_MESSAGES"],
+  userPermissions: "KICK_MEMBERS",
   botPermissions: ["SEND_MESSAGES"],
 
   async run(message, args, client) {
@@ -28,11 +28,25 @@ module.exports = new Command({
     .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
     .setDescription("```yaml\n Syntax: Kao <NSFW Command>```")
     .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
-    .addField('Oopsies', '\`\`\`ini\n[ *Waa~* Sorry but i dont provide NSFW content anymore. ]\n\`\`\`')
+    .addField('__🔞 NSFW__', '\`\`\`ini\n[ kao nsfw hentai ]\n\`\`\`')
     .setTimestamp()
     .setColor("BLUE")
     .setFooter({ text:` > Kaori • ${message.channel.name}`})
+    if(!args[1]) {  message.reply({embeds: [secret], allowedMentions: {repliedUser: false}}) }
+
+    const hentai = new Discord.MessageEmbed()
+    .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
+    .setDescription("```yaml\n Syntax: Kao <hentai Command>```\n || Thats all your getting || ")
+    .addField('__🔞 Hentai(pictures)__', '\`\`\`ini\n[ Ahegao, Boobs, Pussy, Uniform ]\n\`\`\`')
+    .addField('__🔞 Hentai(gifs)__', '\`\`\`ini\n[ Anal, Boobjob, Cum, Happyend, Spank ]\n\`\`\`')
+    .setTimestamp()
+    .setColor("BLUE")
+    .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
+    .setFooter({ text: "Horni much", iconURL: `${message.guild.iconURL()}`})
 
 
-    message.channel.send({embeds: [secret]})
-}})
+    if(args[1] === 'hentai' || args[1] === 'Hentai' || args[1] === 'hEnTaI' || args[1] === 'HeNtAi' || args[1] === 'hmtai' || args[1] === 'HENTAI'){  message.reply({ embeds: [hentai], allowedMentions: { repliedUser: false }}) }
+  
+  
+  }
+})
