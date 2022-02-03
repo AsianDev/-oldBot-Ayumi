@@ -15,7 +15,7 @@ module.exports = new Command({
     const helpembed = new Discord.MessageEmbed()
         .setTitle("Please select a specific help section.")
         .setURL("https://discord.gg/TQ3mTPE7Pf")
-        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:936545458023698433> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
+        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
         .setFooter({ text: `Requested by ${message.author.tag} • ${client.commands.size} Commands in total`})
         .setColor("#FCAEEB")
         .setThumbnail(message.member.user.displayAvatarURL({dynamic: true, size: 2048,}))
