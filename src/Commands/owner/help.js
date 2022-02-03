@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
-  name: 'dev-help',
+  name: 'ownerhelp',
   description: "help command",
   type: "TEXT",
   userPermissions: [""],
