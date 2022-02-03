@@ -50,17 +50,25 @@ module.exports = new Command({
         .setColor(`${colour.pink}`)
         .setTitle("Sourcebin - via Kaori")
         .setURL(`${value.url}`)
-        .setDescription(`<:Iki_xpinkdot:916869194400796772> \`\`${message.author.tag}\`\`\n<:Iki_xpinkdot:916869194400796772> <t:${Math.round(Date.now() / 1000)}:R>`)
+        .setDescription(`<:Iki_xpinkdot:916869194400796772> \`\`${message.author.tag}\`\`\n<:Iki_xpinkdot:916869194400796772> <t:${Math.round(Date.now() / 1000)}:R> `)
         .setTimestamp()
         .setThumbnail("https://cdn.discordapp.com/attachments/935232281025576990/938759652030689331/dave.png")
         let button = new Discord.MessageActionRow()        
         .addComponents
         (
           new Discord.MessageButton()
-          .setURL(`${value.url}`)
+          .setURL(`${value.short}`)
           .setLabel("Open link:")
           .setStyle("LINK")
         )   
+        .addComponents
+        (
+            new Discord.MessageButton()
+            .setCustomId("Id")
+            .setLabel(`ID: ${value.key}`)
+            .setStyle("SECONDARY")
+            .setDisabled(true)
+        )
         member.send({embeds: [finalResultPosted], components: [button]})
     })
     }

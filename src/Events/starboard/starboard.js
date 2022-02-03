@@ -10,7 +10,7 @@ module.exports = new Event("messageReactionAdd", async (client, reaction) => {
     if (reaction.message.channel.id === SBchannelId && reaction.message.author.id === `${client.user.id}`) return;
     if (reaction.emoji.name === "⭐") {
         if(reaction.count < starCount) return;
-        const msgs = await starBoardChannel.messages.fetch({ limit: 50 });
+        const msgs = await starBoardChannel.messages.fetch({ limit: 100 });
 
         const SentMessage = msgs.find(msg =>
             msg.embeds.length === 1 ?

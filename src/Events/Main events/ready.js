@@ -39,9 +39,11 @@ module.exports = new Event("ready", (client) => {
       chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║    ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
       chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝     ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
   )
+  console.log(chalk.red.bold(`${ms(ms(Math.round(process.uptime() - (client.uptime/1000))+'s'))} to load bot`))
+
   
 
-        // status
+   // ------------------ BOT STATUS ----------------- //
         const arrayOfStatus = [
           `with my friends`,
           "Kao report < user >",

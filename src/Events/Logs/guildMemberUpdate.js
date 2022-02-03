@@ -10,7 +10,7 @@ module.exports = new Event("guildMemberUpdate", async(client, oldMember, newMemb
     if (!channel) return;
 	if (oldMember.premiumSinceTimestamp === 0 && newMember.premiumSinceTimestamp > 0) {
         const boostembed = new Discord.MessageEmbed()
-        .setTitle(`<a:Nitro_Jem:917401694726398002> **<@${newMember.user.id}>**`)
+        .setTitle(`<a:Nitro_Jem:917401694726398002> ${newMember.user.tag}`)
         .setDescription(`Thanks for the boost <a:Nitro:892882975774097498>! We are now at ${message.guild.premiumSubscriptionCount} boosts!`)
         .setThumbnail(`${newMember.user.displayAvatarURL({ dynamic: true })}`)
         .setColor("#FEE4FA")
