@@ -29,7 +29,7 @@
 19. staff role system? ❌
 20. help command for the owners cmd ✅
 21. ghost ping log?
-22. ban and kick confirmation buttons?
+22. ban and kick confirmation buttons? ✅
 23. lyrics cmd ✅
 24. movie-search command ✅
 25. try to attempt to make join 2 create vc event again...

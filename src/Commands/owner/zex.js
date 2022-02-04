@@ -1,7 +1,8 @@
 const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
-    name: 'recording',
-    description: '',
+    name: 'testing',
+    aliases: ["zex"],
+    description: "zex cmd",
     type: "TEXT",
     userPermissions: "SEND_MESSAGES",
     botPermissions: "SEND_MESSAGES",

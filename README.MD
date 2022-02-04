@@ -1,4 +1,4 @@
-![MASTERHEAD](https://cdn.discordapp.com/attachments/935232281025576990/938473066265186384/Ikigai_2.jpg)
+![MASTERHEAD](https://cdn.discordapp.com/attachments/935232262407065610/937896587802333204/ikigaigiagkaori.jpg)
 
 <h1 align="center">Hello i am Asahi | 旭陽 👋</h1>
 <h3 align="center">About me:</h3>
@@ -13,13 +13,9 @@
 
 - 🌱 I’m currently learning: **[DJS](https://discord.js.org/)**
 
-<<<<<<< HEAD
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
-=======
-- 🔗 Find my Socials **[Here](https://bio.link/ikigai)**
->>>>>>> b5225fbaba5751b22ca5f91a82ad91a63da2e1d4
 
-<h3 align="left">Connect with me:</h3>
+<h3 align="left">Some of my Socials:</h3>
 <p align="left">
 <a href="https://twitter.com/ikigai1337_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ikigai1337_" height="30" width="40" /></a>
 <a href="https://instagram.com/azahi_6428" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="azahi_6428" height="30" width="40" /></a>
@@ -31,3 +27,18 @@
 <p align="left"> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://unity.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" alt="unity" width="40" height="40"/> </a> </p>
 
 <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=kaoribotdev&show_icons=true&locale=en&layout=compact" alt="kaoribotdev" /></p>
+<br>
+
+## Join My Anime Server!
+
+</br>
+<a href=""><img src="https://invidget.switchblade.xyz/TQ3mTPE7Pf"/></a>
+<br></br>
+<div align="center">
+<a href="https://discord.gg/TQ3mTPE7Pf">
+    <img src="https://user-images.githubusercontent.com/59381835/92191514-d649ad80-ee18-11ea-9bc4-e95c7a122a99.png" alt="Discord" width="80"/>
+  </a>
+  <a href="https://www.youtube.com/channel/UC_rYKCtMYX7peBWUS9Z3QHA">
+    <img src="https://user-images.githubusercontent.com/59381835/92191346-676c5480-ee18-11ea-8240-e416eb1a5b5d.png" alt="Discord" width="80"/>
+  </a>
+  </div>

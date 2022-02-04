@@ -64,6 +64,11 @@ module.exports = new Command({
           message.channel.send({embeds: [confirmationEmbed], components: [row]})
   
           collector.on('collect', async (m) => {
+            if(m.user.id !== message.author.id) return message.channel.send({embeds: [new Discord.MessageEmbed()
+              .setColor(c['light red'])
+              .setTitle(`${errorX} AN ERROR OCCURED`)
+              .setDescription(`This interaction is not for you!`)
+          ]})
               if (m.customId === 'accept') {
                 a.setDisabled(true)
                 b.setDisabled(true)

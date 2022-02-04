@@ -23,5 +23,4 @@ class Event {
 		this.run = runFunction;
 	}
 }
-
 module.exports = Event;

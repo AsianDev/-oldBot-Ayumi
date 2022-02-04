@@ -37,21 +37,21 @@ Canvas.loadImage('./src/util/assets/image/leave.jpg').then(async (image) => {
 // ---------------------ERROR HANDLER-----------------------------------//
 const client = new Client()
 client.slashCommands = new Discord.Collection();
-process.on("unhandledRejection", (error, promise, origin) => {
-  const unhandledRejectionEmbed = new Discord.MessageEmbed()
-      .setTitle("<:Iki_Sakura:897357779956793356> AN ERROR OCCURED!")
-      .setURL("https://nodejs.org/api/process.html#event-unhandledrejection")
-      .setDescription(" <:Iki_xpinkdot:916869194400796772> [𝘼𝙉𝙏𝙄-𝘾𝙍𝘼𝙎𝙃] <:Iki_xpinkdot:916869194400796772> ")
-      .addField("Errror:", `\`\`\`${error}\`\`\``)
-      .addField("Promise", `\`\`\`${promise}\`\`\``)
-      .setTimestamp()
-      .setColor("#4D9AE6")
-      console.log(error)
-      const m = client.channels.cache.get("937922889808740373")
+// process.on("unhandledRejection", (error, promise) => {
+//   const unhandledRejectionEmbed = new Discord.MessageEmbed()
+//       .setTitle("<:Iki_Sakura:897357779956793356> AN ERROR OCCURED!")
+//       .setURL("https://nodejs.org/api/process.html#event-unhandledrejection")
+//       .setDescription(" <:Iki_xpinkdot:916869194400796772> [𝘼𝙉𝙏𝙄-𝘾𝙍𝘼𝙎𝙃] <:Iki_xpinkdot:916869194400796772> ")
+//       .addField("Errror:", `\`\`\`${error}\`\`\``)
+//       .addField("Promise", `\`\`\`${promise}\`\`\``)
+//       .setTimestamp()
+//       .setColor("#4D9AE6")
+//       console.log(error)
+//       const m = client.channels.cache.get("937922889808740373")
 
-      if(!m) return;
+//       if(!m) return;
       
-      m.send({embeds: [unhandledRejectionEmbed]})})
+//       m.send({embeds: [unhandledRejectionEmbed]})})
       //------------------------MONGOOSE-----------------------------//
 mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,

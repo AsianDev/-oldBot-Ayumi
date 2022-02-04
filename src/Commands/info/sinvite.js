@@ -1,7 +1,7 @@
 const { Permissions } = require('discord.js');
 
 module.exports = {
-	name: 'sinvite',
+	name: 'invite',
 	description: 'Provides a permanent invite for the curent server',
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: [Permissions.FLAGS.CREATE_INSTANT_INVITE, Permissions.FLAGS.MANAGE_MESSAGES],

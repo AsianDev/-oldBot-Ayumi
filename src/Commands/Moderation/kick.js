@@ -1,52 +1,131 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
-
+const c = require("../../util/assets/Json/colours.json")
 module.exports = new Command({
-    name: "kick",
-    description: "kick a user",
-    userPermissions: ["KICK_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
-    type: "TEXT",
-    cooldown: 10000,
-    async run(message, args, client) {
-    const target = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
-   const member = message.author
-   const errorX = "<:Ikix:904736839036993586>"
+        name: "kick",
+        description: "kick a user",
+        userPermissions: ["KICK_MEMBERS"],
+        botPermissions: ["ADMINISTRATOR"],
+        type: "TEXT",
+        cooldown: 10000,
+        async run(message, args, client) {
+    const member = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
+    const errorX = "<:Ikix:904736839036993586>"
 
-   const Nomember = new Discord.MessageEmbed()
-   .setColor("#FCC8EA")
-   .setDescription("*Bakaa~* You did not mention a user for me to kick!")
-   .setTitle(`${errorX} MISSING ARGUEMENT`)
+    const Nomember = new Discord.MessageEmbed()
+    .setColor("#FCC8EA")
+    .setDescription("*Bakaa~* You did not mention a user for me to kick!")
+    .setTitle(`${errorX} MISSING ARGUEMENT`)
+    
 
-    if (!target) return message.reply({embeds: [Nomember]})
-    if (target.user === client.user) return message.reply('I can\'t allow you to kick myself')
-    if (target.user === message.member.user) return message.reply('I can\'t allow you to kick yourself')
-    if (target.roles.highest.position > message.guild.me.roles.highest.position) return message.reply('Their highest role position is higher than my highest role')
-    if (target.roles.highest.position === message.member.roles.highest.position) return message.reply(`Your role position is the same as theirs`)
-    if (target.roles.highest.position > message.member.roles.highest.position) return message.reply(`Their role position is higher than your highest role`)
-    if (target.roles.highest.position === message.guild.me.roles.highest.position) return message.reply('Their highest role is the same position as mine')
-    const reason = args.slice(2).join(" ") || "Not provided"
-    if (reason && reason.length > 512) return message.reply('The reason must be less than 512 characters')
-    if (target.kickable === false) return message.reply('I am unable to kick this member')
+        let clientUserBan = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Waa~* Why are you trying to kick me?")
+        .setTitle(`${errorX} An Error Occured`)
 
-        const embed = new Discord.MessageEmbed()
-        .setAuthor({ name: `${target.user.username} has been kicked`, iconURL: message.author.displayAvatarURL()})
-        .setColor("#F87E6D")
-       .setThumbnail(target.displayAvatarURL({ dynamic: true }))
-       .addField("Reason:", `\`${reason}\``)
-       .setFooter({ text: `Kicked by ${message.author.username}`})
-        .setTimestamp()
-        try {
-            target.kick(reason).then(
-                message.reply({embeds: [embed]})
-            )
-            client.channels.cache.get("924889631303012363").send({embeds: [embed]})
+        let AuthorrBan = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Waa~* Why are you trying to kick yourself?")
+        .setTitle(`${errorX} An Error Occured`)
 
-            
-        }catch(err) {
-            const NobanEmbed = new Discord.MessageEmbed()
-            .setColor("#F87E6D")
-            .setDescription(`I am unable to kick ${target}. Please make sure you have the correct permissions and my role is at the top of the roles list.`)
-            .setTitle(`${errorX} An error occured`)
-            message.reply({embeds: [NobanEmbed]})
-}}})
+        let roleUnder = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Bakaa~* My role is under that user's role!\n Please move my role to the top of the roles list!")
+        .setTitle(`${errorX} An Error Occured`)
+
+        let sameroletarget = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Bakaa~* You have same the role level as who you are trying to kick!")
+        .setTitle(`${errorX} An Error Occured`)
+
+
+
+        let roleOver = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Bakaa~* Their role is higer than your role.")
+        .setTitle(`${errorX} An Error Occured`)
+
+
+        let roleSame = new Discord.MessageEmbed()
+        .setColor(c['light red'])
+        .setDescription("*Waa~* They have the same role as me!")
+        .setTitle(`${errorX} An Error Occured`)
+
+     if (!member) return message.reply({embeds: [Nomember]})
+    if (member.user === client.user) return message.reply({embeds: [clientUserBan]})
+    if (member.user === message.author) return message.reply({embeds: [AuthorrBan]})
+    if (member.roles.highest.position > message.guild.me.roles.highest.position) return message.reply({embeds: [roleUnder]})
+    if (member.roles.highest.position === message.member.roles.highest.position) return message.reply({embeds: [sameroletarget]})
+    if (member.roles.highest.position > message.member.roles.highest.position) return message.reply({embeds: [roleOver]})
+    if (member.roles.highest.position === message.guild.me.roles.highest.position) return message.reply({embeds: [roleSame]})
+    const reason = args.slice(2).join(" ") 
+    const noReason = new Discord.MessageEmbed()
+    .setColor("RED")
+    .setDescription("*Bakaa~* Please provide a reason to why this user is being kicked!")
+    .setTitle(`${errorX} MISSING ARGUEMENT`)
+
+    if(!reason) return message.reply({embeds: [noReason]})
+    if(member.kickable === false) return message.reply('I am unable to kick this member')
+
+
+    const Banned = new Discord.MessageEmbed()
+    .setAuthor({ name: `${member.user.username} has been banned`, iconURL: message.author.displayAvatarURL()})
+    .setColor("#F87E6D")
+    .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
+    .addField("Reason:", `\`${reason}\``)
+    .setFooter({ text: `Banned by ${message.author.username}`})
+    .setTimestamp()
+
+
+    const ConfirmToBanEmbed = new Discord.MessageEmbed()
+    .setColor(c.pink)
+    .setTitle(`Are you sure you wish to ban ${member.user.username}`)
+    .setDescription(`Do you wish to ban ${member.user.username}?`)
+    .addField("Reason to ban:", `> ${reason}`)
+    .setTimestamp()
+    .setThumbnail(`${member.user.displayAvatarURL({ dynamic: true })}`)
+
+    let a = new Discord.MessageButton()
+    .setCustomId('accept')
+    .setStyle('SECONDARY')
+    .setLabel("Confirm")
+    .setEmoji("916869194400796772")
+
+    let b = new Discord.MessageButton()
+    .setCustomId('decline')
+    .setLabel("Cancel")
+    .setStyle('SECONDARY')
+    .setEmoji("916869194400796772")
+
+    let row = new Discord.MessageActionRow().addComponents(a, b)
+    const collector = message.channel.createMessageComponentCollector({componentType: 'BUTTON', time: 30000})
+    message.channel.send({embeds: [ConfirmToBanEmbed], components: [row]})
+
+    collector.on('collect', async (m) => {
+        if(m.user.id !== message.author.id) return message.channel.send({embeds: [new Discord.MessageEmbed()
+            .setColor(c['light red'])
+            .setTitle(`${errorX} AN ERROR OCCURED`)
+            .setDescription(`This interaction is not for you!`)
+        ]})
+        if (m.customId === 'accept') {
+            member.kick({reason: reason || 'No Reason Specified.'})
+            a.setDisabled(true)
+            b.setDisabled(true)
+            row = new Discord.MessageActionRow().addComponents(a, b)
+            m.update({embeds: [Banned], components: [row]})
+            client.channels.cache.get("924889631303012363").send({embeds: [Banned]})  
+        } else if (m.customId === 'decline') {
+            a.setDisabled(true)
+            b.setDisabled(true)
+            row = new Discord.MessageActionRow().addComponents(a, b)
+            m.update({embeds: [new Discord.MessageEmbed()
+                .setColor(c['light red'])
+                .setTitle("Cancelled confirmation!")
+                .setDescription(`I have cancelled to kick ${member.user.tag}`)
+                ], components: [row]})
+          }
+
+        })
+    }
+})     
+ 

@@ -1,6 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
-const { formatDate } = require('../../util/functions/functions.js')
+const { formatDate } = require("../../util/functions/formateDate.js")
 const moment = require('moment');
 
 module.exports = new Command({
