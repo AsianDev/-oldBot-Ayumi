@@ -4,12 +4,52 @@ const chalk = require("chalk")
 const prefix = "Kao"
 const Discord = require("discord.js")
 const ms = require("ms");
-let timerSchema = require("../../util/models/reminder.js")
+let timerSchema = require("../../config/models/reminder.js")
 const colour = require("../../util/assets/Json/colours.json")
+const { table } = require("table");
 module.exports = new Event("ready", (client) => {
-
     // bot online in console
     console.clear();
+    const data = [
+      ["LOGGED IN AS", `${chalk.red.bold(client.user.tag)}`, "Kaori is a cutie <3"],
+      ["SERVERS", `${chalk.yellow.bold(client.guilds.cache.size.toLocaleString())}`, "My servers"],
+      ["USERS", `${chalk.green.bold(client.users.cache.size.toLocaleString())}`, "Users i watch over (〃ω〃)"],
+      ["TIME", `${chalk.magenta.bold(ms(ms(Math.round(process.uptime() - (client.uptime/1000))+'s')))}`, "Seconds to load bot"],
+      ["COMMANDS", `${chalk.blue.bold(client.commands.size.toLocaleString())}`, "My Total Commands"]
+    ]    
+
+    const config = {
+      border: {
+        topBody: `─`,
+        topJoin: `┬`,
+        topLeft: `┌`,
+        topRight: `┐`,
+    
+        bottomBody: `─`,
+        bottomJoin: `┴`,
+        bottomLeft: `└`,
+        bottomRight: `┘`,
+    
+        bodyLeft: `│`,
+        bodyRight: `│`,
+        bodyJoin: `│`,
+    
+        joinBody: `─`,
+        joinLeft: `├`,
+        joinRight: `┤`,
+        joinJoin: `┼`
+      }, 
+      header: {
+        alignment: 'center',
+        content: "I HAVE LOADED ♡＾▽＾♡"
+      }
+    };
+    console.log(table(data, config))
+  
+
+
+// old one
+/*
     console.log(chalk.green.bold("Success!"))
     console.log(chalk.gray("Connected To"), chalk.yellow(`${client.user.tag}`));
     console.log(
@@ -30,7 +70,6 @@ module.exports = new Event("ready", (client) => {
     console.log(chalk.gray(`Running on Node ${process.version} on ${process.platform} ${process.arch}`))
     console.log(chalk.gray(`Memory: ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`))
 
-
     console.log(
       chalk.hex("#00ceff") ("██╗  ██╗ █████╗  ██████╗ ██████╗ ██╗        ██╗███████╗     ██████╗ ███╗   ██╗██╗███╗   ██╗███████╗      \n"),
       chalk.hex("#dc00ff") ("██║ ██╔╝██╔══██╗██╔═══██╗██╔══██╗██║        ██║██╔════╝    ██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝      \n"),
@@ -39,7 +78,8 @@ module.exports = new Event("ready", (client) => {
       chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║    ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
       chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝     ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
   )
-  console.log(chalk.red.bold(`${ms(ms(Math.round(process.uptime() - (client.uptime/1000))+'s'))} to load bot`))
+  /*/
+
 
   
 

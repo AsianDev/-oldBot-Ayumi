@@ -1,4 +1,4 @@
-const premiumSchema = require("../../util/models/premium.js")
+const premiumSchema = require("../../config/models/premium.js")
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 const errorX = "<:Ikix:904736839036993586>"

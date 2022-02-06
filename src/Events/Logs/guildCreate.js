@@ -17,7 +17,7 @@ module.exports = new Event("guildCreate", (client, guild, message, invite) => {
     const Invite = new Discord.MessageEmbed()
     .setTitle("*Waa~* Thanks for adding me! <:Iki_Sakura:897357779956793356>")
     .setURL("https://discord.gg/TQ3mTPE7Pf")
-    .setDescription(`Thanks for adding <@!${client.user.id}> to ${message.guild.name}. I will server my best here!`)
+    .setDescription(`Thanks for adding <@!${client.user.id}> to ${invite.guild.name}. I will server my best here!`)
     .addField("<a:Kao_crown:935906010122559548> My Main Features include:", `<a:arrow:936271087128420375> **40+** Anime commands\n <a:arrow:936271087128420375> **30+** Moderation and Adminstration Commands\n <a:arrow:936271087128420375> Many **fun** and **informatic** Commands\n <a:arrow:936271087128420375> **Welcome** and **leave** Cards \n\n <:Iki_tick:904736864076955738> Much more features to come.`, true)
     .setImage("https://media.discordapp.net/attachments/893441333300178964/923903676786049044/PicsArt_12-24-07.43.07.jpg?width=869&height=498")
     .setThumbnail(client.user.displayAvatarURL())

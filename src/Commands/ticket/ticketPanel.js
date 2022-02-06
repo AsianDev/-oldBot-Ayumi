@@ -16,6 +16,7 @@ module.exports = new Command({
         .setAuthor({ name: "Kaori support!", iconURL: `${interaction.user.displayAvatarURL()}` })
         .setDescription("Click on the button below to make a support thread.")
         .setTitle('__**Ticket**__')
+        .setThumbnail(`${interaction.guild.iconURL({ dynamic: true, size: 512 })}`)
 
         const row = new Discord.MessageActionRow()
         .addComponents

@@ -1,4 +1,4 @@
-const muteSchema = require("../../util/models/muterole.js")
+const muteSchema = require("../../config/models/muterole.js")
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 

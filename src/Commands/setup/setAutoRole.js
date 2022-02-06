@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Command = require('../../Handlers/Command.js')
-const welcomerole = require('../../util/models/welcomerole.js')
+const welcomerole = require('../../config/models/welcomerole.js')
 module.exports = new Command({
     name: "welcomerole",
     description: "autorole",

@@ -1,4 +1,4 @@
-const muteSchema = require("../../util/models/removerole.js")
+const muteSchema = require("../../config/models/removerole.js")
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
@@ -22,7 +22,7 @@ async run(message, args, client) {
             if(data) {
                 const embed = new Discord.MessageEmbed()
                 .setColor("DARK_RED")
-                .setDescription(`<:x_:904736839036993586> *Waa~~* the role to remove has already been set, reset it and try again please!`)
+           .setDescription(`<:x_:904736839036993586> *Waa~~* the role to remove has already been set, reset it and try again please!`)
             
                 message.channel.send({embeds: [embed]})
             } else {

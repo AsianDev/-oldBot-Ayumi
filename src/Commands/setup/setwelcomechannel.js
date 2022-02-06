@@ -1,6 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../util/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 const colour = require("../../util/assets/Json/colours.json")
 module.exports = new Command({
     name: "welcomechannel",
@@ -12,7 +12,6 @@ module.exports = new Command({
     aliases: ["setwelcome", "set-welcome", "set-welc", "setwelcomechannel", "set-welcomechannel"],
     async run(message, args, client) {
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
-
         const SuccessEmbed = new Discord.MessageEmbed()
         .setColor(colour.lightish_blue)
         .setTitle("Successfully set the Welcome Channel. <a:exclamation_mark_red:915208461514604604>")

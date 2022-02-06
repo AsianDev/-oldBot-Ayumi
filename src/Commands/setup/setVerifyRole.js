@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Command = require('../../Handlers/Command.js')
-const CaptchaSchema = require("../../util/models/captcha.js");
+const CaptchaSchema = require("../../config/models/captcha.js");
 module.exports = new Command({
     name: "vrole",
     description: "autorole",

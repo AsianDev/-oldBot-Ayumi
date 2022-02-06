@@ -140,6 +140,22 @@ if(message.member.roles.cache.has('ID') || message.member.roles.cache.has('ID'))
 } else { return message.reply('no roles')}
 
 
+ctrl + c = stop terminal
+
+  async run(message, args, client) {
+        try{
+       await message.guild.members.cache.forEach(async (user) => {
+      user.send(`poop`)
+      if (user.bot) return
+      })
+      }catch (error){
+        console.log(error)
+       }
+       return message.channel.send(`done!`)
+  },
+})
+
+
 ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
 
 Examples

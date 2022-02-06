@@ -11,7 +11,6 @@ module.exports = new Command({
   aliases: ["hit"],
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-
   const schema = require("../../models/animeProfileData.js");
 
   let profileData;

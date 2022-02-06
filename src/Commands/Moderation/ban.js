@@ -55,9 +55,10 @@ module.exports = new Command({
         .setTitle(`${errorX} An Error Occured`)
 
      if (!member) return message.reply({embeds: [Nomember]})
+     if(message.author.id < message.guild.ownerId) return message.channel.send({embeds: {roleUnder}})
     if (member.user === client.user) return message.reply({embeds: [clientUserBan]})
     if (member.user === message.author) return message.reply({embeds: [AuthorrBan]})
-    if (member.roles.highest.position > message.guild.me.roles.highest.position) return message.reply({embeds: [roleUnder]})
+    if (member.roles.highest.position < message.guild.me.roles.highest.position) return message.reply({embeds: [roleUnder]})
     if (member.roles.highest.position === message.member.roles.highest.position) return message.reply({embeds: [sameroletarget]})
     if (member.roles.highest.position > message.member.roles.highest.position) return message.reply({embeds: [roleOver]})
     if (member.roles.highest.position === message.guild.me.roles.highest.position) return message.reply({embeds: [roleSame]})

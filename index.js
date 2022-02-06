@@ -48,13 +48,11 @@ process.on("unhandledRejection", (error, promise) => {
       .setColor("#4D9AE6")
       console.log(error)
       const m = client.channels.cache.get("937922889808740373")
-
       if(!m) return;
-      
       m.send({embeds: [unhandledRejectionEmbed]})})
       //------------------------MONGOOSE-----------------------------//
 mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
-}).then(console.log('Connected to the Database.'))
+})
 client.start(config.Token)

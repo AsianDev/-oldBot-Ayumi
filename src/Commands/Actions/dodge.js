@@ -12,7 +12,6 @@ module.exports = {
     const member = message.mentions.members.first() || message.author
 
   const schema = require("../../models/animeProfileData.js");
-
   let profileData;
   try {
       profileData = await schema.findOne({

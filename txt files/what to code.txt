@@ -42,3 +42,4 @@
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
 36. multiguild anti raid ⏰
 37. sourcebin command ✅ // archieved
+37. button paginator function -> https://youtu.be/eCGCheKei3I (outdated... MAKE CHANGES)

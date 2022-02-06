@@ -1,8 +1,9 @@
 const { Captcha } = require('captcha-canvas');
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-const CaptchaSchema = require("../../util/models/captcha.js");
+const CaptchaSchema = require("../../config/models/captcha.js");
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
+
 module.exports = new Command({
   name: 'captcha',
   aliases: ['verify'],

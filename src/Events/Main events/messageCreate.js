@@ -6,8 +6,7 @@ const { Collection } = require('discord.js')
 const Timeout = new Discord.Collection()
 const ms = require("ms")
 const { owners } = require("../../util/Data/config.json");
-const config = require("../../util/Data/config.json");
-const premiumSchema = require("../../util/models/premium.js");
+const premiumSchema = require("../../config/models/premium.js");
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
@@ -145,11 +144,11 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
-		const commandDb = require('../../util/models/command.js');
+		const commandDb = require('../../config/models/command.js');
 		if (command) {
 			const DisabledCMD = new Discord.MessageEmbed()
 				.setColor("RANDOM")
-				.setDescription(`**Bakaa~!** ${command} is already disabled in this server!`)
+				.setDescription(`*Bakaa~!* **${command.name}** is disabled in this server!`)
 			const check = await commandDb.findOne({ Guild: message.guild.id })
 			if (check) {
 				if (check.Cmds.includes(command.name)) return message.channel.send({ embeds: [DisabledCMD] })

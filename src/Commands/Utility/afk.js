@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Command = require('../../Handlers/Command.js')
-const afkSchema = require("../../util/models/afk.js")
+const afkSchema = require("../../config/models/afk.js")
 const colour = require("../../util/assets/Json/colours.json")
 const emotes = require("../../util/assets/Json/emotes.json")
 module.exports = new Command({
@@ -16,7 +16,7 @@ module.exports = new Command({
 
         if(message.content.includes('@everyone')) return message.channel.send(`*Waa~* **${message.author.username}** please dont do that.`)
         if(message.content.includes('@here')) return message.channel.send(`**${message.author.username}** dont be a baka and do that`)
-        // let member = message.author
+        let member = message.author
         const NotenoughReasoning = new Discord.MessageEmbed()
         .setColor(`${colour["light red"]}`)
         .setTitle(`${emotes.Error} AN ERROR OCCURED`)
@@ -59,7 +59,8 @@ module.exports = new Command({
                     Date: Date.now()
                 }).save()
                 try {
-                    message.member.setNickname(`[AFK] ${message.member.displayName}`)
+                    if(message.author.id == message.guild.ownerId) return;
+                   else message.member.setNickname(`[AFK] ${message.member.displayName}`)
                     message.channel.send({embeds: [AfkEmbed2]})
                       } catch (error) {
                         message.channel.send({embeds: [AfkEmbed]})

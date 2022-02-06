@@ -23,6 +23,7 @@
     "discord.js": "^13.6.0",
     "discordjs-button-pagination": "^1.0.7",
     "dotenv": "^15.0.0",
+    "fero-ms": "^2.0.7",
     "flip-text": "^1.2.0",
     "fs": "^0.0.1-security",
     "got": "^4.2.0",
@@ -35,8 +36,10 @@
     "reconlx": "^2.5.2",
     "sourcebin": "^4.3.5",
     "soyultro": "^4.8.5",
+    "table": "^6.8.0",
     "twemoji-parser": "^13.1.0",
     "undici": "^4.12.2",
-    "weather-js": "^2.0.0"
+    "weather-js": "^2.0.0",
+    "yt-search": "^2.10.3"
   }
 }

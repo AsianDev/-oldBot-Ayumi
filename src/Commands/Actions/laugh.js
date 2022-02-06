@@ -11,8 +11,7 @@ module.exports = new Command({
     userPermissions: ["SEND_MESSAGES"],
     async run (message, args, client) {
         const member = message.mentions.members.first() || message.author
-
-        const schema = require("../../models/animeProfileData.js");
+        const schema = require("../../config/models/animeProfileData.js");
     
         let profileData;
         try {

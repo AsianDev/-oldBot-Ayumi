@@ -1,6 +1,6 @@
 
 const Command = require('../../Handlers/Command.js')
-const warndb = require('../../util/models/warndb.js');
+const warndb = require('../../config/models/warndb.js');
 const Discord = require('discord.js');
 
 module.exports = new Command({

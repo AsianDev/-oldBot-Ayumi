@@ -1,6 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const schema = require("../../util/models/removerole.js")
+const schema = require("../../config/models/removerole.js")
 module.exports = new Command({
 name: "resetremove",
 description: "reset the remove role!",
