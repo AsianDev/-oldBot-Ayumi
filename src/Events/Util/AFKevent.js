@@ -8,6 +8,7 @@ module.exports = new Event('messageCreate', async(client, message) => {
 
     if(checkafk) {
         checkafk.delete()
+        message.member.setNickname(null)
         const dataDeletedEmbed = new Discord.MessageEmbed()
         .setDescription(`Welcome back, you are no longer AFK! ${message.member}`)
         .setColor("#6A93F0")

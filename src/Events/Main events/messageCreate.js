@@ -41,10 +41,8 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
 
-	if (message.content.toLowerCase() === 'welcome') {
-		message.react('<:TomoeWow:913019554538598431>')
-		message.react('<a:BearKiss2:912597459337900073>')
-	}
+	if (message.content.toLowerCase() === 'welcome') return message.react('<:Iki_TomoeWow:913019554538598431>')
+
 	if (message.content.toLowerCase() === 'welc') return message.react('❤️')
 	if (message.content.toLowerCase() === 'welcomeee') return message.react('<:TomoeWow:913019554538598431>')
 	if (message.content.toLowerCase() === "how are you") return message.channel.send("Hmm im not sure if you asked me but im okay.")

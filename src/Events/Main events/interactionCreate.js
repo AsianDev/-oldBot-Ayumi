@@ -25,90 +25,95 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
         const command = client.commands.get(interaction.commandName);
          interaction.deferReply({ ephemeral: command.ephemeral ? command.ephemeral : false })
                  if (command) command.run(interaction, args, client)}
-          
-                
-         if(interaction.isButton()) {
-            await interaction.deferReply()
-            if(interaction.customId === "ticket-open") {
-                if(interaction.guild.channels.cache.find(e => e.topic == interaction.user.id)) {
-                    return interaction.followUp({
-                        content: "*Bakaa~* You already have a ticket open!",
-                        ephemeral: true
-               })
-                }
-                const c = interaction.guild.channels.create(`${interaction.user.tag} Ticket`, {
-                    parent: CatergoryID,
-                    topic: interaction.user.id,
-                    permissionOverwrites: [{
-                        id: interaction.user.id,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    }, {
-                        id: client.user.id,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    }, {
-                        id: StaffRoleId,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    }, {
-                        id: StaffRoleId2,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    }, {
-                        id: EveryoneRoleId,
-                        deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    }],
-                    type: "GUILD_TEXT"
-            }).then(async c => {
-                interaction.followUp({ content: `Your ticket has been made!`, ephemeral: true})
-                const newtic = new Discord.MessageEmbed()
-                .setColor(colour.pink)
-                .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
-                .setDescription('Hello there, \n The staff will be here as soon as possible mean while tell us about your issue!\nThank You!')
-                const row = new Discord.MessageActionRow()
-                .addComponents 
-                (
-                    new Discord.MessageButton()
-                    .setCustomId("ticket-close")
-                    .setLabel("Close Ticket")
-                    .setEmoji("🔒")
-                    .setStyle("DANGER")
-                )
-                c.send({
-                    content: `<@${interaction.user.id}>`,
-                    embeds: [newtic], 
-                    components: [row]
-                }).then(msg => msg.pin())
-            })
-
-            } else if(interaction.customId === "ticket-close") {
-                interaction.followUp({embeds: [new Discord.MessageEmbed()
-                    .setColor(colour.lightish_blue)
-                    .setTitle("Ticket will be closed. <a:loading:938879666800967720>")
-                    .setDescription("Closing the ticket in 5 seconds...")
-                    .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
-                ]})
-                if(((interaction.channel.topic === interaction.user.id)) === interaction.user.id && StaffRoleId && StaffRoleId2 !== interaction.user.id) {
-                    return interaction.followUp({
-                        content: `This ticket can only be closed by staff members.`,
-                        ephemeral: true
+      
+                 if(interaction.isButton()) {
+                    await interaction.deferReply({ ephemeral: true })
+                    if (interaction.customId === "ticket-open") {
+                        if(interaction.guild.channels.cache.find(e => e.topic == interaction.user.id)) {
+                            return interaction.followUp({
+                                content: "*Bakaa~* You already have a ticket open!",
+                                ephemeral: true
+                       })
+                        }
+                        const channelMade = interaction.guild.channels.create(`${interaction.user.tag} Ticket`, {
+                            parent: CatergoryID,
+                            topic: interaction.user.id,
+                            permissionOverwrites: [{
+                                id: interaction.user.id,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: client.user.id,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId2,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: EveryoneRoleId,
+                                deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }],
+                            type: "GUILD_TEXT"
+                    }).then(async c => {
+                        interaction.followUp({embeds: [new Discord.MessageEmbed()
+                        .setColor(colour.lightish_blue)
+                        .setDescription(`<@${interaction.user.id}> You have made a ticket.`)
+                        .setThumbnail(`${interaction.user.displayAvatarURL({ dynamic: true, size: 512 })}`)
+                        .setAuthor({ name: "Your ticket has been made!", iconURL: `${client.user.displayAvatarURL()}`})
+                        ], ephemeral: true})
+                        const newtic = new Discord.MessageEmbed()
+                        .setColor(colour.pink)
+                        .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+                        .setFooter({ text: "Your ticket will be recorded in a transcript", iconURL: `${interaction.user.displayAvatarURL()}`})
+                        .setDescription('Hello there, \n The staff will be here as soon as possible mean while tell us about your issue!\nThank You!')
+                        const row = new Discord.MessageActionRow()
+                        .addComponents 
+                        (
+                            new Discord.MessageButton()
+                            .setCustomId("ticket-close")
+                            .setLabel("Close Ticket")
+                            .setEmoji("🔒")
+                            .setStyle("DANGER")
+                        )
+                        c.send({
+                            content: `<@${interaction.user.id}>`,
+                            embeds: [newtic], 
+                            components: [row]
+                        }).then(msg => msg.pin())
                     })
-                }
-                const user = await client.users.fetch(interaction.channel.topic);
-                const Trasnscript = await createTranscript(interaction.channel, {
-                    limit: -1,
-                    fileName: `${interaction.channel.topic}-Ticket-Copy.html`,
-                    returnBuffer: false
-                });
-
-                const embedClosedTicket = new Discord.MessageEmbed()
-                .setColor(colour["light red"])
-                .setDescription(`<@${interaction.user.id}>'s Ticket has been closed`)
-                .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
-
-                client.channels.cache.get(TrasnscriptID).send({
-                    embeds: [embedClosedTicket],
-                    files: [Trasnscript]
-                }).then(() => {
-                    interaction.channel.delete()
+            
+                    } else if(interaction.customId === "ticket-close") {
+                        interaction.followUp({embeds: [new Discord.MessageEmbed()
+                            .setColor(colour.lightish_blue)
+                            .setTitle("Ticket will be closed. <a:loading:938879666800967720>")
+                            .setDescription("Closing the ticket in 5 seconds...")
+                            .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+                        ]})
+                        if(((interaction.channel.topic === interaction.user.id)) === interaction.user.id && StaffRoleId && StaffRoleId2 !== interaction.user.id) {
+                            return interaction.followUp({
+                                content: `This ticket can only be closed by staff members.`,
+                                ephemeral: true
+                            })
+                        }
+                        const user = await client.users.fetch(interaction.channel.topic);
+                        const Trasnscript = await createTranscript(interaction.channel, {
+                            limit: -1,
+                            fileName: `${interaction.channel.topic}-Ticket-Copy.html`,
+                            returnBuffer: false
+                        });
+            
+                        const embedClosedTicket = new Discord.MessageEmbed()
+                        .setColor(colour["light red"])
+                        .setDescription(`<@${interaction.user.id}>'s Ticket has been closed`)
+                        .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+            
+                        client.channels.cache.get(TrasnscriptID).send({
+                            embeds: [embedClosedTicket],
+                            files: [Trasnscript]
+                        }).then(() => {
+                            interaction.channel.delete()
+                        })
+                    }}
+      
                 })
-            }
-         }         
-        })

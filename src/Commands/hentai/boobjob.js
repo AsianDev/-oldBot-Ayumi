@@ -10,9 +10,8 @@ module.exports = new Command({
     description: "A Nsfw Command",
     type: "TEXT",
     aliases: ["bj", "boob-job"],
-    userPermissions: " ",
+    userPermissions: "KICK_MEMBERS",
     botPermissions: "ADMINISTRATOR",
-    premium: true,
     cooldown: 4000,
 
     async run(message, args, client) {

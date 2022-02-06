@@ -18,11 +18,11 @@ module.exports = new Command({
  
 
          try {
-           const m = await message.reply({content: "Generating image <a:Kao_loading:935476484024455178>", allowedMentions: {repliedUser: false}});
+          const m = await message.reply({content: "Generating image <a:Kao_loading:938867145331339264>", allowedMentions: {repliedUser: false}});
            const buffer = await AmeAPI.generate("approved", { url: user.displayAvatarURL({ format: "png", size: 512 }) });
            const attachment = new Discord.MessageAttachment(buffer, "approved.png");
 
-               m.edit({ content: "Generated <a:Kao_Thumbsup:936968227274256424>", files: [attachment], name: "approved.png", allowedMentions: {repliedUser: false}});
+           m.edit({ content: "Generated <:Iki_mochaHeart:939483315952578610>", files: [attachment], name: "approved.png", allowedMentions: {repliedUser: false}});
          } catch (err) {
            return message.reply("*Waa~* An error has occured... <a:YuiNoLike:912603324518391829>")
          } 	

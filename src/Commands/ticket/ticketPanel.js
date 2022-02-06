@@ -5,11 +5,10 @@ const c = require('../../util/assets/Json/colours.json')
 module.exports = new Command({
     name: "ticket",
     description: 'setup a ticket System',
-    type: "TEXT",
-    userPermissions: ["SEND_MESSAGES"],
+    type: "SLASH",
+    userPermissions: "MANAGE_GUILDno",
     botPermissions: ["SEND_MESSAGES"],
     cooldown: 6000,
-
     async run(interaction, args, client) {
 
         const OpenTicket = new Discord.MessageEmbed()
@@ -27,7 +26,7 @@ module.exports = new Command({
             .setEmoji('939098734778794035')
             .setStyle('PRIMARY')
          )    
-         interaction.reply({embeds: [OpenTicket], components: [row], ephemeral: true})
+         interaction.followUp({embeds: [OpenTicket], components: [row], ephemeral: true})
 
          }
     })

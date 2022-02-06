@@ -8,11 +8,11 @@ module.exports = new Command({
 
     name: "spank",
     description: "A Nsfw Command",
-    type: "TEXT",
-    userPermissions: " ",
+    userPermissions: "KICK_MEMBERS",
     botPermissions: "ADMINISTRATOR",
-    premium: true,
     cooldown: 4000,
+    type: "TEXT",
+
 
     async run(message, args, client) {
 
