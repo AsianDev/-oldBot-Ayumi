@@ -1,5 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
+const guildConfig = require('../../util/models/guildConfig.js')
 
 module.exports = new Command({
     name: "setqwelc",

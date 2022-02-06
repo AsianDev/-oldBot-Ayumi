@@ -4,120 +4,60 @@ const welcomerole = require('../../util/models/welcomerole.js')
 module.exports = new Command({
     name: "welcomerole",
     description: "autorole",
-    aliases: ["setautorole", "autorole", "sautorole", "set-autorole", "set-auto-role"],
+    aliases: ["setautorole", "autorole", "sautorole", "set-autorole", "set-auto-role", "setwelcomerole", "Set-welcomerole", "set-welcome-role"],
     type: "TEXT",
     timeout: 1000,
     userPermissions: ["MANAGE_GUILD"],
     botPermissions: ["ADMINISTRATOR"],
     async run(message, args, client) {
-      
-      const role = message.mentions.roles.first() 
-      const noChannel = new Discord.MessageEmbed()
-      .setColor("DARK_RED")
-      .setTitle("<:Ikix:904736839036993586> Missing Arguement!")
-      .setDescription("Please mention the role you wish set the autrole as!")
-      if (!role) return message.reply({embeds: [noChannel]})
-      const data = await welcomerole.findOne({ guildId: message.guild.id }) // find the channel and store it in the DB
-
-      let confirmation = new Discord.MessageEmbed()
-          .setTitle(`Please Confirm`)
-          .setDescription(`Are you sure, you want to set ${role} as the autrole?`)
-          .setColor("BLURPLE")
-
-      let cancelled = new Discord.MessageEmbed()
-          .setTitle(`Cancelled`)
-          .setDescription(`Cancelled setting ${role} as the auto role`)
-          .setColor("RED")
-
-      let confirmed = new Discord.MessageEmbed()
-          .setTitle(`Confirmed`)
-          .setDescription(`${role} has been set as the auto role.`)
-          .setColor("GREEN")
-
-      const confirmrow = new Discord.MessageActionRow()
-          .addComponents(
-              new Discord.MessageButton()
-                  .setCustomId('yes')
-                  .setEmoji("<:Iki_tick:904736864076955738>")
-                  .setStyle('SUCCESS')
-          )
-          .addComponents(
-              new Discord.MessageButton()
-                  .setCustomId('no')
-                  .setEmoji("<:Ikix:904736839036993586>")
-                  .setStyle('DANGER')
-          )
-      const disabledrow = new Discord.MessageActionRow()
-          .addComponents(
-              new Discord.MessageButton()
-                  .setCustomId('yes')
-                  .setEmoji("<:Iki_tick:904736864076955738>")
-                  .setStyle('SUCCESS')
-                  .setDisabled(true)
-          )
-          .addComponents(
-              new Discord.MessageButton()
-                  .setCustomId('no')
-                  .setEmoji("<:Ikix:904736839036993586>")
-                  .setStyle('DANGER')
-                  .setDisabled(true)
-          )
-      if (!data) {
-          try {
-              const m = await message.reply({ embeds: [confirmation], components: [confirmrow] })
-              const filter = (b) => { if (b.user.id === message.author.id) return true; return menu.reply({ content: "<:Ikix:904736839036993586> This confirmation is not for you.", ephemeral: true }) };
-              let collector = await m.createMessageComponentCollector({ filter: filter, time: 120000, max: 1 });
-
-              collector.on('collect', async (i) => {
-                  i.deferUpdate()
-                  if (i.customId === 'yes') {
-                      const data1 = await welcomerole.create({
-                          Guild: message.guild.id,
-                          Role: role
-
-                      })
-
-                      await data1.updateOne({ Role: role.id })
-                      await m.edit({ embeds: [confirmed], components: [disabledrow] })
-                      return;
-                  }
-                  else if (i.customId === 'no') {
-                      await m.edit({ embeds: [cancelled], components: [disabledrow] })
-                      return;
-
-                  }
-              })
-
-
-          } catch (error) {
-              console.log(error)
-          }
-
-      } else if (data) {
-          const m = await message.reply({ embeds: [confirmation], components: [confirmrow] })
-          const filter = (b) => { if (b.user.id === message.author.id) return true; return  menu.reply({ content: "<:Ikix:904736839036993586> This confirmation is not for you.", ephemeral: true }) };
-          let collector = await m.createMessageComponentCollector({ filter: filter, time: 120000, max: 1 });
-
-          collector.on('collect', async (i) => {
-              i.deferUpdate()
-              if (i.customId === 'yes') {
-                  await data.updateOne({ welcomerole: role.id })
-                  await m.edit({ embeds: [confirmed], components: [disabledrow] })
-                  return;
-              }
-              else if (i.customId === 'no') {
-                  await m.edit({ embeds: [cancelled], components: [disabledrow] })
-                  return;
-
-              }
-          })
-          collector.on('end', (mes, r) => {
-              if (r == 'time') {
-                  m.edit({
-                      components: [disabled],
-                  })
-              }
-          })
-      }
-  }
-})   
+        const colour = require("../../util/assets/Json/colours.json")
+        const role = message.mentions.roles.first() 
+        const SuccessEmbed = new Discord.MessageEmbed()
+        .setColor(colour.lightish_blue)
+        .setTitle("Successfully set the welcome Role. <a:exclamation_mark_red:915208461514604604>")
+        .setDescription(`**${message.author.username}** You have set the welcome Role!`)
+        .addField("Welcome Role:", `<@&${role.id}>`)
+        .setURL("https://media1.tenor.com/images/8d189128d67c185a55462f5a77f9e825/tenor.gif")
+  
+        const UpdatedEmbed = new Discord.MessageEmbed()
+        .setColor(colour.lightish_blue)
+        .setTitle("Successfully updated the welcome Role. <a:exclamation_mark_red:915208461514604604>")
+        .setDescription(`**${message.author.username}** You have updated the welcome Role!`)
+        .addField("Welcome Role:", `<@&${role.id}>`)
+        .setURL("https://media1.tenor.com/images/8d189128d67c185a55462f5a77f9e825/tenor.gif")
+        const row = new Discord.MessageActionRow()
+        .addComponents(
+            new Discord.MessageButton()
+            .setLabel("Success")
+            .setCustomId("Succes")
+            .setStyle("PRIMARY")
+            .setDisabled(true)
+            .setEmoji("916869194400796772")
+        )
+  
+        const Nochannel = new Discord.MessageEmbed()
+        .setColor("RED")
+        .setDescription("Please mention a valid role!")
+        .setThumbnail("<:Ikix:904736839036993586> MISSING ARGUEMENT!")
+        if (!role) return message.reply({embeds: [Nochannel]})
+    
+        const data = await welcomerole.findOne({ guildId: message.guild.id }) 
+    
+        if (!data) {
+            try {
+                const data1 = await  welcomerole.create({
+                    Guild: message.guild.id,
+                    Role: role
+                })
+  
+                await data1.updateOne({ Role: role.id })
+                return message.reply({ embeds: [SuccessEmbed], components: [row], allowedMentions: {repliedUser: false} })
+            } catch (error) {
+                console.log(error)
+            }
+        } else if (data) {
+            await data.updateOne({ Role: role.id })
+            return message.reply({ embeds: [UpdatedEmbed], components: [row], allowedMentions: {repliedUser: false} })
+        }
+    }
+  })   
