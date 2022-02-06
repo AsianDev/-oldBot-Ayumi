@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const Event = require("../../Handlers/Event.js");
-const welcomerole = require("../../util/models/welcomerole")
+const welcomerole = require("../../config/models/welcomerole")
 
 module.exports = new Event("guildMemberAdd", async (client, member)=>{ const data1 = await welcomerole.findOne({ Guild: member.guild.id })
   if(!data1) return;

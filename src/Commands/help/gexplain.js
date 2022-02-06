@@ -14,7 +14,7 @@ module.exports = new Command({
 async run(message, args, client) {
   const embed = new Discord.MessageEmbed()
   .setTitle("Please select a specific help section.")
-  .addField('Catergory', " 🎬 ``Action``\n  👑 ``Admin``\n  😜 ``Fun`` \n 🎉``Giveaway``\n 🖼️ ``Image`` \n  ℹ️  ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n 📨 ``Support``\n ✅ ``Utility``\n  🌇 ``Wallpaper``\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)", false)
+  .addField('Catergory', " 🎬 ``Action``\n  👑 ``Admin``\n  😜 ``Fun`` \n 🎉``Giveaway``\n 🖼️ ``Image`` \n  ℹ️  ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n 📨 ``Support``\n ✅ ``configity``\n  🌇 ``Wallpaper``\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)", false)
   .setColor("WHITE")
   .setURL("https://discord.gg/TQ3mTPE7Pf")
   .setThumbnail(message.member.user.displayAvatarURL({dynamic: true, size: 2048,}))

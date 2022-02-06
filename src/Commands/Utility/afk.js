@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const Command = require('../../Handlers/Command.js')
 const afkSchema = require("../../config/models/afk.js")
-const colour = require("../../util/assets/Json/colours.json")
-const emotes = require("../../util/assets/Json/emotes.json")
+const colour = require("../../config/assets/Json/colours.json")
+const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "afk",
     description: "set you afk",

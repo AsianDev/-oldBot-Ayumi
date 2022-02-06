@@ -11,7 +11,7 @@ module.exports = new Command({
     botPermissions: ["ADMINISTRATOR"],
     async run(message, args, client) {
 
-                        const colour = require("../../util/assets/Json/colours.json")
+                        const colour = require("../../config/assets/Json/colours.json")
                         const role = message.mentions.roles.first() 
                         const SuccessEmbed = new Discord.MessageEmbed()
                         .setColor(colour.lightish_blue)

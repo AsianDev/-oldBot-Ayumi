@@ -1,6 +1,6 @@
 const Event = require("../../Handlers/Event.js");
 const Discord = require("discord.js");
-const colour = require("../../util/assets/Json/colours.json")
+const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Event("guildMemberRemove", async (client, member, message) => { 
 
     const joinLogsEmbed = new Discord.MessageEmbed()

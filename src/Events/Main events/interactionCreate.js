@@ -1,7 +1,7 @@
 const Event = require("../../Handlers/Event.js");
-const { EveryoneRoleId, StaffRoleId, StaffRoleId2, CatergoryID, TrasnscriptID  } = require("../../util/assets/Json/ticket.json")
+const { EveryoneRoleId, StaffRoleId, StaffRoleId2, CatergoryID, TrasnscriptID  } = require("../../config/assets/Json/ticket.json")
 const Discord = require("discord.js")
-const colour = require("../../util/assets/Json/colours.json")
+const colour = require("../../config/assets/Json/colours.json")
 const { createTranscript } = require("discord-html-transcripts")
 
 module.exports = new Event("interactionCreate", async(client, interaction) => {

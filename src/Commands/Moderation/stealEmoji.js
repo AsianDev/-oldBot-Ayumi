@@ -1,4 +1,4 @@
-const { Util, MessageEmbed } = require("discord.js");
+const { config, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
 const Command = require('../../Handlers/Command.js')
 const errorX = "<:Ikix:904736839036993586>"
@@ -40,7 +40,7 @@ module.exports = new Command({
         return message.channel.send({embeds: [embed1]});
       }
 
-      const customEmoji = Util.parseEmoji(emoji);
+      const customEmoji = config.parseEmoji(emoji);
 
       if (customEmoji.id) {
         const link = `https://cdn.discordapp.com/emojis/${customEmoji.id}.${

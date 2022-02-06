@@ -5,7 +5,7 @@ const prefix = "Kao"
 const Discord = require("discord.js")
 const ms = require("ms");
 let timerSchema = require("../../config/models/reminder.js")
-const colour = require("../../util/assets/Json/colours.json")
+const colour = require("../../config/assets/Json/colours.json")
 const { table } = require("table");
 module.exports = new Event("ready", (client) => {
     // bot online in console

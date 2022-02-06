@@ -1,9 +1,9 @@
 const Event = require("../../Handlers/Event.js");
 const Discord = require("discord.js")
-const warndb = require('../../util/models/warndb.js')
+const warndb = require('../../config/models/warndb.js')
 const reason = "[Auto Mod] Sending Banned word"
 module.exports = new Event("messageCreate", async (client, message) => {
-    const array = require("../../util/assets/Json/BannedWord.json")
+    const array = require("../../config/assets/Json/BannedWord.json")
     if(array.includes(message.content.toLowerCase())) {
       message.delete()
         warndb.findOne({

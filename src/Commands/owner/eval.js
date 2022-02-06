@@ -19,7 +19,7 @@ module.exports = new Command({
             var evaled = eval(code);
 
             if (typeof evaled !== 'string')
-                evaled = require('util').inspect(evaled);
+                evaled = require('config').inspect(evaled);
 
             const embed = new Discord.MessageEmbed()
                 .setColor("#FCC8EA")

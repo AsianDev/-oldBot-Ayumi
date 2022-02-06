@@ -1,7 +1,7 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
-const emotes = require('../../util/assets/Json/emotes.json')
-const colour = require('../../util/assets/Json/colours.json')
+const emotes = require('../../config/assets/Json/emotes.json')
+const colour = require('../../config/assets/Json/colours.json')
 const feroms = require('fero-ms')
 
 module.exports = new Command({

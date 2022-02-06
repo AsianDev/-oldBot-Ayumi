@@ -2,7 +2,7 @@ const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const block = "⬛"
 const heart = "🟥"
-const emotes = require("../../util/assets/Json/emotes.json")
+const emotes = require("../../config/assets/Json/emotes.json")
 
 module.exports = new Command({
     name: "ship",

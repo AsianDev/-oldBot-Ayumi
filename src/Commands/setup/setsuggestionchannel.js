@@ -11,7 +11,7 @@ botPermissions: ["ADMINISTRATOR"],
 cooldown: 10000,
 aliases: ["setsuggestion", "set-suggest", "setsuggest", "set-suggestion", "setsuggestionchannel", "set-suggestchannel", "set-suggestionchannel"],
 async run(message, args, client) {
-    const colour = require("../../util/assets/Json/colours.json")
+    const colour = require("../../config/assets/Json/colours.json")
     const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
 
     const SuccessEmbed = new Discord.MessageEmbed()

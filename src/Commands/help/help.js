@@ -15,7 +15,7 @@ module.exports = new Command({
     const helpembed = new Discord.MessageEmbed()
         .setTitle("Please select a specific help section.")
         .setURL("https://discord.gg/TQ3mTPE7Pf")
-        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
+        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``configity``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
         .setFooter({ text: `Requested by ${message.author.tag} • ${client.commands.size} Commands in total`})
         .setColor("#FCAEEB")
         .setThumbnail(message.member.user.displayAvatarURL({dynamic: true, size: 2048,}))
@@ -176,15 +176,15 @@ const newRow = new Discord.MessageActionRow()
                             .setStyle("LINK")
                             )
 
-                  const utility = new Discord.MessageEmbed()
+                  const configity = new Discord.MessageEmbed()
                   .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
-                  .setDescription("```yaml\n Syntax: Kao <Utility Command>```")
+                  .setDescription("```yaml\n Syntax: Kao <configity Command>```")
                   .addField('__✅ MISC__', '\`\`\`ini\n[ afk, animesearch, banner, poll, report-bug, review, servericon serverinfo, suggest, timestamp, uptime, ytsearch ]\n\`\`\`')
                   .setTimestamp()
                   .setColor("BLUE")
                   .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
                   .setFooter({ text:` > Kaori • ${message.channel.name}`})
-                  const Utilrow = new Discord.MessageActionRow()        
+                  const configrow = new Discord.MessageActionRow()        
             .addComponents(
               new Discord.MessageButton()
               .setURL("https://top.gg/servers/873143392488525834")
@@ -201,7 +201,7 @@ const newRow = new Discord.MessageActionRow()
   else if(args[1] === 'setup'|| args[1] === 'Setup'){  message.reply({ embeds: [setup], components: [setupRow], allowedMentions: { repliedUser: false }}) }
   else if(args[1] === 'Backup'|| args[1] === 'backup'){ message.reply({ embeds: [HelpBackup], components: [BackupRow], allowedMentions: { repliedUser: false }}) }
   else if(args[1] === 'ticket'|| args[1] === 'Support'|| args[1] === 'support' || args[1] === 'Ticket'){  message.reply({ embeds: [ticket], components: [ticketRow], allowedMentions: { repliedUser: false }}) }
-  else if(args[1] === 'utility' || args[1] === 'Utility' || args[1] === 'util'){  message.reply({ embeds: [utility], components: [Utilrow], allowedMentions: { repliedUser: false }}) 
+  else if(args[1] === 'configity' || args[1] === 'configity' || args[1] === 'config'){  message.reply({ embeds: [configity], components: [configrow], allowedMentions: { repliedUser: false }}) 
           }
         }
   });

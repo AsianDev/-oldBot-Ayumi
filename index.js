@@ -3,17 +3,17 @@ console.clear();
 const Client = require("./src/Handlers/Client.js")
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
-const config = require("./src/util/Data/config.json")
+const config = require("./src/config/Data/config.json")
 const Canvas = require("canvas")
 const { registerFont } = require("canvas")
-registerFont( "./src/util/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
+registerFont( "./src/config/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
 // ---------------------CANVAS WELCOME AND LEAVE-------------------------- //
 var welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
 welcomeCanvas.context = welcomeCanvas.create.getContext('2d')
 welcomeCanvas.context.font = '72px Anton';
 welcomeCanvas.context.fillStyle = '#FFFFFF';
-Canvas.loadImage('./src/util/assets/image/Ikigai_Welcome.jpg').then(async (image) => {
+Canvas.loadImage('./src/config/assets/image/Ikigai_Welcome.jpg').then(async (image) => {
   welcomeCanvas.context.drawImage(image, 0, 0, 1024, 500)
   welcomeCanvas.context.fillText("Welcome", 360, 360);
   welcomeCanvas.context.beginPath();
@@ -26,7 +26,7 @@ leaveCanvas.create = Canvas.createCanvas(1024, 500)
 leaveCanvas.context = leaveCanvas.create.getContext('2d')
 leaveCanvas.context.font = '72px Anton';
 leaveCanvas.context.fillStyle = '#FFFFFF';
-Canvas.loadImage('./src/util/assets/image/leave.jpg').then(async (image) => {
+Canvas.loadImage('./src/config/assets/image/leave.jpg').then(async (image) => {
   leaveCanvas.context.drawImage(image, 0, 0, 1024, 500)
   leaveCanvas.context.fillText("Goodbye", 360, 360);
   leaveCanvas.context.beginPath();

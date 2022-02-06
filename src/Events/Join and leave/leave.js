@@ -2,9 +2,9 @@ const Event = require("../../Handlers/Event.js");
 
 const Discord = require("discord.js");
 const { registerFont } = require("canvas")
-registerFont( "./src/util/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
+registerFont( "./src/config/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
 module.exports = new Event("guildMemberRemove", async(client, member) => { 
-    const guildConfig = require("../../util/models/guildConfig.js")
+    const guildConfig = require("../../config/models/guildConfig.js")
     const data = await guildConfig.findOne({guildId: member.guild.id})
     if (!data) return
     const channel = member.guild.channels.cache.find(c => c.id === data.leaveChannel)
@@ -13,7 +13,7 @@ module.exports = new Event("guildMemberRemove", async(client, member) => {
     const Canvas = require('canvas')
     let canvas = Canvas.createCanvas(1024, 500); 
     let context2 = canvas.getContext('2d'); 
-    const background = await Canvas.loadImage("./src/util/assets/image/leave.jpg");
+    const background = await Canvas.loadImage("./src/config/assets/image/leave.jpg");
     context2.drawImage(background, 0, 0, canvas.width, canvas.height);
     context2.font = '60px Anton',
     context2.fillStyle = '#f7faf7';

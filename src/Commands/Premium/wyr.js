@@ -1,7 +1,7 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
-const questions = require("../../util/assets/Json/wyr.json")
-const settings = require("../../util/Data/settings.json")
+const questions = require("../../config/assets/Json/wyr.json")
+const settings = require("../../config/Data/settings.json")
 module.exports = new Command({
 
     name: 'wyr',

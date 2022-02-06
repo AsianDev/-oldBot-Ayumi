@@ -2,7 +2,7 @@ const Event = require("../../Handlers/Event.js");
 const Discord = require("discord.js");
 const reason = "[Auto Mod] Sending Scam link."
 module.exports = new Event("messageCreate", async (client, message) => {
-    const array = require("../../util/assets/Json/ScamLinks.json")
+    const array = require("../../config/assets/Json/ScamLinks.json")
     const Member = message.member
    if(array.includes(message.content.toLowerCase())) {
 

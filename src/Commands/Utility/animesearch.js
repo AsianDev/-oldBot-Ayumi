@@ -3,7 +3,7 @@ const Command = require('../../Handlers/Command.js')
 const { MessageEmbed } = require('discord.js');
 const Kitsu = require("kitsu.js");
 const kitsu = new Kitsu();
-const emotes = require("../../util/assets/Json/emotes.json")
+const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command ({
   
   name: "anime",

@@ -13,7 +13,7 @@ module.exports = new Command({
 
 
     async run(message, args, client) {
-        const colour = require("../../util/assets/Json/colours.json")
+        const colour = require("../../config/assets/Json/colours.json")
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
     
         const SuccessEmbed = new Discord.MessageEmbed()

@@ -5,7 +5,7 @@ const Discord = require("discord.js")
 const { Collection } = require('discord.js')
 const Timeout = new Discord.Collection()
 const ms = require("ms")
-const { owners } = require("../../util/Data/config.json");
+const { owners } = require("../../config/Data/config.json");
 const premiumSchema = require("../../config/models/premium.js");
 module.exports = new Event("messageCreate", async (client, message) => {
 
@@ -67,7 +67,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		.setDescription("My 3 prefixes i have current are of: ``Kao ``, ``Kaori `` & ``k.``. \nHere is a list of my command catergories! <:uwu:934418076877881395>")
 		.setColor("#FCC8EA")
 		.setURL("https://discord.gg/TQ3mTPE7Pf")
-		.addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
+		.addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``configity``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
 		.setFooter({ text: `${client.commands.size} Commands in total • Thanks for the ping <3`, iconURL: `${message.guild.iconURL()}`})
 
 	 if(message.content.replace(/(<@|!|>){1}/g, '') == `${client.user.id}`) return message.reply({embeds: [pingedmeresponse], allowedMentions: {repliedUser: false}})	   

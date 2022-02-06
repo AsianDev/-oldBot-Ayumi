@@ -1,6 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
-const c = require("../../util/assets/Json/colours.json")
+const c = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
         name: "kick",
         description: "kick a user",

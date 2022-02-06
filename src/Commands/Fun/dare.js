@@ -1,6 +1,6 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
-const dares = require("../../util/assets/Json/dare.json");
+const dares = require("../../config/assets/Json/dare.json");
 
 module.exports = new Command({
 

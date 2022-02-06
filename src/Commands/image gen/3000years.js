@@ -1,7 +1,7 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const AmeClient = require("amethyste-api");
-const config = require("../../util/Data/config.json")
+const config = require("../../config/Data/config.json")
 module.exports = new Command({
 
     name: "3000years",

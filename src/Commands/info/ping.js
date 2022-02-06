@@ -3,7 +3,7 @@
 const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const ms = require("ms")
-const emotes = require("../../util/assets/Json/emotes.json")
+const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
 
 	name: "ping",

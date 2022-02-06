@@ -1,8 +1,8 @@
 const Command = require('../../Handlers/Command.js')
 const paginate = require('discordjs-button-pagination');
 const { MessageButton, MessageEmbed } = require("discord.js")
-const emotes = require("../../util/assets/Json/emotes.json")
-const colour = require("../../util/assets/Json/colours.json")
+const emotes = require("../../config/assets/Json/emotes.json")
+const colour = require("../../config/assets/Json/colours.json")
 
 module.exports = new Command({
     name: "emojilist",
