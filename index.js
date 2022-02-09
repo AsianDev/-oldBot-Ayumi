@@ -7,6 +7,7 @@ const config = require("./src/config/Data/config.json")
 const Canvas = require("canvas")
 const { registerFont } = require("canvas")
 registerFont( "./src/config/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
+const chalk = require("chalk")
 // ---------------------CANVAS WELCOME AND LEAVE-------------------------- //
 var welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
@@ -54,5 +55,5 @@ process.on("unhandledRejection", (error, promise) => {
 mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
-})
+}).then(console.log(chalk.red.bold(`Kaori is connected to mongoose`)))
 client.start(config.Token)
