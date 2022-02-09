@@ -59,8 +59,7 @@ module.exports = new Command({
                     Date: Date.now()
                 }).save()
                 try {
-                    if(message.author.id == message.guild.ownerId) return;
-                   else message.member.setNickname(`[AFK] ${message.member.displayName}`)
+                   message.member.setNickname(`[AFK] ${message.member.displayName}`)
                     message.channel.send({embeds: [AfkEmbed2]})
                       } catch (error) {
                         message.channel.send({embeds: [AfkEmbed]})

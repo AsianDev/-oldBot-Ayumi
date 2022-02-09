@@ -8,13 +8,13 @@
 1. snipe command & event for it ⏰
 2. NQN feature? ❌
 3. giveaway with ms and djs only ⏰
-4. afk -> works with restart ✅ (uses a db as well, so i can add a ping count feature || number 26 || set nickname )
+4. afk -> works with restart ✅ ( uses a db, sets nickname when afk. timestamps and no.26 will be added. )
 5. economy system ⏰
 6. better ticket system? ✅ <- uses transcript
 7. more fun and image commands ✅
 8. timestamp generator cmd ✅ <- Reiner Braun#7958 gave code || i made changes oviously ||
 9. reaction roles? ⏰
-10. if boost event doesnt work, goota fix That => use canvas for it? (❓)
+10. if boost event doesnt work, goota fix That => use canvas for it? (:question: idk how to test. -> event emmiter?)
 11. premium commands ⏰
 12. NSFW for mods -> only did like 6 cmds lol ✅
 13. A suggestion cmd with accept and deny ❓
@@ -31,7 +31,7 @@
 24. movie-search command ✅
 25. try to attempt to make join 2 create vc event again...
 26. how many pings you got while afk?
-27. set thread to auto un-archieve with command
+27. set thread to auto un-archieve with command ⏰
 28. truth or dare (json - api suck)✅
 29. would you rather  (json - api suck)✅
 30. Thank system ⏰
@@ -40,6 +40,26 @@
 33. password generator ✅
 34. type fast game? ❌
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
-36. multiguild anti raid ⏰
+36.anti raid ⏰
 37. sourcebin command ✅ // archieved
 37. button paginator function -> https://youtu.be/eCGCheKei3I (outdated... MAKE CHANGES)
+38. Command info cmd
+39. fake nitro cmd -> use button ❌
+40. jisho command
+41. dm loggin ✅
+42. emoji commands -> emoji image, bulk steal
+
+
+// What to fix or continue coding
+
+❌ <= Scrapped idea
+✅ <= Done
+   <= Havent got to it yet
+
+1. Youtube video search command ❌
+2. nitro cmd ❌
+3. eval cmd <- remake it ✅ (fixed instead remake)
+4. interactioCreate event -> make it delete after 3 seconds... ✅
+5. zex command ✅
+6. dm loggin - messageCreate - wont send to the channel and no error ✅
+7. fix steal emoji cmd or might just be the server dunno

@@ -27,8 +27,8 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                  if (command) command.run(interaction, args, client)}
       
                  if(interaction.isButton()) {
-                    await interaction.deferReply({ ephemeral: true })
                     if (interaction.customId === "ticket-open") {
+                        await interaction.deferReply({ ephemeral: true }) // this was on like 30 -> fix if needed.
                         if(interaction.guild.channels.cache.find(e => e.topic == interaction.user.id)) {
                             return interaction.followUp({
                                 content: "*Bakaa~* You already have a ticket open!",
@@ -84,10 +84,10 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                     })
             
                     } else if(interaction.customId === "ticket-close") {
-                        interaction.followUp({embeds: [new Discord.MessageEmbed()
+                        interaction.reply({embeds: [new Discord.MessageEmbed()
                             .setColor(colour.lightish_blue)
                             .setTitle("Ticket will be closed. <a:loading:938879666800967720>")
-                            .setDescription("Closing the ticket in 5 seconds...")
+                            .setDescription("Closing the ticket in 3 seconds...")
                             .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
                         ]})
                         if(((interaction.channel.topic === interaction.user.id)) === interaction.user.id && StaffRoleId && StaffRoleId2 !== interaction.user.id) {
@@ -108,12 +108,13 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         .setDescription(`<@${interaction.user.id}>'s Ticket has been closed`)
                         .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
             
-                        client.channels.cache.get(TrasnscriptID).send({
+                    client.channels.cache.get(TrasnscriptID).send({
                             embeds: [embedClosedTicket],
                             files: [Trasnscript]
-                        }).then(() => {
-                            interaction.channel.delete()
                         })
+                 setTimeout(() => {
+                   interaction.channel.delete()
+                }, 3000)
                     }}
       
                 })

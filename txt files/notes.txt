@@ -156,6 +156,10 @@ ctrl + c = stop terminal
 })
 
 
+https://discord.com/channels/731532456724922459/823605956348608512/888334781744578570 <- filter & collector tip
+
+https://discord.com/channels/731532456724922459/823605956348608512/882577537652371456 <- anti raid command
+
 ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
 
 Examples

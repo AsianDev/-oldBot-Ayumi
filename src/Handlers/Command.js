@@ -15,7 +15,7 @@ function RunFunction(message, args, client) {}
 class Command {
 	/**
 	 * @typedef {"BOTH" | "SLASH" | "TEXT"} CommandType
-	 * @typedef {{name: string, description: string, userPermissions: Discord.PermissionString, botPermissions: Discord.PermissionString, type: CommandType, slashCommandOptions: Discord.ApplicationCommandOption[] run: RunFunction}} CommandOptions
+	 * @typedef {{name: string, description: string, userPermissions: Discord.PermissionString, botPermissions: Discord.PermissionString, type: CommandType, slashCommandOptions: Discord.ApplicationCommandOption[], ephemeral: ephemeral run: RunFunction}} CommandOptions
 	 * @param {CommandOptions} options
 	 */
 	constructor(options) {
@@ -29,6 +29,7 @@ class Command {
 		this.botPermissions = options.botPermissions;
 		this.type = ["BOTH", "SLASH", "TEXT"].includes(options.type) ? options.type : "TEXT";
 		this.slashCommandOptions = options.slashCommandOptions || [];
+		this.ephemeral = options.ephemeral
 		this.run = options.run;
 	}
 

@@ -14,7 +14,7 @@ module.exports = new Command({
 async run(message, args, client) {
   const embed = new Discord.MessageEmbed()
   .setTitle("Please select a specific help section.")
-  .addField('Catergory', " 🎬 ``Action``\n  👑 ``Admin``\n  😜 ``Fun`` \n 🎉``Giveaway``\n 🖼️ ``Image`` \n  ℹ️  ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n 📨 ``Support``\n ✅ ``configity``\n  🌇 ``Wallpaper``\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)", false)
+  .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
   .setColor("WHITE")
   .setURL("https://discord.gg/TQ3mTPE7Pf")
   .setThumbnail(message.member.user.displayAvatarURL({dynamic: true, size: 2048,}))

@@ -1,10 +1,13 @@
 const Event = require("../../Handlers/Event.js");
 const Discord = require('discord.js')
+const c = require("../../config/assets/Json/colours.json")
 
-module.exports = new Event("guildCreate", (client, guild, message, invite) => {
+module.exports = new Event("guildCreate", async(client, guild, channel, invite) => {
 
     const ch = guild.channels.cache.filter(c => c.name.includes('general')).first() || guild.channels.cache.filter(c => c.name.includes('chat')).first() || guild.channels.cache.filter(c => c.name.includes('lounge')).first() || guild.systemChannel || guild.channels.cache.filter(c => c.type == 'GUILD_TEXT').first()
     if (!ch) return;
+    
+    const owner = await guild.fetchOwner()
     
     const row = new Discord.MessageActionRow()
     .addComponents(
@@ -17,21 +20,24 @@ module.exports = new Event("guildCreate", (client, guild, message, invite) => {
     const Invite = new Discord.MessageEmbed()
     .setTitle("*Waa~* Thanks for adding me! <:Iki_Sakura:897357779956793356>")
     .setURL("https://discord.gg/TQ3mTPE7Pf")
-    .setDescription(`Thanks for adding <@!${client.user.id}> to ${invite.guild.name}. I will server my best here!`)
-    .addField("<a:Kao_crown:935906010122559548> My Main Features include:", `<a:arrow:936271087128420375> **40+** Anime commands\n <a:arrow:936271087128420375> **30+** Moderation and Adminstration Commands\n <a:arrow:936271087128420375> Many **fun** and **informatic** Commands\n <a:arrow:936271087128420375> **Welcome** and **leave** Cards \n\n <:Iki_tick:904736864076955738> Much more features to come.`, true)
-    .setImage("https://media.discordapp.net/attachments/893441333300178964/923903676786049044/PicsArt_12-24-07.43.07.jpg?width=869&height=498")
+    .setDescription(`Thanks for adding <@!${client.user.id}> to ${guild.name}. I will do my best here!`)
+    .addField("<a:Kao_crown:940625784199073812> Who am i:", `My name is **__kaori__**.\nI was developed by __Sensei | 旭陽#8751__ using javascript and discord.js.\n I have well over 200 commands with more coming.`, true)
+    .setImage("https://cdn.discordapp.com/attachments/873149666282311680/940628803196186674/kaoaoaiao.png")
     .setThumbnail(client.user.displayAvatarURL())
     .setColor(`#4D9AE6`) 
-    .setFooter({ text: "Thanks for inviting me <3"})
+    .setFooter({ text: "Thanks for inviting me <3... UwU"})
 
-    if (invite.guild.me.permissionsIn(invite.channel).has("CREATE_INSTANT_INVITE" || "ADMINISTRATOR")) {
-	    invite.channel.createInvite({ maxAge: 0, maxUses: 0 }).then(i => { 
+    if (guild.me.permissionsIn(ch).has("CREATE_INSTANT_INVITE" || "ADMINISTRATOR")) {
+        ch.createInvite({ maxAge: 0, maxUses: 0 }).then(i => { 
 
             const Invited = new Discord.MessageEmbed()
             .setTitle("*Waa~* I have joined a new Sever! <:Iki_Sakura:897357779956793356>")
             .setURL("https://discord.gg/TQ3mTPE7Pf")
             .setDescription(`I have been added to a new Server!`)
-            .addField("<a:Kao_crown:935906010122559548> Invite link:", `${i}`)
+            .setColor(c.pink)
+            .addField("<a:Kao_crown:940625784199073812> Invite link:", `${i}`)
+            .addField("<a:Kao_crown:940625784199073812> Owner:", `${owner}`)
+            .addField("<a:Kao_crown:940625784199073812> Members:", `${guild.memberCount}`)
             .setThumbnail(`${client.user.displayAvatarURL({ dynamic: true })}`)
 
             client.channels.cache.get("935866768424063046").send({ embeds: [Invited]}) 

@@ -17,12 +17,12 @@ const intents = new Discord.Intents([
     "GUILD_INTEGRATIONS",
     "GUILD_WEBHOOKS",
     "GUILD_MESSAGE_REACTIONS",
-]);
+])
 
 const fs = require("fs");
 class Client extends Discord.Client {
 	constructor() {
-		super({ intents })
+		super({ intents, partials: ["CHANNEL"], restTimeOffset: 0})
 		/**
 		 * @type {Discord.Collection<string, Command>}
 		 */
@@ -63,7 +63,7 @@ class Client extends Discord.Client {
 
         this.on("ready", async () => {
         const cmds = await this.application.commands.set(slashCommands);
-        cmds.forEach(cmd => console.log(`✅ ${cmd.name} '/' registered`));
+        // cmds.forEach(cmd => console.log(`✅ ${cmd.name} '/' registered`));
     })
 
         const direct = fs.readdirSync('./src/Events')

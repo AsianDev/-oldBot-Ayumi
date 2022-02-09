@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 const guildConfig = require('../../config/models/guildConfig.js')
 
 module.exports = new Command({
+    
     name: "setqwelc",
     description: "set the suggestion channel to what you want it to be!",
     cooldown: 10000,
@@ -11,8 +12,8 @@ module.exports = new Command({
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
 
-
     async run(message, args, client) {
+        
         const colour = require("../../config/assets/Json/colours.json")
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
     

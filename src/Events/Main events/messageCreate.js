@@ -10,6 +10,17 @@ const premiumSchema = require("../../config/models/premium.js");
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
+		// ------------------------------------------ DM LOGGIN ---------------------------------- //
+
+	if(message.channel.type === "DM"){
+		let loggingDM = new Discord.MessageEmbed()
+		.setColor("BLUE")
+		.setThumbnail(`${message.author.displayAvatarURL()}`)
+		.setTitle(`A User has dm'ed ${client.user.tag}`)
+		.addField("Message:", `${message.content}`)
+		.addField("Author:", `${message.author.tag}`)
+		client.channels.cache.get("932285249205960764").send({ embeds: [loggingDM] });
+	  }
 
 	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
 
@@ -67,7 +78,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		.setDescription("My 3 prefixes i have current are of: ``Kao ``, ``Kaori `` & ``k.``. \nHere is a list of my command catergories! <:uwu:934418076877881395>")
 		.setColor("#FCC8EA")
 		.setURL("https://discord.gg/TQ3mTPE7Pf")
-		.addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``configity``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
+        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
 		.setFooter({ text: `${client.commands.size} Commands in total • Thanks for the ping <3`, iconURL: `${message.guild.iconURL()}`})
 
 	 if(message.content.replace(/(<@|!|>){1}/g, '') == `${client.user.id}`) return message.reply({embeds: [pingedmeresponse], allowedMentions: {repliedUser: false}})	   
@@ -157,10 +168,11 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			// ------------------------------------------- COMMAND COOLDOWNS ----------------------------------- //
 			if (command) {
 				if (command.cooldown) {
-					if (Timeout.has(`${command.name}${message.author.id}`)) return message.channel.send({
+					if (Timeout.has(`${command.name}${message.author.id}`)) return message.reply({
 						embeds: [new Discord.MessageEmbed()
 							.setColor("#ff3235")
-							.setDescription(`⏱️ ┃ <@${message.author.id}> You are on cooldown. Please wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} `)]
+							.setDescription(`***Waa~* you need to wait!** (；⌣̀_⌣́)	\n You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n The Default cooldown for ${command.name} is ${ms(`${command.cooldown}`), { long: false }}`)
+						], allowedMentions: {repliedUser: false}
 					})
 					command.run(message, args, client)
 					Timeout.set(`${command.name}${message.author.id}`, Date.now() + command.cooldown)

@@ -1,6 +1,10 @@
-const Discord = require('discord.js');
 const Command = require('../../Handlers/Command.js')
+const Discord = require('discord.js')
+const emotes = require('../../config/assets/Json/emotes.json')
+const colour = require('../../config/assets/Json/colours.json')
+
 module.exports = new Command({
+
     name: "eval",
     description: "Evaluation cmd",
     owner: true,
@@ -11,34 +15,43 @@ module.exports = new Command({
     async run(message, args, client) {
 
         try {
-            var code = args.slice(2).join(' ');
-            if (!code) return message.reply('You need to eval something.')
+            var code = args.slice(1).join(' ');
+            if (!code) return message.reply({ embeds: [new Discord.MessageEmbed()
+                .setColor(colour['pale red'])
+                .setDescription("*Bakaa~* you need to eval something!")
+                .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
+            ], allowedMentions: {repliedUser: false}})
 
             if (code.includes('client.token'))
-                return message.reply('*Waa~~* Wa.. Waa. Waa~t are you doing? Dont wanna do that 0_0');
+                return message.reply({ embeds: [new Discord.MessageEmbed()
+                    .setColor(colour['pale red'])
+                    .setDescription("*Bakaa~* I can not show you my token!")
+                    .setTitle(`${emotes.Error} AN ERROR OCCURED`)
+                ], allowedMentions: {repliedUser: false}})
+    
             var evaled = eval(code);
 
             if (typeof evaled !== 'string')
-                evaled = require('config').inspect(evaled);
+                evaled = require('util').inspect(evaled);
 
-            const embed = new Discord.MessageEmbed()
-                .setColor("#FCC8EA")
+            const evaledembed = new Discord.MessageEmbed()
+                .setColor(colour.pink)
                 .addField('📥 Input: ', `\`\`\`${code}\`\`\``)
                 .addField(
                     '📤 Output: ',
                     `\`\`\`js\n${clean(evaled)}\n\`\`\``
                 );
-            message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+            message.channel.send({ embeds: [evaledembed]});
 
         } catch (err) {
-            const embed = new Discord.MessageEmbed()
-                .setColor("#FCC8EA")
+            const errembed = new Discord.MessageEmbed()
+                .setColor(colour['light red'])
                 .addField('📥 Input: ', `\`\`\`${code}\`\`\``)
                 .addField(
                     '📤 Output: ',
                     `\`\`\`${clean(err)}\`\`\``
                 );
-            message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+            message.reply({ embeds: [errembed] });
         }
 
         function clean(text) {

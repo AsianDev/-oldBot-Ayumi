@@ -15,7 +15,9 @@ module.exports = new Event("ready", (client) => {
       ["SERVERS", `${chalk.yellow.bold(client.guilds.cache.size.toLocaleString())}`, "My servers"],
       ["USERS", `${chalk.green.bold(client.users.cache.size.toLocaleString())}`, "Users i watch over (〃ω〃)"],
       ["TIME", `${chalk.magenta.bold(ms(ms(Math.round(process.uptime() - (client.uptime/1000))+'s')))}`, "Seconds to load bot"],
-      ["COMMANDS", `${chalk.blue.bold(client.commands.size.toLocaleString())}`, "My Total Commands"]
+      ["COMMANDS", `${chalk.blue.bold(client.commands.size.toLocaleString())}`, "My Total Commands"],
+      ["VERSION", `${chalk.red.bold(process.version)}`, "My node version"],
+      ["MEMORY:", `${chalk.red.bold((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2))} MB`, "My total memory"]
     ]    
 
     const config = {
@@ -46,7 +48,14 @@ module.exports = new Event("ready", (client) => {
     };
     console.log(table(data, config))
   
-
+    console.log(
+      chalk.hex("#00ceff") ("██╗  ██╗ █████╗  ██████╗ ██████╗ ██╗        ██╗███████╗      ██████╗ ███╗   ██╗██╗███╗   ██╗███████╗      \n"),
+      chalk.hex("#dc00ff") ("██║ ██╔╝██╔══██╗██╔═══██╗██╔══██╗██║        ██║██╔════╝     ██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝      \n"),
+      chalk.hex("#00ceff") ("█████╔╝ ███████║██║   ██║██████╔╝██║        ██║███████╗     ██║   ██║██╔██╗ ██║██║██╔██╗ ██║█████╗        \n"),
+      chalk.hex("#dc00ff") ("██╔═██╗ ██╔══██║██║   ██║██╔══██╗██║        ██║╚════██║     ██║   ██║██║╚██╗██║██║██║╚██╗██║██╔══╝        \n"),
+      chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║     ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
+      chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
+  )
 
 // old one
 /*
@@ -70,14 +79,6 @@ module.exports = new Event("ready", (client) => {
     console.log(chalk.gray(`Running on Node ${process.version} on ${process.platform} ${process.arch}`))
     console.log(chalk.gray(`Memory: ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB RSS\n${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`))
 
-    console.log(
-      chalk.hex("#00ceff") ("██╗  ██╗ █████╗  ██████╗ ██████╗ ██╗        ██╗███████╗     ██████╗ ███╗   ██╗██╗███╗   ██╗███████╗      \n"),
-      chalk.hex("#dc00ff") ("██║ ██╔╝██╔══██╗██╔═══██╗██╔══██╗██║        ██║██╔════╝    ██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝      \n"),
-      chalk.hex("#00ceff") ("█████╔╝ ███████║██║   ██║██████╔╝██║        ██║███████╗    ██║   ██║██╔██╗ ██║██║██╔██╗ ██║█████╗        \n"),
-      chalk.hex("#dc00ff") ("██╔═██╗ ██╔══██║██║   ██║██╔══██╗██║        ██║╚════██║    ██║   ██║██║╚██╗██║██║██║╚██╗██║██╔══╝        \n"),
-      chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║    ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
-      chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝     ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
-  )
   /*/
 
 
@@ -88,15 +89,9 @@ module.exports = new Event("ready", (client) => {
           `with my friends`,
           "Kao report < user >",
           "with my friends",
+          "Boost Ikigai",
           "with my friends",
-          "with my friends",
-          "with my friends",
-          "Will you be my bby?",
-          "with my friends",
-          "kao help",
-          "with my friends",
-          "with my friends",
-          "discord.gg/TQ3mTPE7Pf",
+          "Boost Ikigai",
           "with my friends",
       ];
       let index = 0;
