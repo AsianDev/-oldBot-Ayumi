@@ -155,6 +155,8 @@ ctrl + c = stop terminal
   },
 })
 
+Bitfield invalid means the permissions given, fetched are wrong
+
 
 https://discord.com/channels/731532456724922459/823605956348608512/888334781744578570 <- filter & collector tip
 
