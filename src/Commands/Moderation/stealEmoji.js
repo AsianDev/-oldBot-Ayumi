@@ -1,7 +1,10 @@
-const { config, MessageEmbed } = require("discord.js");
+const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
 const Command = require('../../Handlers/Command.js')
 const errorX = "<:Ikix:904736839036993586>"
+const c = require("../../config/assets/Json/colours.json")
+const e = require("../../config/assets/Json/emotes.json")
+
 
 module.exports = new Command({
     name: "steal",
@@ -18,7 +21,7 @@ module.exports = new Command({
     const name = args.slice(2).join(" ");
     if (!emoji) {
       const embed = new MessageEmbed()
-      .setColor("#FCC8EA")
+      .setColor(c["light red"])
       .setDescription("*Waa~* Please provide an emoji!")
       .setTitle(`${errorX} MISSING ARGUEMENT`)  
       return message.channel.send({embeds: [embed]})
@@ -29,18 +32,14 @@ module.exports = new Command({
         await message.guild.emojis.create(emoji, name || "give_name");
 
         const embed1 = new MessageEmbed()
-          .setTitle(`Emoji Added`)
-          .setThumbnail(`${emoji}`)
-          .setColor('#FF69B4')
-          .setDescription(
-            `Emoji Has Been Added! | Name: ${
-              name || "give_name"
-            } `
-          );
+        .setColor(c.pink)
+        .setThumbnail(`${emoji.url}`)
+        .setTimestamp()
+        .setDescription(`<:Iki_tick:904736864076955738> **Enlarged Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${emoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${emoji.url})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${emoji.id}\``)    
         return message.channel.send({embeds: [embed1]});
       }
 
-      const customEmoji = config.parseEmoji(emoji);
+      const customEmoji = Util.parseEmoji(emoji); 
 
       if (customEmoji.id) {
         const link = `https://cdn.discordapp.com/emojis/${customEmoji.id}.${
@@ -53,39 +52,32 @@ module.exports = new Command({
         );
        
         const embed6 = new MessageEmbed()
-          .setTitle(`Emoji Added <:${customEmoji.name}:${customEmoji.id}>`)
-          .setColor('#FF69B4')
+          .setColor(c.pink)
           .setThumbnail(`${link}`)
-          .setDescription(
-            `Emoji Has Been Added! | Name: ${
-              name || `${customEmoji.name}`
-            } | Preview: **[Click me](${link})**`
-          );
-        return message.channel.send({embeds: [embed6]});
+          .setTimestamp()
+          .setDescription(`<:Iki_tick:904736864076955738> **Enlarged Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${ name || customEmoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${link})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${customEmoji.id}\``)    
+          return message.channel.send({embeds: [embed6]});
       } else {
         const foundEmoji = parse(emoji, { assetType: "png" });
         if (!foundEmoji[1]) {
            const errorX = "<:Ikix:904736839036993586>"
 
            const embed2 = new MessageEmbed()
-           .setColor("#FCC8EA")
+           .setColor(c["light red"])
            .setDescription("*Waa~* Please provide an emoji!")
            .setTitle(`${errorX} MISSING ARGUEMENT`)             
           return message.channel.send({embeds: [embed2]});
         }
       }
     } catch (e) {
-      if (
-        String(e).includes(
-          "DiscordAPIError: Maximum number of emojis reached (50)"
-        )
-      ) {
          const embed4 = new MessageEmbed()
-               .setDescription(`Maximum emoji count reached for this Server!`)
-               .setColor('RANDOM')
+               .setDescription(`An error occured while running this command:`)
+                .addField("Error:", `${e}`)
+                 .setTitle(`${errorX} AN ERROR OCCURED `)
+               .setColor(c["light red"])
+               console.log(e)
         
         return message.channel.send({embeds: [embed4]})
-      }
     }
   }
 })
