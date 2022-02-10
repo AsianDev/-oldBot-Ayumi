@@ -8,7 +8,7 @@ module.exports = new Command({
     description: "who would win?",
     type: "TEXT",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     cooldown: 4000,
 
     async run(message, args, client) {

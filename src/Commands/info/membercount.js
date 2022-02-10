@@ -7,7 +7,7 @@ module.exports = new Command({
         type: "TEXT",
         aliases: ["member-count", "count"],
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         cooldown: 5000,
         async run(message, args, client) {
           const embed = new Discord.MessageEmbed()

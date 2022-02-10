@@ -6,7 +6,7 @@ module.exports = new Command({
         name: "coinflip",
         description: "test your luck with a flip",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 5000,
         aliases: ["cflip", "flipcoin", "coinglip", "coingflip"],

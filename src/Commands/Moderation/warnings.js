@@ -6,7 +6,7 @@ module.exports = new Command({
         name: "warnings",
         description: "someone has warnings",
         userPermissions: ["KICK_MEMBERS"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 10000,
 

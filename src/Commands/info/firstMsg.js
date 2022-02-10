@@ -4,7 +4,7 @@ const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
     name: "firstmsg",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 5000,
     description: "shows first msg of channel",

@@ -8,7 +8,7 @@ name: "remove-timeout",
     aliases: ['rt'],
     description: 'Remove the timeout of the mentioned member',
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
 
      async run(message, args, client) {

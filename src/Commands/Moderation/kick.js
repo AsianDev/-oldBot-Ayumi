@@ -5,7 +5,7 @@ module.exports = new Command({
         name: "kick",
         description: "kick a user",
         userPermissions: ["KICK_MEMBERS"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 10000,
         async run(message, args, client) {

@@ -7,7 +7,7 @@ module.exports = new Command ({
     aliases: ["en-translate", "translate"],
     description: "translate something",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     async run(message, args, client) {
 

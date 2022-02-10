@@ -6,7 +6,7 @@ module.exports = new Command({
         name: "flip",
         description: "flip you text",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 3000,
         async run(message, args, client) {

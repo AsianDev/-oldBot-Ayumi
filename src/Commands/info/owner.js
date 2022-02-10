@@ -7,7 +7,7 @@ module.exports = new Command ({
     type: "TEXT",
     cooldown: 10000,
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     async run(message, args, client) {   
         const embed = new Discord.MessageEmbed()
         .setColor("DARK_PURPLE")

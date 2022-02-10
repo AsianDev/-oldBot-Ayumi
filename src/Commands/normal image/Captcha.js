@@ -6,7 +6,7 @@ module.exports = new Command({
     name: "captcha",
     description: "Captcha system",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 10000,
 

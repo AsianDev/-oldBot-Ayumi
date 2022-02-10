@@ -4,7 +4,7 @@ module.exports = {
     name: "cmd-enable",
     type: "TEXT",
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     aliases: ["enable-command", "enable-cmd", "enable"],
     description: "Enables a command",
     cooldown: 10000,

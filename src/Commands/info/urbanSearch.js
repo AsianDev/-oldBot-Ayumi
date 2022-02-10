@@ -7,7 +7,7 @@ module.exports = new Command({
     name: "urban-search",
     description: "Search info up",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     aliases: ["ub", "urban"],
     cooldown: 5000,

@@ -3,7 +3,7 @@ const Command = require('../../Handlers/Command.js')
 module.exports = new Command ({
     name: "channel-create",
     userPermissions: ["ADMINISTRATOR"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 10000,
     aliases: ["create-channel", "channelcreate", "createhannel"],

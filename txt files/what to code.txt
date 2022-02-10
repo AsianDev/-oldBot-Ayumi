@@ -42,7 +42,7 @@
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
 36.anti raid ⏰
 37. sourcebin command ✅ // archieved
-37. button paginator function -> https://youtu.be/eCGCheKei3I (outdated... MAKE CHANGES)
+37. button paginator function  ✅
 38. Command info cmd
 39. fake nitro cmd -> use button ❌
 40. jisho command
@@ -62,4 +62,4 @@
 4. interactioCreate event -> make it delete after 3 seconds... ✅
 5. zex command ✅
 6. dm loggin - messageCreate - wont send to the channel and no error ✅
-7. fix steal emoji cmd or might just be the server dunno
+7. fix steal emoji cmd or might just be the server dunno ✅

@@ -6,7 +6,7 @@ module.exports = new Command({
     name: "whois",
     description: "Display's the Information on a user",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     cooldown: 3000,
     aliases: ["userinfo", "ui", "useri"],
     type: "TEXT",

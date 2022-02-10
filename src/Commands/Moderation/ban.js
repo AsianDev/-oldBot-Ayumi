@@ -8,7 +8,7 @@ module.exports = new Command({
     description: "ban a user",
     cooldown: 10000,
     userPermissions: ["BAN_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     aliases: ["banhammer", "bann", "ban-user"],
     async run(message, args, client) {

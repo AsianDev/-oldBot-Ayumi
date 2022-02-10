@@ -2,7 +2,7 @@ const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
     name: 'slowmode',
     userPermissions: ["ADMINISTRATOR"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 10000,
     description: "gives custom slowmode!",

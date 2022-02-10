@@ -35,7 +35,7 @@ module.exports = new Command({
         .setColor(c.pink)
         .setThumbnail(`${emoji.url}`)
         .setTimestamp()
-        .setDescription(`<:Iki_tick:904736864076955738> **Enlarged Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${emoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${emoji.url})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${emoji.id}\``)    
+        .setDescription(`<:Iki_tick:904736864076955738> **Added Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${emoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${emoji.url})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${emoji.id}\``)    
         return message.channel.send({embeds: [embed1]});
       }
 
@@ -55,7 +55,7 @@ module.exports = new Command({
           .setColor(c.pink)
           .setThumbnail(`${link}`)
           .setTimestamp()
-          .setDescription(`<:Iki_tick:904736864076955738> **Enlarged Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${ name || customEmoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${link})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${customEmoji.id}\``)    
+          .setDescription(`<:Iki_tick:904736864076955738> **Added Emoji!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${ name || customEmoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${link})\n <:Kao_Reply:940971041621180437> Emoji Id: \`${customEmoji.id}\``)    
           return message.channel.send({embeds: [embed6]});
       } else {
         const foundEmoji = parse(emoji, { assetType: "png" });

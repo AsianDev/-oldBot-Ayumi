@@ -5,7 +5,7 @@ module.exports = {
     type: "TEXT",
     cooldown: 10000,
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     aliases: ["disable-command", "disable-cmd", "disable"],
     description: "disables command",
     async run(message, args, client) {

@@ -8,7 +8,7 @@ module.exports = new Command({
     cooldown: 10000,
     description: "remove the warnings of someone",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     aliases: ["rwarnings", "remove-warns", "raw", "remove-allwarns"],
     async run(message, args, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);

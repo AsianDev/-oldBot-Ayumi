@@ -9,7 +9,7 @@ module.exports = new Command({
     type: "TEXT",
     description: "warn someone",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
         cooldown: 10000,
     async run(message, args, client) {
 

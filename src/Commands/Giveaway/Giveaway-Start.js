@@ -11,7 +11,7 @@ module.exports = new Command({
     aliases: ["gstart", "giveawaystart", "startt", "tart"],
     cooldown: 5000,
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     
   async run(message, args, client) {
 

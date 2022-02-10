@@ -4,7 +4,7 @@ module.exports = new Command({
     name: "8ball",
     description: "8ball its pretty simple",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 5000,
     aliases: ["question"],

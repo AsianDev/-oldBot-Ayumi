@@ -8,7 +8,7 @@ module.exports = new Command({
     type: "TEXT",
     timeout: 1000,
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     async run(message, args, client) {
         const colour = require("../../config/assets/Json/colours.json")
         const role = message.mentions.roles.first() 

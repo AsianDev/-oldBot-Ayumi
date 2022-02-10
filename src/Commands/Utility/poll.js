@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "Make a poll",
     aliases: ["question", "pol", "questionare"],
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 5000,
 

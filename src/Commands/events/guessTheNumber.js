@@ -10,7 +10,7 @@ module.exports = new Command({
     description: "Start a gtn event!",
     type: "TEXT",
     userPermissions: "",
-    botPermissions: "ADMINISTRATOR",
+    botPermissions: "SEND_MESSAGES",
     cooldown: 4000,
     owner: true,
 

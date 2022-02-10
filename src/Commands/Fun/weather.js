@@ -9,7 +9,7 @@ module.exports = new Command({
     type: "TEXT",
     cooldown: 5000,
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     description: "checks the weather of a location",
     async run(message, args, client) {
         weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result){

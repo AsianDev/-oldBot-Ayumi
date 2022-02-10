@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 module.exports = new Command ({
     name: "channel-delete",
     userPermissions: ["ADMINISTRATOR"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 10000,
     aliases: ["delete-channel", "channeldelete", "deletehannel"],

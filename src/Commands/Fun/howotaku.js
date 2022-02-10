@@ -5,7 +5,7 @@ module.exports = new Command({
         name: "howotaku",
         description: "see how much of an otaku you are",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 5000,
         aliases: ["otaki%", "otaku", "otaku-level"],

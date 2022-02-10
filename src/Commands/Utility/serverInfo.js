@@ -6,7 +6,7 @@ module.exports = new Command({
     name: 'serverinfo',
     description: "Display the servers information",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     aliases: ["si", "server-info"],
     cooldown: 10000,

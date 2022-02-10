@@ -7,7 +7,7 @@ module.exports = new Command({
     name: "unban",
     description: "Unban's someone from the server!",
     userPermissions: ["BAN_MEMBERS"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
       type: "TEXT",
     cooldown: 10000,
 

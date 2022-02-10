@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "Set the welcome channel.",
     type: "TEXT",
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     cooldown: 10000,
     aliases: ["setwelcome", "set-welcome", "set-welc", "setwelcomechannel", "set-welcomechannel"],
     async run(message, args, client) {

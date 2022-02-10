@@ -6,7 +6,7 @@ module.exports = new Command({
     name: 'suggest',
     description: "make a suggestion to your suggestion channel",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     aliases: ["suggestion"],
     cooldown: 10000,

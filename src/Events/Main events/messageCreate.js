@@ -6,7 +6,11 @@ const { Collection } = require('discord.js')
 const Timeout = new Discord.Collection()
 const ms = require("ms")
 const { owners } = require("../../config/Data/config.json");
-const premiumSchema = require("../../config/models/premium.js");
+const premiumSchema = require("../../config/models/premium.js")
+const emotes = require('../../config/assets/Json/emotes.json')
+const colour = require('../../config/assets/Json/colours.json')
+
+
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
@@ -51,16 +55,16 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
 
-	if (message.content.toLowerCase() === 'welcome') return message.react('<:Iki_TomoeWow:913019554538598431>')
+	if (message.content.toLowerCase() == 'welcome') return message.react('<:Iki_TomoeWow:913019554538598431>')
 
-	if (message.content.toLowerCase() === 'welc') return message.react('❤️')
-	if (message.content.toLowerCase() === 'welcomeee') return message.react('<:TomoeWow:913019554538598431>')
-	if (message.content.toLowerCase() === "how are you") return message.channel.send("Hmm im not sure if you asked me but im okay.")
-	if (message.content.toLowerCase() === 'welcome!') return message.react('❤️')
-	if (message.content === 'F') return message.reply({ content: `<@${message.author.id}> has paid their respect <a:HashiHeart:922084304518004779>`, allowedMentions: { repliedUser: false } })
-	if (message.content.toLowerCase() === 'Thanks for joining') return message.react('❤️')
-	if (message.content.toLowerCase() === 'ty for joining') return message.react('❤️')
-	if (message.content.toLowerCase() === 'fuck') return message.react('💢')
+	if (message.content.toLowerCase() == 'welc') return message.react('❤️')
+	if (message.content.toLowerCase() == 'welcomeee') return message.react('<:TomoeWow:913019554538598431>')
+	if (message.content.toLowerCase() == "how are you") return message.channel.send("Hmm im not sure if you asked me but im okay.")
+	if (message.content.toLowerCase() == 'welcome!') return message.react('❤️')
+	if (message.content == 'F') return message.reply({ content: `<@${message.author.id}> has paid their respect <a:HashiHeart:922084304518004779>`, allowedMentions: { repliedUser: false } })
+	if (message.content.toLowerCase() == 'Thanks for joining') return message.react('❤️')
+	if (message.content.toLowerCase() == 'ty for joining') return message.react('❤️')
+	if (message.content.toLowerCase() == 'fuck') return message.react('💢')
 
 		// ---------------------------------------- EVERYONE PING RESPONSE --------------------------------------- //
 
@@ -153,7 +157,23 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 		if (command.premium && !(await premiumSchema.findOne({ user: message.author.id }))) return message.reply({ embeds: [UpgradeToPremiumPlease], components: [UpgradeToPremiumPleaseButton] })
 
+				// ---------------------------------------- NSFW CHECKING ------------------------- //
+				const NSFW = new Discord.MessageEmbed()
+				.setColor(colour['light red'])
+				.setTitle(`${emotes.Error} THIS IS NOT AN NSFW CHANNEL`)
+				.setDescription("Please run this command in an NSFW Channel")
 
+				if (command) {
+					if (!message.channel.nsfw) {
+						if (command.nsfw) {
+						message.react("<:Iki_MAD:874174682427969536>");
+						return message.reply({ embeds: [NSFW], allowedMentions: {repliedUser: false} }).then((msg) => {
+							setTimeout(() => msg.delete(), 3000);
+						  });
+						}
+					}
+
+						
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
 		const commandDb = require('../../config/models/command.js');
 		if (command) {
@@ -186,4 +206,4 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			}
 		}
 	}
-}) 
+}}) 

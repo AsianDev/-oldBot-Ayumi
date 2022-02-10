@@ -1,13 +1,14 @@
 const Command = require('../../Handlers/Command.js')
-const paginate = require('discordjs-button-pagination');
+// const paginate = require('discordjs-button-pagination');
 const { MessageButton, MessageEmbed } = require("discord.js")
 const emotes = require("../../config/assets/Json/emotes.json")
 const colour = require("../../config/assets/Json/colours.json")
+const { paginate } = require("../../config/functions/buttonPagination.js")
 
 module.exports = new Command({
     name: "emojilist",
     owner: true,
-    aliases: ["emojis", "elist", "emolist", "emotelist"],
+    aliases: ["emojis", "elist", "emolist", "emotelist", "e"],
     cooldown: 7000,
     description: "List all the emotes from the server.",
     type: "TEXT",
@@ -57,11 +58,13 @@ module.exports = new Command({
         for (let i = 0; i < (Object.keys(embed).length); i++) {
             embedslist.push(embed[i])
         }        
-        const button1 = new MessageButton().setCustomId('prev').setLabel('Previous').setStyle('PRIMARY');
-        const button2 = new MessageButton().setCustomId('next').setLabel('Next').setStyle('PRIMARY');
+        // const button1 = new MessageButton().setCustomId('prev').setLabel('Previous').setStyle('PRIMARY');
+        // const button2 = new MessageButton().setCustomId('next').setLabel('Next').setStyle('PRIMARY');
+        // buttonList = [ button1, button2 ]
+        // paginate(message, embedslist, buttonList);
         
-        buttonList = [ button1, button2 ]
-        paginate(message, embedslist, buttonList);
+        paginate(message, embedslist);
+
  3
         m.delete()
     }

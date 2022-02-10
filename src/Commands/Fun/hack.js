@@ -125,7 +125,7 @@ module.exports = new Command({
         name: "hack",
         description: "hack a user",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: ["ADMINISTRATOR"],
+        botPermissions: "SEND_MESSAGES",
         type: "TEXT",
         cooldown: 7000,
         aliases: ["hax"],

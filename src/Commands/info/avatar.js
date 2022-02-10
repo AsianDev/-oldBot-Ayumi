@@ -7,7 +7,7 @@ module.exports = new Command({
     cooldown: 3000,
     type: "TEXT",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     aliases: ["pfp", "avatar", "useravatar"],
     /**
      * @param {Client} client

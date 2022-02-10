@@ -5,7 +5,7 @@ module.exports = new Command({
     name: "pp",
     description: "reveals your pp size",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 5000,
     async run(message, args, client) {

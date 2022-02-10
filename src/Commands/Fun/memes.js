@@ -6,7 +6,7 @@ module.exports = new Command({
     name: "meme",
     description: "sends a random meme",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     cooldown: 5000,
 

@@ -9,7 +9,7 @@ module.exports = new Command({
     cooldown: 7000,
     type: "TEXT",
     userPermissions: "SEND_MESSAGES",
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
     aliases: ["brb", "gtg", "afk,", "brb,", "gtg,", "fk"],
     async run(message, args, client) {
 

@@ -12,7 +12,7 @@ module.exports = new Command({
 	cooldown: 10000,
 	aliases: ["botping"],
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["ADMINISTRATOR"],
+    botPermissions: "SEND_MESSAGES",
 
 	async run(message, args, client) {
 
