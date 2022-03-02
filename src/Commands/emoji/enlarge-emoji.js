@@ -20,7 +20,7 @@ module.exports = new Command({
           const embed = new Discord.MessageEmbed()
           .setColor(colour["light red"])
           .setDescription("*Waa~* Please provide an emoji!")
-          .setTitle(`${errorX} MISSING ARGUEMENT`)  
+          .setTitle(`${emotes.Error} MISSING ARGUEMENT`)  
           return message.channel.send({embeds: [embed]})
         }
         const parsedEmoji = Discord.Util.parseEmoji(emoji)

@@ -6,8 +6,8 @@ module.exports = new Command ({
   name: "dog",
   description: "sends a cat image",
   aliases: ["inu"],
-  permission: "SEND_MESSAGES",
-  type: "TEXT",
+    userPermissions: ["SEND_MESSAGES"],
+    botPermissions: "SEND_MESSAGES",  type: "TEXT",
   cooldown: 10000,
 
     async run(message, args, client) {

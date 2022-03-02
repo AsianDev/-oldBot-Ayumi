@@ -5,8 +5,8 @@ const gen = require("images-generator")
 module.exports = new Command ({
   name: "panda",
   description: "sends a panda image",
-  permission: "SEND_MESSAGES",
-  type: "TEXT",
+    userPermissions: ["SEND_MESSAGES"],
+    botPermissions: "SEND_MESSAGES",  type: "TEXT",
   cooldown: 10000,
 
     async run(message, args, client) {

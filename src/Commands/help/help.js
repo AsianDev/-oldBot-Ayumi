@@ -1,10 +1,10 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
 const Command = require("../../Handlers/Command.js");
-
+const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
   name: 'help',
-  description: "help command",
+  description: "Kaori help command",
   type: "TEXT",
   cooldown: 3000,
   aliases: ["he;p", "jelp", "h", "hejkl", "holp"],
@@ -15,7 +15,7 @@ module.exports = new Command({
     const helpembed = new Discord.MessageEmbed()
         .setTitle("Please select a specific help section.")
         .setURL("https://discord.gg/TQ3mTPE7Pf")
-        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
+        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Info:940625513746165781> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
         .setFooter({ text: `Requested by ${message.author.tag} • ${client.commands.size} Commands in total`})
         .setColor("#FCAEEB")
         .setThumbnail(message.member.user.displayAvatarURL({dynamic: true, size: 2048,}))
@@ -47,7 +47,7 @@ const newRow = new Discord.MessageActionRow()
     const fun = new Discord.MessageEmbed()
        .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
         .setDescription("```yaml\n Syntax: Kao <Fun Command>```")
-        .addField('__😜 FUN COMMANDS__', '\`\`\`ini\n[ 8ball, baka, clyde, coinflip, dare, flip, hack, howotaku, lyrics, meme, motivate, password, pp, screenshot, reddit, ship, translate, truth, weather, wwn ]\n\`\`\`')
+        .addField('__😜 FUN COMMANDS__', '\`\`\`ini\n[ 8ball, baka, clyde, coinflip, dare, flip, hack, howotaku, javen, lyrics, meme, motivate, password, pp, screenshot, reddit, ship, translate, truth, weather, wwn ]\n\`\`\`')
         .setTimestamp()
         .setColor("BLUE")
         .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
@@ -63,7 +63,7 @@ const newRow = new Discord.MessageActionRow()
         .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
         .setDescription("```yaml\n Syntax: Kao <Giveaway Command>```")
           .addField('`__🎉 GIVEAWAY__', '```Start```')
-          .addField('More info->', "```Kao giveaway explain```")
+          .addField('More info->', "```Kao giveawayguide```")
           .setTimestamp()
           .setColor("BLUE")
           .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
@@ -75,6 +75,7 @@ const newRow = new Discord.MessageActionRow()
               .setLabel("Vote for Ikigai")
               .setStyle("LINK")
               )
+
          const image = new Discord.MessageEmbed()
          .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
          .setDescription("```yaml\n Syntax: Kao <Image Command>```")
@@ -98,7 +99,7 @@ const newRow = new Discord.MessageActionRow()
             const info = new Discord.MessageEmbed()
             .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
             .setDescription("```yaml\n Syntax: Kao <Information Command>```")
-            .addField('__❓ INFORMATION__', '\`\`\`ini\n[ avatar, bot-info, firstmsg, guildinvite, imdb-search, membercount, oldest, owner, ping, userinfo, urban, user-search, whois, youngest ]\n\`\`\`')
+            .addField('__❓ INFORMATION__', '\`\`\`ini\n[ avatar, bot-info, cmdhelp, firstmsg, guildinvite, imdb-search, membercount, oldest, owner, ping, userinfo, urban, user-search, whois, youngest ]\n\`\`\`')
             .setTimestamp()
             .setColor("BLUE")
             .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
@@ -114,7 +115,7 @@ const newRow = new Discord.MessageActionRow()
               .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
               .setDescription("```yaml\n Syntax: Kao <Moderation Command>```")
               .addField('__🛡️ MODERATION__', '\`\`\`ini\n [ ban, clear, dm, blist, kick, lock, mod-nick, mute, nick, remove-allwarns, remove-timeout, remove-warn, reset-nick, role-info, steal-emoji, timeout, unban, unlock, unmute, warn, warnings ]\n\`\`\`')
-              .addField('__👑 ADMINSTRATION__', '\`\`\`ini\n[ channel-create, channel-delete, create-role, create-vc, announce, give-role, mass-add-role, mass-remove-role, channel-nuke, slowmode ]\n\`\`\`')
+              .addField('__👑 ADMINSTRATION__', '\`\`\`ini\n[ channel-create, channel-delete, create-role, create-vc, announce, give-role, ghostping, mass-add-role, mass-remove-role, channel-nuke, slowmode ]\n\`\`\`')
               .addField('__🎉 EVENTS__', '\`\`\`ini\n[ gtn ]\n\`\`\`')
               .setTimestamp()
               .setColor("BLUE")
@@ -143,6 +144,8 @@ const newRow = new Discord.MessageActionRow()
                     .setLabel("Vote for Ikigai")
                     .setStyle("LINK")
                     )
+
+
                     const ticket = new Discord.MessageEmbed()
                     .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
                     .setDescription("```yaml\n Syntax: Kao <Support Command>```")
@@ -180,7 +183,7 @@ const newRow = new Discord.MessageActionRow()
                   .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
                   .setDescription("```yaml\n Syntax: Kao <Utility Command>```")
                   .addField('__<:Iki_uwu:934418076877881395> EMOJI__', '\`\`\`ini\n[ enlarge-emoji ]\n\`\`\`')
-                  .addField('__✅ MISC__', '\`\`\`ini\n[ afk, animesearch, banner, poll, report-bug, review, servericon serverinfo, suggest, timestamp, uptime ]\n\`\`\`')
+                  .addField('__✅ MISC__', '\`\`\`ini\n[ afk, animesearch, banner, poll, report-bug, review, servericon serverinfo, suggest, timestamp, uptime, command-info ]\n\`\`\`')
                   .setTimestamp()
                   .setColor("BLUE")
                   .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
@@ -203,6 +206,5 @@ const newRow = new Discord.MessageActionRow()
   else if(args[1] === 'Backup'|| args[1] === 'backup'){ message.reply({ embeds: [HelpBackup], components: [BackupRow], allowedMentions: { repliedUser: false }}) }
   else if(args[1] === 'ticket'|| args[1] === 'Support'|| args[1] === 'support' || args[1] === 'Ticket'){  message.reply({ embeds: [ticket], components: [ticketRow], allowedMentions: { repliedUser: false }}) }
   else if(args[1] === 'Utility' || args[1] === 'utility' || args[1] === 'util' || args[1] === 'Util' ){  message.reply({ embeds: [configity], components: [configrow], allowedMentions: { repliedUser: false }}) 
-          }
-        }
-  });
+            }         
+          }  })

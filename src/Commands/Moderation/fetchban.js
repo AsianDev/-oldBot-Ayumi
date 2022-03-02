@@ -6,7 +6,7 @@ module.exports = new Command({
     type: "TEXT",
     aliases: ["ban-list", "blist", "banned-members", "bannedmember", "banned-list", "banlist"],
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
+    botPermissions: "VIEW_AUDIT_LOG",
     /** 
      * @param {Client} client 
      * @param {Message} message 

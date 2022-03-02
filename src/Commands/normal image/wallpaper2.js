@@ -4,8 +4,8 @@ const Discord = require("discord.js");
 module.exports = new Command({
     name: "wallpaper",
     description: "Anime wallpaper images",
-    permission: "SEND_MESSAGES",
-    type: "TEXT",
+      userPermissions: ["SEND_MESSAGES"],
+    botPermissions: "SEND_MESSAGES",    type: "TEXT",
     cooldown: 10000,
     async run(message, args, client) {
 

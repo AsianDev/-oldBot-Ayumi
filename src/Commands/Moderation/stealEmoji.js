@@ -11,7 +11,7 @@ module.exports = new Command({
     aliases: ["steal-emoji", "add-emoji"],
     description: "Add an emoji by using a command",
     userPermissions: ["MANAGE_EMOJIS_AND_STICKERS"],
-    botPermissions: ["SEND_MESSAGES"],
+    botPermissions: "MANAGE_EMOJIS_AND_STICKERS",
     type: "TEXT",
     cooldown: 7000,
 

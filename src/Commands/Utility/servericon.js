@@ -6,7 +6,7 @@ name: "servericon",
   aliases: ["sav", "guildavatar", "icon"],
   description: "Get avatar of the server",
   userPermissions: ["SEND_MESSAGES"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_GUILD",
   type: "TEXT",
   cooldown: 10000,
 

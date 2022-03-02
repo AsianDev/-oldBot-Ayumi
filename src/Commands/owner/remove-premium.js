@@ -12,7 +12,7 @@ cooldown: 10000,
 userPermissions: [""],
 botPermissions: ["ADMINISTRATOR"],
 owner: true,
-aliases: ["prem-del", "prem-remove", "premium-r", "p-remove", "remove-premium"],
+aliases: ["prem-del", "prem-remove", "premium-r", "p-remove", "remove-premium", "premium-remove"],
 async run(message, args, client) {
 
 

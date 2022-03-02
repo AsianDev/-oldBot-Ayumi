@@ -5,10 +5,10 @@ const gen = require("images-generator")
 module.exports = new Command ({
   name: "cat",
   description: "sends a cat image",
-  aliases: [""],
   cooldown: 10000,
-  permission: "SEND_MESSAGES",
-  type: "TEXT",
+    userPermissions: ["SEND_MESSAGES"],
+    botPermissions: "SEND_MESSAGES",  
+    type: "TEXT",
     async run(message, args, client) {
 
         let catImage = await gen.animal.cat();

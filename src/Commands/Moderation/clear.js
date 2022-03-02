@@ -11,7 +11,7 @@ module.exports = new Command({
 	cooldown: 3000,
 	aliases: ["clear", "clean", "delete", "bulk-del", "bulkdelete", "bulk-delete"],
   userPermissions: ["MANAGE_MESSAGES"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_MESSAGES",
 
       async run(message, args, client) {
 
@@ -23,7 +23,7 @@ module.exports = new Command({
 
         try {
 
-            let amount = Number(args[1], 10) || parseInt(args[0]);
+            let amount = Number(args[1], 10) || parseInt(args[1]);
             if (isNaN(amount) || !Number.isInteger(amount))
               return message.channel.send({embeds: [noAmount]})
             if (!amount || amount < 2 || amount > 100)

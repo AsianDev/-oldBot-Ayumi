@@ -9,22 +9,43 @@ const { owners } = require("../../config/Data/config.json");
 const premiumSchema = require("../../config/models/premium.js")
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-
+const Kaori = require("../../config/assets/Json/kaori's.json")
+const randomKaori = Kaori.arts[Math.floor((Math.random() * Kaori.arts.length))];
 
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
+	
 		// ------------------------------------------ DM LOGGIN ---------------------------------- //
 
 	if(message.channel.type === "DM"){
 		let loggingDM = new Discord.MessageEmbed()
-		.setColor("BLUE")
+		.setColor(colour["celestial blue"])
 		.setThumbnail(`${message.author.displayAvatarURL()}`)
 		.setTitle(`A User has dm'ed ${client.user.tag}`)
 		.addField("Message:", `${message.content}`)
 		.addField("Author:", `${message.author.tag}`)
 		client.channels.cache.get("932285249205960764").send({ embeds: [loggingDM] });
 	  }
+
+	  	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
+
+	if (message.content === 'welcome!') return message.react("<a:Kao_mochaDance:948192364864868362>")
+	if (message.content === 'welc') return message.react('❤️')
+	if (message.content === 'welcomeee') return message.react('<:Kao_TomoeStare:617939107066282024>')
+	if (message.content.toLowerCase() == 'welcome') return message.react("<a:Kao_mochaDance:948192364864868362>")
+	if (message.content === 'Thanks for joining') return message.react('❤️')
+	if (message.content === 'ty for joining') return message.react('❤️')
+	if (message.content === 'fuck') return message.react('💢')
+	  if(message.content.toLowerCase() === "i should boost the server") return message.reply({content: "*Waa~* would you really do that for us?!", allowedMentions: {repliedUser: false}})
+
+	  	// ---------------------------------------- EVERYONE PING RESPONSE --------------------------------------- //
+
+	const EVERYONE_PINGEmbed = new Discord.MessageEmbed()
+	.setImage('https://media.discordapp.net/attachments/925294763404570624/931140887575150642/image-3.png?width=885&height=498')
+	.setColor("#36393f")
+
+	if (message.mentions.everyone) return message.reply({ embeds: [EVERYONE_PINGEmbed], content: "Dont ping everyone smh", allowedMentions: { repliedUser: false } })
 
 	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
 
@@ -35,6 +56,15 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		"KAO ",
 		"KAORI ",
 		"kaori ",
+		"kao",
+		"Kao",
+		"KaO ",
+		"kAo ",
+		"cao",
+		"Cao",
+		"Kai",
+		"kai",
+		"kaoree",
 		"K.",
 		"k.",
 		"k. ",
@@ -44,50 +74,48 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		"k, ",
 		"K, ",
 		`<@$${client.user.id}>`,
-        `<@!${client.user.id}>`
+        `<@!${client.user.id}>`,
+		`${client.user.id}`,
+		
 	]
 
-		const prefix = prefixes.find(x => message.content.startsWith(x));
+		const prefix = prefixes.find(x => message.content.startsWith(x))
 		if (!prefix) return;
-		const args = message.content.slice(prefix.length).trim().split(/ +/);
+
+		function generateRandomString(length) {
+			var chars =
+			  "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()|/.@#!$%^&+><?;:~*=";
+			var random_string = "";
+			if (length > 0) {
+			  for (var i = 0; i < length; i++) {
+				random_string += chars.charAt(
+				  Math.floor(Math.random() * chars.length)
+				);
+			  }
+			}
+			return random_string;
+		  }
+		  
+		  const id = generateRandomString(5);           
+		  IDNumber = `${id}`;
+	
+	
+		const kaoriFanArt = new Discord.MessageEmbed()
+		.setColor("RANDOM")
+		.setImage(`${randomKaori.image}`)
+		.setFooter({ text: `Artist: ${randomKaori.author}`})
+		.setDescription(`Name: **${randomKaori.name}**\nID: **[${IDNumber}](${randomKaori.image})**`)
+	
+		if(message.content === prefix) {
+			 message.channel.send({embeds: [kaoriFanArt]})
+			 return;
+			}
+
+		const args = message.content.slice(prefix.length).trim().split(/ +/g)
 		const command = client.commands.find(cmd => cmd.name == args[0].toLowerCase()) || client.commands.find(a => a.aliases && a.aliases.includes(args[0].toLowerCase()))
 		if (!command) return;
 
-	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
 
-	if (message.content.toLowerCase() == 'welcome') return message.react('<:Iki_TomoeWow:913019554538598431>')
-
-	if (message.content.toLowerCase() == 'welc') return message.react('❤️')
-	if (message.content.toLowerCase() == 'welcomeee') return message.react('<:TomoeWow:913019554538598431>')
-	if (message.content.toLowerCase() == "how are you") return message.channel.send("Hmm im not sure if you asked me but im okay.")
-	if (message.content.toLowerCase() == 'welcome!') return message.react('❤️')
-	if (message.content == 'F') return message.reply({ content: `<@${message.author.id}> has paid their respect <a:HashiHeart:922084304518004779>`, allowedMentions: { repliedUser: false } })
-	if (message.content.toLowerCase() == 'Thanks for joining') return message.react('❤️')
-	if (message.content.toLowerCase() == 'ty for joining') return message.react('❤️')
-	if (message.content.toLowerCase() == 'fuck') return message.react('💢')
-
-		// ---------------------------------------- EVERYONE PING RESPONSE --------------------------------------- //
-
-	const EVERYONE_PINGEmbed = new Discord.MessageEmbed()
-	.setImage('https://media.discordapp.net/attachments/925294763404570624/931140887575150642/image-3.png?width=885&height=498')
-	.setColor("#36393f")
-
-	if (message.mentions.everyone) return message.reply({ embeds: [EVERYONE_PINGEmbed], content: "Dont ping everyone smh", allowedMentions: { repliedUser: false } })
-
-		// ---------------------------------------- PING RESPONSE --------------------------------------- //
-
-
-	const pingedmeresponse = new Discord.MessageEmbed()
-		.setTitle("<:Iki_Sakura:897357779956793356> *Waa~* A ping?")
-		.setDescription("My 3 prefixes i have current are of: ``Kao ``, ``Kaori `` & ``k.``. \nHere is a list of my command catergories! <:uwu:934418076877881395>")
-		.setColor("#FCC8EA")
-		.setURL("https://discord.gg/TQ3mTPE7Pf")
-        .addField('Catergory', " 🎬 ``Action``\n  😜 ``Fun`` \n 🎁 ``Giveaway``\n 🖼️ ``Image`` \n  <:Iki_info:938937122931503194> ``Information``\n  🛡️ ``Moderation``\n 🗒️ ``Setup``\n <:Links:904222183813947463> ``Support``\n ✅ ``Utility``\n Do **Kao help <catergory**> to show the help catergory.\n\n   **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)  **|** [**Vote**](https://top.gg/servers/873143392488525834)", false)
-		.setFooter({ text: `${client.commands.size} Commands in total • Thanks for the ping <3`, iconURL: `${message.guild.iconURL()}`})
-
-	 if(message.content.replace(/(<@|!|>){1}/g, '') == `${client.user.id}`) return message.reply({embeds: [pingedmeresponse], allowedMentions: {repliedUser: false}})	   
-
-		
 		// -------------------------------- OWNER ONLY CHECKING --------------------------------- //
 
 		const ownerOnlyEmbed = new Discord.MessageEmbed()
@@ -100,6 +128,18 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			if (command.owner) {
 				if (command.owner && !owners.includes(message.author.id))
 				return message.channel.send({ embeds: [ownerOnlyEmbed] })
+				}
+
+				if(command) {
+					if(command.maintance) {
+						if(command.maintance && !owners.includes(message.author.id))
+						return message.channel.send({embeds: [new Discord.MessageEmbed()
+							.setColor(colour.pink)
+							.setTitle(`${emotes.Error} Sorry this command is currently going under maintance`)
+							.setDescription("Due to some difficulties this command is disabled!")
+							.setURL("https://discord.gg/TQ3mTPE7Pf")
+						]})
+					}
 				}
 
 		// ------------------------------ PERMISSION AND COMMAND TYPE CHECKING ----------------------------- //
@@ -152,7 +192,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 					.setURL("https://media.discordapp.net/attachments/927584143615860736/933831535939960843/ff36ecf38f24c9e448767ad2a9121.png?width=529&height=70")
 					.setLabel("Get Premium")
 					.setStyle("LINK")
-					.setEmoji("936545458023698433")
+					.setEmoji("<:Iki_tick:904736864076955738>")
 			)
 
 		if (command.premium && !(await premiumSchema.findOne({ user: message.author.id }))) return message.reply({ embeds: [UpgradeToPremiumPlease], components: [UpgradeToPremiumPleaseButton] })
@@ -173,13 +213,39 @@ module.exports = new Event("messageCreate", async (client, message) => {
 						}
 					}
 
-						
+							// ---------------------------------------- Ikigai server only COMMANDS ------------------------- //
+
+
+						const kaoriServerID = client.guilds.cache.get(" ") // Ikigai server id <- put here >:)
+
+					const KaoriServerOnly = new Discord.MessageEmbed()
+					.setColor(colour.pink)
+					.setTitle(`${emotes.Error} AN ERROR OCCURED`)
+					.setDescription("*Waa~* Sorry! This command is only available to use in the main server!")
+					.setThumbnail(client.user.displayAvatarURL())
+					.setFooter({ text: "Join the main server to use this command! "})
+					.addField("Ikigai server (main server)", "**[Join here!](https://discord.gg/TQ3mTPE7Pf)**")
+
+					if(command) {
+						if(message.guild.id !== "") {
+						if(command.guildOnly) {
+							message.reply({embeds: [KaoriServerOnly], allowedMentions: {repliedUser: false}}).then((msg) => {
+								setTimeout(() => msg.delete(), 3000);
+							  });
+						}
+						}
+					}
+
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
 		const commandDb = require('../../config/models/command.js');
 		if (command) {
 			const DisabledCMD = new Discord.MessageEmbed()
-				.setColor("RANDOM")
-				.setDescription(`*Bakaa~!* **${command.name}** is disabled in this server!`)
+				.setColor(colour["celestial blue"])
+				.setTitle(`${emotes.Error} *Waa~* AN ERROR OCCURED!`)
+				.setDescription(`*Bakaa~* This command is disabled in this server!`)
+				.addField("Command Name:", `${command.name}`)
+				.addField("Command Description:", `${command.description}`)
+
 			const check = await commandDb.findOne({ Guild: message.guild.id })
 			if (check) {
 				if (check.Cmds.includes(command.name)) return message.channel.send({ embeds: [DisabledCMD] })
@@ -191,7 +257,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 					if (Timeout.has(`${command.name}${message.author.id}`)) return message.reply({
 						embeds: [new Discord.MessageEmbed()
 							.setColor("#ff3235")
-							.setDescription(`***Waa~* you need to wait!** (；⌣̀_⌣́)	\n You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n The Default cooldown for ${command.name} is ${ms(`${command.cooldown}`), { long: false }}`)
+							.setDescription(`***Waa~* you need to wait!** (；⌣̀_⌣́)	\n You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n The Default cooldown for __${command.name}__ is ${ms(`${command.cooldown}`),{ long: false}}`)
 						], allowedMentions: {repliedUser: false}
 					})
 					command.run(message, args, client)
@@ -204,6 +270,6 @@ module.exports = new Event("messageCreate", async (client, message) => {
 					command.run(message, args, client)
 				}
 			}
+		}}
 		}
-	}
-}}) 
+	}) 

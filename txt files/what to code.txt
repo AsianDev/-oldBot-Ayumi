@@ -40,7 +40,7 @@
 33. password generator ✅
 34. type fast game? ❌
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
-36.anti raid ⏰
+36. anti raid ⏰
 37. sourcebin command ✅ // archieved
 37. button paginator function  ✅
 38. Command info cmd
@@ -48,7 +48,21 @@
 40. jisho command
 41. dm loggin ✅
 42. emoji commands -> emoji image, bulk steal
+43. change nsfw checking with event ✅
+44. change permissions to be:
+      
+      permissions: [
+         userPermission: "",
+         botPermission: "",
+                  ]
 
+45. dropdown menu for embed gen -> https://sourceb.in/k5bQtfjyTg
+46. change bots language
+47. cmd to list all afk people
+48. PUT BOT INTO LOCKDOWN / MAINTANCE WITH COMMAND
+49. set channel for logs
+
+https://sourceb.in/2QT06y5xTB
 
 // What to fix or continue coding
 
@@ -63,3 +77,5 @@
 5. zex command ✅
 6. dm loggin - messageCreate - wont send to the channel and no error ✅
 7. fix steal emoji cmd or might just be the server dunno ✅
+8. messageCreate default cooldown in timeout code
+9. send verify captcha to dms?

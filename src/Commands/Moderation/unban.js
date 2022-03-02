@@ -2,12 +2,12 @@
 
 const Discord = require("discord.js")
 const Command = require('../../Handlers/Command.js')
-
+const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "unban",
     description: "Unban's someone from the server!",
     userPermissions: ["BAN_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
+    botPermissions: "BAN_MEMBERS",
       type: "TEXT",
     cooldown: 10000,
 
@@ -24,9 +24,17 @@ module.exports = new Command({
          if (isNaN(args[0])) return message.channel.send('The ID stated is not a number.');
        
          message.guild.bans.fetch().then(async bans => {
-           if (bans.size == 0) return message.channel.send('This server does not have anyone banned');
+           if (bans.size == 0) return message.channel.send({embeds: [new Discord.MessageEmbed()
+            .setColor("RED")
+            .setTitle(`${emotes.Error} AN ERROR OCCURED`)
+            .setDescription("*Bakaa~* No one is banned on this server!")
+          ]});
            let bUser = bans.find(b => b.user.id == userID);
-           if (!bUser) return message.channel.send('The user ID stated is not banned');
+           if (!bUser) return message.channel.send({embeds: [new Discord.MessageEmbed()
+            .setColor("RED")
+            .setTitle(`${emotes.Error} AN ERROR OCCURED`)
+            .setDescription("*Waa~* Something went wrong when trying to find this user. \n Make sure the id is correct and that they are banned on this server!")
+          ]});
            await message.guild.members.unban(bUser.user, reason).catch(err => console.log(err).then(message.channel.send('Somthing went wrong unbanning the ID.')));
          
            message.channel.send({

@@ -70,7 +70,7 @@ module.exports = {
 
     collector.on('collect', async (b) => {
         if(b.user.id !== msg.author.id) {
-            b.reply({ content: "this is not for you.", ephemeral: true})
+            b.reply({ content: "*Waa~* This is not for you.", ephemeral: true})
         } else {
             if(b.customId === "h220z1") {
                 page = 0

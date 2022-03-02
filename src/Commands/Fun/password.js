@@ -44,18 +44,18 @@ module.exports = new Command({
           .setTitle("Please Read And Select:")
           .setThumbnail(`${message.guild.iconURL()}`)
           .setDescription("Please press one of the following buttons below.")
-          .addField("Accept:", "Pressing accept means you will be sent your password. \nPlease make sure to have your dms on **public!**")
-          .addField("Decline:", "Press decline will result in your password being sent to this channel here.")
+          .addField("Dm's:", "Pressing Dm's means you will be sent your password. \nPlease make sure to have your dms on **public!**")
+          .addField("Channel:", "Press Channel will result in your password being sent to this channel here.")
 
           let a = new Discord.MessageButton()
           .setCustomId('accept')
           .setStyle('SECONDARY')
-          .setLabel("Accept")
+          .setLabel("Dm's")
           .setEmoji("916869194400796772")
   
           let b = new Discord.MessageButton()
           .setCustomId('decline')
-          .setLabel("Decline")
+          .setLabel("Channel")
           .setStyle('SECONDARY')
           .setEmoji("916869194400796772")
     

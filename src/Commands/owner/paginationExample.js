@@ -5,7 +5,6 @@ const { paginate } = require("../../config/functions/buttonPagination.js")
 module.exports = new Command({
 
     name: 'btn',
-    aliases: [''], 
     description: 'mhm',
     type: 'TEXT',
     userPermissions: '',
@@ -26,6 +25,6 @@ module.exports = new Command({
 
         let pages =[k, e, f, g]
 
-        paginate(message, pages) // error -> can not send an empty message
+        paginate(message, pages) 
     }
 })

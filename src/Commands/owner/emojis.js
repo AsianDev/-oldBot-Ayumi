@@ -53,7 +53,7 @@ module.exports = new Command({
             embed[`${i / 25}`] = new MessageEmbed()
                 .setAuthor({ name: `Emojis in ${message.guild.name} - [${OverallEmojis}]`, iconURL: message.guild.iconURL() ? `${message.guild.iconURL({ dynamic: true })}` : `${message.author.displayAvatarURL({ dynamic: true })}`})
                 .setDescription(`${temporary.join(`\n`)}`)
-                .setColor('BLURPLE')
+                .setColor(colour['light red'])
         }
         for (let i = 0; i < (Object.keys(embed).length); i++) {
             embedslist.push(embed[i])
@@ -62,7 +62,7 @@ module.exports = new Command({
         // const button2 = new MessageButton().setCustomId('next').setLabel('Next').setStyle('PRIMARY');
         // buttonList = [ button1, button2 ]
         // paginate(message, embedslist, buttonList);
-        
+
         paginate(message, embedslist);
 
  3

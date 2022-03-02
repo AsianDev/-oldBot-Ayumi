@@ -10,11 +10,16 @@ module.exports = new Command({
   cooldown: 10000,
   aliases: ["un-mute"],
   userPermissions: ["MANAGE_ROLES"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_ROLES",
+  maintance: true,
     async run(message, args, client) {
     const member = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
     if (!member) {
-      return message.channel.send("*Waa~~* please mention a user to unmute!");
+      return message.channel.send({embeds: [new Discord.MessageEmbed()
+          .setColor(colour["pale red"]) 
+          .setDescription("*Waa~~* please mention a user to unmute!")
+          .setTitle(`${emotes.Error} MISSING ARGUEMENT`)   
+      ]});
     }
     muteSchema.findOne({ Guild: member.guild.id }, async (err, data) => {
       if (!data) return;

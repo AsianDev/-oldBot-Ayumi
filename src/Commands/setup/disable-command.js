@@ -16,7 +16,7 @@ module.exports = {
      
         const exist = new Discord.MessageEmbed()
         .setColor("#DE0F0F")
-        .setDescription(`*Bakaa~!* This command doesnt exist please try again or do Iki help to view a list of a commands.`)
+        .setDescription(`*Bakaa~!* This command doesnt exist please try again or do Kao help to view a list of a commands.`)
 
    const cmd = args[1];
    if(!cmd) return message.channel.send({embeds: [specified]})

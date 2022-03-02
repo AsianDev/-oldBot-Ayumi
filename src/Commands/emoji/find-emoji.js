@@ -9,7 +9,8 @@ module.exports = new Command({
   aliases: ["finde"],
   description: "Steals Emoji from Other Servers to ur Server.",
   type: 'TEXT',
-  userPermissions: "MANAGE_EMOJIS_AND_STICKERS",
+  userPermissions: "",
+  owner: true,
   botPermissions: "SEND_MESSAGES",
   cooldown: 4000,
   aliases: ["findemoji", "find-emoji", "emojifind"],
@@ -40,7 +41,7 @@ module.exports = new Command({
     let matches = emojis.filter(s => s.title == q || s.title.includes(q));
 
     let noResult = new Discord.MessageEmbed()
-      .setDescription(`*Waa~* No Results found for ${ args.slice(1).join(" ")}!\nPlease give me a catergory query!`)
+      .setDescription(`*Waa~* No Results found for ${args.slice(1).join(" ")}!\nPlease give me a catergory query!`)
       .setTitle(`${e.Error} MISSING ARGUEMENT`)
       .setColor(c["pale red"]);
 

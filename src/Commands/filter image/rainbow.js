@@ -23,7 +23,7 @@ module.exports = new Command({
           const buffer = await AmeAPI.generate("gay", { url: user.displayAvatarURL({ format: "png", size: 512 }) });
            const attachment = new Discord.MessageAttachment(buffer, "this_is_a_joke.png");
 
-           m.edit({ content: "Generated <:Iki_mochaHeart:939483315952578610>\n || this is a joke, if you think this should not be in the bot please dm my owner. he will take it out <3 ||", files: [attachment], name: "this_is_a_joke.png", allowedMentions: {repliedUser: false}});
+           m.edit({ content: "Generated <:Kao_mochaDance:765175325273227274>\n || this is a joke, if you think this should not be in the bot please dm my owner. he will take it out <3 ||", files: [attachment], name: "this_is_a_joke.png", allowedMentions: {repliedUser: false}});
          } catch (err) {
            return message.reply("*Waa~* An error has occured... <a:YuiNoLike:912603324518391829>")
          } 	

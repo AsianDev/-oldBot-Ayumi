@@ -13,7 +13,7 @@ module.exports = new Command({
 
     async run(message, args, client, member, guild){
 
-        const guildConfig = require('../../models/guildConfig.js')
+        const guildConfig = require('../../config/models/guildConfig')
 
         const data = await guildConfig.findOne({guildId: message.guild.id})
         const channel = message.guild.channels.cache.find(c => c.id === data.suggestionChannel)

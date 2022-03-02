@@ -10,8 +10,8 @@ module.exports = new Command({
   userPermissions: "",
   botPermissions: ["SEND_MESSAGES"],
 
-
   async run(message, args, client) {
+    
     await client.user.setUsername("Kaori")
   }
 })

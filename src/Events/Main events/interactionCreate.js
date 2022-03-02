@@ -28,7 +28,7 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
       
                  if(interaction.isButton()) {
                     if (interaction.customId === "ticket-open") {
-                        await interaction.deferReply({ ephemeral: true }) // this was on like 30 -> fix if needed.
+                        await interaction.deferReply({ ephemeral: true }) 
                         if(interaction.guild.channels.cache.find(e => e.topic == interaction.user.id)) {
                             return interaction.followUp({
                                 content: "*Bakaa~* You already have a ticket open!",

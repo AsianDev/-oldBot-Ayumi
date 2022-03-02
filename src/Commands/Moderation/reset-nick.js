@@ -6,7 +6,7 @@ module.exports = new Command ({
    name: "resetnick",
   description: "Sets the nickname of the user",
   userPermissions: ["MANAGE_NICKNAMES"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_NICKNAMES",
   type: "TEXT",
   cooldown: 10000,
   aliases: ["rnick", "resetn", "reset"],
@@ -20,7 +20,7 @@ module.exports = new Command ({
     if (!member) await message.reply({
       embeds: [
         new Discord.MessageEmbed()
-        .setDescription("Example: \n\n > Iki resetn @user")
+        .setDescription("Example: \n\n >  kao resetn @user")
     .setTitle(`${errorX} MISSING ARGUEMENT`)
     .setColor("RED")
       ]})

@@ -6,7 +6,7 @@ module.exports = new Command({
   name: "modnick",
   description: "modnickname a user",
   userPermissions: ["MANAGE_NICKNAMES"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_NICKNAMES",
     type: "TEXT",
   aliases: ["modnickname", "mod-nick", "moderatename"],
   cooldown: 10000,

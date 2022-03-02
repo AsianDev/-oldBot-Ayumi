@@ -7,6 +7,7 @@ module.exports = new Command({
     description: "sends a random meme",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",
+    aliases: ["memes"],
     type: "TEXT",
     cooldown: 5000,
 
@@ -19,6 +20,15 @@ module.exports = new Command({
         .setStyle("PRIMARY")
         .setCustomId("meme")
       )
+      .addComponents(
+        new Discord.MessageButton()
+        .setLabel("End")
+        .setEmoji("🛑")
+        .setStyle("DANGER")
+        .setCustomId("End-inter")
+      )
+
+
        got(`https://www.reddit.com/r/animememes/random/.json`).then( async response => {  
 
          const content = JSON.parse(response.body)
@@ -29,7 +39,7 @@ module.exports = new Command({
         const memeUpvotes = content[0].data.children[0].data.ups
 
         const embed = new Discord.MessageEmbed()
-      embed.setTitle(`${memeTitle}`)
+        embed.setTitle(`${memeTitle}`)
         .setTimestamp()
         .setURL(`${memeURl}`)
         .setColor("#36393f")
@@ -58,9 +68,10 @@ module.exports = new Command({
         .setFooter({text: `👍${memeUpvotes}`})
         .setImage(`${memeImage}`)
 
-            
-                    b.update({ embeds: [embed], components: [row]})
-            })
+        b.update({ embeds: [embed], components: [row]})
+            } )
+                } else if(b.customId === "End-inter") {
+                  MESSAGE.delete()
                 }
                 })
       })

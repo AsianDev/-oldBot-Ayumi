@@ -9,7 +9,7 @@ module.exports = new Command({
 	name: "ping",
 	description: "shows the ping of bot",
 	type: "TEXT",
-	cooldown: 10000,
+	cooldown: 7000,
 	aliases: ["botping"],
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",

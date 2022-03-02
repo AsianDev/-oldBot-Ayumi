@@ -6,7 +6,7 @@ module.exports = new Command ({
 	name: 'roleinfo',
 	description: 'Displays information about a provided role.',
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
+    botPermissions: "MANAGE_ROLES",
 	aliases: ['role-info', 'ri'],
 	cooldown: 5000,
 	async run(message, args, client) {

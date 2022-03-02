@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
-module.exports = {
+const Command = require('../../Handlers/Command.js')
+module.exports = new Command({
   name: 'bug',
   aliases: ["reportbug", "report-bug", "bug-report"],
   description: 'Report a bug',
@@ -15,8 +16,8 @@ module.exports = {
     .setDescription("Please provide a bug to report.")
 
     const channel = client.channels.cache.get('917387340744384572');
-    const query = args.slice(2).join(" ");
-    if(!query[1]) return message.reply({embed: [NObuG]});
+      const query = args.slice(2).join(" ");
+      if(!query[1]) return message.reply({embed: [NObuG]});
     const embed = new Discord.MessageEmbed()
     .setTitle("New bug reported!")
     .setColor("RANDOM")
@@ -31,4 +32,4 @@ module.exports = {
       channel.send({embeds: [embed]});
       
   }
-}
+})

@@ -8,7 +8,7 @@ module.exports = new Command({
     description: 'Give the mentioned member timeout',
     type: "TEXT",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
+    botPermissions: "MODERATE_MEMBERS",
         aliases: ["tm"],
      async run(message, args, client) {
       const member = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[2]) :  message.mentions.members.first() ||  message.guild.members.cache.get(args[2])

@@ -15,7 +15,7 @@ async run(message, args, client) {
     .setColor("RED")
     .setDescription("This command is to set what role you will remove for when someone gets muted")
     .addField("USAGE", "Iki sremove < role >")
-        const role = await message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
+        const role = await message.mentions.roles.first() || message.guild.roles.cache.get(args[1])
         if(!role) return message.channel.send({embeds: [norole]})
         muteSchema.findOne({ Guild: message.guild.id }, async(err, data) => {
             if(err) throw err

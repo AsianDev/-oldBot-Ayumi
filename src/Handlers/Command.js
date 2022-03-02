@@ -29,7 +29,9 @@ class Command {
 		this.botPermissions = options.botPermissions;
 		this.type = ["BOTH", "SLASH", "TEXT"].includes(options.type) ? options.type : "TEXT";
 		this.slashCommandOptions = options.slashCommandOptions || [];
-		this.nsfw = options.nsfw
+		this.nsfw = options.nsfw;
+		this.guildOnly = options.guildOnly;
+		this.maintance = options.maintance;
 		this.run = options.run;
 	}
 

@@ -7,7 +7,8 @@ module.exports = {
   aliases: ["lock-channel"],
   cooldown: 10000,
   userPermissions: ["MANAGE_CHANNELS"],
-  botPermissions: ["ADMINISTRATOR"],
+  botPermissions: "MANAGE_CHANNELS",
+
     async run(message, args, client) {
     message.channel.permissionOverwrites.edit(message.guild.id, { SEND_MESSAGES: false });
     const embed = new Discord.MessageEmbed()

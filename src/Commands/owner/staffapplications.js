@@ -5,7 +5,7 @@ module.exports = new Command ({
     name: 'apply',
     description: "apply for staff",
     type: "TEXT",
-    userPermissions: ["MANAGE_GUILD"],
+    userPermissions: "MANAGE_MESSAGES",
     botPermissions: ["SEND_MESSAGES"],
 
     async run(message, args, client) {    
@@ -15,7 +15,7 @@ module.exports = new Command ({
         .setTitle("Looking for new Staff")
         .setThumbnail(`${message.guild.iconURL({ dynamic: true })}`)
         .setTimestamp()
-        .setFooter({ text: "*I~... I~..* I Hope to see you pass!", iconURL: `${message.author.displayAvatarURL()}`})
+        .setFooter({ text: "I~... I~.. I Hope to see you pass!", iconURL: `${message.author.displayAvatarURL()}`})
         .setDescription(`**Come and apply for a chat moderator**\nHave a chance to become a moderator at **Ikigai**\n${message.author.username} Here are the forms:`)
         .addField("Application link?", `**__[Press Me!](https://forms.gle/Qw5PsVNBU974jvke7)__**`)
 
@@ -25,7 +25,7 @@ module.exports = new Command ({
             .setStyle("LINK")
             .setURL("https://forms.gle/Qw5PsVNBU974jvke7")
             .setLabel("If that didnt work press this!")
-            .setEmoji("936545458023698433")
+            .setEmoji("<:Iki_Mod:904219716195868752>")
         )
 
         message.channel.send({embeds: [Staffembed], components: [StaffButton]})

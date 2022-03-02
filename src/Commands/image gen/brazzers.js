@@ -23,7 +23,7 @@ module.exports = new Command({
            const buffer = await AmeAPI.generate("brazzers", { url: user.displayAvatarURL({ format: "png", size: 512 }) });
            const attachment = new Discord.MessageAttachment(buffer, "brazzers.png");
 
-           m.edit({ content: "Generated <:Iki_mochaHeart:939483315952578610>", files: [attachment], name: "brazzers.png", allowedMentions: {repliedUser: false}});
+           m.edit({ content: "Generated <:Kao_mochaDance:765175325273227274>", files: [attachment], name: "brazzers.png", allowedMentions: {repliedUser: false}});
          } catch (err) {
            return message.reply("*Waa~* An error has occured... <a:YuiNoLike:912603324518391829>")
          } 	

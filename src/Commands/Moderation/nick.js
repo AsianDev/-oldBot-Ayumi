@@ -6,7 +6,7 @@ module.exports = new Command({
   name: "nick",
   description: "nickname a user",
   userPermissions: ["MANAGE_NICKNAMES"],
-  botPermissions: "SEND_MESSAGES",
+  botPermissions: "MANAGE_NICKNAMES",
     type: "TEXT",
   aliases: ["nickname"],
   cooldown: 10000,

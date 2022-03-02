@@ -4,12 +4,13 @@ const Discord = require("discord.js")
 
 module.exports = new Command({
 name: "setmute",
-description: "set the mute role for when you mute someone",
+description: "Set the mute role for when you mute someone",
 type: "TEXT",
 cooldown: 10000,
 userPermissions: ["MANAGE_GUILD"],
+maintance: true,
 botPermissions: ["ADMINISTRATOR"],
-aliases: ["setmuterole", "smute", "set-mute", "set-mute-role"],
+aliases: ["setmuterole", "smute", "set-mute", "set-mute-role", "set-muterole", "set-mrole"],
 async run(message, args, client) {
    
     const colour = require("../../config/assets/Json/colours.json")
@@ -37,11 +38,11 @@ async run(message, args, client) {
         .setEmoji("916869194400796772")
     )
 
-    const Nochannel = new Discord.MessageEmbed()
+    const Norole = new Discord.MessageEmbed()
     .setColor("RED")
     .setDescription("Please mention a valid role!")
     .setThumbnail("<:Ikix:904736839036993586> MISSING ARGUEMENT!")
-    if (!role) return message.reply({embeds: [Nochannel]})
+    if (!role) return message.reply({embeds: [Norole]})
 
     const data = await muteSchema.findOne({ guildId: message.guild.id }) 
 
@@ -51,7 +52,6 @@ async run(message, args, client) {
                 guildId: message.guild.id,
                 Role: role
             })
-
             await data1.updateOne({ Role: role.id })
             return message.reply({ embeds: [SuccessEmbed], components: [row], allowedMentions: {repliedUser: false} })
         } catch (error) {
@@ -60,6 +60,5 @@ async run(message, args, client) {
     } else if (data) {
         await data.updateOne({ Role: role.id })
         return message.reply({ embeds: [UpdatedEmbed], components: [row], allowedMentions: {repliedUser: false} })
-    }
-}
+    }}
 })   

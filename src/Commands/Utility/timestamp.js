@@ -7,7 +7,7 @@ module.exports = new Command({
     name: 'timestamp',
     description: "Generate a timestamp",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: ["SEND_MESSAGES"],
+    botPermissions: "SEND_MESSAGES",
     type: "TEXT",
     aliases: ["ts"],
     cooldown: 7000,

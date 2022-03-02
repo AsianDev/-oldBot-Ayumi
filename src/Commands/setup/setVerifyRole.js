@@ -4,7 +4,7 @@ const CaptchaSchema = require("../../config/models/captcha.js");
 module.exports = new Command({
     name: "vrole",
     description: "autorole",
-    aliases: ["verifyrole", "verify-role", "verifyr", "setverifyrole"],
+    aliases: ["verifyrole", "verify-role", "verifyr", "setverifyrole", "setvrole", "set-v-role", "set-verifyrole"],
     type: "TEXT",
     timeout: 1000,
     userPermissions: ["MANAGE_GUILD"],

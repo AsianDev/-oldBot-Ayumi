@@ -21,7 +21,7 @@ module.exports = new Command({
         if (!args[1]) {
             const quoteEmbed = new MessageEmbed()
                 .setAuthor({ name: message.guild.name, iconURL: message.guild.iconURL()})
-                .setTitle(randomQuote.author)
+                .setTitle(`${randomQuote.author}`)
                 .setDescription(randomQuote.text)
                 .setColor(`${colour.lightish_blue}`)
                 .setTimestamp()
@@ -31,9 +31,9 @@ module.exports = new Command({
             const Quoteembed = new MessageEmbed()
             .setAuthor({ name: message.guild.name, iconURL: message.guild.iconURL()})
             .setColor(`${colour['light green']}`)
-            .setTitle(`${randomQuote.author} -`)
-                .setDescription(`**${randomQuote.text}** \n\nBy ${message.member.displayName} to ${member.displayName}`)
-                .setTimestamp()
+            .setTitle(`${randomQuote.author}`)
+            .setDescription(`**${randomQuote.text}** \n\nBy ${message.member.displayName} to ${member.displayName}`)
+            .setTimestamp()
             message.channel.send({embeds: [Quoteembed]})
          }
     }
