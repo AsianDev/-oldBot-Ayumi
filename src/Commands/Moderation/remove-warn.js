@@ -1,6 +1,6 @@
 
-const Command = require('../../Handlers/Command.js')
-const warndb = require('../../config/models/warndb.js')
+const Command = require('../../Structures/Handlers/Command.js')
+const warndb = require('../../Structures/models/warndb.js')
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "removewarn",

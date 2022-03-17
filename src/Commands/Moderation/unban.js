@@ -1,7 +1,7 @@
 /**@format */
 
 const Discord = require("discord.js")
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "unban",
@@ -33,7 +33,7 @@ module.exports = new Command({
            if (!bUser) return message.channel.send({embeds: [new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${emotes.Error} AN ERROR OCCURED`)
-            .setDescription("*Waa~* Something went wrong when trying to find this user. \n Make sure the id is correct and that they are banned on this server!")
+            .setDescription("*Waaa~* Something went wrong when trying to find this user. \n Make sure the id is correct and that they are banned on this server!")
           ]});
            await message.guild.members.unban(bUser.user, reason).catch(err => console.log(err).then(message.channel.send('Somthing went wrong unbanning the ID.')));
          
@@ -42,7 +42,7 @@ module.exports = new Command({
               new Discord.MessageEmbed()
                 .setDescription(`Successfully Unbanned **${bUser?.user?.tag}** from ${message.guild.name}`)
                 .setColor("BLURPLE")
-                .setFooter({ text: "Kaori©"})
+                .setFooter({ text: "Ayumi©"})
               ]
             })
 

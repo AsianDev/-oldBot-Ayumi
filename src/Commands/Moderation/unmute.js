@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
-const muteSchema = require('../../config/models/muterole.js')
-const Command = require('../../Handlers/Command.js')
-const removerole = require("../../config/models/removerole.js")
+const muteSchema = require('../../Structures/models/muterole.js')
+const Command = require('../../Structures/Handlers/Command.js')
+const removerole = require("../../Structures/models/removerole.js")
 const Discord = require("discord.js")
 module.exports = new Command({
   name: "unmute",

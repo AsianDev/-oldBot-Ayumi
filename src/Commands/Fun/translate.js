@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const translate = require('@iamtraction/google-translate');
 
 module.exports = new Command ({

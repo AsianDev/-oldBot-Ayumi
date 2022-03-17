@@ -1,6 +1,6 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const Discord = require("discord.js");
-const afkSchema = require("../../config/models/afk.js")
+const afkSchema = require("../../Structures/models/afk.js")
 module.exports = new Event('messageCreate', async(client, message) => {
     
     if(message.author.bot) return;

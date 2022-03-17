@@ -1,6 +1,6 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const Discord = require("discord.js")
-const warndb = require('../../config/models/warndb.js')
+const warndb = require('../../Structures/models/warndb.js')
 const reason = "[Auto Mod] Sending Banned word"
 module.exports = new Event("messageCreate", async (client, message) => {
     const array = require("../../config/assets/Json/BannedWord.json")

@@ -1,4 +1,4 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../Structures/Handlers/Event.js')
 const Discord = require('discord.js')
 const c = require("../../config/assets/Json/colours.json")
 
@@ -18,10 +18,10 @@ module.exports = new Event("guildCreate", async(client, guild, channel, invite) 
             )
 
     const Invite = new Discord.MessageEmbed()
-    .setTitle("*Waa~* Thanks for adding me! <:Iki_Sakura:897357779956793356>")
+    .setTitle("*Waaa~* Thanks for adding me! <:Iki_Sakura:897357779956793356>")
     .setURL("https://discord.gg/TQ3mTPE7Pf")
     .setDescription(`Thanks for adding <@!${client.user.id}> to ${guild.name}. I will do my best here!`)
-    .addField("<a:Kao_crown:940625784199073812> Who am i:", `My name is **__kaori__**.\nI was developed by __Sensei | 旭陽#8751__ using javascript and discord.js.\n I have well over 200 commands with more coming.`, true)
+    .addField("<a:Kao_crown:940625784199073812> Who am i:", `My name is **__Ayumi__**.\nI was developed by __Sensei | 旭陽#8751__ using javascript and discord.js.\n I have well over 200 commands with more coming.`, true)
     .setImage("https://cdn.discordapp.com/attachments/873149666282311680/940628803196186674/kaoaoaiao.png")
     .setThumbnail(client.user.displayAvatarURL())
     .setColor(`#4D9AE6`) 
@@ -31,7 +31,7 @@ module.exports = new Event("guildCreate", async(client, guild, channel, invite) 
         ch.createInvite({ maxAge: 0, maxUses: 0 }).then(i => { 
 
             const Invited = new Discord.MessageEmbed()
-            .setTitle("*Waa~* I have joined a new Sever! <:Iki_Sakura:897357779956793356>")
+            .setTitle("*Waaa~* I have joined a new Sever! <:Iki_Sakura:897357779956793356>")
             .setURL("https://discord.gg/TQ3mTPE7Pf")
             .setDescription(`I have been added to a new Server!`)
             .setColor(c.pink)

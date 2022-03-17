@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js');
 
 module.exports = new Command({
@@ -13,7 +13,7 @@ module.exports = new Command({
 
     async run(message, args, client, member, guild){
 
-        const guildConfig = require('../../config/models/guildConfig')
+        const guildConfig = require('../../Structures/models/guildConfig')
 
         const data = await guildConfig.findOne({guildId: message.guild.id})
         const channel = message.guild.channels.cache.find(c => c.id === data.suggestionChannel)
@@ -27,9 +27,10 @@ module.exports = new Command({
         if(!suggestmessage) return message.channel.send({embeds: [nosuggestion]})
         
         const suggestembed = new Discord.MessageEmbed()
-        .setTitle('A new suggestion has been made:')
+        .setAuthor({ name: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({  dynamic: true })}` })
         .setDescription(`${suggestmessage}`)
         .setTimestamp()
+        .setImage(message.attachments.first()?.proxyURL || null)
         .setThumbnail(message.author.displayAvatarURL({dynamic: true}))
         .setFooter({ text: `Suggestion by: ${message.author.tag}`})
         .setColor('#FCAEEB')

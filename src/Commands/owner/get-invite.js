@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 module.exports = new Command({
     name: "getinvite",
     description: "Generates an invitation to the server",
@@ -19,7 +19,7 @@ module.exports = new Command({
 
         let guild = null;
       const fetched =
-        client.guilds.cache.find(g => g.name === args.join(" ")) ||
+        client.guilds.cache.find(g => g.name === args.join(" ").slice(1)) ||
         client.guilds.cache.get(args[2]);
       guild = fetched;
       if (guild) {

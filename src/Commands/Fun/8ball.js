@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 module.exports = new Command({
     name: "8ball",
@@ -41,7 +41,7 @@ module.exports = new Command({
         "When did i ask?",
         "Y E S",
         "Doing a giveaway... nah jk, but no.",
-        "*Waa~* || No ||"
+        "*Waaa~* || No ||"
     ]
         let result = Math.floor((Math.random() * replies.length));
 

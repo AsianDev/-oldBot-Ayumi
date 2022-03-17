@@ -26,10 +26,11 @@ const configSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.String,
         required: false,
     },
-    VChannel: {
-        type: mongoose.SchemaTypes.String,
-        required: false,
-    }
+        VChannel: {
+            type: mongoose.SchemaTypes.String,
+            required: false,
+        }
+    
 });
 
 module.exports = mongoose.model('guildConfig', configSchema);

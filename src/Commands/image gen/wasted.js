@@ -1,6 +1,6 @@
 const { Client, Message, MessageAttachment } = require("discord.js");
 const canvas = require("canvacord");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
 name: "wasted",

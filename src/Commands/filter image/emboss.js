@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 const AmeClient = require("amethyste-api");
 const config = require("../../config/Data/config.json")
@@ -24,7 +24,7 @@ module.exports = new Command({
        
            m.edit({ content: "Generated <:Kao_mochaDance:765175325273227274>", files: [attachment], name: "emboss.png", allowedMentions: {repliedUser: false}});
          } catch (err) {
-           return message.reply("*Waa~* An error has occured... <a:YuiNoLike:912603324518391829>")
+           return message.reply("*Waaa~* An error has occured... <a:YuiNoLike:912603324518391829>")
          } 	
     }
 })

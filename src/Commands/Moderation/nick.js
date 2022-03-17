@@ -1,5 +1,5 @@
 
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js');
 
 module.exports = new Command({
@@ -16,7 +16,7 @@ module.exports = new Command({
    * @param {String[]} args
    */
    async run(message, args, client) {
-    if(message.content.includes('@everyone')) return message.channel.send(`*Waa~* ${message.author.username} dont chnage their nickname to that!`)
+    if(message.content.includes('@everyone')) return message.channel.send(`*Waaa~* ${message.author.username} dont chnage their nickname to that!`)
     if(message.content.includes('@here')) return message.channel.send(`${message.author.username} dont be a baka and change their nickname to that!`)
     const member = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.author
     if (!member) return message.reply("Please specify a member!");

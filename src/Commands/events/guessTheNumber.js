@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -22,13 +22,13 @@ module.exports = new Command({
             embeds: [new Discord.MessageEmbed()
                 .setColor(`${colour['light red']}`)
                 .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
-                .setDescription("*Waa~* Please provide a number bigger than **10**!")
+                .setDescription("*Waaa~* Please provide a number bigger than **10**!")
                      ]})
 
         const noMaxNumber = new Discord.MessageEmbed()
         .setColor(`${colour['light red']}`)
         .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
-        .setDescription("*Waa~* Please provide the max number!")
+        .setDescription("*Waaa~* Please provide the max number!")
         .addField("Example:", "```yaml\n Syntax: Kao gtn <number>```")
         if(!maxNumber) return message.channel.send({embeds: [noMaxNumber]})
 

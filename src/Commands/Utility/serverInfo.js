@@ -1,7 +1,7 @@
 
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js');
-const { paginate } = require("../../config/functions/buttonPagination.js")
+const { paginate } = require("../../Systems/PaginationSys.js")
 
 const moment = require('moment');
 
@@ -48,7 +48,7 @@ module.exports = new Command({
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "MANAGE_GUILD",
     type: "TEXT",
-    aliases: ["si", "server-info"],
+    aliases: ["si", "server-info", "server"],
     cooldown: 7000,
 
     async run(message, args, client){
@@ -69,6 +69,7 @@ module.exports = new Command({
         const embed1 = new Discord.MessageEmbed()
             .setTitle(`**Guild information for __${message.guild.name}__**`)
             .setColor('#00e3b9')
+            .setDescription(`${message.guild.description || 'No Server Description'}`)
             .setThumbnail(message.guild.iconURL({
                 dynamic: true
             }))
@@ -92,8 +93,10 @@ module.exports = new Command({
         .sort((a, b) => b.position - a.position)
         .map(r => r)
         .join(", ");
-        if (rolemap.length > 1024) rolemap = "***Waa~*\n There is too many roles to display**";
-        if (!rolemap) rolemap = "No roles";
+        if (rolemap.length > 1024) rolemap = "***Waaa~*\n There is too many roles to display**";
+        if (!rolemap) rolemap = "***Waa~*\n There are no roles!**"
+
+        
 
 
         const embed2 = new Discord.MessageEmbed()
@@ -114,6 +117,7 @@ module.exports = new Command({
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
             .setTimestamp()
         if (message.guild.features.indexOf("INVITE_SPLASH") > -1) embed3.setImage(`https://cdn.discordapp.com/splashes/${message.guild.id}/${message.guild.splash}.png?size=2048`)
+    
         const embedslist = [embed1, embed2, embed3]
         paginate(message, embedslist);
 

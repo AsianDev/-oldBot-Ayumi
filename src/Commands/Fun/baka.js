@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const Discord = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
         name: "baka",

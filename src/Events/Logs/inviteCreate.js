@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../Structures/Handlers/Event.js')
 
 module.exports = new Event("inviteCreate", async (client, invite) =>{
 

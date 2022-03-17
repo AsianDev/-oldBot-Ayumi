@@ -1,7 +1,7 @@
 const { request } = require('undici')
 
 const Discord = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
     name: "urban-search",
@@ -13,7 +13,7 @@ module.exports = new Command({
     cooldown: 5000,
     async run(message, args, client) {
 
-        if (!args[1]) return message.channel.send("*Waa~* what do i have to search?"); // Handles empty search queries
+        if (!args[1]) return message.channel.send("*Waaa~* what do i have to search?"); // Handles empty search queries
         try {
             let res = await request(`https://api.urbandictionary.com/v0/define?term=${args.join(' ')}`).then(r => r.body.json().then(s => s.list)); // Searches on the urban dictionary API
 

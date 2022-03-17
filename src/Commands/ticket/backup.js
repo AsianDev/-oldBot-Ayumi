@@ -1,6 +1,6 @@
 const backup = require("discord-backup")
 backup.setStorageFolder(__dirname + "/backups/")
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
@@ -65,7 +65,7 @@ module.exports = new Command({
             .addField("To load the backup:", `Use \`Kao Backup Load ${backupdata.id}\` to load the backup.`)
             .addField("To delete the backup:", `Use \`Kao Backup Delete ${backupdata.id}\` to delete the backup.`)
             .setTimestamp()
-            .setFooter({ text: "Backup made by Kaori <3"})
+            .setFooter({ text: "Backup made by Ayumi <3"})
 
             message.reply({embeds: [SuccessEmbed], ephemeral: true })
 

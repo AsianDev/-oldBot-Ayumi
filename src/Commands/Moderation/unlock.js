@@ -14,7 +14,7 @@ module.exports = {
       .setTitle("Channel Updates")
       .setDescription(`🔓 ${message.channel}  has been Unlocked`)
       .setColor("RANDOM")
-      .setFooter({ text: "Kaori©"})
+      .setFooter({ text: "Ayumi©"})
     await message.channel.send({ embeds: [embed] });
     message.delete();
   },

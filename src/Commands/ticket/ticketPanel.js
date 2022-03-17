@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 const c = require('../../config/assets/Json/colours.json')
 
@@ -13,7 +13,7 @@ module.exports = new Command({
 
         const OpenTicket = new Discord.MessageEmbed()
         .setColor(c.pink)
-        .setAuthor({ name: "Kaori support!", iconURL: `${interaction.user.displayAvatarURL()}` })
+        .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.user.displayAvatarURL()}` })
         .setDescription("Click on the button below to make a support thread.")
         .setTitle('__**Ticket**__')
         .setThumbnail(`${interaction.guild.iconURL({ dynamic: true, size: 512 })}`)

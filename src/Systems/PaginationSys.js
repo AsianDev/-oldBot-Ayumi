@@ -6,6 +6,7 @@ module.exports = {
     paginate: async function (msg, pages) {
         if(!pages) throw new Error("you should provide pages for this to work.")
     let page = 0
+        
 
     let button1 = new Discord.MessageButton()
     .setEmoji('<:right_skip:931882733662273588>')
@@ -63,14 +64,14 @@ module.exports = {
 
 
         const cp =  await msg.channel.send({ embeds: [changeFooter()], components: [row]})
-    const collector = cp.createMessageComponentCollector({ time: 60000})
+    const collector = cp.createMessageComponentCollector({ time: 120000})
 
     let dirow = new MessageActionRow()
     .addComponents(dibutton.setDisabled(true).setStyle("SECONDARY"), dibutton2.setDisabled(true).setStyle("SECONDARY"), button12.setDisabled(true).setStyle("SECONDARY"), button32.setDisabled(true).setStyle("SECONDARY"))
 
     collector.on('collect', async (b) => {
         if(b.user.id !== msg.author.id) {
-            b.reply({ content: "*Waa~* This is not for you.", ephemeral: true})
+            b.reply({ content: "*Waaa~* This is not for you.", ephemeral: true})
         } else {
             if(b.customId === "h220z1") {
                 page = 0

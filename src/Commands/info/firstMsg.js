@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
     name: "firstmsg",
@@ -21,7 +21,7 @@ module.exports = new Command({
             .setDescription(`**First Message in ${message.channel}**`)
             .setTitle(`${msg.author.username}`)
             .setColor("BLURPLE")
-            .setFooter({ text: "Kaori©"})
+            .setFooter({ text: "Ayumi©"})
             .addFields(
                 { name: '**Content:**', value: `${msg.content}` },
                 { name: '**Created At:**', value: `${msg.createdAt.toLocaleDateString()}` },

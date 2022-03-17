@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 
 module.exports = new Command({
@@ -16,7 +16,7 @@ module.exports = new Command({
 
         const Nouser = new Discord.MessageEmbed()
         .setColor("#E6604D")
-        .setDescription("*Waa~* Please mention a user!")
+        .setDescription("*Waaa~* Please mention a user!")
         .setTitle("<:Ikix:904736839036993586>  MISSING ARGUEMENT")
         if(!user) return message.channel.send({embeds: [Nouser]})
         const av1 = message.author.displayAvatarURL({ format: "png" })

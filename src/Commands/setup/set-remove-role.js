@@ -1,5 +1,5 @@
-const muteSchema = require("../../config/models/removerole.js")
-const Command = require('../../Handlers/Command.js')
+const muteSchema = require("../../Structures/models/removerole.js")
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({

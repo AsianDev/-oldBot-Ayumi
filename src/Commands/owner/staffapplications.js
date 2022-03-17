@@ -1,8 +1,8 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command ({
-    name: 'apply',
+    name: 'google-form-apply',
     description: "apply for staff",
     type: "TEXT",
     userPermissions: "MANAGE_MESSAGES",

@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
         name: "clyde",
@@ -11,7 +11,7 @@ module.exports = new Command({
         cooldown: 5000,
         async run(message, args, client) {
     const text = args.slice(1).join(" ");
-    if (!text) return message.channel.send("*Waa~* what is clyde going to say?", {message});
+    if (!text) return message.channel.send("*Waaa~* what is clyde going to say?", {message});
     const sendMsg = await message.channel.send("⚙ Processing Image..", {message});
     const data = await fetch(
       `https://nekobot.xyz/api/imagegen?type=clyde&text=${text}`

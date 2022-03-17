@@ -1,6 +1,6 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
-const { paginate } = require("../../config/functions/buttonPagination.js")
+const { paginate } = require("../../Systems/PaginationSys")
 
 module.exports = new Command({
 

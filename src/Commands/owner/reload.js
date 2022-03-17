@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const glob = require("glob");
 
 module.exports = new Command({
@@ -30,6 +30,7 @@ module.exports = new Command({
                         client.aliases.set(aliases, pull.name)
                     })
                 }
+
             })
             const embed = new Discord.MessageEmbed()
                 .setColor("#FCC8EA")

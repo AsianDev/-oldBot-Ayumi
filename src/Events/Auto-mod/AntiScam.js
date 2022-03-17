@@ -1,4 +1,4 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const Discord = require("discord.js");
 const reason = "[Auto Mod] Sending Scam link."
 module.exports = new Event("messageCreate", async (client, message) => {

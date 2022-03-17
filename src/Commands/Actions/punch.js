@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
@@ -11,7 +11,7 @@ module.exports = new Command({
   aliases: ["hit"],
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-  const schema = require("../../config/models/animeProfileData.js");
+  const schema = require("../../Structures/models/animeProfileData.js");
 
   let profileData;
           try {

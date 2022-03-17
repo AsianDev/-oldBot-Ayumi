@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command ({
 	name: 'roleinfo',
@@ -13,7 +13,7 @@ module.exports = new Command ({
 		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);
 		if(!role) {
 			return message.channel.send(
-				'*Waa~* Please provide a role that is in this server!',
+				'*Waaa~* Please provide a role that is in this server!',
 			);
 		}
 

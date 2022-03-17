@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const errorX = "<:Ikix:904736839036993586>"
 
 module.exports = new Command ({ 

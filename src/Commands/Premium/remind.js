@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const ms = require('ms')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Color = `#FCC8EA`;
-let timerSchema = require("../../config/models/reminder");
+let timerSchema = require("../../Structures/models/reminder");
 module.exports = new Command({ 
   name: 'remind',
   premium: true,

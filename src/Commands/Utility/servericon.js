@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({  
 name: "servericon",

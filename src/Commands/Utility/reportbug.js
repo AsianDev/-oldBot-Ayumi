@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 module.exports = new Command({
   name: 'bug',
   aliases: ["reportbug", "report-bug", "bug-report"],
@@ -27,7 +27,7 @@ module.exports = new Command({
       {name: 'User ID', value: `${message.author.id}`},
       {name: 'Bug', value: `${query}`}
       )
-      .setFooter({ text: "Kaori©"})
+      .setFooter({ text: "Ayumi©"})
       message.reply({content: 'Thank you for reporting this issue to us, owner will fix it asap.'});
       channel.send({embeds: [embed]});
       

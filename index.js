@@ -1,6 +1,6 @@
 /** @format */
 console.clear();
-const Client = require("./src/Handlers/Client.js")
+const Client = require("./src/Structures/Handlers/Client.js")
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
 const config = require("./src/config/Data/config.json")
@@ -35,9 +35,10 @@ Canvas.loadImage('./src/config/assets/image/leave.jpg').then(async (image) => {
   leaveCanvas.context.stroke()
   leaveCanvas.context.fill()
 })
-// ---------------------ERROR HANDLER-----------------------------------//
 const client = new Client()
 client.slashCommands = new Discord.Collection();
+
+// // ---------------------ERROR HANDLER-----------------------------------//
 process.on("unhandledRejection", (error, promise) => {
   const unhandledRejectionEmbed = new Discord.MessageEmbed()
       .setTitle("<:Iki_Sakura:897357779956793356> AN ERROR OCCURED!")
@@ -55,5 +56,5 @@ process.on("unhandledRejection", (error, promise) => {
 mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
-}).then(console.log(chalk.red.bold(`Kaori is connected to mongoose`)))
-client.start(config.Token)
+}).then(console.log(chalk.red.bold(`Connected to the DB`)))
+client.start(config.Token).catch((err) => console.log(err))

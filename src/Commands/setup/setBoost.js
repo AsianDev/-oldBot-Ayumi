@@ -1,6 +1,6 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../config/models/guildConfig.js')
+const guildConfig = require('../../Structures/models/guildConfig.js')
 
 module.exports = new Command({
 name: "boostchannel",
@@ -47,9 +47,9 @@ async run(message, args, client) {
 
     if (!data) {
         try {
-            const data1 = await guildConfig.create({
+            const data1 = await new guildConfig({
                 guildId: message.guild.id
-            })
+            }).save()
 
             await data1.updateOne({ BoostChannel: channel.id })
             return message.reply({ embeds: [SuccessEmbed], components: [row], allowedMentions: {repliedUser: false} })

@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const colour = require('../../config/assets/Json/colours.json')
 const jsonQuotes = require("../../config/assets/Json/motivational.json")
 

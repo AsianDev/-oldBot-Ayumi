@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 const { MessageActionRow, MessageButton} = require('discord.js');
 const ms = require("ms")

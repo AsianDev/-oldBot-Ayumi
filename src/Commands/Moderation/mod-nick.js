@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -20,7 +20,7 @@ let user = message.mentions.members.first();
 if (!user) {
   user = message.guild.members.cache.get(args[1]);
 }
-if (!user) return message.reply({content: "*Waa~* please mention a user to mod nick!"});
+if (!user) return message.reply({content: "*Waaa~* please mention a user to mod nick!"});
 
 if (user.roles.highest.position >= message.guild.me.roles.highest.position)
   return message.reply(

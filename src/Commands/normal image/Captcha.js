@@ -1,6 +1,6 @@
 const { Captcha } = require('captcha-canvas')
 const { MessageAttachment } = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
     name: "captcha",

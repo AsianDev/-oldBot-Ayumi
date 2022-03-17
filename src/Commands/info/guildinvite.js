@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 const Discord = require("discord.js");
 
@@ -14,8 +14,8 @@ module.exports = new Command ({
         const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .setTitle(`Come and join Ikigai | Anime • Social •  生きがい`)
-    .setFooter({ text: "Kaori©"})
-    .setDescription("If you like Kaori, come and join the server, we have heaps of nice people and fun giveaways, anime centred and much more!")
+    .setFooter({ text: "Ayumi©"})
+    .setDescription("If you like Ayumi, come and join the server, we have heaps of nice people and fun giveaways, anime centred and much more!")
     const row = new MessageActionRow()        
     .addComponents(
         new MessageButton()

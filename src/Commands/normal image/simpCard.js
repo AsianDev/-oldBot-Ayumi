@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
 name: "simp-card",

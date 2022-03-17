@@ -1,5 +1,5 @@
 const { Message, MessageEmbed } = require("discord.js")
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 const c = require("../../config/assets/Json/colours.json")
 module.exports = new Command({

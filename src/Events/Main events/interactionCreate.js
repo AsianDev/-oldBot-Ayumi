@@ -1,4 +1,4 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const { EveryoneRoleId, StaffRoleId, StaffRoleId2, CatergoryID, TrasnscriptID  } = require("../../config/assets/Json/ticket.json")
 const Discord = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
@@ -64,7 +64,7 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         ], ephemeral: true})
                         const newtic = new Discord.MessageEmbed()
                         .setColor(colour.pink)
-                        .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+                        .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
                         .setFooter({ text: "Your ticket will be recorded in a transcript", iconURL: `${interaction.user.displayAvatarURL()}`})
                         .setDescription('Hello there, \n The staff will be here as soon as possible mean while tell us about your issue!\nThank You!')
                         const row = new Discord.MessageActionRow()
@@ -88,7 +88,7 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                             .setColor(colour.lightish_blue)
                             .setTitle("Ticket will be closed. <a:loading:938879666800967720>")
                             .setDescription("Closing the ticket in 3 seconds...")
-                            .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+                            .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
                         ]})
                         if(((interaction.channel.topic === interaction.user.id)) === interaction.user.id && StaffRoleId && StaffRoleId2 !== interaction.user.id) {
                             return interaction.followUp({
@@ -106,7 +106,7 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         const embedClosedTicket = new Discord.MessageEmbed()
                         .setColor(colour["light red"])
                         .setDescription(`<@${interaction.user.id}>'s Ticket has been closed`)
-                        .setAuthor({ name: "Kaori support!", iconURL: `${interaction.guild.iconURL()}`})
+                        .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
             
                     client.channels.cache.get(TrasnscriptID).send({
                             embeds: [embedClosedTicket],

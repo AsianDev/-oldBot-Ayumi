@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -12,6 +12,6 @@ module.exports = new Command({
 
   async run(message, args, client) {
     
-    await client.user.setUsername("Kaori")
+    await client.user.setUsername("Ayumi")
   }
 })

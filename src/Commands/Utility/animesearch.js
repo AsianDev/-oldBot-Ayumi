@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const { MessageEmbed } = require('discord.js');
 const Kitsu = require("kitsu.js");
 const kitsu = new Kitsu();
@@ -20,7 +20,7 @@ module.exports = new Command ({
     const noAnimeName = new Discord.MessageEmbed()
     .setColor("RED")
     .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
-    .setDescription("*Waa~* Please provide a name of the anime")
+    .setDescription("*Waaa~* Please provide a name of the anime")
 
 
     if (!args[1]) {

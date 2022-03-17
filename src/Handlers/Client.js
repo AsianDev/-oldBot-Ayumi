@@ -22,7 +22,7 @@ const intents = new Discord.Intents([
 const fs = require("fs");
 class Client extends Discord.Client {
 	constructor() {
-		super({ intents, partials: ["CHANNEL"], restTimeOffset: 0})
+		super({ intents, partials: ["CHANNEL", "GUILD_MEMBER", "MESSAGE"], restTimeOffset: 0})
 		/**
 		 * @type {Discord.Collection<string, Command>}
 		 */
@@ -39,8 +39,8 @@ class Client extends Discord.Client {
                 /**
                  * @type {Command[]}
                  */
-                const commands = commandFiles.map(file => require(`../Commands/${dir}/${file}`));
-                
+                const commands = commandFiles.map(file => require(`./../../Commands/${dir}/${file}`));
+
         
                 commands.forEach(command => {
                     // console.log(`✅ ${dir}/${command.name}`)
@@ -63,10 +63,10 @@ class Client extends Discord.Client {
 
         this.on("ready", async () => {
         const cmds = await this.application.commands.set(slashCommands);
-        cmds.forEach(cmd => console.log(`✅ ${cmd.name} '/' registered`));
+        cmds.forEach(cmd => console.log(`----- > ${cmd.name} command < -----`));
     })
 
-        const direct = fs.readdirSync('./src/Events')
+    const direct = fs.readdirSync('./src/Events')
         direct.forEach(dir => {
         const commandFiles = fs.readdirSync(`./src/Events/${dir}`)
             .filter(file => file.endsWith(".js"))
@@ -74,8 +74,8 @@ class Client extends Discord.Client {
                 /**
                  * @type {Event}
                  */
-                const event = require(`../Events/${dir}/${file}`);
-                this.on(event.event, event.run.bind(null, this));
+                 const event = require(`../Events/${dir}/${file}`);                 
+                 this.on(event.event, event.run.bind(null, this));
             });
         })
             this.login(token);

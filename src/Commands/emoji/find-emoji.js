@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const c = require("../../config/assets/Json/colours.json")
 const e = require("../../config/assets/Json/emotes.json")
 
@@ -41,7 +41,7 @@ module.exports = new Command({
     let matches = emojis.filter(s => s.title == q || s.title.includes(q));
 
     let noResult = new Discord.MessageEmbed()
-      .setDescription(`*Waa~* No Results found for ${args.slice(1).join(" ")}!\nPlease give me a catergory query!`)
+      .setDescription(`*Waaa~* No Results found for ${args.slice(1).join(" ")}!\nPlease give me a catergory query!`)
       .setTitle(`${e.Error} MISSING ARGUEMENT`)
       .setColor(c["pale red"]);
 

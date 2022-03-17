@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 const block = "⬛"
 const heart = "🟥"
@@ -18,7 +18,7 @@ module.exports = new Command({
         .setColor("RED")
         .setTimestamp()
         .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
-        .setDescription("*Waa~* please mention a user to ship yourself with!")
+        .setDescription("*Waaa~* please mention a user to ship yourself with!")
 
         if (!user) return message.channel.send({embeds: [noUser]})
          if(user && user.id === message.author.id) {

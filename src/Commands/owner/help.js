@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
   name: 'ownerhelp',
@@ -14,7 +14,7 @@ module.exports = new Command({
 
    const OwnerHelpEmbed = new Discord.MessageEmbed()
    .setTimestamp()
-   .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
+   .setAuthor({ name: "Ayumi HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
    .setColor("#90F781")
    .setDescription("```yaml\n Syntax: Kao <Owner Command>```")
    .addField('__ Owner Commands__', '\`\`\`ini\n[ apply, c.u.b, credits, dead, emojis, eval, leave, setqwelc, reload, restart, change-username, zex  ]\n\`\`\`')

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const Command = require('../../Handlers/Command.js')
-const afkSchema = require("../../config/models/afk.js")
+const Command = require('../../Structures/Handlers/Command.js')
+const afkSchema = require("../../Structures/models/afk.js")
 const colour = require("../../config/assets/Json/colours.json")
 const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
@@ -14,13 +14,13 @@ module.exports = new Command({
     async run(message, args, client) {
 
 
-        if(message.content.includes('@everyone')) return message.channel.send(`*Waa~* **${message.author.username}** please dont do that.`)
+        if(message.content.includes('@everyone')) return message.channel.send(`*Waaa~* **${message.author.username}** please dont do that.`)
         if(message.content.includes('@here')) return message.channel.send(`**${message.author.username}** dont be a baka and do that`)
         let member = message.author
         const NotenoughReasoning = new Discord.MessageEmbed()
         .setColor(`${colour["light red"]}`)
         .setTitle(`${emotes.Error} AN ERROR OCCURED`)
-        .setDescription("*Waa~* Please Give a longer reason to your afk!")
+        .setDescription("*Waaa~* Please Give a longer reason to your afk!")
 
         let Reason = args.slice(1).join(" ") || "None provided";
         if(Reason < 1) return message.reply({embeds: [NotenoughReasoning], allowedMentions: {repliedUser: false}})

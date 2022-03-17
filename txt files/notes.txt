@@ -160,6 +160,8 @@ https://discord.com/channels/731532456724922459/823605956348608512/8883347817445
 https://discord.com/channels/731532456724922459/823605956348608512/882577537652371456 <- anti raid command
 
 
+const randomXP = Math.floor(Math.random() * 29) + 1; you need something like this for percentage random
+
 ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
 
 Examples

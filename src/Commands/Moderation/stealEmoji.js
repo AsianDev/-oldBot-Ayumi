@@ -1,6 +1,6 @@
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const errorX = "<:Ikix:904736839036993586>"
 const c = require("../../config/assets/Json/colours.json")
 const e = require("../../config/assets/Json/emotes.json")
@@ -22,7 +22,7 @@ module.exports = new Command({
     if (!emoji) {
       const embed = new MessageEmbed()
       .setColor(c["light red"])
-      .setDescription("*Waa~* Please provide an emoji!")
+      .setDescription("*Waaa~* Please provide an emoji!")
       .setTitle(`${errorX} MISSING ARGUEMENT`)  
       return message.channel.send({embeds: [embed]})
     }
@@ -64,7 +64,7 @@ module.exports = new Command({
 
            const embed2 = new MessageEmbed()
            .setColor(c["light red"])
-           .setDescription("*Waa~* Please provide an emoji!")
+           .setDescription("*Waaa~* Please provide an emoji!")
            .setTitle(`${errorX} MISSING ARGUEMENT`)             
           return message.channel.send({embeds: [embed2]});
         }

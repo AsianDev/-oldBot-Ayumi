@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const colour = require("../../config/assets/Json/colours.json")
 
 module.exports = new Command({
@@ -25,17 +25,17 @@ module.exports = new Command({
   }
       
     const secret = new Discord.MessageEmbed()
-    .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
+    .setAuthor({ name: "Ayumi HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
     .setDescription("```yaml\n Syntax: Kao <NSFW Command>```")
     .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
     .addField('__🔞 NSFW__', '\`\`\`ini\n[ kao nsfw hentai ]\n\`\`\`')
     .setTimestamp()
     .setColor("BLUE")
-    .setFooter({ text:` > Kaori • ${message.channel.name}`})
+    .setFooter({ text:` > Ayumi • ${message.channel.name}`})
     if(!args[1]) {  message.reply({embeds: [secret], allowedMentions: {repliedUser: false}}) }
 
     const hentai = new Discord.MessageEmbed()
-    .setAuthor({ name: "KAORI HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
+    .setAuthor({ name: "Ayumi HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
     .setDescription("```yaml\n Syntax: Kao <hentai Command>```\n || Thats all your getting || ")
     .addField('__🔞 Hentai(pictures)__', '\`\`\`ini\n[ Ahegao, Boobs, Pussy, Uniform ]\n\`\`\`')
     .addField('__🔞 Hentai(gifs)__', '\`\`\`ini\n[ Anal, Boobjob, Cum, Happyend, Spank ]\n\`\`\`')

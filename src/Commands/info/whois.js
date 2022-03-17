@@ -1,9 +1,9 @@
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const moment = require('moment');
-const { paginate } = require("../../config/functions/buttonPagination.js")
+const { paginate } = require("../../Systems/PaginationSys.js")
 
 module.exports = new Command({
     name: "whois",

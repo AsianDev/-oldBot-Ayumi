@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
   name: 'phelp',
@@ -19,7 +19,7 @@ module.exports = new Command({
     .addField('Commands [2]', '\`\`\`ini\n[ remind, wyr ]\n\`\`\`')
     .setTimestamp()
     .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
-    .setFooter({ text:` > Kaori • ${message.channel.name}`})
+    .setFooter({ text:` > Ayumi • ${message.channel.name}`})
 
     message.channel.send({embeds: [premhelp]})
 

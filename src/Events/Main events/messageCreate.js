@@ -1,16 +1,17 @@
 /** @format */
 
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const Discord = require("discord.js")
-const { Collection } = require('discord.js')
 const Timeout = new Discord.Collection()
 const ms = require("ms")
 const { owners } = require("../../config/Data/config.json");
-const premiumSchema = require("../../config/models/premium.js")
+const premiumSchema = require("../../Structures/models/premium.js")
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-const Kaori = require("../../config/assets/Json/kaori's.json")
-const randomKaori = Kaori.arts[Math.floor((Math.random() * Kaori.arts.length))];
+const fs = require("fs")
+const { join } = require("path")
+// let Kaori = JSON.parse(fs.readFileSync(join(__dirname, "../../config/assets/Json/kaori's.json")))
+let Kaori = require("../../config/assets/Json/kaori's.json")
 
 module.exports = new Event("messageCreate", async (client, message) => {
 
@@ -30,14 +31,15 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 	  	// ---------------------------------------- QUICK FUN STUFF --------------------------------------- //
 
-	if (message.content === 'welcome!') return message.react("<a:Kao_mochaDance:948192364864868362>")
-	if (message.content === 'welc') return message.react('❤️')
-	if (message.content === 'welcomeee') return message.react('<:Kao_TomoeStare:617939107066282024>')
+	if (message.content.toLowerCase() === 'welcome!') return message.react("<a:Kao_mochaDance:948192364864868362>")
+	if (message.content.toLowerCase() === 'welc') return message.react('❤️')
+	if (message.content.toLowerCase() === 'welcomeee') return message.react('<:Kao_TomoeStare:617939107066282024>')
 	if (message.content.toLowerCase() == 'welcome') return message.react("<a:Kao_mochaDance:948192364864868362>")
-	if (message.content === 'Thanks for joining') return message.react('❤️')
-	if (message.content === 'ty for joining') return message.react('❤️')
+	if (message.content.toLowerCase() == 'Hello! Welcome to the server!') return message.react("<a:Kao_mochaDance:948192364864868362>")
+	if (message.content.toLowerCase() === 'Thanks for joining') return message.react('<a:rainbowheart:929617114069872640>')
+	if (message.content.toLowerCase() === 'ty for joining') return message.react('❤️')
 	if (message.content === 'fuck') return message.react('💢')
-	  if(message.content.toLowerCase() === "i should boost the server") return message.reply({content: "*Waa~* would you really do that for us?!", allowedMentions: {repliedUser: false}})
+	  if(message.content.toLowerCase() === "i should boost the server") return message.reply({content: "*Waaa~* would you really do that for us?!", allowedMentions: {repliedUser: false}})
 
 	  	// ---------------------------------------- EVERYONE PING RESPONSE --------------------------------------- //
 
@@ -50,36 +52,15 @@ module.exports = new Event("messageCreate", async (client, message) => {
 	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
 
 	const prefixes = [
-		"Kao ",
-		"kao ",
-		"Kaori ",
-		"KAO ",
-		"KAORI ",
-		"kaori ",
-		"kao",
-		"Kao",
-		"KaO ",
-		"kAo ",
-		"cao",
-		"Cao",
-		"Kai",
-		"kai",
-		"kaoree",
-		"K.",
-		"k.",
-		"k. ",
-		"K. ",
-		"k,",
-		"K,",
-		"k, ",
-		"K, ",
+		"ayu ",
+		"a. ",
 		`<@$${client.user.id}>`,
         `<@!${client.user.id}>`,
 		`${client.user.id}`,
 		
 	]
 
-		const prefix = prefixes.find(x => message.content.startsWith(x))
+		const prefix = prefixes.find(x => message.content.startsWith(x).toLowerCase()) 
 		if (!prefix) return;
 
 		function generateRandomString(length) {
@@ -96,10 +77,11 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			return random_string;
 		  }
 		  
-		  const id = generateRandomString(5);           
+		  const id = generateRandomString(7);           
 		  IDNumber = `${id}`;
 	
-	
+		  var randomKaori = Kaori[Math.floor(Math.random() * Kaori.length)]
+
 		const kaoriFanArt = new Discord.MessageEmbed()
 		.setColor("RANDOM")
 		.setImage(`${randomKaori.image}`)
@@ -178,7 +160,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 		const UpgradeToPremiumPlease = new Discord.MessageEmbed()
 			.setColor("#FBD9F6")
-			.setTitle("*Waa~* You do not have access to this command!")
+			.setTitle("*Waaa~* You do not have access to this command!")
 			.setDescription("This command is a **Premium Only** command! Please ugprade to Premium to gain access to this!")
 		const UpgradeToPremiumPleaseButton = new Discord.MessageActionRow()
 			.addComponents(
@@ -204,44 +186,20 @@ module.exports = new Event("messageCreate", async (client, message) => {
 				.setDescription("Please run this command in an NSFW Channel")
 
 				if (command) {
-					if (!message.channel.nsfw) {
+					if (!message.channel.nsfw && !owners.includes(message.author.id)) {
 						if (command.nsfw) {
 						message.react("<:Iki_MAD:874174682427969536>");
 						return message.reply({ embeds: [NSFW], allowedMentions: {repliedUser: false} }).then((msg) => {
-							setTimeout(() => msg.delete(), 3000);
+							setTimeout(() => msg.delete(), 4000);
 						  });
 						}
 					}
-
-							// ---------------------------------------- Ikigai server only COMMANDS ------------------------- //
-
-
-						const kaoriServerID = client.guilds.cache.get(" ") // Ikigai server id <- put here >:)
-
-					const KaoriServerOnly = new Discord.MessageEmbed()
-					.setColor(colour.pink)
-					.setTitle(`${emotes.Error} AN ERROR OCCURED`)
-					.setDescription("*Waa~* Sorry! This command is only available to use in the main server!")
-					.setThumbnail(client.user.displayAvatarURL())
-					.setFooter({ text: "Join the main server to use this command! "})
-					.addField("Ikigai server (main server)", "**[Join here!](https://discord.gg/TQ3mTPE7Pf)**")
-
-					if(command) {
-						if(message.guild.id !== "") {
-						if(command.guildOnly) {
-							message.reply({embeds: [KaoriServerOnly], allowedMentions: {repliedUser: false}}).then((msg) => {
-								setTimeout(() => msg.delete(), 3000);
-							  });
-						}
-						}
-					}
-
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
-		const commandDb = require('../../config/models/command.js');
+		const commandDb = require('../../Structures/models/command.js');
 		if (command) {
 			const DisabledCMD = new Discord.MessageEmbed()
 				.setColor(colour["celestial blue"])
-				.setTitle(`${emotes.Error} *Waa~* AN ERROR OCCURED!`)
+				.setTitle(`${emotes.Error} *Waaa~* AN ERROR OCCURED!`)
 				.setDescription(`*Bakaa~* This command is disabled in this server!`)
 				.addField("Command Name:", `${command.name}`)
 				.addField("Command Description:", `${command.description}`)
@@ -253,11 +211,12 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 			// ------------------------------------------- COMMAND COOLDOWNS ----------------------------------- //
 			if (command) {
-				if (command.cooldown) {
+				if (command.cooldown && !owners.includes(message.author.id)) {
 					if (Timeout.has(`${command.name}${message.author.id}`)) return message.reply({
 						embeds: [new Discord.MessageEmbed()
 							.setColor("#ff3235")
-							.setDescription(`***Waa~* you need to wait!** (；⌣̀_⌣́)	\n You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n The Default cooldown for __${command.name}__ is ${ms(`${command.cooldown}`),{ long: false}}`)
+							.setAuthor({ name: "*Waaa~* you need to wait! (；⌣̀_⌣́)", iconURL: `${message.guild.iconURL()}`})
+							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n <:Iki_xpinkdot:916869194400796772> The Default cooldown for __${command.name}__ is ${ms(`${command.cooldown}`),{ long: false}}`)
 						], allowedMentions: {repliedUser: false}
 					})
 					command.run(message, args, client)
@@ -268,7 +227,10 @@ module.exports = new Event("messageCreate", async (client, message) => {
 				}
 				if (!command.cooldown) {
 					command.run(message, args, client)
-				}
+			}
+			if(command.cooldown && owners.includes(message.author.id)) {
+				command.run(message, args, client)
+			} 
 			}
 		}}
 		}

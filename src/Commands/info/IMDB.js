@@ -1,5 +1,5 @@
 const fetch = require("node-fetch")
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
@@ -26,7 +26,7 @@ module.exports = new Command({
         const Eroror = new Discord.MessageEmbed()
         .setColor("#E6604D")
         .setTitle("An Error Occured <:Ikix:904736839036993586>")
-        .setDescription("*Waa~* Something went wrong!")
+        .setDescription("*Waaa~* Something went wrong!")
 
         if(result.error) return message.reply({embeds: [Eroror]})
         const Result = new Discord.MessageEmbed()

@@ -1,5 +1,5 @@
-const premiumSchema = require("../../config/models/premium.js")
-const Command = require('../../Handlers/Command.js')
+const premiumSchema = require("../../Structures/models/premium.js")
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 const errorX = "<:Ikix:904736839036993586>"
 const Bunny = "<a:Kawaii_Bunny:922261803583553556>"

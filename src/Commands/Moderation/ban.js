@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 const c = require("../../config/assets/Json/colours.json")
 const e = require("../../config/assets/Json/emotes.json")
@@ -7,7 +7,7 @@ module.exports = new Command({
     name: "ban",
     description: "ban a user",
     cooldown: 10000,
-    userPermissions: ["BAN_MEMBERS"],
+    userPermissions: "BAN_MEMBERS",
     botPermissions: "BAN_MEMBERS",
     type: "TEXT",
     aliases: ["banhammer", "bann", "ban-user"],
@@ -23,12 +23,12 @@ module.exports = new Command({
 
         let clientUserBan = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* Why are you trying to ban me?")
+        .setDescription("*Waaa~* Why are you trying to ban me?")
         .setTitle(`${errorX} An Error Occured`)
 
         let AuthorrBan = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* Why are you trying to ban yourself?")
+        .setDescription("*Waaa~* Why are you trying to ban yourself?")
         .setTitle(`${errorX} An Error Occured`)
 
         let roleUnder = new Discord.MessageEmbed()
@@ -51,7 +51,7 @@ module.exports = new Command({
 
         let roleSame = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* They have the same role as me!")
+        .setDescription("*Waaa~* They have the same role as me!")
         .setTitle(`${errorX} An Error Occured`)
 
      if (!member) return message.reply({embeds: [Nomember]})

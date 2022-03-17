@@ -1,24 +1,25 @@
 const { Captcha } = require('captcha-canvas');
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-const CaptchaSchema = require("../../config/models/captcha.js");
-const Command = require('../../Handlers/Command.js')
+const CaptchaSchema = require("../../Structures/models/captcha.js");
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../config/models/guildConfig.js')
+const guildConfig = require('../../Structures/models/guildConfig.js')
 
 
 module.exports = new Command({
   name: 'verify-captcha',
-  aliases: ['verify', "poop"],
+  aliases: ['verify'],
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
   type: "TEXT",
   cooldown: 7000,
   description: 'complete the captcha to verify yourself',
+  maintance: true,
   async run(message, args, client) {
 
     const member = message.member 
     if (member.user.bot) return;
-    const data2 = await guildConfig.findOne({guildId: member.guild.id})
+    const data2 = await guildConfig.findOne({Guild: member.guild.id})
     if (!data2) return;
     const Vchannel = member.guild.channels.cache.find(c => c.id === data2.VChannel)
     const NoDm = client.channels.cache.get("925997925925011466")
@@ -41,7 +42,7 @@ module.exports = new Command({
     .setTitle("You are already verified")
 
 
-  CaptchaSchema.findOne({ guildId: message.guild.id }, async (err, data) => {
+  CaptchaSchema.findOne({ Guild: message.guild.id }, async (err, data) => {
     const role = message.guild.roles.cache.get(data.Role);
     if (member.roles.cache.has(data.Role)) return message.channel.send({embeds: [ALREADYVERFIEDEMBED]})
     if(!data) return console.log("No data -> Verify role has not been set.")
@@ -61,28 +62,27 @@ const captcha = new Captcha();
         .setColor("#FEE4FA")
          .setTitle("Please answer what you see below.")
            const msg = await Vchannel.send({ files: [attachment], embeds: [Emb]})
-  const collector = msg.channel.createMessageCollector({
-   filter: (m) =>
-   m => m.author.id === msg.author.id,
+    const collector = Vchannel.createMessageCollector({
+   filter: (m) => m.author.id === msg.author.id,
    max: 2,
    time: 60000,
    errors: ["time"],
   });
   collector.on("collect", m => {
     if(m.author.id !== member.id) return;
-		const verified = (m.content === captcha.text)
+        const verified = (m.content === captcha.text)
     if(verified) {
     member.roles.add(role)
     msg.delete()
     client.channels.cache.get("935866768424063046").send({embeds: [verifiedEmbed]})  // logging that they verified
-    } if(!verified) {
+    } else if(!verified) {
       try {
-    member.createDM(`You have been kicked from **${member.guild.name}** for not answering the captcha correctly. Try again by joinging. https://discord.gg/TQ3mTPE7Pf`)
+      member.kick()
+    member.send(`You have been kicked from **${member.guild.name}** for not answering the captcha correctly. Try again by joinging. https://discord.gg/4SV9JYPA`)
       } catch(error) {
         console.log(error)
         NoDm.send({embeds: [DmsDisabledEmbed]})
       }
-    member.kick()
   }
 	});
   }

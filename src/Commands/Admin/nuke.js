@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = new Command({
@@ -18,10 +18,12 @@ module.exports = new Command({
 
     new MessageButton().setCustomId("NO").setStyle("DANGER").setLabel("Cancel")
   );
+  let reason = args.slice(1).join(" ") || "*Waaa~* No reason has been provided to this nuke!";
 
   const AYS = new MessageEmbed()
   .setColor("#36393f")
   .setDescription("**Are you sure you wish to nuke this channel?**")
+  .setAuthor({ name: "Please Confirm!", iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
   message.reply({
     embeds: [AYS],
     components: [nukeButton],
@@ -30,7 +32,7 @@ module.exports = new Command({
   const filter = (interaction) => {
     if (interaction.user.id === message.author.id) return true;
     return interaction.reply({
-      content: "*Waa~* This is not for you to interact! o.o",
+      content: "*Waaa~* This is not for you to interact! o.o",
       ephemeral: true,
     });
   };
@@ -45,11 +47,15 @@ module.exports = new Command({
 
     if (id === "YES") {
       message.channel.clone().then((ch) => {
-        let reason = args.join(" ") || "No Reason";
-        let embed = new MessageEmbed().setTitle("**Channel Succesfuly Nuked**").setColor("BLURPLE").setDescription(reason).setImage("https://i.gifer.com/Hgp9.gif");
+        let NukedSuccessEmbed = new MessageEmbed()
+        .setTitle("**Channel Succesfuly Nuked**")
+        .setColor("BLURPLE")
+        .setDescription(reason)
+        .setImage("https://i.gifer.com/Hgp9.gif");
+
         ch.setPosition(message.channel.position);
           message.channel.delete().then(() => {
-          ch.send({ embeds: [embed] }).then((msg) => {
+          ch.send({ embeds: [NukedSuccessEmbed] }).then((msg) => {
             setTimeout(() => msg.delete(), 12000);
           });
         });

@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({
         name: "membercount",
@@ -17,7 +17,7 @@ module.exports = new Command({
           .setFooter({ text: `Requested by ${message.author.tag}`})
           .setTimestamp()
           .setThumbnail(message.guild.iconURL({dynamic: true}))
-          .setFooter({ text: "Kaori©"})
+          .setFooter({ text: "Ayumi©"})
 
          
               message.channel.send({embeds: [embed]})

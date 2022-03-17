@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const { MessageEmbed } = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
@@ -34,7 +34,7 @@ module.exports = new Command({
       } else {
         const embed = new MessageEmbed()
           .setTimestamp()
-          .setDescription(`*Waa~*... **${member.user.username}** doesn't have a banner or an accent color.`)
+          .setDescription(`*Waaa~*... **${member.user.username}** doesn't have a banner or an accent color.`)
           .setColor(colour.pink);
         message.channel.send({ embeds: [embed] })
           }

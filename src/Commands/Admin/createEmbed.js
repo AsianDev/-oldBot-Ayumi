@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command ({
@@ -27,7 +27,7 @@ module.exports = new Command ({
 
     const TitleName = new Discord.MessageEmbed()
     .setColor("#FCC8EA")
-    .setDescription("*Waa~* What will be the title of the embed?")
+    .setDescription("*Waaa~* What will be the title of the embed?")
 
    await message.channel.send({embeds: [TitleName]}).then(async (msg) => {
       try {
@@ -51,7 +51,7 @@ module.exports = new Command ({
 
     const descriptionName = new Discord.MessageEmbed()
     .setColor("#FCC8EA")
-    .setDescription("*Waa~* What will be the description of the embed?")
+    .setDescription("*Waaa~* What will be the description of the embed?")
 
     await message.channel.send({embeds: [descriptionName]}).then(async (msg) => {
       try {
@@ -65,7 +65,7 @@ module.exports = new Command ({
 
     const ImageLink = new Discord.MessageEmbed()
     .setColor("#FCC8EA")
-    .setDescription("*Waa~* What will be the image of the embed?")
+    .setDescription("*Waaa~* What will be the image of the embed?")
     .setFooter({ text: "Remember to send a link for this image not an attachment" })
 
    await message.channel.send({embeds: [ImageLink]}).then(async (msg) => {

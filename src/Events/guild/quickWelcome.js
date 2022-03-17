@@ -1,8 +1,8 @@
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const Discord = require("discord.js");
 module.exports = new Event("guildMemberAdd", async (client, member, message) => { 
 
-    const guildConfig = require('../../config/models/guildConfig.js')
+    const guildConfig = require('../../Structures/models/guildConfig.js')
     const data = await guildConfig.findOne({guildId: member.guild.id})
     if (!data) return;
     const channel = member.guild.channels.cache.find(c => c.id === data.QuickwelcomeChannel)

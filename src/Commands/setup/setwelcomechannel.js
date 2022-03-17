@@ -1,6 +1,6 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../config/models/guildConfig.js')
+const guildConfig = require('../../Structures/models/guildConfig.js')
 const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
     name: "welcomechannel",

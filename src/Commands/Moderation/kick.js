@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 const c = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
@@ -20,12 +20,12 @@ module.exports = new Command({
 
         let clientUserBan = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* Why are you trying to kick me?")
+        .setDescription("*Waaa~* Why are you trying to kick me?")
         .setTitle(`${errorX} An Error Occured`)
 
         let AuthorrBan = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* Why are you trying to kick yourself?")
+        .setDescription("*Waaa~* Why are you trying to kick yourself?")
         .setTitle(`${errorX} An Error Occured`)
 
         let roleUnder = new Discord.MessageEmbed()
@@ -48,7 +48,7 @@ module.exports = new Command({
 
         let roleSame = new Discord.MessageEmbed()
         .setColor(c['light red'])
-        .setDescription("*Waa~* They have the same role as me!")
+        .setDescription("*Waaa~* They have the same role as me!")
         .setTitle(`${errorX} An Error Occured`)
 
      if (!member) return message.reply({embeds: [Nomember]})

@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "webss",
@@ -14,7 +14,7 @@ module.exports = new Command({
         const noLink = new Discord.MessageEmbed()
         .setColor("RED")
         .setTitle("<:x_:904736839036993586> Missing arguement")
-        .setDescription("*Waa~* please provide a valid link")
+        .setDescription("*Waaa~* please provide a valid link")
 
     const urls = args[1];
     if (!urls)

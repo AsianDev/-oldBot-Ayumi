@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -19,7 +19,7 @@ module.exports = new Command({
         if (!emoji) {
           const embed = new Discord.MessageEmbed()
           .setColor(colour["light red"])
-          .setDescription("*Waa~* Please provide an emoji!")
+          .setDescription("*Waaa~* Please provide an emoji!")
           .setTitle(`${emotes.Error} MISSING ARGUEMENT`)  
           return message.channel.send({embeds: [embed]})
         }

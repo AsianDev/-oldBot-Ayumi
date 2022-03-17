@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const Event = require("../../Handlers/Event.js");
+const Event = require('../../../Structures/Handlers/Event.js')
 const starCount = "4"; // The star count
 const SBchannelId = "928847149310042144" // Starboard channel ID
 

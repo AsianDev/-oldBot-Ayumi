@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js");
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const fetch = require("axios")
 module.exports = new Command({  
     name: "avt",
@@ -8,7 +8,7 @@ module.exports = new Command({
     type: "TEXT",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",
-    aliases: ["pfp", "avatar", "useravatar"],
+    aliases: ["pfp", "avatar", "useravatar", "av"],
     /**
      * @param {Client} client
      * @param {Message} message
@@ -16,7 +16,7 @@ module.exports = new Command({
      */
      async run(message, args, client) {
 
-        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member ||  message.guild.members.cache.find((u) => u.user.username.toLowerCase().includes(args.join(" ") || u.user.tag.toLowerCase() === args.join(" ")))
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[1]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args.join(' ').toLocaleLowerCase()) || message.member ||  message.guild.members.cache.find((u) => u.user.username.toLowerCase().includes(args.join(" ").slice(1) || u.user.tag.toLowerCase() === args.join(" ").slice(1)))
 
         const png = member.user.displayAvatarURL({ dynamic: false, format: 'png' });
         const jpg = member.user.displayAvatarURL({ dynamic: false, format: 'jpg' });

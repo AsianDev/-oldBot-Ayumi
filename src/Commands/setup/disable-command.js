@@ -1,4 +1,4 @@
-const schema = require('../../config/models/command')
+const schema = require('../../Structures/models/command')
 const Discord = require("discord.js")
 module.exports = {
     name: "cmd-disable",

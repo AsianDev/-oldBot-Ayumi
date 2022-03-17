@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -44,7 +44,7 @@ module.exports = new Command({
         .setCustomId("member")
     );
     let embed = new Discord.MessageEmbed().setDescription(
-      "*Waa~* Who are you going to give the roles to? (๑ᵔ⤙ᵔ๑)"
+      "*Waaa~* Who are you going to give the roles to? (๑ᵔ⤙ᵔ๑)"
     )
     .setColor("RANDOM")
     let msg = await message.channel.send({

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const Command = require('../../Handlers/Command.js')
-const CaptchaSchema = require("../../config/models/captcha.js");
+const Command = require('../../Structures/Handlers/Command.js')
+const CaptchaSchema = require("../../Structures/models/captcha.js");
 module.exports = new Command({
     name: "vrole",
     description: "autorole",
@@ -42,6 +42,7 @@ module.exports = new Command({
                         .setThumbnail("<:Ikix:904736839036993586> MISSING ARGUEMENT!")
                         if (!role) return message.reply({embeds: [Nochannel]})
                     
+                        
                         const data = await CaptchaSchema.findOne({ guildId: message.guild.id }) 
                     
                         if (!data) {
@@ -51,7 +52,7 @@ module.exports = new Command({
                                     Role: role
                                 })
                   
-                                await data1.updateOne({ Role: role.id })
+                                await data1.findOneAndUpdate({ Role: role.id })
                                 return message.reply({ embeds: [SuccessEmbed], components: [row], allowedMentions: {repliedUser: false} })
                             } catch (error) {
                                 console.log(error)

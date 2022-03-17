@@ -1,7 +1,7 @@
 const { Message,MessageEmbed, Client } = require("discord.js");
 const Discord = require("discord.js")
 const ms = require('ms')
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 module.exports = new Command({ 
    name: "timeout",

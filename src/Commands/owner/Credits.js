@@ -1,4 +1,4 @@
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -15,10 +15,10 @@ module.exports = new Command({
 
         const CreditsEmbed = new Discord.MessageEmbed()
             .setColor("RED")
-            .setDescription("Here are the people who have helped develep small parts of Kaori big thanks to them.\n\n make sure to check out their bots.")
+            .setDescription("Here are the people who have helped develep small parts of Ayumi big thanks to them.\n\n make sure to check out their bots.")
             .addField("Senpai#2473:", "Senpai has given inspiration to some commands and also given cod to some of his commands big thanks to him.")
-            .addField("Solar#3593", "Solar has helped me with errors to fix Kaori at times and has gave code to his autorole system. big thanks again.")
-            .addField("BDT#4248 ", "BDT has helped me with errors to fix Kaori at times and has helped me from the beginning big thanks again.")
+            .addField("Solar#3593", "Solar has helped me with errors to fix Ayumi at times and has gave code to his autorole system. big thanks again.")
+            .addField("BDT#4248 ", "BDT has helped me with errors to fix Ayumi at times and has helped me from the beginning big thanks again.")
 
         const CreditButton = new Discord.MessageActionRow()
             .addComponents(

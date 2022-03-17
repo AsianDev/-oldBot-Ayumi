@@ -1,6 +1,6 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
-const Command = require('../../Handlers/Command.js')
+const Command = require('../../Structures/Handlers/Command.js')
 
 
 module.exports = new Command({
@@ -12,7 +12,7 @@ module.exports = new Command({
     botPermissions: "SEND_MESSAGES",
     description: "checks the weather of a location",
     async run(message, args, client) {
-        weather.find({search: args.join(" "), degreeType: 'C'}, function (error, result){
+        weather.find({search: args.join(" ").slice(1), degreeType: 'C'}, function (error, result){
         if(error) return message.channel.send(error);
         if(!args[0]) return message.channel.send('lol i cant check the weather of the earth, please name a location!')
 
