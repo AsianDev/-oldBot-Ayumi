@@ -1,5 +1,5 @@
 node_modules
 bot.js
 package-lock.json
-Hex colours.txt
 .vscode
+node_modules/.package-lock.json
