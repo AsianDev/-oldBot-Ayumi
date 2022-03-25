@@ -1,4 +1,4 @@
-![MASTERHEAD](https://cdn.discordapp.com/attachments/935232262407065610/937896587802333204/ikigaigiagAyumi.jpg)
+![MASTERHEAD](https://cdn.discordapp.com/attachments/956433668698689536/957053927818407996/yea.png)
 
 <h1 align="center">Hello i am Asahi | 旭陽 👋</h1>
 <h3 align="center">About me:</h3>
