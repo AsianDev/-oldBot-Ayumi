@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -8,10 +8,10 @@ module.exports = new Command({
     name: "enlargeemoji",
     aliases: ['bigemoji', "big-emoji", "enlarge-emoji"], 
     description: 'enlarge an emoji',
-    type: 'TEXT',
+ type: "Text",
     userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
+   cooldown: 4000,
 
     async run(message, args, client) {
 

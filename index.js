@@ -1,6 +1,6 @@
 /** @format */
 console.clear();
-const Client = require("./src/Structures/Handlers/Client.js")
+const Client = require("./src/Handlers/Client.js")
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
 const config = require("./src/config/Data/config.json")
@@ -37,7 +37,6 @@ Canvas.loadImage('./src/config/assets/image/leave.jpg').then(async (image) => {
 })
 const client = new Client()
 client.slashCommands = new Discord.Collection();
-
 // // ---------------------ERROR HANDLER-----------------------------------//
 process.on("unhandledRejection", (error, promise) => {
   const unhandledRejectionEmbed = new Discord.MessageEmbed()
@@ -57,4 +56,4 @@ mongoose.connect(config.MongooseUrl, {
     useUnifiedTopology : true,
     useNewUrlParser:  true,
 }).then(console.log(chalk.red.bold(`Connected to the DB`)))
-client.start(config.Token).catch((err) => console.log(err))
+client.start(config.Token)

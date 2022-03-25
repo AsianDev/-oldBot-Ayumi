@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const block = "⬛"
 const heart = "🟥"
@@ -10,7 +10,8 @@ module.exports = new Command({
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES"],
     cooldown: 10000,
-    type: "TEXT",
+type: "Text",
+
     async run(message, args, client) {
         const user = message.mentions.users.first();
 

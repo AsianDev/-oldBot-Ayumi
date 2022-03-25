@@ -1,5 +1,5 @@
 const { Message, MessageEmbed } = require("discord.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 const c = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
@@ -7,7 +7,7 @@ module.exports = new Command({
     name: "leave",
     description: "leave a server",
     owner: true,
-    type: "TEXT",
+type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
 

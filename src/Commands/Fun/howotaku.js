@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
         name: "howotaku",
         description: "see how much of an otaku you are",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+      botPermissions: "SEND_MESSAGES",
+     type: "Text",    
         cooldown: 5000,
         aliases: ["otaki%", "otaku", "otaku-level"],
     async run(message, args, client) {

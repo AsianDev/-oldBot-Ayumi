@@ -1,13 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 name: "amongus",
 description: "amongus",
 userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["ADMINISTRATOR"],
-type: "TEXT",
+ type: "Text",
 cooldown: 7000,
+
 async run(message, args, client) {
     const Susembed = new Discord.MessageEmbed()
     .setColor("DARK_AQUA")

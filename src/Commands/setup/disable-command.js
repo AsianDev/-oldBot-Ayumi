@@ -1,12 +1,12 @@
-const schema = require('../../Structures/models/command')
+const schema = require('../../config/models/command')
 const Discord = require("discord.js")
-module.exports = {
-    name: "cmd-disable",
-    type: "TEXT",
+const Command = require('../../Handlers/Command.js')
+module.exports = new Command({
+        name: "cmd-disable",
     cooldown: 10000,
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["disable-command", "disable-cmd", "disable"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["disable-command", "disable-cmd", "disable"],
     description: "disables command",
     async run(message, args, client) {
  
@@ -46,4 +46,4 @@ module.exports = {
        message.channel.send({embeds: [disabledCmd]})
    })
 }
-}
+})

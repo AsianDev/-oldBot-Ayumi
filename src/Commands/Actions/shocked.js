@@ -1,15 +1,17 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
 name: 'shocked',
-type: "TEXT",
+
 aliases: ["shock"],
 cooldown: 10000,
 description: "sends a shocked anime gif",
-userPermissions: ["SEND_MESSAGES"],
-async run(message, args, client) {  
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
+  async run(message, args, client) {  
   const member = message.mentions.members.first() || message.author
   let kill = [
     `${message.author.username} has been shocked at the sight!`,

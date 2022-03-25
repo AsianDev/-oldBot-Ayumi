@@ -1,9 +1,9 @@
 const { Captcha } = require('captcha-canvas');
 const { MessageEmbed, MessageAttachment } = require("discord.js");
-const CaptchaSchema = require("../../Structures/models/captcha.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const CaptchaSchema = require("../../config/models/captcha.js");
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 
 
 module.exports = new Command({
@@ -11,7 +11,7 @@ module.exports = new Command({
   aliases: ['verify'],
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
-  type: "TEXT",
+ type: "Text",
   cooldown: 7000,
   description: 'complete the captcha to verify yourself',
   maintance: true,
@@ -54,7 +54,8 @@ const captcha = new Captcha();
   captcha.addDecoy(); 
   captcha.drawTrace(); 
   captcha.drawCaptcha();
-  console.log(captcha.text);
+  console.log(captcha.text
+);
 
         const attachment = new MessageAttachment(await captcha.png, "Ikigai_captcha.png")
         const Emb = new MessageEmbed()
@@ -70,7 +71,8 @@ const captcha = new Captcha();
   });
   collector.on("collect", m => {
     if(m.author.id !== member.id) return;
-        const verified = (m.content === captcha.text)
+        const verified = (m.content === captcha.text
+)
     if(verified) {
     member.roles.add(role)
     msg.delete()

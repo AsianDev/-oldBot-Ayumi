@@ -1,18 +1,20 @@
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const moment = require('moment');
-const { paginate } = require("../../Systems/PaginationSys.js")
+const { paginate } = require("../../Systems/PaginationSys")
 
 module.exports = new Command({
+
     name: "whois",
     description: "Display's the Information on a user",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",
+type: "Text",
     cooldown: 3000,
     aliases: ["userinfo", "ui", "useri"],
-    type: "TEXT",
+    
     async run(message, args, client) {
 
         const permissions = {
@@ -28,7 +30,8 @@ module.exports = new Command({
             "MANAGE_MESSAGES": "Manage Messages",
             "MENTION_EVERYONE": "Mention Everyone"
         }
-        const mention = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.member;
+
+        const mention = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.author
         const nick = mention.nickname === null ? "None" : mention.nickname;
         const roles = mention.roles.cache.get === "" ? "None" : mention.roles.cache.get;
         const usericon = mention.user.avatarURL;
@@ -79,7 +82,6 @@ module.exports = new Command({
         .setColor(colour.pink)
 
         let pages =[embed, embed2roles]
-
         paginate(message, pages) 
 
     }

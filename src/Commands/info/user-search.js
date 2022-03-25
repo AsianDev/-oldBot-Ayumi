@@ -1,5 +1,5 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
@@ -8,8 +8,8 @@ module.exports = new Command({
   aliases: ["us", "user-search"],
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   description: "Seach users who have a certain name in the server!",
-  type: "TEXT",
   cooldown: 5000,
 
   async run (message, args, client) {
@@ -33,7 +33,8 @@ module.exports = new Command({
       .setAuthor({ name: `${message.guild.name} ● Searching for ${user}`, iconURL: message.guild.iconURL( { dynamic: true } )})
       .setColor("RED")
       .setDescription(array.join("\n") || "❌ No Results - Can't Find Any User with this username!")
-      .setFooter({ text: `${array.length} result(s)`})
+      .setFooter({ text
+: `${array.length} result(s)`})
       .setTimestamp()
       .setImage("https://tenor.com/view/arima-ichika-ichika-loading-waiting-thinking-gif-21829545")
     message.channel.send({embeds: [Noresults]})

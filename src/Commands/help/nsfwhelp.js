@@ -1,13 +1,13 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const colour = require("../../config/assets/Json/colours.json")
 
 module.exports = new Command({
   
   name: 'nsfw',
   description: "shows NSFW commands",
-  type: "TEXT",
+  type: "Text",
   cooldown: 2000,
   userPermissions: "KICK_MEMBERS",
   botPermissions: ["SEND_MESSAGES"],
@@ -26,9 +26,9 @@ module.exports = new Command({
       
     const secret = new Discord.MessageEmbed()
     .setAuthor({ name: "Ayumi HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
-    .setDescription("```yaml\n Syntax: Kao <NSFW Command>```")
+    .setDescription("```yaml\n Syntax: Ayu <NSFW Command>```")
     .setThumbnail(message.member.user.avatarURL({ dynamic: true }))
-    .addField('__🔞 NSFW__', '\`\`\`ini\n[ kao nsfw hentai ]\n\`\`\`')
+    .addField('__🔞 NSFW__', '\`\`\`ini\n[ ayu nsfw hentai ]\n\`\`\`')
     .setTimestamp()
     .setColor("BLUE")
     .setFooter({ text:` > Ayumi • ${message.channel.name}`})
@@ -36,8 +36,8 @@ module.exports = new Command({
 
     const hentai = new Discord.MessageEmbed()
     .setAuthor({ name: "Ayumi HELP MENU", iconURL: `${client.user.displayAvatarURL()}`})
-    .setDescription("```yaml\n Syntax: Kao <hentai Command>```\n || Thats all your getting || ")
-    .addField('__🔞 Hentai(pictures)__', '\`\`\`ini\n[ Ahegao, Boobs, Pussy, Uniform ]\n\`\`\`')
+    .setDescription("```yaml\n Syntax: Ayu <hentai Command>```\n || Thats all your getting || ")
+    .addField('__🔞 Hentai(pictures)__', '\`\`\`ini\n[ Ahegao, Boobs, Pussy, Uniform, ass, dicks, feet, femdom, masturbation, tentacles, trans ]\n\`\`\`')
     .addField('__🔞 Hentai(gifs)__', '\`\`\`ini\n[ Anal, Boobjob, Cum, Happyend, Spank ]\n\`\`\`')
     .setTimestamp()
     .setColor("BLUE")

@@ -1,5 +1,5 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "Find the lyrics of a song by search!",
     cooldown: 5000,
     aliases: ["song"],
-    type: "TEXT",   
+type: "Text",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES"],
 

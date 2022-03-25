@@ -1,10 +1,12 @@
-const Event = require('../../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { EveryoneRoleId, StaffRoleId, StaffRoleId2, CatergoryID, TrasnscriptID  } = require("../../config/assets/Json/ticket.json")
 const Discord = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
 const { createTranscript } = require("discord-html-transcripts")
 
 module.exports = new Event("interactionCreate", async(client, interaction) => {
+    if(interaction.guildId == null) return interaction.reply({ content: "You can´t execute commands in DM", ephemeral: true});
+
     if (interaction.isCommand()) {
         const cmd = client.commands.get(interaction.commandName);
         if (!cmd) return interaction.followUp({ content: "An error has occured O><O", ephemeral: true});
@@ -54,9 +56,7 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                                 id: EveryoneRoleId,
                                 deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
                             }],
-                            type: "GUILD_TEXT"
-                    }).then(async c => {
-                        interaction.followUp({embeds: [new Discord.MessageEmbed()
+                            type: "GUILD_TEXT"}).then(async c => {interaction.followUp({embeds: [new Discord.MessageEmbed()
                         .setColor(colour.lightish_blue)
                         .setDescription(`<@${interaction.user.id}> You have made a ticket.`)
                         .setThumbnail(`${interaction.user.displayAvatarURL({ dynamic: true, size: 512 })}`)
@@ -67,15 +67,39 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
                         .setFooter({ text: "Your ticket will be recorded in a transcript", iconURL: `${interaction.user.displayAvatarURL()}`})
                         .setDescription('Hello there, \n The staff will be here as soon as possible mean while tell us about your issue!\nThank You!')
-                        const row = new Discord.MessageActionRow()
-                        .addComponents 
-                        (
-                            new Discord.MessageButton()
+                        .addField("To Create A Transcript:", "By pressing on the green button labbeld `Claim` the channels transcript will be sent here.\n When this ticket is closed too, a copy of this tickets Transcript will be kept also.")
+                          
+                        let button1 = new Discord.MessageButton()
                             .setCustomId("ticket-close")
                             .setLabel("Close Ticket")
                             .setEmoji("🔒")
                             .setStyle("DANGER")
-                        )
+
+                             let button2 =  new Discord.MessageButton()
+                                .setCustomId("Transcript")
+                                .setLabel("Claim")
+                                .setStyle("SUCCESS")
+
+                                let button3 = new Discord.MessageButton()
+                                .setCustomId("zing")
+                                .setDisabled(true)
+                                .setEmoji("🕰️")
+                                .setStyle("SECONDARY")
+
+                                let button4 = new Discord.MessageButton()
+                                .setCustomId("Lock")
+                                .setLabel("Archieve Ticket")
+                                .setStyle("DANGER")
+
+                                let button5 = new Discord.MessageButton()
+                                .setCustomId("Unlock")
+                                .setLabel("Un-Archieve Ticket")
+                                .setStyle("PRIMARY")
+
+
+                                const row = new Discord.MessageActionRow()
+                                 .addComponents(button1, button2, button3, button4, button5)
+                        
                         c.send({
                             content: `<@${interaction.user.id}>`,
                             embeds: [newtic], 
@@ -83,10 +107,15 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         }).then(msg => msg.pin())
                     })
             
-                    } else if(interaction.customId === "ticket-close") {
+                    } else if(interaction.customId === "ticket-close" ) {
+                          const StaffPeople = interaction.guild.roles.cache.has(StaffRoleId || StaffRoleId2 || interaction.guild.ownerId)
+                        if(!interaction.user.id == StaffPeople) {
+                            interaction.reply({ content: "You do not have permissiont to close the ticket!", ephemeral: true})
+                        } else {
+                            
                         interaction.reply({embeds: [new Discord.MessageEmbed()
                             .setColor(colour.lightish_blue)
-                            .setTitle("Ticket will be closed. <a:loading:938879666800967720>")
+                            .setTitle("Ticket will be closed. <a:Iki_loading:938868057890250882>")
                             .setDescription("Closing the ticket in 3 seconds...")
                             .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
                         ]})
@@ -96,10 +125,9 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                                 ephemeral: true
                             })
                         }
-                        const user = await client.users.fetch(interaction.channel.topic);
                         const Trasnscript = await createTranscript(interaction.channel, {
                             limit: -1,
-                            fileName: `${interaction.channel.topic}-Ticket-Copy.html`,
+                            fileName: `${interaction.channel.topic}-Ticket-Transcript.html`,
                             returnBuffer: false
                         });
             
@@ -108,13 +136,71 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         .setDescription(`<@${interaction.user.id}>'s Ticket has been closed`)
                         .setAuthor({ name: "Ayumi support!", iconURL: `${interaction.guild.iconURL()}`})
             
-                    client.channels.cache.get(TrasnscriptID).send({
-                            embeds: [embedClosedTicket],
-                            files: [Trasnscript]
-                        })
+                    client.channels.cache.get(TrasnscriptID).send({embeds: [embedClosedTicket], files: [Trasnscript]})
                  setTimeout(() => {
                    interaction.channel.delete()
                 }, 3000)
-                    }}
-      
+                        }
+
+                    } else if(interaction.customId === 'Transcript') {
+
+                        const Trasnscript = await createTranscript(interaction.channel, {
+                            limit: -1,
+                            fileName: `${interaction.channel.topic}-Ticket-Transcript.html`,
+                            returnBuffer: false
+                        });
+
+                        interaction.reply({ content: `Here is the tickets Transcript! <@${interaction.user.id}>`, files: [Trasnscript]})
+                    } else if(interaction.customId === 'Lock') {
+                        const StaffPeople = interaction.guild.roles.cache.has(StaffRoleId || StaffRoleId2 || interaction.guild.ownerId)
+                        if(interaction.user.id !== StaffPeople) {
+                            interaction.reply({ content: "You do not have permissiont to lock the ticket!", ephemeral: true})
+                        } else {
+                            interaction.channel.permissionOverwrites[{
+                                id: interaction.user.id,
+                                deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: client.user.id,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId2,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: EveryoneRoleId,
+                                deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }].then(interaction.reply({ embeds: [new Discord.MessageEmbed()
+                                .setColor(colour['skin colour'])
+                                .setDescription("<a:kao_teehee:950219956971249674> I have archieved the ticket for further reviewing!")
+                            ], ephemeral: true}))
+                        }
+                    } else if(interaction.customId == 'Unlock') {
+                        const StaffPeople = interaction.guild.roles.cache.has(StaffRoleId || StaffRoleId2 || interaction.guild.ownerId)
+                        if(interaction.user.id !== StaffPeople) {
+                            interaction.reply({ content: "You do not have permissiont to unlock the ticket!", ephemeral: true})
+                        } else {
+                            interaction.channel.permissionOverwrites[{
+                                id: interaction.user.id,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: client.user.id,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: StaffRoleId2,
+                                allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }, {
+                                id: EveryoneRoleId,
+                                deny: ["SEND_MESSAGES", "VIEW_CHANNEL"]
+                            }].then(interaction.reply({ embeds: [new Discord.MessageEmbed()
+                                .setColor(colour['skin colour'])
+                                .setDescription("<a:kao_teehee:950219956971249674> I have un-archieved the ticket!")
+                            ], ephemeral: true}))
+                        }
+                    }
+            }
                 })

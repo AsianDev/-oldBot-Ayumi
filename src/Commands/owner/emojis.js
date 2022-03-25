@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 // const paginate = require('discordjs-button-pagination');
 const { MessageButton, MessageEmbed } = require("discord.js")
 const emotes = require("../../config/assets/Json/emotes.json")
@@ -11,7 +11,7 @@ module.exports = new Command({
     aliases: ["emojis", "elist", "emolist", "emotelist", "e"],
     cooldown: 7000,
     description: "List all the emotes from the server.",
-    type: "TEXT",
+type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES", 'EMBED_LINKS', 'USE_EXTERNAL_EMOJIS'] ,
     async run(message, args, client) {
@@ -20,7 +20,8 @@ module.exports = new Command({
             embeds: [new MessageEmbed()
                 .setColor(`${colour.lightish_blue}`)
                 .setDescription(`**Fetching emotes in this server** ${emotes.Bars_Loading}`)
-                .setFooter({text: `This might take time`})], allowedMentions: {repliedUser: false}})
+                .setFooter({text
+: `This might take time`})], allowedMentions: {repliedUser: false}})
 
         let Emojis = [];
         let EmojisAnimated = []

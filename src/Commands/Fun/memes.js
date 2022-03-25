@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const axios = require('axios')
 const got = require('got')
@@ -6,9 +6,8 @@ module.exports = new Command({
     name: "meme",
     description: "sends a random meme",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["memes"],
-    type: "TEXT",
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["memes"],
     cooldown: 5000,
 
     async run(message, args, client) {
@@ -43,7 +42,8 @@ module.exports = new Command({
         .setTimestamp()
         .setURL(`${memeURl}`)
         .setColor("#36393f")
-        .setFooter({text: `👍${memeUpvotes}`})
+        .setFooter({text
+: `👍${memeUpvotes}`})
         .setImage(`${memeImage}`)
          const MESSAGE = await message.channel.send({ embeds: [embed], components: [row]});
                 
@@ -65,7 +65,8 @@ module.exports = new Command({
         .setTimestamp()
         .setURL(`${memeURl}`)
         .setColor("BLUE")
-        .setFooter({text: `👍${memeUpvotes}`})
+        .setFooter({text
+: `👍${memeUpvotes}`})
         .setImage(`${memeImage}`)
 
         b.update({ embeds: [embed], components: [row]})

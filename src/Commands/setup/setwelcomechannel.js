@@ -1,14 +1,13 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
     name: "welcomechannel",
     description: "Set the welcome channel.",
-    type: "TEXT",
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 10000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 10000,
     aliases: ["setwelcome", "set-welcome", "set-welc", "setwelcomechannel", "set-welcomechannel"],
     async run(message, args, client) {
         const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])

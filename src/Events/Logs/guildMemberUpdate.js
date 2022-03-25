@@ -1,6 +1,6 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed } = require('discord.js')
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Event('guildMemberUpdate', async (client, oldMember, newMember) =>{
     const Data = await DB.findOne({
         GuildID: oldMember.guild.id,
@@ -49,7 +49,8 @@ module.exports = new Event('guildMemberUpdate', async (client, oldMember, newMem
                 "<:icons_updatemember:949375652291809341> A Member Has Been Updated"
             )
             .setTimestamp()
-            .setFooter({ text: newMember.guild.name });
+            .setFooter({ text
+: newMember.guild.name });
 
         if (oldMember.nickname !== newMember.nickname) {
             memberUpdateEmbed
@@ -89,7 +90,8 @@ module.exports = new Event('guildMemberUpdate', async (client, oldMember, newMem
                 "<:icons_updatemember:949375652291809341> A Member Has Been Updated"
             )
             .setTimestamp()
-            .setFooter({ text: oldMember.guild.name });
+            .setFooter({ text
+: oldMember.guild.name });
 
         if (oldMember.avatar != newMember.avatar) {
             memberUpdateEmbed

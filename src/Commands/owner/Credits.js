@@ -1,15 +1,15 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
     name: 'credits',
     description: "Shows credited ppl for Ikigai",
     aliases: ["credit"],
+  
     owner: true,
-    type: "TEXT",
+    type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
-
 
     async run(message, args, client) {
 

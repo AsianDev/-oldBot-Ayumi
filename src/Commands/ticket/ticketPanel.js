@@ -1,14 +1,14 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const c = require('../../config/assets/Json/colours.json')
 
 module.exports = new Command({
     name: "ticket",
     description: 'setup a ticket System',
-    type: "SLASH",
-    userPermissions: "MANAGE_GUILDno",
+    userPermissions: "MANAGE_GUILD",
     botPermissions: ["SEND_MESSAGES"],
     cooldown: 6000,
+    type: "Slash",
     async run(interaction, args, client) {
 
         const OpenTicket = new Discord.MessageEmbed()
@@ -26,8 +26,7 @@ module.exports = new Command({
             .setCustomId("ticket-open")
             .setEmoji('939098734778794035')
             .setStyle('PRIMARY')
-         )    
+         )
          interaction.followUp({embeds: [OpenTicket], components: [row], ephemeral: true})
-
          }
     })

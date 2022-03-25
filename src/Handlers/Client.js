@@ -17,6 +17,7 @@ const intents = new Discord.Intents([
     "GUILD_INTEGRATIONS",
     "GUILD_WEBHOOKS",
     "GUILD_MESSAGE_REACTIONS",
+    "GUILD_INTEGRATIONS",
 ])
 
 const fs = require("fs");
@@ -39,7 +40,7 @@ class Client extends Discord.Client {
                 /**
                  * @type {Command[]}
                  */
-                const commands = commandFiles.map(file => require(`./../../Commands/${dir}/${file}`));
+                const commands = commandFiles.map(file => require(`../Commands/${dir}/${file}`));
 
         
                 commands.forEach(command => {
@@ -51,16 +52,16 @@ class Client extends Discord.Client {
             })
 
                 const slashCommands = slashcommands
-                .filter(cmd => ["BOTH", "SLASH"].includes(cmd.type))
+                .filter(cmd => ["Slash"].includes(cmd.type))
                 .map(cmd => ({
                     name: cmd.name.toLowerCase(),
                     description: cmd.description,
-                    permissions: [],
+                    userPermissions: [],
                     options: cmd.slashCommandOptions,
                     defaultPermission: true
     }));
         this.removeAllListeners();
-
+        
         this.on("ready", async () => {
         const cmds = await this.application.commands.set(slashCommands);
         cmds.forEach(cmd => console.log(`----- > ${cmd.name} command < -----`));

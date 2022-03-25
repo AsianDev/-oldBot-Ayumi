@@ -1,10 +1,10 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const colour = require("../../config/assets/Json/colours.json")
 module.exports = new Command ({
     name: 'google-form-apply',
     description: "apply for staff",
-    type: "TEXT",
+type: "Text",
     userPermissions: "MANAGE_MESSAGES",
     botPermissions: ["SEND_MESSAGES"],
 
@@ -15,7 +15,8 @@ module.exports = new Command ({
         .setTitle("Looking for new Staff")
         .setThumbnail(`${message.guild.iconURL({ dynamic: true })}`)
         .setTimestamp()
-        .setFooter({ text: "I~... I~.. I Hope to see you pass!", iconURL: `${message.author.displayAvatarURL()}`})
+        .setFooter({ text
+: "I~... I~.. I Hope to see you pass!", iconURL: `${message.author.displayAvatarURL()}`})
         .setDescription(`**Come and apply for a chat moderator**\nHave a chance to become a moderator at **Ikigai**\n${message.author.username} Here are the forms:`)
         .addField("Application link?", `**__[Press Me!](https://forms.gle/Qw5PsVNBU974jvke7)__**`)
 

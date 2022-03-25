@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const c = require("../../config/assets/Json/colours.json")
 const e = require("../../config/assets/Json/emotes.json")
 
@@ -8,7 +8,7 @@ module.exports = new Command({
     name: "findemoji",
   aliases: ["finde"],
   description: "Steals Emoji from Other Servers to ur Server.",
-  type: 'TEXT',
+   type: "Text",
   userPermissions: "",
   owner: true,
   botPermissions: "SEND_MESSAGES",
@@ -55,7 +55,8 @@ module.exports = new Command({
       .setURL("https://discordemoji.com/emoji/" + matches[page].slug)
       .setColor(c["celestial blue"])
       .setImage(matches[page].image)
-      .setFooter({ text: `Emoji ${page + 1}/${matches.length}`});
+      .setFooter({ text
+: `Emoji ${page + 1}/${matches.length}`});
       let msg = await message.channel.send({
       embeds: [embed],
       components: [pages]
@@ -77,7 +78,8 @@ module.exports = new Command({
           .setURL("https://discordemoji.com/emoji/" + matches[page].slug)
           .setColor(c["celestial blue"])
           .setImage(matches[page].image)
-          .setFooter({ text: `Emoji ${page + 1}/${matches.length}`});
+          .setFooter({ text
+: `Emoji ${page + 1}/${matches.length}`});
 
         msg.edit({ embeds: [embed] });
       }
@@ -93,7 +95,8 @@ module.exports = new Command({
           .setURL("https://discordemoji.com/emoji/" + matches[page].slug)
           .setColor(c["celestial blue"])
           .setImage(matches[page].image)
-          .setFooter({ text: `Emoji ${page + 1}/${matches.length}`});
+          .setFooter({ text
+: `Emoji ${page + 1}/${matches.length}`});
 
         msg.edit({ embeds: [embed] });
       }
@@ -125,7 +128,8 @@ module.exports = new Command({
          .setURL("https://discordemoji.com/emoji/" + matches[page].slug)
          .setColor(c.pink)
          .setImage(matches[page].image)
-         .setFooter({ text: `Emoji ${page + 1}/${matches.length}`});
+         .setFooter({ text
+: `Emoji ${page + 1}/${matches.length}`});
          pages.components[0].setDisabled(true);
          pages.components[1].setDisabled(true);
          pages.components[2].setDisabled(true);

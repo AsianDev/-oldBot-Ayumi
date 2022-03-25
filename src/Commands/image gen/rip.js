@@ -1,13 +1,13 @@
 const { Canvas } = require("canvacord");
 const Discord = require("discord.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 name: "rip",
 description: "generates a rip image",
 userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["ADMINISTRATOR"],
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 
 /**

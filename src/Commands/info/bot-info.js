@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { utc } = require("moment");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 let os = require('os')
 let cpuStat = require("cpu-stat")
 const { version } = require("discord.js")
@@ -10,9 +10,8 @@ let feroms = require("fero-ms")
 module.exports = new Command({
     name: "bot-info",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 4000,
     aliases: ["botinfo"],
     description: "Provides bot information",
     async run(message, args, client) {
@@ -38,7 +37,8 @@ module.exports = new Command({
         .addField("⚡ CPU", `\`\`\`md\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
         .addField("⚡ CPU usage", `${percent.toFixed(2)}%`)
         .addField("🖥 API Latency", `${(client.ws.ping)}ms`)  
-        .setFooter({ text: `Coded on version ${version} of discord.js`})
+        .setFooter({ text
+: `Coded on version ${version} of discord.js`})
         .setThumbnail(`${client.user.displayAvatarURL()}`)
         message.channel.send({ embeds: [botInfoEmbed] });
       }

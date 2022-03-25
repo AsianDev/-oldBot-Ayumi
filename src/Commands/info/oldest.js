@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const { formatDate } = require("../../config/functions/formateDate.js")
 const moment = require('moment');
@@ -8,10 +8,8 @@ module.exports = new Command({
     name: "oldest",
     aliases: ['oldest-user', "oldest-member"], 
     description: "find the oldest account in the server",
-    type: "TEXT",
     userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",   cooldown: 4000,
 
     async run(message, args, client) {
 

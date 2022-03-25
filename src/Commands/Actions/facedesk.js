@@ -1,15 +1,16 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
 module.exports = new Command({
     
 name: "facedesk",
-type: "TEXT",
 cooldown: 10000,
 description: "sends a anime facedesk cmd",
-userPermissions: ["SEND_MESSAGES"],
-async run(message, args, client) {
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
+  async run(message, args, client) {
   const member = message.mentions.members.first()
     if (message.mentions.members.size === 0) {
         fetch(

@@ -1,14 +1,14 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Command({
 
-    name: 'setLogs',
-    aliases: ['Logs', "set-logs"], 
+    name: 'setlogs',
+    aliases: ['logs', "set-logs"], 
     description: 'set the logs channel',
-    type: 'TEXT',
+ type: "Text",
     userPermissions: 'MANAGE_GUILD',
     botPermissions: 'ADMINISTRATOR',
     cooldown: 4000,
@@ -44,7 +44,7 @@ module.exports = new Command({
                     .setColor(colour.lightish_blue)
                     .setTitle("Successfully set the logs channel. <a:exclamation_mark_red:915208461514604604>")
                     .setDescription(`**${message.author.username}** You have set the logging channel!`)
-                    .addField("Logs:", `<@&${channel.id}>`)
+                    .addField("Logs:", `<#${channel.id}>`)
                     .setURL("https://media1.tenor.com/images/8d189128d67c185a55462f5a77f9e825/tenor.gif")
                 ], allowedMentions: {repliedUser: false}, components: [row]})
             
@@ -58,7 +58,7 @@ module.exports = new Command({
                     .setColor(colour.lightish_blue)
                     .setTitle("Successfully set the logs channel. <a:exclamation_mark_red:915208461514604604>")
                     .setDescription(`**${message.author.username}** You have set the logging channel!`)
-                    .addField("Logs:", `<@&${channel.id}>`)
+                    .addField("Logs:", `<#${channel.id}>`)
                     .setURL("https://media1.tenor.com/images/8d189128d67c185a55462f5a77f9e825/tenor.gif")
                 ], allowedMentions: {repliedUser: false}, components: [row]})
             } catch(error) {

@@ -1,6 +1,6 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 
 module.exports = new Command({
     
@@ -8,7 +8,7 @@ module.exports = new Command({
     description: "set the suggestion channel to what you want it to be!",
     cooldown: 10000,
     owner: true,
-    type: "TEXT",
+type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
 

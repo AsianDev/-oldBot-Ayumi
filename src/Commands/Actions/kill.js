@@ -1,17 +1,19 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
 name: 'kill',
-type: "TEXT",
+
 description: "kill someone with anime gif.",
-userPermissions: ["SEND_MESSAGES"],
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
 cooldown: 10000,
 
-async run(message, args, client) {  
+  async run(message, args, client) {  
     const member = message.mentions.members.first() || message.author
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
           try {
@@ -69,7 +71,8 @@ async run(message, args, client) {
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
             .setDescription(`**${kills}**`)
-            .setFooter({ text:  `${member.user.username} has been Killed ${profileDatas.KillAmount} times.`})
+            .setFooter({ text
+:  `${member.user.username} has been Killed ${profileDatas.KillAmount} times.`})
         message.channel.send({
             embeds: [embed1]})
     }

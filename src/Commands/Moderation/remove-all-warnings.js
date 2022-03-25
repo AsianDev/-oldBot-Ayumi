@@ -1,6 +1,6 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
-const warndb = require('../../Structures/models/warndb.js');
+const Command = require('../../Handlers/Command.js')
+const warndb = require('../../config/models/warndb.js');
 const Discord = require('discord.js');
 
 module.exports = new Command({
@@ -8,8 +8,8 @@ module.exports = new Command({
     cooldown: 10000,
     description: "remove the warnings of someone",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["rwarnings", "remove-warns", "raw", "remove-allwarns"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["rwarnings", "remove-warns", "raw", "remove-allwarns"],
     async run(message, args, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         if (!user) return message.channel.send("*Bakaa~* you didnt mention a user in this server.")

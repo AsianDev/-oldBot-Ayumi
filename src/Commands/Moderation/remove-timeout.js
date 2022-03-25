@@ -1,6 +1,6 @@
 const { Message,MessageEmbed, Client } = require("discord.js");
 const ms = require('ms')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({    
@@ -9,7 +9,8 @@ name: "remove-timeout",
     description: 'Remove the timeout of the mentioned member',
     userPermissions: ["KICK_MEMBERS"],
     botPermissions: "MODERATE_MEMBERS",
-    type: "TEXT",
+    cooldown: 1000,    
+type: "Text",
 
      async run(message, args, client) {
         const member = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[2]) :  message.mentions.members.first() ||  message.guild.members.cache.get(args[2])

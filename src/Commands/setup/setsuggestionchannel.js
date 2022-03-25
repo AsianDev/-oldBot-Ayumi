@@ -1,15 +1,15 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 
 module.exports = new Command({
 name: "suggestionchannel",
 description: "set the suggestion channel to what you want it to be!",
-type: "TEXT",
-userPermissions: ["MANAGE_GUILD"],
+ type: "Text",
+ userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],
 cooldown: 10000,
-aliases: ["setsuggestion", "set-suggest", "setsuggest", "set-suggestion", "setsuggestionchannel", "set-suggestchannel", "set-suggestionchannel"],
+aliases: ["setsuggestion", "set-suggest", "setsuggest", "set-suggestion", "setsuggestionchannel", "set-suggestchannel", "set-suggestionchannel", "set-suggestions", 'suggestions', 'setsuggestions'],
 async run(message, args, client) {
     const colour = require("../../config/assets/Json/colours.json")
     const channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])

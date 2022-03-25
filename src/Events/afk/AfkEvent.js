@@ -1,6 +1,6 @@
-const Event = require('../../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const Discord = require("discord.js");
-const afkSchema = require("../../Structures/models/afk.js")
+const afkSchema = require("../../config/models/afk.js")
 module.exports = new Event('messageCreate', async(client, message) => {
     
     if(message.author.bot) return;
@@ -13,7 +13,8 @@ module.exports = new Event('messageCreate', async(client, message) => {
         .setDescription(`Welcome back, you are no longer AFK! ${message.member}`)
         .setColor("#6A93F0")
         .setTimestamp()
-        .setFooter({ text: `${message.author.tag}`, iconURL: `${message.member.displayAvatarURL({ dynamic: true })}`})
+        .setFooter({ text
+: `${message.author.tag}`, iconURL: `${message.member.displayAvatarURL({ dynamic: true })}`})
         message.channel.send({embeds: [dataDeletedEmbed]})
     }
 
@@ -28,7 +29,8 @@ module.exports = new Event('messageCreate', async(client, message) => {
             .setDescription(`**__Reason:__**\n ${data.Reason}`)
             .addField(`**__Since:__**`, `<t:${Math.round(data.Date / 1000)}:R>`)
             .setTimestamp()
-            .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
+            .setFooter({ text
+: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
             message.reply({embeds: [CurrentlyAFK], allowedMentions: {repliedUser: false}})
         }
     }

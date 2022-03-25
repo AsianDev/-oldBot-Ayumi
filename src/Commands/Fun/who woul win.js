@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 
 module.exports = new Command({
@@ -6,10 +6,9 @@ module.exports = new Command({
     name: 'whowouldwin',
     aliases: ['wwn', "who-would-win"], 
     description: "who would win?",
-    type: "TEXT",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 4000,
 
     async run(message, args, client) {
         const user = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])

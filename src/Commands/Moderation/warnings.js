@@ -1,13 +1,13 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const { MessageEmbed } = require('discord.js')
-const warndb = require('../../Structures/models/warndb.js')
+const warndb = require('../../config/models/warndb.js');
 const Discord = require("discord.js")
 module.exports = new Command({
         name: "warnings",
         description: "someone has warnings",
         userPermissions: ["KICK_MEMBERS"],
-        botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+      botPermissions: "SEND_MESSAGES",
+     type: "Text",    
         cooldown: 10000,
 
         async run(message, args, client) {
@@ -23,7 +23,8 @@ module.exports = new Command({
                     .setDescription(e.join(' '))
                     .setTitle(`<:Iki_Mod:904219716195868752> ${target.tag}'s Warnings`)
                     .setColor("#E6604D")
-                    .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+                    .setFooter({ text
+: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
                     .setThumbnail(`${target.displayAvatarURL({  dynamic: true })}`)
                     message.channel.send({
                         embeds: [embed]
@@ -34,7 +35,8 @@ module.exports = new Command({
                     .setTimestamp()
                     .setTitle("Warnings:")
                     .setDescription(`${target} does not have any warnings`)
-                    .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+                    .setFooter({ text
+: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
 
                     message.channel.send({embeds: [embed2]})
                 }

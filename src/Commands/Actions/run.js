@@ -4,9 +4,11 @@ const nekoapi = require('cacao_nekoapi');
 module.exports = {
     name: 'run',
     description: "sends a running gif / image",
-    type: "TEXT",
+    
     cooldown: 10000,
     userPermissions: ["SEND_MESSAGES"],
+    botPermissions: 'SEND_MESSAGES',
+type: "Text",
     async run (message, args, client) {
 
         const image = await nekoapi.action.run()

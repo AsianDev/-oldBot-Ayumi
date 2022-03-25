@@ -1,5 +1,5 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js');
 
 module.exports = new Command({
@@ -7,7 +7,7 @@ module.exports = new Command({
   description: "nickname a user",
   userPermissions: ["MANAGE_NICKNAMES"],
   botPermissions: "MANAGE_NICKNAMES",
-    type: "TEXT",
+  type: "Text",
   aliases: ["nickname"],
   cooldown: 10000,
   /**

@@ -3,10 +3,12 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'nervous',
-  type: "TEXT",
+  
   cooldown: 10000,
   description: "sends a anime nervous gif",
   userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
   async run(message, args, client) {
      const embed = new MessageEmbed()
         .setImage(await anime.nervous())

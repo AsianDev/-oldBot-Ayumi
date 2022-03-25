@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const glob = require("glob");
 
 module.exports = new Command({
     name: "reload",
     description: "reload all commands at once",
     owner: true,
-    type: "TEXT",
+type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
 

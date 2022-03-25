@@ -1,4 +1,4 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const Discord = require('discord.js')
 const c = require("../../config/assets/Json/colours.json")
 

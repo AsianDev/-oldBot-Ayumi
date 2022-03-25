@@ -1,5 +1,5 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js');
 const { paginate } = require("../../Systems/PaginationSys.js")
 
@@ -47,7 +47,7 @@ module.exports = new Command({
     description: "Display the servers information\nCredit to Senpai#2473",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "MANAGE_GUILD",
-    type: "TEXT",
+    type: "Text",
     aliases: ["si", "server-info", "server"],
     cooldown: 7000,
 
@@ -95,8 +95,6 @@ module.exports = new Command({
         .join(", ");
         if (rolemap.length > 1024) rolemap = "***Waaa~*\n There is too many roles to display**";
         if (!rolemap) rolemap = "***Waa~*\n There are no roles!**"
-
-        
 
 
         const embed2 = new Discord.MessageEmbed()

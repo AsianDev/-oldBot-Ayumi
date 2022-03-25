@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -7,11 +7,11 @@ module.exports = new Command({
 
     name: "eval",
     description: "Evaluation cmd",
-    owner: true,
-    type: "TEXT",
+    aliases: ["evaluate"],
+    type: "Text",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
-
+    owner: true,
     async run(message, args, client) {
 
         try {
@@ -19,18 +19,16 @@ module.exports = new Command({
             if (!code) return message.reply({ embeds: [new Discord.MessageEmbed()
                 .setColor(colour['pale red'])
                 .setDescription("*Bakaa~* you need to eval something!")
-                .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
             ], allowedMentions: {repliedUser: false}})
 
-            if (code.includes('client.token'))
+            if (code.includes('client.token' || '.delete()'))
                 return message.reply({ embeds: [new Discord.MessageEmbed()
                     .setColor(colour['pale red'])
-                    .setDescription("*Bakaa~* I can not show you my token!")
+                    .setDescription("*Bakaa~* I can not show you my token nor delete anything!")
                     .setTitle(`${emotes.Error} AN ERROR OCCURED`)
                 ], allowedMentions: {repliedUser: false}})
     
             var evaled = eval(code);
-
             if (typeof evaled !== 'string')
                 evaled = require('util').inspect(evaled);
 
@@ -54,12 +52,16 @@ module.exports = new Command({
             message.reply({ embeds: [errembed] });
         }
 
-        function clean(text) {
-            if (typeof text === 'string')
+        function clean(text
+) {
+            if (typeof text
+ === 'string')
                 return text
+
                     .replace(/`/g, '`' + String.fromCharCode(8203))
                     .replace(/@/g, '@' + String.fromCharCode(8203));
-            else return text;
+            else return text
+;
         }
     }
 })

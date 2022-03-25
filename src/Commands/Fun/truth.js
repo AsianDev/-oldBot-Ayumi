@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const truth = require("../../config/assets/Json/truths.json");
 
@@ -7,10 +7,9 @@ module.exports = new Command({
     name: "truth",
     aliases: ['t'], 
     description: 'truth questions',
-    type: "TEXT",
-    userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  userPermissions: "SEND_MESSAGES",
+  botPermissions: "SEND_MESSAGES",   
+ cooldown: 4000,
 
     async run(message, args, client) {
 

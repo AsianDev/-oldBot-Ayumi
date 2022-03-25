@@ -1,18 +1,14 @@
 /** @format */
 
-const Event = require('../../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const Discord = require("discord.js")
 const Timeout = new Discord.Collection()
 const ms = require("ms")
-const { owners } = require("../../config/Data/config.json");
-const premiumSchema = require("../../Structures/models/premium.js")
+const { owners, devs } = require("../../config/Data/config.json");
+const premiumSchema = require("../../config/models/premium")
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
-const fs = require("fs")
-const { join } = require("path")
-// let Kaori = JSON.parse(fs.readFileSync(join(__dirname, "../../config/assets/Json/kaori's.json")))
 let Kaori = require("../../config/assets/Json/kaori's.json")
-
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
@@ -57,10 +53,33 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		`<@$${client.user.id}>`,
         `<@!${client.user.id}>`,
 		`${client.user.id}`,
+		"Ayu",
+		"A.",
+		"Ayu",
+		"A,",
+		"a,",
+		"a.",
+		"Ayumi ",
+		"ayumi ",
+		"ayumi",
+		"Ayumi",
+		"AYUMI",
+		"AYUMI ",
+		"AyUmI ",
+		"AyU ",
+		"aYu ",
+		"Iki ",
+		"iki ",
+		"Ikigai ",
+		"ikigai ",
+		"iki",
+		"Iki",
+		"ikigai",
+		"Ikigai",
 		
 	]
 
-		const prefix = prefixes.find(x => message.content.startsWith(x).toLowerCase()) 
+		const prefix = prefixes.find(x => message.content.startsWith(x)) 
 		if (!prefix) return;
 
 		function generateRandomString(length) {
@@ -80,7 +99,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		  const id = generateRandomString(7);           
 		  IDNumber = `${id}`;
 	
-		  var randomKaori = Kaori[Math.floor(Math.random() * Kaori.length)]
+		var randomKaori = Kaori[Math.floor(Math.random() * Kaori.length)]
 
 		const kaoriFanArt = new Discord.MessageEmbed()
 		.setColor("RANDOM")
@@ -98,7 +117,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		if (!command) return;
 
 
-		// -------------------------------- OWNER ONLY CHECKING --------------------------------- //
+		// -------------------------------- OWNER, DEV, Maintance commands --------------------------------- //
 
 		const ownerOnlyEmbed = new Discord.MessageEmbed()
 			.setColor("#FCC8EA")
@@ -117,10 +136,20 @@ module.exports = new Event("messageCreate", async (client, message) => {
 						if(command.maintance && !owners.includes(message.author.id))
 						return message.channel.send({embeds: [new Discord.MessageEmbed()
 							.setColor(colour.pink)
-							.setTitle(`${emotes.Error} Sorry this command is currently going under maintance`)
+							.setTitle(`${emotes.Error} AN ERROR OCCURED`)
 							.setDescription("Due to some difficulties this command is disabled!")
 							.setURL("https://discord.gg/TQ3mTPE7Pf")
 						]})
+					}
+				}
+
+				if(command) {
+					if(command.dev) {
+						if(command.dev && !devs.includes(message.author.id))
+						return message.channel.send({embeds: [new Discord.MessageEmbed()
+							.setColor(colour['pale red'])
+							.setDescription("*Sowee* this command is only for the develepors to use!")
+							]})
 					}
 				}
 
@@ -131,7 +160,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 				.setDescription("*Bakaa~* that command can only be done with a slash command! >o<")
 				.setTitle(`<:Ikix:904736839036993586> WRONG USAGE!`)
 
-			if (!["BOTH", "TEXT"].includes(command.type))
+			if (!["Text"].includes(command.type))
 				return message.reply({ embeds: [SlashOnlyCMDEMBED], allowedMentions: { repliedUser: false }})
 
 			const Userpermission = message.member.permissions.has(command.userPermissions);
@@ -195,7 +224,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 						}
 					}
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
-		const commandDb = require('../../Structures/models/command.js');
+		const commandDb = require('../../config/models/command');
 		if (command) {
 			const DisabledCMD = new Discord.MessageEmbed()
 				.setColor(colour["celestial blue"])
@@ -216,7 +245,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 						embeds: [new Discord.MessageEmbed()
 							.setColor("#ff3235")
 							.setAuthor({ name: "*Waaa~* you need to wait! (；⌣̀_⌣́)", iconURL: `${message.guild.iconURL()}`})
-							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.\n <:Iki_xpinkdot:916869194400796772> The Default cooldown for __${command.name}__ is ${ms(`${command.cooldown}`),{ long: false}}`)
+							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.`)
 						], allowedMentions: {repliedUser: false}
 					})
 					command.run(message, args, client)
@@ -224,13 +253,13 @@ module.exports = new Event("messageCreate", async (client, message) => {
 					setTimeout(() => {
 						Timeout.delete(`${command.name}${message.author.id}`)
 					}, command.cooldown)
-				}
+				}  else if(command.cooldown && owners.includes(message.author.id)) {
+					command.run(message, args, client)
+				} 
 				if (!command.cooldown) {
 					command.run(message, args, client)
 			}
-			if(command.cooldown && owners.includes(message.author.id)) {
-				command.run(message, args, client)
-			} 
+			
 			}
 		}}
 		}

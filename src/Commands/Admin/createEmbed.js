@@ -1,12 +1,12 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command ({
     name: "embed",
     userPermissions: ["ADMINISTRATOR"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 70000,
+  botPermissions: "SEND_MESSAGES",
+  cooldown: 70000,
+  type: "Text",
     aliases: ["esay", "announce"],
     description: "creates an embed",
     async run(message, args, client) {
@@ -66,7 +66,8 @@ module.exports = new Command ({
     const ImageLink = new Discord.MessageEmbed()
     .setColor("#FCC8EA")
     .setDescription("*Waaa~* What will be the image of the embed?")
-    .setFooter({ text: "Remember to send a link for this image not an attachment" })
+    .setFooter({ text
+: "Remember to send a link for this image not an attachment" })
 
    await message.channel.send({embeds: [ImageLink]}).then(async (msg) => {
         try {

@@ -3,10 +3,12 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'think',
-  type: "TEXT",
+  
   description: "sends a anime thinking gif",
   userPermissions: ["SEND_MESSAGES"],
   cooldown: 10000,
+  botPermissions: 'SEND_MESSAGES',
+  type: "Text",
 aliases: ["thinking"],
 async run(message, args, client) {
      const embed = new MessageEmbed()

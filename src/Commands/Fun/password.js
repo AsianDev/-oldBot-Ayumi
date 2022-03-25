@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -8,10 +8,8 @@ module.exports = new Command({
     name: "password",
     aliases: ['passgen'], 
     description: 'make a password ig',
-    type: "TEXT",
-    userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+    userPermissions: 'SEND_MESSAGES',
+  botPermissions: "SEND_MESSAGES",   cooldown: 4000,
 
     async run(message, args, client) {
 
@@ -37,7 +35,8 @@ module.exports = new Command({
           .setAuthor({ name: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL()}`})
           .setDescription("You password has been generated:")
           .addField("Your Password:", `> ${password}`)
-          .setFooter({ text: `Not smart to use these as your passwords.`, iconURL: `${client.user.displayAvatarURL()}`})
+          .setFooter({ text
+: `Not smart to use these as your passwords.`, iconURL: `${client.user.displayAvatarURL()}`})
 
           let confirmationEmbed = new Discord.MessageEmbed()
           .setColor(`${colour['light red']}`)

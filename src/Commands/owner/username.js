@@ -1,10 +1,10 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
   name: 'username',
   description: "Changes my username",
   owner: true,
-  type: "TEXT",
+  type: "Text",
   aliases: ["change-username"],
   userPermissions: "",
   botPermissions: ["SEND_MESSAGES"],

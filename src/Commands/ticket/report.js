@@ -1,12 +1,12 @@
 const Discord = require('discord.js')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
   name: 'report',
   description: 'Report a bug',
-  type: "TEXT",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   cooldown: 10000,
 
 

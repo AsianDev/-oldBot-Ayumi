@@ -1,13 +1,12 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
     name: "pp",
     description: "reveals your pp size",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 5000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 5000,
     async run(message, args, client) {
         const pp1 = [
             "8=D",

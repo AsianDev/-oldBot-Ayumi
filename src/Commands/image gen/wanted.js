@@ -1,13 +1,13 @@
 const { Client, Message, MessageAttachment } = require("discord.js");
 const canvas = require("canvacord");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 name: "wanted",
 description: "generates a wanted image",
 userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["ADMINISTRATOR"],
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 
 /**

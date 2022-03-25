@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const AmeClient = require("amethyste-api");
 const config = require("../../config/Data/config.json")
@@ -7,7 +7,7 @@ module.exports = new Command({
     name: "utatoo",
     aliases: ["tattoo", "tat", "tatoo"],
     description: "Sends a filtered image",
-    type: "TEXT",
+type: "Text",type: "Text",
     userPermissions: "SEND_MESSAGES",
     botPermissions: "ATTACH_FILES",
     cooldown: 4000,

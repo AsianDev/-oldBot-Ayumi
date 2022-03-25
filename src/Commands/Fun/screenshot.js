@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "webss",
@@ -7,7 +7,8 @@ module.exports = new Command({
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES"],
     aliases: ["sc", "screenshot"],
-    type: "TEXT",
+type: "Text",
+
     cooldown: 5000,
     async run(message, args, client) {
     

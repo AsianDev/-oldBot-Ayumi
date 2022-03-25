@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 const moment = require('moment');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command ({
 	name: 'roleinfo',
@@ -9,6 +9,8 @@ module.exports = new Command ({
     botPermissions: "MANAGE_ROLES",
 	aliases: ['role-info', 'ri'],
 	cooldown: 5000,
+	 type: "Text",
+
 	async run(message, args, client) {
 		const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);
 		if(!role) {
@@ -38,7 +40,8 @@ module.exports = new Command ({
         }
 		const embed = new MessageEmbed()
 			.setColor("RANDOM")
-			.setFooter({ text: `Requested by ${message.author.tag}`})
+			.setFooter({ text
+: `Requested by ${message.author.tag}`})
 			.setTimestamp()
 			.setTitle('Role Information')
 			.addFields(

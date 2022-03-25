@@ -1,13 +1,13 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const ms = require("ms")
 
 module.exports = new Command({
         name: "coinflip",
         description: "test your luck with a flip",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+      botPermissions: "SEND_MESSAGES",
+    type: "Text",    
         cooldown: 5000,
         aliases: ["cflip", "flipcoin", "coinglip", "coingflip"],
     async run(message, args, client) {

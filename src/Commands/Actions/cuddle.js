@@ -1,18 +1,19 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
     
 name: "cuddle",
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 description: "sends a anime gif of you cuddling someone!",
 userPermissions: ["SEND_MESSAGES"],
+botPermissions: "ADMINISTRATOR",
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
 
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
   try {
@@ -74,7 +75,8 @@ await schema.findOneAndUpdate({
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
         .setDescription(`**${bite}**`)
-        .setFooter({ text: `${member.user.username} has been cuddles ${profileDatas.CuddleAmount} times.` })
+        .setFooter({ text
+: `${member.user.username} has been cuddles ${profileDatas.CuddleAmount} times.` })
         message.channel.send({
             embeds: [embed1]})
     }

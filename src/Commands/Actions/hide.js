@@ -1,15 +1,18 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
 name: 'hide',
-type: "TEXT",
+botPermissions: 'SEND_MESSAGES',
+ type: "Text",
 description: "hide!",
-userPermissions: ["SEND_MESSAGES"],
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
 cooldown: 10000,
 
-async run(message, args, client) {
+  async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
     if (message.mentions.members.size === 0) {
         fetch(

@@ -1,15 +1,14 @@
 const { request } = require('undici')
 
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
     name: "urban-search",
     description: "Search info up",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    aliases: ["ub", "urban"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["ub", "urban"],
     cooldown: 5000,
     async run(message, args, client) {
 
@@ -48,7 +47,8 @@ module.exports = new Command({
                             { name: '👎 Downvotes', value: res.thumbs_down.toLocaleString() || 'N/A', inline: true }
                         )
                         .setTimestamp(new Date(res.written_on).getTime())
-                        .setFooter({ text: `Written by ${res.author || "unknown"}`})
+                        .setFooter({ text
+: `Written by ${res.author || "unknown"}`})
                 ]
             })
         } catch (err) {

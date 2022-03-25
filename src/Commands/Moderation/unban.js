@@ -1,14 +1,14 @@
 /**@format */
 
 const Discord = require("discord.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "unban",
     description: "Unban's someone from the server!",
     userPermissions: ["BAN_MEMBERS"],
     botPermissions: "BAN_MEMBERS",
-      type: "TEXT",
+type: "Text",
     cooldown: 10000,
 
     async run (message, args, client) {
@@ -42,7 +42,8 @@ module.exports = new Command({
               new Discord.MessageEmbed()
                 .setDescription(`Successfully Unbanned **${bUser?.user?.tag}** from ${message.guild.name}`)
                 .setColor("BLURPLE")
-                .setFooter({ text: "Ayumi©"})
+                .setFooter({ text
+: "Ayumi©"})
               ]
             })
 

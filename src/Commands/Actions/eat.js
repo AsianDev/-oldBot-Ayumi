@@ -4,7 +4,8 @@ const nekoapi = require('cacao_nekoapi');
 module.exports = {
     name: 'eat',
     description: "sends a eating gif / image",
-    type: "TEXT",
+    botPermissions: 'SEND_MESSAGES',
+type: "Text",
     userPermissions: ["SEND_MESSAGES"],
     cooldown: 10000,
 

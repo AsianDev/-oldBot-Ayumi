@@ -1,16 +1,15 @@
 const weather = require('weather-js');
 const Discord = require('discord.js');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 
 module.exports = new Command({
     name: 'weather',
     aliases: ["wthr", "whr"],
-    type: "TEXT",
     cooldown: 5000,
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    description: "checks the weather of a location",
+  botPermissions: "SEND_MESSAGES",
+ description: "checks the weather of a location",
     async run(message, args, client) {
         weather.find({search: args.join(" ").slice(1), degreeType: 'C'}, function (error, result){
         if(error) return message.channel.send(error);
@@ -22,8 +21,10 @@ module.exports = new Command({
         var location = result[0].location;
 
         const weatherinfo = new Discord.MessageEmbed()
-        .setDescription(`**${current.skytext}**`)
-        .setAuthor({text: `Weather forecast for ${current.observationpoint}`})
+        .setDescription(`**${current.skytext
+}**`)
+        .setAuthor({text
+: `Weather forecast for ${current.observationpoint}`})
         .setThumbnail(current.imageUrl)
         .setColor("WHITE")
         .addField('Timezone', `UTC${location.timezone}`, true)

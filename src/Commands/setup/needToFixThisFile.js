@@ -1,15 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
-const welcomerole = require("../../Structures/models/roleDB")
+const welcomerole = require("../../config/models/roleDB")
+const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
     name: "welcomerole",
     description: "autorole",
     aliases: ["setautorole", "autorole", "sautorole", "set-autorole", "set-auto-role", "setwelcomerole", "Set-welcomerole", "set-welcome-role"],
-    type: "TEXT",
-    timeout: 1000,
+    cooldown: 1000,
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: "SEND_MESSAGES",
-    async run(message, args, client) {
+  botPermissions: "SEND_MESSAGES",
+  async run(message, args, client) {
         const colour = require("../../config/assets/Json/colours.json")
         const role = message.mentions.roles.first() 
         const SuccessEmbed = new Discord.MessageEmbed()
@@ -45,7 +44,7 @@ module.exports = new Command({
     
         if (!data) {
             try {
-                const data1 = await  welcomerole.create({
+                const data1 = await welcomerole.create({
                     Guild: message.guild.id,
                     Role: role
                 })

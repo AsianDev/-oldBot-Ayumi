@@ -1,10 +1,10 @@
 /**@format */
-const Event = require('../../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const chalk = require("chalk")
-const prefix = "Kao"
+const prefix =  "Ayu"
 const Discord = require("discord.js")
 const ms = require("ms");
-let timerSchema = require("../../Structures/models/reminder.js")
+let timerSchema = require("../../config/models/reminder.js")
 const colour = require("../../config/assets/Json/colours.json")
 const { table } = require("table");
 module.exports = new Event("ready", (client) => {
@@ -47,16 +47,6 @@ module.exports = new Event("ready", (client) => {
       }
     };
     console.log(table(data, config))
-  
-    console.log(
-      chalk.hex("#00ceff") ("██╗  ██╗ █████╗  ██████╗ ██████╗ ██╗        ██╗███████╗      ██████╗ ███╗   ██╗██╗███╗   ██╗███████╗      \n"),
-      chalk.hex("#dc00ff") ("██║ ██╔╝██╔══██╗██╔═══██╗██╔══██╗██║        ██║██╔════╝     ██╔═══██╗████╗  ██║██║████╗  ██║██╔════╝      \n"),
-      chalk.hex("#00ceff") ("█████╔╝ ███████║██║   ██║██████╔╝██║        ██║███████╗     ██║   ██║██╔██╗ ██║██║██╔██╗ ██║█████╗        \n"),
-      chalk.hex("#dc00ff") ("██╔═██╗ ██╔══██║██║   ██║██╔══██╗██║        ██║╚════██║     ██║   ██║██║╚██╗██║██║██║╚██╗██║██╔══╝        \n"),
-      chalk.hex("#00ceff") ("██║  ██╗██║  ██║╚██████╔╝██║  ██║██║        ██║███████║     ╚██████╔╝██║ ╚████║██║██║ ╚████║███████╗      \n"),
-      chalk.hex("#dc00ff") ("╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝        ╚═╝╚══════╝      ╚═════╝ ╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝╚══════╝      \n"),
-  )
-
 // old one
 /*
     console.log(chalk.green.bold("Success!"))
@@ -87,7 +77,7 @@ module.exports = new Event("ready", (client) => {
    // ------------------ BOT STATUS ----------------- //
         const arrayOfStatus = [
           `with my friends`,
-          "Kao report < user >",
+          "Ayu help",
           "with my friends",
           "Boost Ikigai",
           "with my friends",
@@ -101,7 +91,7 @@ module.exports = new Event("ready", (client) => {
           client.user.setStatus('idle');
           client.user.setActivity(status, { type: "PLAYING" })
           index++;
-      }, 12000)
+      }, 15000)
   
       // reminder
   setInterval(async () => {
@@ -131,7 +121,8 @@ module.exports = new Event("ready", (client) => {
       .setDescription("Your reminder is now!")
       .setThumbnail(user.displayAvatarURL({dynamic: true}))
       .addField('⌛| Reminder:', `\`${timer.reason}\`\n **|** [**Discord**](https://discord.gg/TQ3mTPE7Pf)`)
-      .setFooter({ text: `set ${ms(timer.duration * 1000, { long: true })} ago` })
+      .setFooter({ text
+: `set ${ms(timer.duration * 1000, { long: true })} ago` })
 
       channel.send({embeds: [alertembed2], content: `<@${user.id}> Your reminder is up!`})
 
@@ -139,13 +130,14 @@ module.exports = new Event("ready", (client) => {
         endsAt: Math.floor(new Date().getTime() / 1000.0),
       });
     }
-  }, 1000);
+  }, 10000);
 })
 
 /*
 client.user.setPresence({
     status: "online", // ➜ idle • online • dnd • invisible
-    activity: `Your Text Here`, // Change this ofc
+    activity: `Your text
+ Here`, // Change this ofc
     type: "PLAYING" //➜ PLAYING • LISTENING • WATCHING • COMPETING • STREAMING
     url: "your_twitch_channel_URL" // -------- added this cus we wanted the streaming status
     })

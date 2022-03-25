@@ -1,12 +1,11 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 module.exports = new Command({
     name: "8ball",
     description: "8ball its pretty simple",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 5000,
+         botPermissions: "SEND_MESSAGES",
+     type: "Text",cooldown: 5000,
     aliases: ["question"],
     async run (message, args, client) {
         if(!args[2]) return message.reply(":x: Please ask a full question!");

@@ -1,13 +1,13 @@
 /** @format */
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 const ms = require("ms")
 module.exports = new Command({
 
 	name: "purge",
 	description: "delete up to 100 messages at once",
-	type: "TEXT",
+	 type: "Text",
 	cooldown: 3000,
 	aliases: ["clear", "clean", "delete", "bulk-del", "bulkdelete", "bulk-delete"],
   userPermissions: ["MANAGE_MESSAGES"],
@@ -19,7 +19,8 @@ module.exports = new Command({
         .setColor("#E6604D")
         .setTitle("<:x_:904736839036993586> MISSING ARGUEMENT")
         .setDescription("*Bakaa~* Please provide a valid ``integer / number`` of messages to bulk delete.")
-        .setFooter({ text: `Make sure the number is from 1 - 100`, iconURL: `${message.author.displayAvatarURL()}`})
+        .setFooter({ text
+: `Make sure the number is from 1 - 100`, iconURL: `${message.author.displayAvatarURL()}`})
 
         try {
 

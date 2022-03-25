@@ -1,14 +1,13 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command ({
     name: 'owner',
     description: "Shows bot owner",
-    type: "TEXT",
     cooldown: 10000,
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    async run(message, args, client) {   
+  botPermissions: "SEND_MESSAGES",
+ async run(message, args, client) {   
         const embed = new Discord.MessageEmbed()
         .setColor("DARK_PURPLE")
         .setDescription(` My owner is **Sensei | 旭陽#6427** <a:AnimeWave:912596615028678656>`)

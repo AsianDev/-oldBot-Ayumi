@@ -1,12 +1,11 @@
 const Discord = require('discord.js');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
     name: "firstmsg",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 5000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 5000,
     description: "shows first msg of channel",
     async run(message, args, client) {
 
@@ -21,7 +20,8 @@ module.exports = new Command({
             .setDescription(`**First Message in ${message.channel}**`)
             .setTitle(`${msg.author.username}`)
             .setColor("BLURPLE")
-            .setFooter({ text: "Ayumi©"})
+            .setFooter({ text
+: "Ayumi©"})
             .addFields(
                 { name: '**Content:**', value: `${msg.content}` },
                 { name: '**Created At:**', value: `${msg.createdAt.toLocaleDateString()}` },

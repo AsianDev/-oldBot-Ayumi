@@ -1,18 +1,21 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
 module.exports = new Command({
     
 name: "poke",
-type: "TEXT",
+botPermissions: 'SEND_MESSAGES',
+ type: "Text",
 description: "sends a anime poking gif",
-userPermissions: ["SEND_MESSAGES"],
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
 cooldown: 10000,
 
-async run(message, args, client) {
+  async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
   try {
@@ -74,7 +77,8 @@ await schema.findOneAndUpdate({
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
             .setDescription(`**${die}**`)
-            .setFooter({ text: `${member.user.username} has been poked ${profileDatas.PokeAmount} times.`})
+            .setFooter({ text
+: `${member.user.username} has been poked ${profileDatas.PokeAmount} times.`})
         message.channel.send({
             embeds: [embed1]})
     }

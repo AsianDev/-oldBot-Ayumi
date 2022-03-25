@@ -5,13 +5,15 @@ const Discord = require('discord.js')
 module.exports = {
   name: "dodge",
   cooldown: 10000,
-  type: "TEXT",
+  
   description: "sends a dodge gif",
   userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
   async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
 
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
   let profileData;
   try {
       profileData = await schema.findOne({
@@ -66,7 +68,8 @@ await schema.findOneAndUpdate({
       const embed1 = new Discord.MessageEmbed()
       .setImage(`${url.response}?size=1024`)
       .setColor("RANDOM")
-      .setFooter({ text: `${message.author} has dodged ${profileDatas.DodgeAmount} attacks.`})
+      .setFooter({ text
+: `${message.author} has dodged ${profileDatas.DodgeAmount} attacks.`})
       .setDescription(`**${bite}**`)
       message.channel.send({
           embeds: [embed1]})

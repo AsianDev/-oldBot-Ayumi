@@ -1,17 +1,17 @@
 const Discord = require('discord.js');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
     name: "javen",
     description: "its about drive <3",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 8000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 8000,
     async run(message, args, client) {
 
 
-        let text = [
+        let text
+ = [
 
             `**It's about drive**`,
             `**It's about power**`,
@@ -36,7 +36,8 @@ module.exports = new Command({
           ];
       
           let current = 0;
-          let count = text.length;
+          let count = text
+.length;
           let editTime = 1500;
       
           message.channel.send(`\`\`\`ini\n[ beginning to drive ${message.author.username} ]\`\`\``).then ((msg) => {
@@ -47,14 +48,16 @@ module.exports = new Command({
                 msg.edit({embeds: [new Discord.MessageEmbed()
                   .setColor("RED")
                   .setDescription("In memory of <@!724930858473226241> fortnite phase \n Its about drive <3")
-                  .setFooter({ text: "num num", iconURL: `${client.user.displayAvatarURL()}`})
+                  .setFooter({ text
+: "num num", iconURL: `${client.user.displayAvatarURL()}`})
                   .setThumbnail(`${message.author.displayAvatarURL()}`)
                 ], content: "You have been drived"})
                 clearInterval(interval);
                 return;
               }
       
-              let hackMsg = text[current];
+              let hackMsg = text
+[current];
               msg.edit(hackMsg);
               current++
        

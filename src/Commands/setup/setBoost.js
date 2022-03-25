@@ -1,11 +1,11 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 
 module.exports = new Command({
 name: "boostchannel",
 description: "set the boost channel to what you want it to be!",
-type: "TEXT",
+ type: "Text",
 userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],
 aliases: ["set-boostchannel", "setboostchannel", "set-boost", "setboost"],

@@ -3,10 +3,12 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'blush',
-  type: "TEXT",
+  
   cooldown: 10000,
   description: "sends a anime blush gif",
   userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
   async run(message, args, client) {
      const embed = new MessageEmbed()
          .setTitle(`${message.author.username} blushes...`)

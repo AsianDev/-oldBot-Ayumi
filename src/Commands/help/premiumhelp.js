@@ -1,11 +1,11 @@
 const { MessageEmbed } = require('discord.js');
 const Discord = require('discord.js')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
   name: 'phelp',
   description: "help command",
-  type: "TEXT",
+  type: "Text",
   userPermissions: [""],
   aliases: ["premiumhelp", "p=help", "p-help", "premium-help"],
   botPermissions: ["SEND_MESSAGES"],

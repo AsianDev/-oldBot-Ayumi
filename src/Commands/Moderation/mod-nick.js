@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed } = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -7,7 +7,7 @@ module.exports = new Command({
   description: "modnickname a user",
   userPermissions: ["MANAGE_NICKNAMES"],
   botPermissions: "MANAGE_NICKNAMES",
-    type: "TEXT",
+  type: "Text",
   aliases: ["modnickname", "mod-nick", "moderatename"],
   cooldown: 10000,
   /**

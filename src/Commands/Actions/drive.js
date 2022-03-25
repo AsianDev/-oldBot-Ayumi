@@ -5,7 +5,8 @@ module.exports = {
     name: 'drive',
     cooldown: 10000,
     description: "sends a driving gif / image",
-    type: "TEXT",
+    botPermissions: 'SEND_MESSAGES',
+type: "Text",
     userPermissions: ["SEND_MESSAGES"],
     async run (message, args, client) {
 

@@ -1,7 +1,7 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed, Role, Permissions, Client } = require("discord.js");
-const DB = require("../../Structures/models/loggerDB.js")
-module.exports = new Event("roleDelete", (client, role) => {
+const DB = require("../../config/models/loggerDB.js")
+module.exports = new Event("roleDelete", async(client, role) => {
 
     const Data = await DB.findOne({
         GuildID: role.guild.id,
@@ -21,7 +21,8 @@ module.exports = new Event("roleDelete", (client, role) => {
         )
         .setColor("RED")
         .setTimestamp()
-        .setFooter({ text: role.guild.name });
+        .setFooter({ text
+: role.guild.name });
 
     if (log) {
         roleCreateEmbed.setDescription(

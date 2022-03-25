@@ -1,6 +1,6 @@
 /** @format */
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const ms = require("ms")
 const emotes = require("../../config/assets/Json/emotes.json")
@@ -8,12 +8,11 @@ module.exports = new Command({
 
 	name: "ping",
 	description: "shows the ping of bot",
-	type: "TEXT",
 	cooldown: 7000,
 	aliases: ["botping"],
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-
+  botPermissions: "SEND_MESSAGES",
+  type: "Text",
 	async run(message, args, client) {
 
 		const Pinging = new Discord.MessageEmbed()
@@ -26,6 +25,7 @@ module.exports = new Command({
 		.setTitle("🏓Pong!")
 		.setColor("#4D9AE6")
 		.setDescription(`**Bot Ping:**: ${client.ws.ping}`)
-		.setFooter({ text:`Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL()})
+		.setFooter({ text
+:`Requested by ${message.author.username}`, iconURL: message.author.displayAvatarURL()})
 	}
 })

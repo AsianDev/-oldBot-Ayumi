@@ -1,14 +1,14 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = new Command({
 
   name: 'nuke',
   description: "deletes and clones the channel",
-  type: "TEXT",
   aliases: ["Bomb", "nuclear"],
   userPermissions: ["MANAGE_CHANNELS"],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   cooldown: 10000,
 
    async run(message, args, client) {

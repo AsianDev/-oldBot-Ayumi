@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const { paginate } = require("../../Systems/PaginationSys")
 
@@ -6,11 +6,11 @@ module.exports = new Command({
 
     name: 'btn',
     description: 'mhm',
-    type: 'TEXT',
+ type: "Text",
     userPermissions: '',
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
-    owner: true,
+  botPermissions: "SEND_MESSAGES",
+
+  owner: true,
 
     async run(message, args, client) {
 

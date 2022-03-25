@@ -1,6 +1,6 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed } = require('discord.js')
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Event('channelCreate', async (client, channel) =>{
 
     const Data = await DB.findOne({
@@ -25,7 +25,8 @@ module.exports = new Event('channelCreate', async (client, channel) =>{
 					`<:icons_createchannel:952952678172991578> A Channel Has Been Created`
 				)
 				.setTimestamp()
-				.setFooter({ text: channel.guild.name })
+				.setFooter({ text
+: channel.guild.name })
 				.setDescription(
 					`> The channel ${channel} has been created by \`${log.executor.tag}\``
 				)

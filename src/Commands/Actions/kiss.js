@@ -1,16 +1,17 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
 module.exports = new Command({
 name: "kiss",
-type: "TEXT",
+botPermissions: 'SEND_MESSAGES',
+ type: "Text",
 description: "sends a anime kissing gif",
 userPermissions: ["SEND_MESSAGES"],
 cooldown: 10000,
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
           try {
@@ -64,7 +65,8 @@ async run(message, args, client) {
 
         const url = await fetch(`https://kawaii.red/api/gif/kiss/token=468386640155508737.m2glPraTYnRPNMdEzW8K`).then(res => res.json())
         const embed1 = new Discord.MessageEmbed()
-        .setFooter({ text: `${member.user.username} has been kissed ${profileDatas.KissAmount} times.`})
+        .setFooter({ text
+: `${member.user.username} has been kissed ${profileDatas.KissAmount} times.`})
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
         .setDescription(`**${die}**`)

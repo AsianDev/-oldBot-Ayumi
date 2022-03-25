@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const c = require("../../config/assets/Json/colours.json")
 module.exports = new Command({
@@ -6,7 +6,7 @@ module.exports = new Command({
         description: "kick a user",
         userPermissions: ["KICK_MEMBERS"],
         botPermissions: "KICK_MEMBERS",
-        type: "TEXT",
+    type: "Text",
         cooldown: 10000,
         async run(message, args, client) {
     const member = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
@@ -73,7 +73,8 @@ module.exports = new Command({
     .setColor("#F87E6D")
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
     .addField("Reason:", `\`${reason}\``)
-    .setFooter({ text: `Banned by ${message.author.username}`})
+    .setFooter({ text
+: `Banned by ${message.author.username}`})
     .setTimestamp()
 
 

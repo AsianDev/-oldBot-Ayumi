@@ -1,12 +1,12 @@
 const { Message,MessageEmbed, Client } = require("discord.js");
 const Discord = require("discord.js")
 const ms = require('ms')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({ 
    name: "timeout",
     description: 'Give the mentioned member timeout',
-    type: "TEXT",
+type: "Text",
     userPermissions: ["KICK_MEMBERS"],
     botPermissions: "MODERATE_MEMBERS",
         aliases: ["tm"],

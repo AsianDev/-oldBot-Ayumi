@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -8,11 +8,11 @@ module.exports = new Command({
     name: 'create-template',
     aliases: ['createtemplate', "make-template", "maketemplate", "cloneserver", "clone-server"], 
     description: "make a template of the server you run this command in",
-    type: 'TEXT',
+ type: "Text",
     userPermissions: "",
     owner: true,
-    botPermissions: "ADMINISTRATOR",
-    cooldown: 4000,
+    botPermissions: ["ADMINISTRATOR"],
+ type: "Text",cooldown: 4000,
     nsfw: false,
 
     async run(message, args, client) {

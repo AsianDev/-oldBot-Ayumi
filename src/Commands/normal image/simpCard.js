@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Canvas = require("canvas");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 name: "simp-card",
@@ -8,7 +8,7 @@ description: "generates a simp card",
 aliases: ["simpcard", "scard"],
 userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["ADMINISTRATOR"],
-type: "TEXT",
+ type: "Text",
 cooldown: 7000,
 
 /**
@@ -27,7 +27,8 @@ async run(message, args, client) {
     );
 
     const canvas = Canvas.createCanvas(775, 575);
-    const ctx = canvas.getContext(`2d`);
+    const ctx = canvas.getContext
+(`2d`);
 
     ctx.drawImage(bg, 0, 0, 775, 575);
     ctx.drawImage(avatar, 30, 50, 303, 455);

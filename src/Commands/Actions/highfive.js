@@ -1,11 +1,12 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
 module.exports = new Command({
     
 name: "highfive",
-type: "TEXT",
+botPermissions: 'SEND_MESSAGES',
+ type: "Text",
 cooldown: 10000,
 description: "sends a anime h5 gif",
 userPermissions: ["SEND_MESSAGES"],

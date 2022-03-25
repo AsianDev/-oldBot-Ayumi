@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -8,17 +8,15 @@ module.exports = new Command({
     name: 'info',
     aliases: ['cmd-help', "commandhelp", "command-help", "cmdhelp", "commandinfo", "command-info", "cmd-info"], 
     description: "gives information on a command",
-    type: 'TEXT',
-    userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+ type: "Text",
+  botPermissions: "SEND_MESSAGES",
+cooldown: 4000,
     nsfw: false,
 
     async run(message, args, client) {
 
 
         const fs = require('fs')
-  
         const directories = []
         fs.readdirSync('./src/Commands').forEach(dir => {
           directories.push(dir)
@@ -44,6 +42,5 @@ module.exports = new Command({
                     .addField("Aliases:", `> ${cmd.aliases.join(", ") || "<:kao_Cross:941317372852187137> None"}`)
                     message.channel.send({embeds: [cmdInfoEmbed]})
                   
-
     }
 })

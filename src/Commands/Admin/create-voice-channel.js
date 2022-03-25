@@ -1,14 +1,14 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
   
   name: "newvoice",
   description: "Create Voice Channels in your Server",
-  type: "TEXT",
 	cooldown: 10000,
   userPermissions: ["ADMINISTRATOR"],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   aliases: ["create-vc", "createvoicechannel", "createvc", "create-voicechannel", "new-vc"],
 
   async run(message, args, client) {

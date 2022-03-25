@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const errorX = "<:Ikix:904736839036993586>"
 
@@ -8,7 +8,7 @@ module.exports = new Command({
     cooldown: 10000,
     userPermissions: ["BAN_MEMBERS"],
     botPermissions: "BAN_MEMBERS",
-    type: "TEXT",
+type: "Text",
     aliases: ["hackban", "forceban", "force-ban", "hackban"],
     async run(message, args, client) {
 
@@ -28,7 +28,8 @@ module.exports = new Command({
         .setColor("#F87E6D")
         .setThumbnail(target.user.displayAvatarURL({ dynamic: true }))
         .setDescription(`**Reason:** \n ${reason}`)
-        .setFooter({ text: `Banned by ${member}`})
+        .setFooter({ text
+: `Banned by ${member}`})
         .setTimestamp()
 
 

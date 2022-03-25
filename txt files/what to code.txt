@@ -17,15 +17,15 @@
 10. if boost event doesnt work, goota fix That => use canvas for it? (:question: idk how to test. -> event emmiter?)
 11. premium commands ⏰
 12. NSFW for mods -> only did like 6 cmds lol ✅
-13. A suggestion cmd with accept and deny ❓
+13. A suggestion cmd with accept and deny ✅
 14. better serverInfo command ✅
 15. Invite tracker? ⏰
 16. more logs -> role created, role deleted, channel updated, role added to user / removed from user, etc ✅
 17. anime search command -> its broken cause package doesnt work anymore ;-; ✅
-18. more Automod -> anti spam, anti emoji spam, anti caps, ( anti flood -> \n )
+18. more Automod -> anti spam, anti emoji spam, anti caps, ( anti linesplit -> \n )
 19. staff role system? ❌
 20. help command for the owners cmd ✅
-21. ghost ping log?
+21. ghost ping log? ❌
 22. ban and kick confirmation buttons? ✅
 23. lyrics cmd ✅
 24. movie-search command ✅
@@ -41,9 +41,9 @@
 34. type fast game? ❌
 35. the verify cmd needs to be easier -> kick on 2nd attempt ✅
 36. anti raid ⏰
-37. sourcebin command ✅ // archieved
+37. sourcebin command ✅
 37. button paginator function  ✅
-38. Command info cmd
+38. Command info cmd ✅
 39. fake nitro cmd -> use button ❌
 40. jisho command
 41. dm loggin ✅
@@ -58,9 +58,11 @@
 
 45. dropdown menu for embed gen -> https://sourceb.in/k5bQtfjyTg
 46. change bots language
-47. cmd to list all afk people
+47. cmd to list all afk people -> fixing
 48. PUT BOT INTO LOCKDOWN / MAINTANCE WITH COMMAND
-49. set channel for logs
+49. set channel for logs ✅ 
+50. nsfw cmds for females leisure -> male nsfw, dunno yet but will happen (femae mod wanted... sussy) ✅
+51. wallpaper cmds ✅
 
 https://sourceb.in/2QT06y5xTB
 
@@ -79,3 +81,4 @@ https://sourceb.in/2QT06y5xTB
 7. fix steal emoji cmd or might just be the server dunno ✅
 8. messageCreate default cooldown in timeout code
 9. send verify captcha to dms?
+10. mute system -> bugged fixing soon

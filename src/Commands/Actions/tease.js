@@ -4,10 +4,12 @@ let teaseGifs = soyultro("tease");
 
 module.exports = {
     name: 'tease',
-    type: "TEXT",
+    
     cooldown: 10000,
     description: "sends a anime teasing gif",
     userPermissions: ["SEND_MESSAGES"],
+    botPermissions: 'SEND_MESSAGES',
+type: "Text",
     async run(message, args, client) {
 
     const Target = message.mentions.users.first()

@@ -1,17 +1,19 @@
 const fetch = require("node-fetch")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
 name: 'mad',
-type: "TEXT",
+
 cooldown: 10000,
 aliases: ["angry", "angy", "angwy"],
 description: "shows an anime gif where your made",
-userPermissions: ["SEND_MESSAGES"],
-async run(message, args, client) {
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
+  async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-    const schema = require("../../Structures/models/animeProfileData.js");
+    const schema = require("../../config/models/animeProfileData.js");
 
     let profileData;
     try {
@@ -64,7 +66,8 @@ await schema.findOneAndUpdate({
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
         .setDescription(`${message.author} is mad at ${member}`)
-        .setFooter({ text: `${member.user.username} has been mad at ${profileDatas.MadAmount} times.`})
+        .setFooter({ text
+: `${member.user.username} has been mad at ${profileDatas.MadAmount} times.`})
 
         message.channel.send({
             embeds: [embed1]})

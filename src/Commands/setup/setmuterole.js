@@ -1,11 +1,11 @@
-const muteSchema = require("../../Structures/models/muterole.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const muteSchema = require("../../config/models/muterole.js")
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
 name: "setmute",
 description: "Set the mute role for when you mute someone",
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 userPermissions: ["MANAGE_GUILD"],
 maintance: true,

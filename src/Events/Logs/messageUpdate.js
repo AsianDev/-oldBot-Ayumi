@@ -1,6 +1,6 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed } = require('discord.js')
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Event('messageUpdate', async (client, oldMessage, newMessage) =>{
     if (oldMessage.author.bot) return;
     if (oldMessage.content === newMessage.content) return;
@@ -37,7 +37,8 @@ module.exports = new Event('messageUpdate', async (client, oldMessage, newMessag
             }
         )
         .setFooter({
-            text: `Member: ${newMessage.author.tag} | Member: ${newMessage.author.id}`,
+            text
+: `Member: ${newMessage.author.tag} | Member: ${newMessage.author.id}`,
             iconURL: `${newMessage.author.avatarURL({ dynamic: true, size: 512 })}`,
         });
 

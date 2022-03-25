@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const gen = require("images-generator")
 
@@ -6,8 +6,9 @@ module.exports = new Command ({
   name: "panda",
   description: "sends a panda image",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",  type: "TEXT",
+    botPermissions: "SEND_MESSAGES",  
   cooldown: 10000,
+  type: "Text",
 
     async run(message, args, client) {
 

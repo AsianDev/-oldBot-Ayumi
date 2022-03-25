@@ -1,16 +1,15 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
-const afkSchema = require("../../Structures/models/afk.js")
+const Command = require('../../Handlers/Command.js')
+const afkSchema = require("../../config/models/afk.js")
 const colour = require("../../config/assets/Json/colours.json")
 const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "afk",
     description: "set you afk",
     cooldown: 7000,
-    type: "TEXT",
-    userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["brb", "gtg", "afk,", "brb,", "gtg,", "fk"],
+ userPermissions: "SEND_MESSAGES",
+  botPermissions: "SEND_MESSAGES",  
+   aliases: ["brb", "gtg", "afk,", "brb,", "gtg,", "fk"],
     async run(message, args, client) {
 
 
@@ -23,24 +22,20 @@ module.exports = new Command({
         .setDescription("*Waaa~* Please Give a longer reason to your afk!")
 
         let Reason = args.slice(1).join(" ") || "None provided";
-        if(Reason < 1) return message.reply({embeds: [NotenoughReasoning], allowedMentions: {repliedUser: false}})
+        if(Reason < 4) return message.reply({embeds: [NotenoughReasoning], allowedMentions: {repliedUser: false}})
 
         const AfkEmbed = new Discord.MessageEmbed()
-        .setColor("#17A8DA")
+        .setColor(colour["strong lime"])
         .setTitle("<a:AnimeWave:912596615028678656> You are now AFK!")
         .setDescription(`<a:Kao_loading:938867145331339264> | <@${message.author.id}> Sending a message will bring you back.`)
-        .addField("Reason to AFK:", `${Reason}`)
-        .setTimestamp()
-        .setFooter({ text: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
+        .setFooter({ text
+: `${message.author.tag}`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
 
         
         const AfkEmbed2 = new Discord.MessageEmbed()
-        .setColor("#17A8DA")
-        .setTitle("<a:AnimeWave:912596615028678656> You are now AFK!")
+        .setColor(colour["angel white"])
         .setDescription(`<a:Kao_loading:938867145331339264> | <@${message.author.id}> Sending a message will bring you back.`)
         .addField("Reason to AFK:", `${Reason}`)
-        .setTimestamp()
-        .setFooter({ text: `You have been nicknamed to [AFK]`, iconURL: `${message.author.displayAvatarURL({ dynamic: true })}`})
 
         const params = {
             Guild: message.guild.id,
@@ -61,6 +56,7 @@ module.exports = new Command({
                 try {
                    message.member.setNickname(`[AFK] ${message.member.displayName}`)
                     message.channel.send({embeds: [AfkEmbed2]})
+                    message.react("<a:wave2:940572281711775744>")
                       } catch (error) {
                         message.channel.send({embeds: [AfkEmbed]})
                         console.log(error)

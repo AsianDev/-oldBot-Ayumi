@@ -1,14 +1,13 @@
 const { Client, Message, MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("axios")
 module.exports = new Command({  
     name: "avt",
     description: "Check yourself or user's avatar",
     cooldown: 3000,
-    type: "TEXT",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["pfp", "avatar", "useravatar", "av"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["pfp", "avatar", "useravatar", "av"],
     /**
      * @param {Client} client
      * @param {Message} message

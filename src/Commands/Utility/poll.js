@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 
@@ -7,9 +7,8 @@ module.exports = new Command({
     description: "Make a poll",
     aliases: ["question", "pol", "questionare"],
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 5000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 5000,
 
     async run (message, args, client) {
 
@@ -19,7 +18,8 @@ module.exports = new Command({
     .setTitle(`${poll}`)
     .setDescription("1️⃣ Yes\n\n2️⃣ No")
     .setColor("#4D9AE6")
-    .setFooter({text: `Poll by ${message.author.tag}`, iconURL: message.author.displayAvatarURL()})
+    .setFooter({text
+: `Poll by ${message.author.tag}`, iconURL: message.author.displayAvatarURL()})
     .setTimestamp()
 
     const error = new Discord.MessageEmbed()

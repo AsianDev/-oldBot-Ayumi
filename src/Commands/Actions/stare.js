@@ -4,9 +4,10 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'stare',
   cooldown: 10000,
-  type: "TEXT",
   description: "send a anime stare gif",
   userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
   async run(message, args, client) {
      const embed = new MessageEmbed()
      .setTitle(`${message.author.username} is lurking`)

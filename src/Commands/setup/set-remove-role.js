@@ -1,11 +1,11 @@
-const muteSchema = require("../../Structures/models/removerole.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const muteSchema = require("../../config/models/removerole.js")
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
 name: "set-remove",
 description: "set the remove role for when someone is muted.",
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],

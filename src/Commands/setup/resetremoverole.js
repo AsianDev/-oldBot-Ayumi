@@ -1,10 +1,10 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const schema = require("../../Structures/models/removerole.js")
+const schema = require("../../config/models/removerole.js")
 module.exports = new Command({
 name: "resetremove",
 description: "reset the remove role!",
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],

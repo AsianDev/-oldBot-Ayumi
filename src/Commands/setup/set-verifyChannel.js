@@ -1,11 +1,11 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const guildConfig = require('../../Structures/models/guildConfig.js')
+const guildConfig = require('../../config/models/guildConfig.js')
 
 module.exports = new Command({
 name: "vchannel",
 description: "set the verify channel to send captcha!",
-type: "TEXT",
+ type: "Text",
 userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],
 aliases: ["set-verifychannel", "setverifychannel", "set-verify", "setverify", "set-vchannel"],

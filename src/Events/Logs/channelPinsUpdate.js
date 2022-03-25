@@ -1,6 +1,6 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed } = require('discord.js')
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Event('channelDelete', async (client, channel) =>{
 
     const Data = await DB.findOne({
@@ -22,7 +22,8 @@ module.exports = new Event('channelDelete', async (client, channel) =>{
             "<:icons_updatemember:949375652291809341> A Channel's Pins Has Been Updated"
         )
         .setTimestamp()
-        .setFooter({ text: channel.guild.name });
+        .setFooter({ text
+: channel.guild.name });
 
     if (!log.target) return;
 

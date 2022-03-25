@@ -1,11 +1,10 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 module.exports = new Command ({
     name: "channel-delete",
     userPermissions: ["ADMINISTRATOR"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    cooldown: 10000,
+  botPermissions: "SEND_MESSAGES",
+ cooldown: 10000,
     aliases: ["delete-channel", "channeldelete", "deletehannel"],
     description: "deletes a channel",
     async run(message, args, client) {

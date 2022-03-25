@@ -1,19 +1,21 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
     const Discord = require('discord.js')
 
 module.exports = new Command({
 name: 'bite',
 cooldown: 6000,
-type: "TEXT",
+
 description: "sends a anime gif of you biting a mentioned user",
-userPermissions: ["SEND_MESSAGES"],
-async run(message, args, client) {
+  userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
+  async run(message, args, client) {
 
     const member = message.mentions.members.first() || message.author
 
-     const schema = require("../../Structures/models/animeProfileData.js");
+     const schema = require("../../config/models/animeProfileData.js");
                 
         let profileData;
                 try {
@@ -70,6 +72,7 @@ async run(message, args, client) {
             .setImage(`${url.response}?size=1024`)
             .setColor("RANDOM")
             .setDescription(`**${bite}**`)
-            .setFooter({ text:  `${member.user.username} has been bitten ${profileDatas.BiteAmount} times.`})
+            .setFooter({ text
+:  `${member.user.username} has been bitten ${profileDatas.BiteAmount} times.`})
             message.channel.send({
                 embeds: [embed1]})}}})

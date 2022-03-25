@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
-const muteSchema = require("../../Structures/models/muterole.js")
-const Command = require('../../Structures/Handlers/Command.js')
-const removerole = require("../../Structures/models/removerole.js")
+const muteSchema = require("../../config/models/muterole")
+const Command = require('../../Handlers/Command.js')
+const removerole = require("../../config/models/removerole.js")
 const Discord = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
 const emotes = require("../../config/assets/Json/emotes.json")
@@ -9,7 +9,7 @@ const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
   name: "mute",
   description: "mute a user",
-  type: "TEXT",
+  type: "Text",
   cooldown: 10000,
   aliases: ["silence", "mut", "muute"],
   userPermissions: "KICK_MEMBERS",

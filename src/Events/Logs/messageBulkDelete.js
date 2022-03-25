@@ -1,7 +1,7 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed, Message, Client } = require("discord.js");
 const discordTranscripts = require("discord-html-transcripts");
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 
 module.exports = new Event('messageDeleteBulk', 
 	/**
@@ -46,7 +46,8 @@ async (client, messages) =>{
             )
             .setTimestamp()
             .setFooter({
-                text: messages.first().guild.name,
+                text
+: messages.first().guild.name,
             });
 
         logsChannel

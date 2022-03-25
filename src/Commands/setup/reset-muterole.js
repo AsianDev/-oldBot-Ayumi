@@ -1,10 +1,10 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
-const Schema = require("../../Structures/models/muterole.js")
+const Schema = require("../../config/models/muterole.js")
 module.exports = new Command({
 name: "resetmute",
 description: "reset the mute role!",
-type: "TEXT",
+ type: "Text",
 cooldown: 10000,
 userPermissions: ["MANAGE_GUILD"],
 botPermissions: ["ADMINISTRATOR"],

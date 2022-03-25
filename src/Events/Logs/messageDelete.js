@@ -1,7 +1,7 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed, Message, Client } = require("discord.js");
-const DB = require("../../Structures/models/loggerDB.js")
-module.exports = new Event('messageDeleteBulk', 
+const DB = require("../../config/models/loggerDB.js")
+module.exports = new Event('messageDelete', 
 
 async (client, message) =>{
 
@@ -34,7 +34,8 @@ async (client, message) =>{
 			.setTimestamp()
 			.addField("Message", messageContent)
 			.setFooter({
-				text: `Member: ${message.author.tag} | ID: ${message.author.id}`,
+				text
+: `Member: ${message.author.tag} | ID: ${message.author.id}`,
 				iconURL: `${message.author.avatarURL({ dynamic: true, size: 512 })}`,
 			});
 		if (target.id === message.author.id) {

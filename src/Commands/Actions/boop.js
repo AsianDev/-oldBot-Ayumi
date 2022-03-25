@@ -4,14 +4,16 @@ const Discord = require('discord.js')
 
 module.exports = {
   name: 'boop',
-  type: "TEXT",
+  
   cooldown: 10000,
   description: "sends a anime boop gif",
   userPermissions: ["SEND_MESSAGES"],
+  botPermissions: "ADMINISTRATOR",
+ type: "Text",
   async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
 
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
           try {
@@ -70,7 +72,8 @@ module.exports = {
       .setImage(`${url.response}?size=1024`)
       .setColor("RANDOM")
           .setDescription(`**${kills}**`)
-          .setFooter({ text:  `${member.user.username} has been booped ${profileDatas.BoopAmount} times.`})
+          .setFooter({ text
+:  `${member.user.username} has been booped ${profileDatas.BoopAmount} times.`})
           message.channel.send({
           embeds: [embed1]})
   }

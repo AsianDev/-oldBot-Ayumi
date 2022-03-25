@@ -1,13 +1,12 @@
 const {  Message, MessageEmbed } = require("discord.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "dm",
     aliases: ["msg", "message"],
     description: "Dm a user",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+  botPermissions: "SEND_MESSAGES",    
     cooldown: 5000,
     async run(message, args, client) {
 

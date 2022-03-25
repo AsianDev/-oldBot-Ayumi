@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 const ms = require('ms')
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Color = `#FCC8EA`;
-let timerSchema = require("../../Structures/models/reminder");
+let timerSchema = require("../../config/models/reminder");
 module.exports = new Command({ 
   name: 'remind',
   premium: true,
   userPermissions: [""],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   description: 'reminds you about what will you do!',
-  type: "TEXT",
   cooldown: 5000,
   aliases: ["reminder"],
 
@@ -123,7 +123,8 @@ module.exports = new Command({
                   })}**!`
                 )
                 .setColor(Color)
-                .setFooter({ text: `Your timer id: ${create._id}`});
+                .setFooter({ text
+: `Your timer id: ${create._id}`});
               if (create)
                 return sentMsg.edit({
                   components: [],
@@ -185,7 +186,8 @@ module.exports = new Command({
             .setTitle(`Your reminder history:`)
             .setDescription(`${desc.join("\n\n")}`)
             .setColor(Color)
-            .setFooter({ text: `${message.author.username}'s reminders`})
+            .setFooter({ text
+: `${message.author.username}'s reminders`})
           message.channel.send({ embeds: [embed] });
         }
       },

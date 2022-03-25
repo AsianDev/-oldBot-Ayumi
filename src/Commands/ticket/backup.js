@@ -1,15 +1,14 @@
 const backup = require("discord-backup")
 backup.setStorageFolder(__dirname + "/backups/")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js")
 
 module.exports = new Command({
   name: "backup",
   description: 'Backup system',
-  type: "TEXT",
   userPermissions: [""],
-  owner: true,  
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   aliases: ["back-up", "bkp", "bacup"],
   cooldown: 15000,
 
@@ -38,10 +37,10 @@ module.exports = new Command({
     .setColor("BLURPLE")
     .setTitle("I see you need help?")
     .setDescription("Heres how this system works.")
-    .addField("Kao backup Create:", "Create's the backup")
-    .addField("Kao backup Load:", "Load's the backup")
-    .addField("Kao backup Info:", "Gives information on the backup")
-    .addField("Kao backup Delete:", "Delete's the backup")
+    .addField("Ayu backup Create:", "Create's the backup")
+    .addField("Ayu backup Load:", "Load's the backup")
+    .addField("Ayu backup Info:", "Gives information on the backup")
+    .addField("Ayu backup Delete:", "Delete's the backup")
 
     if(!actions.includes(args[1])) return message.reply({embeds: [ActionsEmbed], ephemeral: true})
     
@@ -62,8 +61,8 @@ module.exports = new Command({
             .setTitle("<:Info:928913634694955058> The backup is successful!")
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
             .setDescription(`**The backup has been successfully made!**`)
-            .addField("To load the backup:", `Use \`Kao Backup Load ${backupdata.id}\` to load the backup.`)
-            .addField("To delete the backup:", `Use \`Kao Backup Delete ${backupdata.id}\` to delete the backup.`)
+            .addField("To load the backup:", `Use \`Ayu Backup Load ${backupdata.id}\` to load the backup.`)
+            .addField("To delete the backup:", `Use \`Ayu Backup Delete ${backupdata.id}\` to delete the backup.`)
             .setTimestamp()
             .setFooter({ text: "Backup made by Ayumi <3"})
 

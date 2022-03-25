@@ -1,6 +1,6 @@
 const { Client, Message, MessageAttachment } = require("discord.js");
 const canvas = require("canvacord");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
 name: "beautiful",
@@ -9,8 +9,9 @@ userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["ADMINISTRATOR"],
 aliases: ["pretty"],
 cooldown: 10000,
+ type: "Text",
 
-type: "TEXT",
+
 /**
 *
 * @param {Client} client

@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
     name: "getinvite",
     description: "Generates an invitation to the server",
     owner: true,
-    type: "SLASH",
+    type: "Slash",
     userPermissions: "",
     botPermissions: ["SEND_MESSAGES"],
      slashCommandOptions: [

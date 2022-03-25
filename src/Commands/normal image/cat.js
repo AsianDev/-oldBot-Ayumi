@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 const gen = require("images-generator")
 
@@ -8,7 +8,7 @@ module.exports = new Command ({
   cooldown: 10000,
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",  
-    type: "TEXT",
+type: "Text",
     async run(message, args, client) {
 
         let catImage = await gen.animal.cat();

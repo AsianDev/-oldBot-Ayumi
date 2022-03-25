@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -8,10 +8,9 @@ module.exports = new Command({
     name: 'gtn',
     aliases: ["guessthenumber"], 
     description: "Start a gtn event!",
-    type: "TEXT",
+type: "Text",
     userPermissions: "",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
     owner: true,
 
     async run(message, args, client) {
@@ -29,7 +28,7 @@ module.exports = new Command({
         .setColor(`${colour['light red']}`)
         .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
         .setDescription("*Waaa~* Please provide the max number!")
-        .addField("Example:", "```yaml\n Syntax: Kao gtn <number>```")
+        .addField("Example:", "```yaml\n Syntax: Ayu gtn <number>```")
         if(!maxNumber) return message.channel.send({embeds: [noMaxNumber]})
 
         let max = args[1]
@@ -65,7 +64,8 @@ module.exports = new Command({
               EventChannel.send({embeds: [new Discord.MessageEmbed()
                 .setColor(`${colour.pink}`)
                 .setTitle(`🎉 Congratulations ${msg.member.user.username}`)
-                .setFooter({ text: `Range: 0 - ${maxNumber}`})
+                .setFooter({ text
+: `Range: 0 - ${maxNumber}`})
                 .setDescription("The number you have guessed was right! The game has ended!")  
                 .addField("Correct Number:", `\`${random}\``, true)
                 .setTimestamp()

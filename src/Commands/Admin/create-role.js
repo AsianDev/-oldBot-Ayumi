@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -6,13 +6,13 @@ module.exports = new Command({
   description: "give a user a role.",
   userPermissions: ["ADMINISTRATOR"],
   botPermissions: ["ADMINISTRATOR"],
-    type: "TEXT",
+ type: "Text",
     cooldown: 10000,
     aliases: ["make-role", "cr-role", "crole", "create-role", "makerole", "crerole"],
   async run(message, args, client) {
     const name = args.slice(1).join(" ");
 
-    if (!args[0]) {
+    if (!args[1]) {
       return message.channel.send("`Usage: create-role <name> `");
     }
     if (!name) {

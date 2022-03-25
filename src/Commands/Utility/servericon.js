@@ -1,5 +1,5 @@
 const { Client, Message, MessageEmbed, MessageActionRow, MessageSelectMenu } = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({  
 name: "servericon",
@@ -7,8 +7,7 @@ name: "servericon",
   description: "Get avatar of the server",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: "MANAGE_GUILD",
-  type: "TEXT",
-  cooldown: 10000,
+ type: "Text",  cooldown: 10000,
 
   async run(message, args, client) {
 

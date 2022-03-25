@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -6,7 +6,7 @@ module.exports = new Command({
   description: "give a user a role.",
   userPermissions: ["ADMINISTRATOR"],
   botPermissions: ["ADMINISTRATOR"],
-    type: "TEXT",
+ type: "Text",
     cooldown: 10000,
     aliases: ["take-role", "r-role", "rrole", "remove-role", "rerole"],
   async run(message, args, client) {

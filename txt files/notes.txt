@@ -19,7 +19,8 @@ content: `<@${member.user.id}>`,
 
 client.user.setPresence({
 status: "online", // ➜ idle • online • dnd • invisible
-activity: `Your Text Here`, // Change this ofc
+activity: `Your text
+ Here`, // Change this ofc
 type: "PLAYING" //➜ PLAYING • LISTENING • WATCHING • COMPETING • STREAMING
 url: "your_twitch_channel_URL" // -------- added this cus we wanted the streaming status
 })
@@ -161,6 +162,15 @@ https://discord.com/channels/731532456724922459/823605956348608512/8825775376523
 
 
 const randomXP = Math.floor(Math.random() * 29) + 1; you need something like this for percentage random
+
+msg.channel.awaitMessages()
+      .then(async(response) => {
+            // code if there is response
+})
+      .catch((err) => {
+             // code if no response on time
+})
+
 
 ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤    MS    ╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤╤
 

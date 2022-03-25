@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const flip = require("flip-text");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 module.exports = new Command({
         name: "flip",
         description: "flip you text",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+      botPermissions: "SEND_MESSAGES",
+  type: "Text",    
         cooldown: 3000,
         async run(message, args, client) {
         if (args.length < 2) {

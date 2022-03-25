@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const { MessageEmbed } = require('discord.js');
 const Kitsu = require("kitsu.js");
 const kitsu = new Kitsu();
@@ -7,10 +7,11 @@ const emotes = require("../../config/assets/Json/emotes.json")
 module.exports = new Command ({
   
   name: "anime",
-  type: "TEXT",
+  
   cooldown: 5000,
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
+ type: "Text",
   aliases: ["search", "anime-search"],
   description: "Get info about an anime",
 

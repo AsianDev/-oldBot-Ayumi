@@ -1,17 +1,24 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const { MessageEmbed } = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
+const emotes = require("../../config/assets/Json/emotes.json")
+
 module.exports = new Command({
 
     name: "banner",
     description: "Get the banner of a user",
-    type: "TEXT",
     userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    async run(message, args, client) {
+    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
+  type: "Text",   
+  async run(message, args, client) {
 
       const member =  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.author
-
+      if(!member) return message.reply({ embeds: [new MessageEmbed()
+        .setColor("RED")
+        .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
+        .setDescription("*Waaa~* Please provide a user!")
+        ]})
       const data = await member.fetch();
       if (data?.banner) {
         const extension = data.banner.startsWith("a_") ? ".gif" : ".png";
@@ -22,7 +29,8 @@ module.exports = new Command({
           .setTimestamp()
           .setTitle(`${member.user.tag}'s Banner`)
           .setImage(url)
-          .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${message.guild.iconURL()}` })
+          .setFooter({ text
+: `Requested by ${message.author.tag}`, iconURL: `${message.guild.iconURL()}` })
           .setColor(data?.hexAccentColor || colour.pink);
         message.channel.send({ embeds: [embed] });
       } else if (data?.hexAccentColor) {

@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const { MessageActionRow, MessageButton} = require('discord.js');
 const ms = require("ms")
@@ -7,9 +7,7 @@ module.exports = new Command({
     name: 'timestamp',
     description: "Generate a timestamp",
     userPermissions: ["SEND_MESSAGES"],
-    botPermissions: "SEND_MESSAGES",
-    type: "TEXT",
-    aliases: ["ts"],
+  botPermissions: "SEND_MESSAGES",aliases: ["ts"],
     cooldown: 7000,
 
     async run(message, args, client) {

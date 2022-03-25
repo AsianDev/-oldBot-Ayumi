@@ -1,7 +1,6 @@
 /** @format */
 
 const Client = require("./Client.js");
-
 const Discord = require("discord.js");
 
 
@@ -14,8 +13,8 @@ function RunFunction(message, args, client) {}
 
 class Command {
 	/**
-	 * @typedef {"BOTH" | "SLASH" | "TEXT"} CommandType
-	 * @typedef {{name: string, description: string, userPermissions: Discord.PermissionString, botPermissions: Discord.PermissionString, type: CommandType, slashCommandOptions: Discord.ApplicationCommandOption[], ephemeral: ephemeral run: RunFunction}} CommandOptions
+	 * @typedef {"Slash" | "Text"} CommandType
+	 * @typedef {{name: string, description: string, userPermissions: import("discord.js").PermissionResolvable[], botPermissions: import("discord.js").PermissionResolvable[],, type: CommandType, aliases: Array[], slashCommandOptions: Discord.ApplicationCommandOption[], run: RunFunction}} CommandOptions
 	 * @param {CommandOptions} options
 	 */
 	constructor(options) {
@@ -27,11 +26,12 @@ class Command {
 		this.cooldown = options.cooldown;
 		this.userPermissions = options.userPermissions;
 		this.botPermissions = options.botPermissions;
-		this.type = ["BOTH", "SLASH", "TEXT"].includes(options.type) ? options.type : "TEXT";
+		this.type = ["Slash", "Text"].includes(options.type) ? options.type : "Text";
 		this.slashCommandOptions = options.slashCommandOptions || [];
 		this.nsfw = options.nsfw;
 		this.guildOnly = options.guildOnly;
 		this.maintance = options.maintance;
+		this.dev = options.dev;
 		this.run = options.run;
 	}
 

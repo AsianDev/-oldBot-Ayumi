@@ -1,5 +1,5 @@
 const Discord = require("discord.js")
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const errorX = "<:Ikix:904736839036993586>"
 
 module.exports = new Command ({ 
@@ -7,7 +7,7 @@ module.exports = new Command ({
   description: "Sets the nickname of the user",
   userPermissions: ["MANAGE_NICKNAMES"],
   botPermissions: "MANAGE_NICKNAMES",
-  type: "TEXT",
+  type: "Text",
   cooldown: 10000,
   aliases: ["rnick", "resetn", "reset"],
   /**

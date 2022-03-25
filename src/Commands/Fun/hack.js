@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 
 let ips = [
   '14.621.152.163.87.5',
@@ -125,8 +125,8 @@ module.exports = new Command({
         name: "hack",
         description: "hack a user",
         userPermissions: ["SEND_MESSAGES"],
-        botPermissions: "SEND_MESSAGES",
-        type: "TEXT",
+      botPermissions: "SEND_MESSAGES",
+type: "Text",    
         cooldown: 7000,
         aliases: ["hax"],
     async run(message, args, client) {
@@ -138,7 +138,8 @@ const name = names[Math.floor(Math.random() * names.length)];
 
   const user = message.mentions.users.first() || message.author;
 
-    let text = [
+    let text
+ = [
 
       `**Logging into \`\`${user.username}'s\`\` Computer**`,
 
@@ -184,7 +185,8 @@ const name = names[Math.floor(Math.random() * names.length)];
     ];
 
     let current = 0;
-    let count = text.length;
+    let count = text
+.length;
     let editTime = 2000;
 
     message.channel.send(`\`\`\`ini\n[ **Kao-chan has begun to hack** ${user.username} ]\`\`\``).then ((msg) => {
@@ -197,7 +199,8 @@ const name = names[Math.floor(Math.random() * names.length)];
           return;
         }
 
-        let hackMsg = text[current];
+        let hackMsg = text
+[current];
         msg.edit(hackMsg);
         current++
  

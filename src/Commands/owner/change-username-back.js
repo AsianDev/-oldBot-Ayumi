@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -6,7 +6,7 @@ module.exports = new Command({
   description: "Changes my username",
   aliases: ["c.u.b"],
   owner: true,
-  type: "TEXT",
+  type: "Text",
   userPermissions: "",
   botPermissions: ["SEND_MESSAGES"],
 

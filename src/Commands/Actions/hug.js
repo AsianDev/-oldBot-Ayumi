@@ -1,11 +1,11 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const fetch = require("node-fetch")
 const Discord = require('discord.js')
 
 module.exports = new Command({
     
 name: "hug",
-type: "TEXT",
+ type: "Text",
 description: "sends a anime hugging gif",
 userPermissions: ["SEND_MESSAGES"],
 botPermissions: ["SEND_MESAGES"],
@@ -13,7 +13,7 @@ cooldown: 10000,
 
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author
-  const schema = require("../../Structures/models/animeProfileData.js");
+  const schema = require("../../config/models/animeProfileData.js");
 
   let profileData;
           try {
@@ -72,7 +72,8 @@ async run(message, args, client) {
         .setImage(`${url.response}?size=1024`)
         .setColor("RANDOM")
             .setDescription(`**${die}**`)
-            .setFooter({ text: `${member.user.username} has been hugged ${profileDatas.HugAmount} times.`})
+            .setFooter({ text
+: `${member.user.username} has been hugged ${profileDatas.HugAmount} times.`})
         message.channel.send({
             embeds: [embed1]})
     }

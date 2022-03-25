@@ -1,11 +1,11 @@
-const schema = require('../../Structures/models/command')
+const schema = require("../../config/models/command")
 const Discord = require("discord.js")
-module.exports = {
-    name: "cmd-enable",
-    type: "TEXT",
+const Command = require('../../Handlers/Command.js')
+module.exports = new Command({
+        name: "cmd-enable",
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["enable-command", "enable-cmd", "enable"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["enable-command", "enable-cmd", "enable"],
     description: "Enables a command",
     cooldown: 10000,
     async run(message, args, client) {
@@ -44,4 +44,4 @@ module.exports = {
           }
         })
     }
-}
+})

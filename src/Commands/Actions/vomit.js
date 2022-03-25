@@ -4,7 +4,7 @@ const nekoapi = require('cacao_nekoapi');
 module.exports = {
     name: 'vomit',
     description: "sends vomit images",
-    type: "TEXT",
+    
     userPermissions: ["SEND_MESSAGES"],
     aliases: ["spew"],
     cooldown: 10000,

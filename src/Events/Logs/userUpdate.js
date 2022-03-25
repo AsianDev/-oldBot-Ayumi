@@ -1,6 +1,6 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed, User, UserFlags } = require("discord.js");
-const DB = require("../../Structures/models/loggerDB.js")
+const DB = require("../../config/models/loggerDB.js")
 module.exports = new Event("roleCreate", 
 /**
 	 * @param {User} oldUser
@@ -22,7 +22,8 @@ async(client, oldUser, newUser) => {
             `<:icons_updatemember:949375652291809341> A User Has Been Updated`
         )
         .setTimestamp()
-        .setFooter({ text: guild.name });
+        .setFooter({ text
+: guild.name });
 
     if (oldUser.username !== newUser.username) {
         userUpdateEmbed

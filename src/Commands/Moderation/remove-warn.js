@@ -1,14 +1,14 @@
 
-const Command = require('../../Structures/Handlers/Command.js')
-const warndb = require('../../Structures/models/warndb.js')
+const Command = require('../../Handlers/Command.js')
+const warndb = require('../../config/models/warndb.js');
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "removewarn",
     cooldown: 10000,
     description: "remove the warning off someone",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
-    aliases: ["rwarn", "remove-warn", "remove-warn", "raws", "removeallwarns", "remove-all-warns", "remove-awarns"],
+  botPermissions: "SEND_MESSAGES",
+ aliases: ["rwarn", "remove-warn", "remove-warn", "raws", "removeallwarns", "remove-all-warns", "remove-awarns"],
     async run(message, args, client) {
         const user = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
 

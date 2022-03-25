@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "lock",
   description: "Locks a Channel",
-  type: "TEXT",
+  type: "Text",
   aliases: ["lock-channel"],
   cooldown: 10000,
   userPermissions: ["MANAGE_CHANNELS"],

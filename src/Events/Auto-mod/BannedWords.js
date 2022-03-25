@@ -1,6 +1,6 @@
-const Event = require('../../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const Discord = require("discord.js")
-const warndb = require('../../Structures/models/warndb.js')
+const warndb = require('../../config/models/warndb.js')
 const reason = "[Auto Mod] Sending Banned word"
 module.exports = new Event("messageCreate", async (client, message) => {
     const array = require("../../config/assets/Json/BannedWord.json")
@@ -35,7 +35,8 @@ module.exports = new Event("messageCreate", async (client, message) => {
             .setThumbnail(`${message.author.displayAvatarURL({ dynamic: true })}`)
             .addField("User:", `\`\`\`${message.author.tag} (${message.author.id})\`\`\``)
             .addField("Message Content:", `\`\`\`${message.content}\`\`\``)
-            .setFooter({ text: `${message.author.tag} has been warned.`, iconURL: message.author.displayAvatarURL()})
+            .setFooter({ text
+: `${message.author.tag} has been warned.`, iconURL: message.author.displayAvatarURL()})
       
           message.channel.send({embeds: [BannedWords]}).then((msg) => {
               setTimeout(() => msg.delete(), 8000)

@@ -1,15 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('../../Structures/Handlers/Command.js')
-const CaptchaSchema = require("../../Structures/models/captcha.js");
+const Command = require('../../Handlers/Command.js')
+const CaptchaSchema = require("../../config/models/captcha.js");
 module.exports = new Command({
     name: "vrole",
     description: "autorole",
     aliases: ["verifyrole", "verify-role", "verifyr", "setverifyrole", "setvrole", "set-v-role", "set-verifyrole"],
-    type: "TEXT",
-    timeout: 1000,
+type: "Text",
+    cooldown: 1000,
     userPermissions: ["MANAGE_GUILD"],
-    botPermissions: "SEND_MESSAGES",
-    async run(message, args, client) {
+  botPermissions: "SEND_MESSAGES",async run(message, args, client) {
 
                         const colour = require("../../config/assets/Json/colours.json")
                         const role = message.mentions.roles.first() 

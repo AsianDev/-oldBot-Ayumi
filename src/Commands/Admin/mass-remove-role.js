@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require("discord.js");
 
 module.exports = new Command({
@@ -7,7 +7,8 @@ module.exports = new Command({
   description: "Remove a role to all user of the current server.",
   userPermissions: ["ADMINISTRATOR"],
   botPermissions: ["ADMINISTRATOR"],
-  type: "TEXT",
+ type: "Text",
+  
   cooldown: 10000,
   async run(message, args, client) {
     const role =

@@ -1,16 +1,15 @@
 /**@format */
 
-const Command = require('../../Structures/Handlers/Command.js')
-const warndb = require('../../Structures/models/warndb.js')
+const Command = require('../../Handlers/Command.js')
+const warndb = require('../../config/models/warndb.js');
 const Discord = require("discord.js")
 
 module.exports = new Command({
     name: "warn",
-    type: "TEXT",
     description: "warn someone",
     userPermissions: ["KICK_MEMBERS"],
-    botPermissions: "SEND_MESSAGES",
-        cooldown: 10000,
+  botPermissions: "SEND_MESSAGES", 
+    cooldown: 10000,
     async run(message, args, client) {
 
         const user = message instanceof Discord.CommandInteraction? message.guild.members.cache.find(m => m.id === args[1]) :  message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1])
@@ -20,13 +19,15 @@ module.exports = new Command({
         .setColor("RED")
         .setTitle("<:Ikix:904736839036993586> AN ERROR OCCURED")
         .setDescription("*Bakaa~* please mention a user!")
-        .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+        .setFooter({ text
+: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
 
         const mentionauser = new Discord.MessageEmbed()
         .setColor("RED")
         .setTitle("<:Ikix:904736839036993586> AN ERROR OCCURED")
         .setDescription("*Bakaa~* I can not give a warn to a npc. Please warn a user.")
-        .setFooter({ text: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+        .setFooter({ text
+: `Requested by ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
 
         if(user.user.bot) return message.channel.send({embeds: [mentionauser]})
 
@@ -68,7 +69,8 @@ module.exports = new Command({
         .addField("Reason:", `\`\`\`${reason}\`\`\``)
         .setTimestamp()
         .setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
-        .setFooter({ text: `Warn given by: ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+        .setFooter({ text
+: `Warn given by: ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
         message.channel.send({embeds: [embed]})
 
 
@@ -79,7 +81,8 @@ module.exports = new Command({
         .addField("Reason:", `\`\`\`${reason}\`\`\``)
         .setTimestamp()
         .setThumbnail(user.user.displayAvatarURL({ dynamic: true }))
-        .setFooter({ text: `Warn given by: ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
+        .setFooter({ text
+: `Warn given by: ${message.author.tag}`, iconURL: `${client.user.displayAvatarURL()}`})
 
         try {
             user.send({embeds: [dmWarn]})

@@ -1,7 +1,7 @@
-const Event = require('../../Structures/Handlers/Event.js')
+const Event = require('../../Handlers/Event.js')
 const { MessageEmbed, Role, Permissions, Client } = require("discord.js");
-const DB = require("../../Structures/models/loggerDB.js")
-module.exports = new Event('roleUpdate', (client, oldRole, newRole) => {
+const DB = require("../../config/models/loggerDB.js")
+module.exports = new Event('roleUpdate', async(client, oldRole, newRole) => {
     const Data = await DB.findOne({
         GuildID: oldRole.guild.id,
     });
@@ -20,7 +20,8 @@ module.exports = new Event('roleUpdate', (client, oldRole, newRole) => {
         )
         .setColor("ORANGE")
         .setTimestamp()
-        .setFooter({ text: oldRole.guild.name });
+        .setFooter({ text
+: oldRole.guild.name });
 
     if (log) {
         if (oldRole.permissions.bitfield !== newRole.permissions.bitfield) {

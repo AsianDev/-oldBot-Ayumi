@@ -1,9 +1,7 @@
    const { model, Schema } = require("mongoose");
 
-module.exports = model(
-	"roleDB",
-	new Schema({
+	let schema = new Schema({
 		GuildID: String,
-		WelcomeID: { type: String, default: null },
+		WelcomeRole: String
 	})
-);
+	module.exports = model('roleDB', schema)

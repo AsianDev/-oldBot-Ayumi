@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const dares = require("../../config/assets/Json/dare.json");
 
@@ -7,10 +7,8 @@ module.exports = new Command({
     name: "dare",
     aliases: ['d'], 
     description: 'dare questions',
-    type: "TEXT",
     userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",   cooldown: 4000,
 
     async run(message, args, client) {
 

@@ -1,4 +1,4 @@
-const Command = require('../../Structures/Handlers/Command.js')
+const Command = require('../../Handlers/Command.js')
 const Discord = require('discord.js')
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
@@ -9,10 +9,9 @@ module.exports = new Command({
     name: "stats",
     aliases: ['statistics'], 
     description: "Displays the bots stats",
-    type: 'TEXT',
-    userPermissions: "SEND_MESSAGES",
-    botPermissions: "SEND_MESSAGES",
-    cooldown: 4000,
+  botPermissions: "SEND_MESSAGES",
+  userPermissions: "SEND_MESSAGES",
+ type: "Text",   cooldown: 4000,
 
     async run(message, args, client) {
 
