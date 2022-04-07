@@ -7,9 +7,9 @@
 
 1. snipe command & event for it ⏰
 2. NQN feature? ❌
-3. giveaway with ms and djs only ⏰
+3. giveaway with ms and djs only ❌
 4. afk -> works with restart ✅ ( uses a db, sets nickname when afk. timestamps and no.26 will be added. )
-5. economy system ⏰
+5. economy system ✅
 6. better ticket system? ✅ <- uses transcript
 7. more fun and image commands ✅
 8. timestamp generator cmd ✅ <- Reiner Braun#7958 gave code || i made changes oviously ||
@@ -29,7 +29,7 @@
 22. ban and kick confirmation buttons? ✅
 23. lyrics cmd ✅
 24. movie-search command ✅
-25. try to attempt to make join 2 create vc event again...
+25. try to attempt to make join 2 create vc event again... (made on other bot i can move here if i want to)
 26. how many pings you got while afk?
 27. set thread to auto un-archieve with command ⏰
 28. truth or dare (json - api suck)✅
@@ -57,12 +57,25 @@
                   ]
 
 45. dropdown menu for embed gen -> https://sourceb.in/k5bQtfjyTg
-46. change bots language
-47. cmd to list all afk people -> fixing
+46. change bots language ❌
+47. cmd to list all afk people ✅
 48. PUT BOT INTO LOCKDOWN / MAINTANCE WITH COMMAND
 49. set channel for logs ✅ 
-50. nsfw cmds for females leisure -> male nsfw, dunno yet but will happen (femae mod wanted... sussy) ✅
+50. nsfw cmds for females leisure -> male nsfw, dunno yet but will happen (mod wanted... sussy) ✅
 51. wallpaper cmds ✅
+52. level system -> gives Meji too?
+53. redo the admin cmds they old
+54. thread cmds (delete, lock, unlock, archieve, unarchieve, leave and join)
+55. info cmds -> userID, userBanner, userTag ✅
+56. Make help cmd look better
+57. mini games
+58. profile cmd
+59. cmd to see how many times someone has done a cmd/s?
+60. Blacklist users / guilds from bot
+61. make cmds look better (fix messages and looks)
+62. a cmd to push a message to a json (quote / motivation)
+63. make commands "Advanced"
+64. reaction roles
 
 https://sourceb.in/2QT06y5xTB
 
@@ -79,6 +92,7 @@ https://sourceb.in/2QT06y5xTB
 5. zex command ✅
 6. dm loggin - messageCreate - wont send to the channel and no error ✅
 7. fix steal emoji cmd or might just be the server dunno ✅
-8. messageCreate default cooldown in timeout code
+// 8. messageCreate default cooldown in timeout code || <- just changed the code a bit 
 9. send verify captcha to dms?
-10. mute system -> bugged fixing soon
+10. mute system -> bugged fixing soon ✅ <- took half a day lmao
+11. inv cmd (canot change propety of null or undefined (smt like dat))

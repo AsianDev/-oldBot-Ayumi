@@ -9,6 +9,7 @@ const premiumSchema = require("../../config/models/premium")
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
 let Kaori = require("../../config/assets/Json/kaori's.json")
+
 module.exports = new Event("messageCreate", async (client, message) => {
 
 	if (message.author.bot) return;
@@ -81,7 +82,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 		const prefix = prefixes.find(x => message.content.startsWith(x)) 
 		if (!prefix) return;
-
+		
 		function generateRandomString(length) {
 			var chars =
 			  "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ()|/.@#!$%^&+><?;:~*=";
@@ -151,7 +152,23 @@ module.exports = new Event("messageCreate", async (client, message) => {
 							.setDescription("*Sowee* this command is only for the develepors to use!")
 							]})
 					}
-				}
+						}
+
+										// ---------------------------------------- NSFW CHECKING ------------------------- //
+				const NSFW = new Discord.MessageEmbed()
+				.setColor(colour['light red'])
+				.setTitle(`${emotes.Error} THIS IS NOT AN NSFW CHANNEL`)
+				.setDescription("Please run this command in an NSFW Channel")
+
+				if (command) {
+					if (!message.channel.nsfw && !owners.includes(message.author.id)) {
+						if (command.nsfw) {
+						message.react("<:Iki_MAD:874174682427969536>");
+						return message.reply({ embeds: [NSFW], allowedMentions: {repliedUser: false} }).then((msg) => {
+							setTimeout(() => msg.delete(), 4000);
+						  });
+						}
+					}
 
 		// ------------------------------ PERMISSION AND COMMAND TYPE CHECKING ----------------------------- //
 
@@ -208,21 +225,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 		if (command.premium && !(await premiumSchema.findOne({ user: message.author.id }))) return message.reply({ embeds: [UpgradeToPremiumPlease], components: [UpgradeToPremiumPleaseButton] })
 
-				// ---------------------------------------- NSFW CHECKING ------------------------- //
-				const NSFW = new Discord.MessageEmbed()
-				.setColor(colour['light red'])
-				.setTitle(`${emotes.Error} THIS IS NOT AN NSFW CHANNEL`)
-				.setDescription("Please run this command in an NSFW Channel")
 
-				if (command) {
-					if (!message.channel.nsfw && !owners.includes(message.author.id)) {
-						if (command.nsfw) {
-						message.react("<:Iki_MAD:874174682427969536>");
-						return message.reply({ embeds: [NSFW], allowedMentions: {repliedUser: false} }).then((msg) => {
-							setTimeout(() => msg.delete(), 4000);
-						  });
-						}
-					}
 		// ---------------------------------------- DISABLED COMMANDS ------------------------- //
 		const commandDb = require('../../config/models/command');
 		if (command) {
@@ -240,11 +243,14 @@ module.exports = new Event("messageCreate", async (client, message) => {
 
 			// ------------------------------------------- COMMAND COOLDOWNS ----------------------------------- //
 			if (command) {
-				if (command.cooldown && !owners.includes(message.author.id)) {
+				if (command.cooldown && !owners.includes(message.author.id) ) {
 					if (Timeout.has(`${command.name}${message.author.id}`)) return message.reply({
 						embeds: [new Discord.MessageEmbed()
 							.setColor("#ff3235")
-							.setAuthor({ name: "*Waaa~* you need to wait! (；⌣̀_⌣́)", iconURL: `${message.guild.iconURL()}`})
+							.setAuthor({ name: `${message.author.username}`, iconURL: `${message.guild.iconURL()}`})
+							.setThumbnail("https://media.discordapp.net/attachments/719518088319467581/957084259208822814/XNo.png?width=147&height=146")
+							.setTimestamp(Date.now())
+							.setTitle(`${command.name} Cooldown!`)
 							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.`)
 						], allowedMentions: {repliedUser: false}
 					})
@@ -256,6 +262,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 				}  else if(command.cooldown && owners.includes(message.author.id)) {
 					command.run(message, args, client)
 				} 
+				
 				if (!command.cooldown) {
 					command.run(message, args, client)
 			}

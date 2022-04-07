@@ -24,8 +24,7 @@ module.exports = new Event('channelDelete', async (client, channel) =>{
                 `<:icons_deletechannel:952954846665928774> A Channel Has Been Deleted`
             )
             .setTimestamp()
-            .setFooter({ text
-: channel.guild.name })
+            .setFooter({ text: channel.guild.name })
             .setDescription(
                 `> The channel \`${channel.name}\` has been deleted by \`${log.executor.tag}\``
             )

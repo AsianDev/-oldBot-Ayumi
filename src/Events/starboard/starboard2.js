@@ -23,8 +23,7 @@ module.exports = new Event("messageReactionRemove", async (client, reaction) => 
 
         const SentMessage = msgs.find(msg =>
             msg.embeds.length === 1 ?
-                (msg.embeds[0].footer.text
-.endsWith(reaction.message.channel.name) ? true : false) : false)
+                (msg.embeds[0].footer.text.endsWith(reaction.message.channel.name) ? true : false) : false)
 
 
         if (SentMessage) {

@@ -25,8 +25,7 @@ module.exports = new Event('channelCreate', async (client, channel) =>{
 					`<:icons_createchannel:952952678172991578> A Channel Has Been Created`
 				)
 				.setTimestamp()
-				.setFooter({ text
-: channel.guild.name })
+				.setFooter({ text: channel.guild.name })
 				.setDescription(
 					`> The channel ${channel} has been created by \`${log.executor.tag}\``
 				)

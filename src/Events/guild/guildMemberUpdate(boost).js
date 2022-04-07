@@ -6,9 +6,8 @@ module.exports = new Event("guildMemberUpdate", async(client, oldMember, newMemb
     const guildConfig = require('../../config/models/guildConfig.js')
     const data = guildConfig.findOne({guildId: oldMember.guildId})
     if (!data) return
-    const channel = oldMember.guild.channels.cache.find(c => c.id === data.BoostChannel)
-    const ch = oldMember.guild.channels.cache.filter(c => c.name.includes('general')).first() || guild.channels.cache.filter(c => c.name.includes('chat')).first() || guild.channels.cache.filter(c => c.name.includes('lounge')).first() || guild.systemChannel || guild.channels.cache.filter(c => c.type == 'GUILD_TEXT').first()
-    if (!channel) channel = ch
+    let channel = oldMember.guild.channels.cache.find(c => c.id === data.BoostChannel)
+    if (!channel) return
 	if (oldMember.premiumSinceTimestamp === 0 && newMember.premiumSinceTimestamp > 0) {
         const boostembed = new Discord.MessageEmbed()
         .setTitle(`<a:Nitro_Jem:917401694726398002> ${newMember.user.tag}`)

@@ -8,6 +8,9 @@ const Canvas = require("canvas")
 const { registerFont } = require("canvas")
 registerFont( "./src/config/assets/fonts/Anton-Regular.ttf", { family: 'Anton' })
 const chalk = require("chalk")
+const colour = require("./src/config/assets/Json/colours.json")
+const emotes = require("./src/config/assets/Json/emotes.json")
+
 // ---------------------CANVAS WELCOME AND LEAVE-------------------------- //
 var welcomeCanvas = {};
 welcomeCanvas.create = Canvas.createCanvas(1024, 500)
@@ -37,7 +40,39 @@ Canvas.loadImage('./src/config/assets/image/leave.jpg').then(async (image) => {
 })
 const client = new Client()
 client.slashCommands = new Discord.Collection();
-// // ---------------------ERROR HANDLER-----------------------------------//
+// ------ FUNCTIONS ------- //
+// page
+Object.defineProperty(Array.prototype, "pager", {
+  value: function (n) {
+    return Array.from(Array(Math.ceil(this.length / n)), (_, i) =>
+      this.slice(i * n, i * n + n)
+    );
+  },
+});
+// embeds
+client.successEmbed = (message, argument) => {
+  embed = new Discord.MessageEmbed()
+      .setDescription(`${emotes.Tick} ${argument}`)
+      .setColor(colour.pink);
+
+  return message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+
+};
+client.errorEmbed = (message, argument) => {
+  embed = new Discord.MessageEmbed()
+      .setDescription(`${argument}`)
+      .setColor(colour.red)
+      .setTitle(`${emotes.Error} AN ERROR OCCURED`)
+
+  return message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+};
+
+// Usage:
+/*/
+client.errorEmbed(message, `An error has occured.`);
+client.successEmbed(message, `Successfully executed command.`);
+/*/
+// ---------------------ERROR HANDLER-----------------------------------//
 process.on("unhandledRejection", (error, promise) => {
   const unhandledRejectionEmbed = new Discord.MessageEmbed()
       .setTitle("<:Iki_Sakura:897357779956793356> AN ERROR OCCURED!")
@@ -51,9 +86,9 @@ process.on("unhandledRejection", (error, promise) => {
       const m = client.channels.cache.get("937922889808740373")
       if(!m) return;
       m.send({embeds: [unhandledRejectionEmbed]})})
-      //------------------------MONGOOSE-----------------------------//
+//------------------------MONGOOSE-----------------------------//
 mongoose.connect(config.MongooseUrl, {
-    useUnifiedTopology : true,
+    useUnifiedTopology: true,
     useNewUrlParser:  true,
 }).then(console.log(chalk.red.bold(`Connected to the DB`)))
 client.start(config.Token)

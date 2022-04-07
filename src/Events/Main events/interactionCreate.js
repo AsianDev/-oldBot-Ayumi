@@ -3,6 +3,9 @@ const { EveryoneRoleId, StaffRoleId, StaffRoleId2, CatergoryID, TrasnscriptID  }
 const Discord = require("discord.js")
 const colour = require("../../config/assets/Json/colours.json")
 const { createTranscript } = require("discord-html-transcripts")
+const Timeout = new Discord.Collection()
+const ms = require("ms")
+const { owners } = require("../../config/Data/config.json");
 
 module.exports = new Event("interactionCreate", async(client, interaction) => {
     if(interaction.guildId == null) return interaction.reply({ content: "You can´t execute commands in DM", ephemeral: true});
@@ -26,7 +29,6 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
     if (interaction.isContextMenu()) {
         const command = client.commands.get(interaction.commandName);
          interaction.deferReply({ ephemeral: command.ephemeral ? command.ephemeral : false })
-                 if (command) command.run(interaction, args, client)}
       
                  if(interaction.isButton()) {
                     if (interaction.customId === "ticket-open") {
@@ -203,4 +205,30 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
                         }
                     }
             }
-                })
+            if (command) {
+				if (command.cooldown && !owners.includes(interaction.user.id)) {
+					if (Timeout.has(`${command.name}${interaction.user.id}`)) return interaction.reply({
+						embeds: [new Discord.MessageEmbed()
+							.setColor("#ff3235")
+							.setAuthor({ name: `${interaction.user.username}`, iconURL: `${interaction.guild.iconURL()}`})
+							.setThumbnail("https://media.discordapp.net/attachments/719518088319467581/957084259208822814/XNo.png?width=147&height=146")
+							.setTimestamp(Date.now())
+							.setTitle(`${command.name} Cooldown!`)
+							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${interaction.user.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.`)
+						], allowedMentions: {repliedUser: false}
+					})
+					command.run(interaction, args, client)
+					Timeout.set(`${command.name}${interaction.user.id}`, Date.now() + command.cooldown)
+					setTimeout(() => {
+						Timeout.delete(`${command.name}${interaction.user.id}`)
+					}, command.cooldown)
+				}  else if(command.cooldown && owners.includes(interaction.user.id)) {
+					command.run(interaction, args, client)
+				} 
+				
+				if (!command.cooldown) {
+					cmd.run(interaction, args, client)
+			}
+			
+			}
+                }})
