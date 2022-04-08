@@ -9,13 +9,13 @@
 
 - I’m currently working on: **[Coding a bot for my Discord Server](https://discord.gg/TQ3mTPE7Pf)**
 
-- 📫 Dm me on Discord: **[Sensei | 旭陽#6427](https://discordapp.com/users/569670023300382720)**
+- 📫 Dm me on Discord: **[Sensei | 旭陽#6427](https://discordapp.com/users/926721472557363221)**
 
 - 🌱 I’m currently learning: **[DJS](https://discord.js.org/)**
 
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
 
-<!-- ![Discord](https://discord.c99.nl/widget/theme-3/725945760629129277.png) -->
+<!-- ![Discord](https://discord.c99.nl/widget/theme-3/926721472557363221.png) -->
 <a href="https://discord.com/users/926721472557363221">
 <img src="https://discord.c99.nl/widget/theme-3/926721472557363221.png" alt="Discord"/>
 </a>
