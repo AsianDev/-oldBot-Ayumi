@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "Find the movie review by search!",
     cooldown: 5000,
     aliases: ["movie", "imdb-search"],
-type: "Text",
+    type: "Text",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES"],
 

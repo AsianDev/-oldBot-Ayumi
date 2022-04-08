@@ -19,7 +19,7 @@ module.exports = {
     .setCustomId(`h220z`)
 
     let button2 = new Discord.MessageButton()
-    .setEmoji(`<:right_arrow:915577801833336883> `)
+    .setEmoji(`<:right_arrow:915577801833336883>`)
     .setStyle('PRIMARY')
     .setCustomId(`2ewwecx`)
 

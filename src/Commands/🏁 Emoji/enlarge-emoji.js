@@ -8,10 +8,10 @@ module.exports = new Command({
     name: "enlargeemoji",
     aliases: ['bigemoji', "big-emoji", "enlarge-emoji"], 
     description: 'enlarge an emoji',
- type: "Text",
+    type: "Text",
     userPermissions: "SEND_MESSAGES",
-  botPermissions: "SEND_MESSAGES",
-   cooldown: 4000,
+    botPermissions: "SEND_MESSAGES",
+    cooldown: 4000,
 
     async run(message, args, client) {
 

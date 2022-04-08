@@ -57,6 +57,8 @@ class Client extends Discord.Client {
                     name: cmd.name.toLowerCase(),
                     description: cmd.description,
                     userPermissions: [],
+                    botPermissions: [],
+                    type: cmd.type,
                     options: cmd.slashCommandOptions,
                     defaultPermission: true
     }));
@@ -65,6 +67,7 @@ class Client extends Discord.Client {
         this.on("ready", async () => {
         const cmds = await this.application.commands.set(slashCommands);
         cmds.forEach(cmd => console.log(`----- > ${cmd.name} command < -----`));
+
     })
 
     const direct = fs.readdirSync('./src/Events')

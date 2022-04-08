@@ -66,6 +66,14 @@ client.errorEmbed = (message, argument) => {
 
   return message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
 };
+client.missingArgueEmbed = (message, argument) => {
+  embed = new Discord.MessageEmbed()
+      .setDescription(`${argument}`)
+      .setColor(colour.red)
+      .setTitle(`${emotes.Error} MISSING ARGUEMENT`)
+
+  return message.reply({ embeds: [embed], allowedMentions: { repliedUser: false } });
+};
 
 // Usage:
 /*/
