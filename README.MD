@@ -4,7 +4,7 @@
 
 <p align="left"> <a href="https://twitter.com/ikigai1337_" target="blank"><img src="https://img.shields.io/twitter/follow/ikigai1337_?logo=twitter&style=for-the-badge" alt="ikigai1337_" /></a> </p>
 
-<img align="right" alt="GIF" width="420px" src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif"/>
+<img align="right" alt="GIF" width="420px" src="https://media.giphy.com/media/SJXzadwbexJEAZ9S1B/giphy.gif"/>
 
 - I’m currently working on: **[Coding a bot for my Discord Server](https://discord.gg/myztGNxaJQ)**
 
