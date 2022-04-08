@@ -1,5 +1,5 @@
-<h1 align="center">Hi! I am Sensei | 旭陽#</h1>
-#
+<h1 align="center">Hi! I am Sensei | 旭陽</h1>
+
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=SenseiDev69&label=Profile%20views&color=0e75b6&style=flat" alt=" Kaoribotdev" /> </p>
 
 <p align="left"> <a href="https://twitter.com/ikigai1337_" target="blank"><img src="https://img.shields.io/twitter/follow/ikigai1337_?logo=twitter&style=for-the-badge" alt="ikigai1337_" /></a> </p>
@@ -8,7 +8,7 @@
 
 - 📫 Dm me on Discord: **[Sensei | 旭陽#6427](https://discordapp.com/users/926721472557363221)**
 
-#
+
 <h3 align="left">Some of my Socials:</h3>
 <p align="left">
 <a href="https://twitter.com/ikigai1337_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ikigai1337_" height="30" width="40" /></a>
