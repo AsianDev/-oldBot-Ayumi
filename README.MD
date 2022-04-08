@@ -1,8 +1,7 @@
-<h1 align="center">Hi! I am Sensei | 旭陽</h1>
+### Hi, I'm Sensei | 旭陽#! 👋
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=SenseiDev69&label=Profile%20views&color=0e75b6&style=flat" alt=" Kaoribotdev" /> </p>
 
-<p align="left"> <a href="https://twitter.com/ikigai1337_" target="blank"><img src="https://img.shields.io/twitter/follow/ikigai1337_?logo=twitter&style=for-the-badge" alt="ikigai1337_" /></a> </p>
 
 <img align="right" alt="GIF" width="420px" src="https://media.giphy.com/media/SJXzadwbexJEAZ9S1B/giphy.gif"/>
 
