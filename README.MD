@@ -25,6 +25,6 @@
 <p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=SenseiDev69&show_icons=true&locale=en&layout=compact" alt="Ayumibotdev" /></p>
 <br>
 
-## Join My Anime Server!
-![Discord Banner 2](https://discordapp.com/api/guilds/873143392488525834/widget.png?style=banner2)
+## [Join my anime server!](https://discord.gg/myztGNxaJQ)
+![https://discord.gg/myztGNxaJQ](https://discordapp.com/api/guilds/873143392488525834/widget.png?style=banner2)
 
