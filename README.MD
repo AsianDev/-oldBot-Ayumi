@@ -4,9 +4,11 @@
 
 <p align="left"> <a href="https://twitter.com/ikigai1337_" target="blank"><img src="https://img.shields.io/twitter/follow/ikigai1337_?logo=twitter&style=for-the-badge" alt="ikigai1337_" /></a> </p>
 
+<img align="right" alt="GIF" width="420px" src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif"/>
+
 - I’m currently working on: **[Coding a bot for my Discord Server](https://discord.gg/myztGNxaJQ)**
 
-- 📫 Dm me on Discord: **[Sensei | 旭陽#6427](https://discordapp.com/users/926721472557363221)**
+- 📫 Dm me on Discord: **[Sensei | 旭陽#2827](https://discordapp.com/users/926721472557363221)**
 
 #
 <h3 align="left">Some of my Socials:</h3>
