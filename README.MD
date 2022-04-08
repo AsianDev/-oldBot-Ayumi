@@ -15,6 +15,11 @@
 
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
 
+<!-- ![Discord](https://discord.c99.nl/widget/theme-3/725945760629129277.png) -->
+<a href="https://discord.com/users/569670023300382720">
+<img src="https://discord.c99.nl/widget/theme-3/569670023300382720.png" alt="Discord"/>
+</a>
+
 <h3 align="left">Some of my Socials:</h3>
 <p align="left">
 <a href="https://twitter.com/ikigai1337_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ikigai1337_" height="30" width="40" /></a>
