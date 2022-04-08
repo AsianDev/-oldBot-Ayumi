@@ -15,9 +15,6 @@
 
 - 🔗 Find my Socials **[here](https://bio.link/ikigai)**
 
-![Discord Banner 1](https://discordapp.com/api/guilds/873143392488525834/widget.png?style=banner1)
-
-
 <h3 align="left">Some of my Socials:</h3>
 <p align="left">
 <a href="https://twitter.com/ikigai1337_" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="ikigai1337_" height="30" width="40" /></a>
@@ -33,6 +30,7 @@
 <br>
 
 ## Join My Anime Server!
+![Discord Banner 2](https://discordapp.com/api/guilds/873143392488525834/widget.png?style=banner2)
 
 </br>
 <a href=""><img src="https://invidget.switchblade.xyz/TQ3mTPE7Pf"/></a>
