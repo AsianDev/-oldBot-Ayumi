@@ -3,8 +3,8 @@ const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
   name: "removeemoji",
   description: "Removes emoji from the server!",
-  userPermissions: ['MANAGE_EMOJIS_AND_ STICKERS'],
-  botPermissions: ['MANAGE_EMOJIS_AND_ STICKERS'],
+  userPermissions: ['MANAGE_EMOJIS_AND_STICKERS'],
+  botPermissions: ['MANAGE_EMOJIS_AND_STICKERS'],
   aliases: ['emoji-remove', 'remove-emoji', 'removeemoji'],
   type: 'Text',
   cooldown: 4000,

@@ -5,7 +5,7 @@ const Discord = require('discord.js');
 
 module.exports = new Command({
     name: "remove-all-warn",
-    cooldown: 10000,
+    cooldown: 4000,
     description: "remove the warnings of someone",
     userPermissions: ["KICK_MEMBERS"],
   botPermissions: "SEND_MESSAGES",

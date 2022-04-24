@@ -6,7 +6,7 @@ module.exports = new Command({
     
     name: "setqwelc",
     description: "set the suggestion channel to what you want it to be!",
-    cooldown: 10000,
+    cooldown: 4000,
     owner: true,
 type: "Text",
     userPermissions: "",

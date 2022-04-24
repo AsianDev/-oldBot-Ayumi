@@ -4,7 +4,7 @@ const warndb = require('../../config/models/warndb.js');
 const Discord = require("discord.js")
 module.exports = new Command({
     name: "removewarn",
-    cooldown: 10000,
+    cooldown: 4000,
     description: "remove the warning off someone",
     userPermissions: ["KICK_MEMBERS"],
   botPermissions: "SEND_MESSAGES",

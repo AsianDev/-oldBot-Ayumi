@@ -14,6 +14,7 @@ module.exports = new Command({
     botPermissions: ["SEND_MESSAGES", "ATTACH_FILES", "EMBED_LINKS", "ADD_REACTIONS"],
     cooldown: 3000,
     nsfw: false,
+    maintance: true,
 
     async run(message, args, client) {
 

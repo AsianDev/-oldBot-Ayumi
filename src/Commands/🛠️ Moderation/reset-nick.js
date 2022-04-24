@@ -8,8 +8,7 @@ module.exports = new Command ({
   userPermissions: ["MANAGE_NICKNAMES"],
   botPermissions: "MANAGE_NICKNAMES",
   type: "Text",
-  cooldown: 10000,
-  aliases: ["rnick", "resetn", "reset"],
+    cooldown: 4000,  aliases: ["rnick", "resetn", "reset"],
   /**
    * @param {Client} client
    * @param {Message} message

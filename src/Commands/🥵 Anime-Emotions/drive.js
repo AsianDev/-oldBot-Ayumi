@@ -3,7 +3,7 @@ const nekoapi = require('cacao_nekoapi');
 
 module.exports = {
     name: 'drive',
-    cooldown: 10000,
+    cooldown: 4000,
     description: "sends a driving gif / image",
     botPermissions: 'SEND_MESSAGES',
 type: "Text",

@@ -4,8 +4,8 @@ module.exports = new Command({
 
     name: "renameemoji",
     aliases: ['rename'],
-    userPermissions: ['MANAGE_EMOJIS_AND_ STICKERS'],
-    botPermissions: ['MANAGE_EMOJIS_AND_ STICKERS'],
+    userPermissions: ['MANAGE_EMOJIS_AND_STICKERS'],
+    botPermissions: ['MANAGE_EMOJIS_AND_STICKERS'],
     description: 'Rename a emoji',
     type: 'Text',
     cooldown: 4000,

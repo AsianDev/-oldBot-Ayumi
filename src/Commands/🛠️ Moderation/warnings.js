@@ -8,7 +8,7 @@ module.exports = new Command({
         userPermissions: ["KICK_MEMBERS"],
       botPermissions: "SEND_MESSAGES",
      type: "Text",    
-        cooldown: 10000,
+        cooldown: 4000,
 
         async run(message, args, client) {
             const target = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.author

@@ -3,12 +3,12 @@
 const Event = require('../../Handlers/Event.js')
 const Discord = require("discord.js")
 const Timeout = new Discord.Collection()
-const ms = require("ms")
 const { owners, devs } = require("../../config/Data/config.json");
 const premiumSchema = require("../../config/models/premium")
 const emotes = require('../../config/assets/Json/emotes.json')
 const colour = require('../../config/assets/Json/colours.json')
 let Kaori = require("../../config/assets/Json/kaori's.json")
+const { msToTime } = require("../../config/functions/msToTime")
 
 module.exports = new Event("messageCreate", async (client, message) => {
 
@@ -44,7 +44,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 	.setImage('https://media.discordapp.net/attachments/925294763404570624/931140887575150642/image-3.png?width=885&height=498')
 	.setColor("#36393f")
 
-	if (message.mentions.everyone) return message.reply({ embeds: [EVERYONE_PINGEmbed], content: "Dont ping everyone smh", allowedMentions: { repliedUser: false } })
+	if (message.mentions.everyone && !owners.includes(message.author.id)) return message.reply({ embeds: [EVERYONE_PINGEmbed], content: "Dont ping everyone smh", allowedMentions: { repliedUser: false } })
 
 	// ------------------------------------------ PREFIX AND COMMAND CHECKING ---------------------------------- //
 
@@ -69,15 +69,6 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		"AyUmI ",
 		"AyU ",
 		"aYu ",
-		"Iki ",
-		"iki ",
-		"Ikigai ",
-		"ikigai ",
-		"iki",
-		"Iki",
-		"ikigai",
-		"Ikigai",
-		
 	]
 
 		const prefix = prefixes.find(x => message.content.startsWith(x)) 
@@ -123,7 +114,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 		const ownerOnlyEmbed = new Discord.MessageEmbed()
 			.setColor("#FCC8EA")
 			.setDescription("*Waa~~* you are not my owner (._.)\nThis commmand is restricted to be my owner's command only.")
-			.setTitle("<:x_:904736839036993586> An Error Occured!")
+			.setTitle(`${emotes.Error} An Error Occured!`)
 			.setURL("https://discord.gg/TQ3mTPE7Pf")
 
 		if (command) {
@@ -175,7 +166,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			const SlashOnlyCMDEMBED = new Discord.MessageEmbed()
 				.setColor("#EE3748")
 				.setDescription("*Bakaa~* that command can only be done with a slash command! >o<")
-				.setTitle(`<:Ikix:904736839036993586> WRONG USAGE!`)
+				.setTitle(`${emotes.Error} WRONG USAGE!`)
 
 			if (!["Text"].includes(command.type))
 				return message.reply({ embeds: [SlashOnlyCMDEMBED], allowedMentions: { repliedUser: false }})
@@ -242,6 +233,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 			}
 
 			// ------------------------------------------- COMMAND COOLDOWNS ----------------------------------- //
+
 			if (command) {
 				if (command.cooldown && !owners.includes(message.author.id) ) {
 					if (Timeout.has(`${command.name}${message.author.id}`)) return message.reply({
@@ -251,7 +243,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 							.setThumbnail("https://media.discordapp.net/attachments/719518088319467581/957084259208822814/XNo.png?width=147&height=146")
 							.setTimestamp(Date.now())
 							.setTitle(`${command.name} Cooldown!`)
-							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${ms(Timeout.get(`${command.name}${message.author.id}`) - Date.now(), { long: false })} to use __${command.name}__ again.`)
+							.setDescription(`<:Iki_xpinkdot:916869194400796772> You need to wait for ${msToTime(Timeout.get(`${command.name}${message.author.id}`) - Date.now())} to use __${command.name}__ again.`)
 						], allowedMentions: {repliedUser: false}
 					})
 					command.run(message, args, client)
@@ -259,7 +251,7 @@ module.exports = new Event("messageCreate", async (client, message) => {
 					setTimeout(() => {
 						Timeout.delete(`${command.name}${message.author.id}`)
 					}, command.cooldown)
-				}  else if(command.cooldown && owners.includes(message.author.id)) {
+				} else if(command.cooldown && owners.includes(message.author.id)) {
 					command.run(message, args, client)
 				} 
 				

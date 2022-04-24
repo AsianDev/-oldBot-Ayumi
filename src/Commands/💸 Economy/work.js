@@ -37,11 +37,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
         const AddedToBalMoneyTotal = Math.floor(Math.random() * 50) + 1
         if(AddedToBalMoneyTotal === 0) {
             AddedToBalMoneyTotal = 1
@@ -51,9 +52,9 @@ module.exports = new Command({
         var messages = workedQuotes[Math.floor(Math.random() * workedQuotes.length)]
 
         const workedEmbed = new Discord.MessageEmbed()
-        .setAuthor({ name: `${member.user.username}`, iconURL: `${member.user.displayAvatarURL({ dynamic: true})}`, url: `${message.url}`})
-        .setDescription(`\`\`\`${messages}\`\`\`\n **+${AddedToBalMoneyTotal}<coin_here>\n<:line:927733711431143455><:line:927733711431143455>`)
-        .setFooter({ text: `Added Meji to your balance!`, iconURL: `${member.user.displayAvatarURL({ dynamic: true })}`})
+        .setAuthor({ name: `${member.username}`, iconURL: `${member.displayAvatarURL({ dynamic: true})}`, url: `${message.url}`})
+        .setDescription(`\`\`\`${messages}\`\`\`\n **+${AddedToBalMoneyTotal}<coin_here>**\n<:line:927733711431143455><:line:927733711431143455>`)
+        .setFooter({ text: `Added Meji to your balance!`, iconURL: `${member.displayAvatarURL({ dynamic: true })}`})
         .setColor(colour.white)
         .setThumbnail(client.user.displayAvatarURL())
         

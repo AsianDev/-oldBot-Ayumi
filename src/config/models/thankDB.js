@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
 
 const thankDB = new mongoose.Schema({
-    GuildID: { type: String, require: true, unique: true },
-    UserID: { type: String, require: true, unique: true },
+    guildId: { type: String, require: true, unique: true },
+    userId: { type: String, require: true, unique: true },
     ThanksCount: { type: Number, default: 0 },
-    Reason: { type: String, require: true }
+    Reason: { type: String, require: true },
+    lastGave: Date,
+
 })
 
-module.exports = mongoose.model("thankDataBase", thankDB);
+module.exports = mongoose.model("Thanks", thankDB);

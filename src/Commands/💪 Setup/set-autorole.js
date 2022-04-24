@@ -10,6 +10,7 @@ module.exports = new Command({
     type: "Text",
      botPermissions: "SEND_MESSAGES",
   async run(message, args, client) {
+      
         const colour = require("../../config/assets/Json/colours.json")
         const role = message.mentions.roles.first() 
         const SuccessEmbed = new Discord.MessageEmbed()

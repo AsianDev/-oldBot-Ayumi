@@ -67,7 +67,7 @@ class Client extends Discord.Client {
         this.on("ready", async () => {
         const cmds = await this.application.commands.set(slashCommands);
         cmds.forEach(cmd => console.log(`----- > ${cmd.name} command < -----`));
-
+        
     })
 
     const direct = fs.readdirSync('./src/Events')

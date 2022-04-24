@@ -4,9 +4,9 @@ const Discord = require("discord.js");
 module.exports = new Command ({
     name: "embed",
     userPermissions: ["ADMINISTRATOR"],
-  botPermissions: "SEND_MESSAGES",
-  cooldown: 70000,
-  type: "Text",
+    botPermissions: "SEND_MESSAGES",
+   cooldown: 70000,
+   type: "Text",
     aliases: ["esay", "announce"],
     description: "creates an embed",
     async run(message, args, client) {

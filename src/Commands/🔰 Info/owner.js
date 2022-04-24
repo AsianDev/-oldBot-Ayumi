@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports = new Command ({
     name: 'owner',
     description: "Shows bot owner",
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: ["SEND_MESSAGES"],
   botPermissions: "SEND_MESSAGES",
  async run(message, args, client) {   

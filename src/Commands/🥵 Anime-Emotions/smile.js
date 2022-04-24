@@ -4,8 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'smile',
   
-  cooldown: 10000,
-  description: "sends a anime smile gif",
+    cooldown: 4000,  description: "sends a anime smile gif",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: "ADMINISTRATOR",
  type: "Text",

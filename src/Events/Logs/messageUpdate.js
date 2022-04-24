@@ -37,8 +37,7 @@ module.exports = new Event('messageUpdate', async (client, oldMessage, newMessag
             }
         )
         .setFooter({
-            text
-: `Member: ${newMessage.author.tag} | Member: ${newMessage.author.id}`,
+            text: `Member: ${newMessage.author.tag} | Member: ${newMessage.author.id}`,
             iconURL: `${newMessage.author.avatarURL({ dynamic: true, size: 512 })}`,
         });
 

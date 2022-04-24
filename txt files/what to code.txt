@@ -47,7 +47,7 @@
 39. fake nitro cmd -> use button ❌
 40. jisho command
 41. dm loggin ✅
-42. emoji commands -> emoji image, bulk steal
+42. emoji commands ✅
 43. change nsfw checking with event ✅
 44. change permissions to be:
       
@@ -74,9 +74,14 @@
 60. Blacklist users / guilds from bot
 61. make cmds look better (fix messages and looks)
 62. a cmd to push a message to a json (quote / motivation)
-63. make commands "Advanced"
+[
 
-https://sourceb.in/2QT06y5xTB
+    let array = [];
+    array.push(message.content)
+
+]
+
+63. make commands "Advanced"
 
 // What to fix or continue coding
 

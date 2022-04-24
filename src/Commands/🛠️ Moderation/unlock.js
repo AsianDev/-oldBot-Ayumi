@@ -4,8 +4,7 @@ module.exports = {
   name: "unlock",
   description: "unlocks a Channel",
   type: "Text",
-  cooldown: 10000,
-  aliases: ["un-lock"],
+    cooldown: 4000,  aliases: ["un-lock"],
   userPermissions: ["MANAGE_CHANNELS"],
   botPermissions: "MANAGE_CHANNELS",
     async run(message, args, client) {

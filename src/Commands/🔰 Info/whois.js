@@ -11,7 +11,7 @@ module.exports = new Command({
     description: "Display's the Information on a user",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",
-type: "Text",
+    type: "Text",
     cooldown: 3000,
     aliases: ["userinfo", "ui", "useri"],
     
@@ -31,7 +31,7 @@ type: "Text",
             "MENTION_EVERYONE": "Mention Everyone"
         }
 
-        const mention = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.author
+        const mention = message.mentions.members.first() || message.guild.members.cache.find(m => m.id === args[1]) || message.member
         const nick = mention.nickname === null ? "None" : mention.nickname;
         const roles = mention.roles.cache.get === "" ? "None" : mention.roles.cache.get;
         const usericon = mention.user.avatarURL;
@@ -75,13 +75,14 @@ type: "Text",
         const embed2roles = new Discord.MessageEmbed()
         .setTitle(`${mention.user.username} user information`, mention.user.avatarURL())
         .addField(`Roles and Permissions`, `Roles: <@&${mention._roles.join(">  <@&")}>`)
-        .addField("Key Permissions:",  `\`\`${finalPermissions.join(', ')}\`\``)
+        .addField("Key Permissions:",  `\`\`${finalPermissions.join(', ') || '*Waa~* Key permissions are invalid!'}\`\``)
         .setURL("https://discord.gg/TQ3mTPE7Pf")
         .setThumbnail(usericon)
         .setThumbnail(mention.user.avatarURL())
         .setColor(colour.pink)
 
-        let pages =[embed, embed2roles]
+        let pages = [embed, embed2roles]
+
         paginate(message, pages) 
 
     }

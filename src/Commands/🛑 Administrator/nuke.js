@@ -9,8 +9,7 @@ module.exports = new Command({
   userPermissions: ["MANAGE_CHANNELS"],
   botPermissions: ["ADMINISTRATOR"],
   type: "Text",
-  cooldown: 10000,
-
+    cooldown: 4000,
    async run(message, args, client) {
     if (message.channel.type !== 'GUILD_TEXT') return message.channel.send('*Bakaa* i can only nuke text channels.')
  let nukeButton = new MessageActionRow().addComponents(

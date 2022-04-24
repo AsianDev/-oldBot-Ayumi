@@ -7,7 +7,7 @@ module.exports = {
     botPermissions: 'SEND_MESSAGES',
 type: "Text",
     userPermissions: ["SEND_MESSAGES"],
-    cooldown: 10000,
+    cooldown: 4000,
 
     async run (message, args, client) {
 

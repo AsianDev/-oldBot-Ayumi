@@ -1,18 +1,17 @@
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
 const Command = require('../../Handlers/Command.js')
-const errorX = "<:Ikix:904736839036993586>"
 const c = require("../../config/assets/Json/colours.json")
 const e = require("../../config/assets/Json/emotes.json")
 
-
 module.exports = new Command({
+
     name: "steal",
     aliases: ["steal-emoji", "add-emoji"],
     description: "Add an emoji by using a command",
     userPermissions: ["MANAGE_EMOJIS_AND_STICKERS"],
     botPermissions: "MANAGE_EMOJIS_AND_STICKERS",
-  type: "Text",
+    type: "Text",
     cooldown: 7000,
 
     async run(message, args, client) {
@@ -23,7 +22,7 @@ module.exports = new Command({
       const embed = new MessageEmbed()
       .setColor(c["light red"])
       .setDescription("*Waaa~* Please provide an emoji!")
-      .setTitle(`${errorX} MISSING ARGUEMENT`)  
+      .setTitle(`${e.Error} MISSING ARGUEMENT`)  
       return message.channel.send({embeds: [embed]})
     }
 
@@ -60,12 +59,11 @@ module.exports = new Command({
       } else {
         const foundEmoji = parse(emoji, { assetType: "png" });
         if (!foundEmoji[1]) {
-           const errorX = "<:Ikix:904736839036993586>"
 
            const embed2 = new MessageEmbed()
            .setColor(c["light red"])
            .setDescription("*Waaa~* Please provide an emoji!")
-           .setTitle(`${errorX} MISSING ARGUEMENT`)             
+           .setTitle(`${e.Error} MISSING ARGUEMENT`)             
           return message.channel.send({embeds: [embed2]});
         }
       }
@@ -73,7 +71,7 @@ module.exports = new Command({
          const embed4 = new MessageEmbed()
                .setDescription(`An error occured while running this command:`)
                 .addField("Error:", `${e}`)
-                 .setTitle(`${errorX} AN ERROR OCCURED `)
+                 .setTitle(`${e.Error} AN ERROR OCCURED `)
                .setColor(c["light red"])
                console.log(e)
         

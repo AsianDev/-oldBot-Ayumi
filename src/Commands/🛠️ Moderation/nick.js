@@ -9,8 +9,7 @@ module.exports = new Command({
   botPermissions: "MANAGE_NICKNAMES",
   type: "Text",
   aliases: ["nickname"],
-  cooldown: 10000,
-  /**
+    cooldown: 4000,  /**
    * @param {Client} client
    * @param {Message} message
    * @param {String[]} args

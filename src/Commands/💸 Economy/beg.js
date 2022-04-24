@@ -14,6 +14,7 @@ module.exports = new Command({
     botPermissions: "SEND_MESSAGES",
     cooldown: 4000,
     nsfw: false,
+    maintance: true,
 
     async run(message, args, client) {
 
@@ -35,11 +36,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
 
         let AddedToBalMoneyTotal = Math.floor(Math.random() * 50) + 1
         if(AddedToBalMoneyTotal == null) AddedToBalMoneyTotal = 0

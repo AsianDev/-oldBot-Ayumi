@@ -14,6 +14,7 @@ module.exports = new Command({
     botPermissions: ["ADMINISTRATOR"],
     cooldown: 4000,
     nsfw: false,
+    maintance: true,
 
     async run(message, args, client) {
 

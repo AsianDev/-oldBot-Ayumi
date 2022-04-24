@@ -5,7 +5,7 @@ const errorX = "<:Ikix:904736839036993586>"
 module.exports = new Command({
     name: "hban",
     description: "ban a user",
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: ["BAN_MEMBERS"],
     botPermissions: "BAN_MEMBERS",
 type: "Text",

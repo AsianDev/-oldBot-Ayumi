@@ -4,8 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'dance',
   
-  cooldown: 10000,
-  description: "sends a dancing anime gif",
+    cooldown: 4000,  description: "sends a dancing anime gif",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: "ADMINISTRATOR",
  type: "Text",

@@ -6,7 +6,7 @@ const e = require("../../config/assets/Json/emotes.json")
 module.exports = new Command({
     name: "ban",
     description: "ban a user",
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: "BAN_MEMBERS",
     botPermissions: "BAN_MEMBERS",
     type: "Text",

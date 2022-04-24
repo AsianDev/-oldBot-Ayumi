@@ -26,9 +26,12 @@ module.exports = new Command({
         const checkOrCross = (bool) => bool ? emotes.Tick : emotes.Error;
 
         const embed = new Discord.MessageEmbed()
-        .setDescription(`**Emoji information**\n\nGeneral\n**❯ ID:** ${emoji.id}\n**❯ URL:** [Link to Emoji](${emoji.url})\n**❯ AUTHOR:** ${authorFetch.tag} (${authorFetch.id})\n**❯ TIME CREATED:** ${moment(emoji.createdTimestamp).format('LT')} ${moment(emoji.createdTimestamp).format('LL')}\n**❯ ACCESSIBLE BY:** ${emoji.roles.cache.map((role) => role.name).join(', ') || '@everyone'}\n\nOther\n**❯ Requires Colons:** ${checkOrCross(emoji.requiresColons)}\n**❯ Deletable:** ${checkOrCross(emoji.deletable)}\n**❯ Animated:** ${checkOrCross(emoji.animated)}\n**❯ Managed:** ${checkOrCross(emoji.managed)} `)
+        .setDescription(`${emotes.Tick} **Emoji Information!**\n<:Kao_ReplyCont:940971017826893844> Emoji name: \`${emoji.name}\`\n <:Kao_ReplyCont:940971017826893844> Emoji link: [Click here](${emoji.url})\n <:Kao_ReplyCont:940971017826893844> Emoji Animated:  ${checkOrCross(emoji.animated)}\n <:Kao_ReplyCont:940971017826893844> Managed: ${checkOrCross(emoji.managed)} \n<:Kao_Reply:940971041621180437> Emoji Id: \`${emoji.id}\``)    
+        .addField("<:Kao_ReplyCont:940971017826893844> Created At:", `<:Kao_Reply:940971041621180437> ${moment(emoji.createdTimestamp).format('LT')} ${moment(emoji.createdTimestamp).format('LL')}`)
+        .addField("Useable by:", `${emoji.roles.cache.map((role) => role.name).join(', ') || '@everyone'}`)
         .setColor(colour.pink)
         .setThumbnail(emoji.url)
+        .setFooter({ text: `Added by ${authorFetch.name}`})
 
         return message.channel.send({embeds: [embed]});
     }

@@ -5,8 +5,7 @@ const Discord = require('discord.js')
 module.exports = {
   name: 'boop',
   
-  cooldown: 10000,
-  description: "sends a anime boop gif",
+    cooldown: 4000,  description: "sends a anime boop gif",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: "ADMINISTRATOR",
  type: "Text",

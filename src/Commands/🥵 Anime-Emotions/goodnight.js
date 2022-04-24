@@ -7,8 +7,7 @@ module.exports = {
   type: "Text",
   description: "sends a sleeping / tired anime gif",
   userPermissions: ["SEND_MESSAGES"],
-  cooldown: 10000,
-
+    cooldown: 4000,
 async run(message, args, client) {
      const embed = new MessageEmbed()
      .setTitle(`${message.author.username} Oyasumi ZzZ`)

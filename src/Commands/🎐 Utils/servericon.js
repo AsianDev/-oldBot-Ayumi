@@ -7,8 +7,7 @@ name: "servericon",
   description: "Get avatar of the server",
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: "MANAGE_GUILD",
- type: "Text",  cooldown: 10000,
-
+ type: "Text",    cooldown: 4000,
   async run(message, args, client) {
 
     const avtEmbed = new MessageEmbed()

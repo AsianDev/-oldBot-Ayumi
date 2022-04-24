@@ -29,11 +29,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
 
         let amountDepositing = args[1]
         if (isNaN(args[1])) {

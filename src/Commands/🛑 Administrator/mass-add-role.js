@@ -9,8 +9,7 @@ module.exports = new Command({
   botPermissions: ["ADMINISTRATOR"],
  type: "Text",
   
-  cooldown: 10000,
-  async run(message, args, client) {
+    cooldown: 4000,  async run(message, args, client) {
     const role =
       message.guild.roles.cache.find(
         role => role.name === args.join(" ").slice(1)

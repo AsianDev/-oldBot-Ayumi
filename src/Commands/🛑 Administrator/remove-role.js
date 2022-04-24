@@ -7,7 +7,7 @@ module.exports = new Command({
   userPermissions: ["ADMINISTRATOR"],
   botPermissions: ["ADMINISTRATOR"],
  type: "Text",
-    cooldown: 10000,
+    cooldown: 4000,
     aliases: ["take-role", "r-role", "rrole", "remove-role", "rerole"],
   async run(message, args, client) {
     const user = message.mentions.members.first();

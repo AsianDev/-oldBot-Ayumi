@@ -14,24 +14,17 @@ module.exports = new Command({
     botPermissions: ["SEND_MESSAGES"],
     cooldown: 4000,
     nsfw: false,
-    
+    maintance: true,
+
     async run(message, args, client) {
 
         let user = message.mentions.members.first()
-        if (user.id === message.author.id) return message.channel.send({ embeds: [new Discord.MessageEmbed()
+        if (user === message.author) return message.channel.send({ embeds: [new Discord.MessageEmbed()
             .setColor(colour['pale red'])
             .setTimestamp()
             .setTitle(`${emotes.Error} AN ERROR OCCURED`)
             .setDescription("Are you stupid?\n You cant rob yourself??")
     ]})
-
-        if (user.bot) return message.channel.send({ embeds: [new Discord.MessageEmbed()
-            .setColor(colour['pale red'])
-            .setTimestamp()
-            .setTitle(`${emotes.Error} AN ERROR OCCURED`)
-            .setDescription("*Waa~* please mention a **user** you are trying to rob Meji from!")
-    ]})
-
         if(!user) return message.channel.send({ embeds: [new Discord.MessageEmbed()
             .setColor(colour['pale red'])
             .setTimestamp()
@@ -49,11 +42,11 @@ module.exports = new Command({
         console.log(err);
     }
     if(!ecoData) {
-        let ecoDB = await DB.create({
+        ecoData = await DB.create({
             userID: user.id,
             MyID: message.author.id
         });
-        ecoDB.save();
+        ecoData.save();
     }
 
     if(ecoData.wallet < 500) {
@@ -61,7 +54,7 @@ module.exports = new Command({
             .setColor(colour['pale red'])
             .setTimestamp()
             .setTitle(`${emotes.Error} AN ERROR OCCURED`)
-            .setDescription(`*Bakaa~* ${user.tag} doesnt even have 500 meji! \n Leave the poor guy alone!`)
+            .setDescription(`*Bakaa~* ${user.user.tag} doesnt even have 500 meji! \n Leave the poor guy alone!`)
         ], allowedMentions: {repliedUser: false}})
     }
 
@@ -73,8 +66,8 @@ module.exports = new Command({
          if(failRob == null) failRob = 0
 
         const success = [
-            `${message.author.username} pickpockets ${user.username} and got away with ${successRob} Meji!`,
-            `You knocked ${user.username} out and took ${successRob} Meji!`
+            `${message.author.username} pickpockets ${user.user.username} and got away with ${successRob} Meji!`,
+            `You knocked ${user.user.username} out and took ${successRob} Meji!`
      ]
         
         const fails = [

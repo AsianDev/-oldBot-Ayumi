@@ -7,7 +7,7 @@ module.exports = new Command({
   botPermissions: "SEND_MESSAGES",
  aliases: ["enable-command", "enable-cmd", "enable"],
     description: "Enables a command",
-    cooldown: 10000,
+    cooldown: 4000,
     async run(message, args, client) {
         const specifyCmdpls = new Discord.MessageEmbed()
         .setDescription(`<@${message.author.id}> please specify a command to enable OwO`)

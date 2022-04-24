@@ -6,7 +6,7 @@ module.exports = new Command({
     description: "Anime wallpaper images",
       userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",    
-    cooldown: 10000,
+    cooldown: 4000,
 type: "Text",
 
     async run(message, args, client) {

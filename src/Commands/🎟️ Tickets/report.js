@@ -7,8 +7,7 @@ module.exports = new Command({
   userPermissions: ["SEND_MESSAGES"],
   botPermissions: ["ADMINISTRATOR"],
  type: "Text",
-  cooldown: 10000,
-
+    cooldown: 4000,
 
   async run(message, args, client) {
     const channel = client.channels.cache.get('926698468439900190');

@@ -6,7 +6,7 @@ module.exports = {
     name: 'thumbsup',
     
     aliases: ["thumb-up", "thumb", "thup"],
-    cooldown: 10000,
+    cooldown: 4000,
     description: "sends a anime thumbsup gif",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: 'SEND_MESSAGES',

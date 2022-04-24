@@ -8,7 +8,7 @@ module.exports = new Command({
     botPermissions: 'SEND_MESSAGES',
 type: "Text",
     aliases: ["lol"],
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: ["SEND_MESSAGES"],
     async run (message, args, client) {
         const member = message.mentions.members.first() || message.author

@@ -47,11 +47,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
         const moni = args.slice(2).join(' ')
         if(!moni || isNaN(moni)) return message.channel.send({ embeds: [new Discord.MessageEmbed()
                 .setColor(colour['pale red'])

@@ -7,7 +7,7 @@ module.exports = new Command({
     aliases: ["ban-list", "blist", "banned-members", "bannedmember", "banned-list", "banlist"],
     userPermissions: ["KICK_MEMBERS"],
     botPermissions: "VIEW_AUDIT_LOG",
-    cooldown: 10000,
+    cooldown: 4000,
     /** 
      * @param {Client} client 
      * @param {Message} message 

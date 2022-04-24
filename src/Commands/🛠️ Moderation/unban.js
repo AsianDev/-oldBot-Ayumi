@@ -9,7 +9,7 @@ module.exports = new Command({
     userPermissions: ["BAN_MEMBERS"],
     botPermissions: "BAN_MEMBERS",
 type: "Text",
-    cooldown: 10000,
+    cooldown: 4000,
 
     async run (message, args, client) {
     

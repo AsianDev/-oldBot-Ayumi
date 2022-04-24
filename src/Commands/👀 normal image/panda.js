@@ -7,8 +7,7 @@ module.exports = new Command ({
   description: "sends a panda image",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: "SEND_MESSAGES",  
-  cooldown: 10000,
-  type: "Text",
+    cooldown: 4000,  type: "Text",
 
     async run(message, args, client) {
 

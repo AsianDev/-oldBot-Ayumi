@@ -24,12 +24,12 @@ module.exports = new Event("interactionCreate", async(client, interaction) => {
             } else if (option.value) args.push(option.value)}
         interaction.member = interaction.guild.members.cache.get(interaction.user.id);
         if (!interaction.member.permissions.has(cmd.userPermissions || []))
-            return interaction.followUp({ content: `*Baakaa* you dont have the permission: \`${command.permission}\` to run this command...`, ephemeral: true });
+        return interaction.followUp({ content: `*Waa~* you dont have the permission: \`${cmd.userPermissions}\` to run this command`, ephemeral: true });
         cmd.run(interaction, args, client)}
     if (interaction.isContextMenu()) {
         const command = client.commands.get(interaction.commandName);
          interaction.deferReply({ ephemeral: command.ephemeral ? command.ephemeral : false })
-      
+      // ticket
                  if(interaction.isButton()) {
                     if (interaction.customId === "ticket-open") {
                         await interaction.deferReply({ ephemeral: true }) 

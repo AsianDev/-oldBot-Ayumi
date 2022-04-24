@@ -36,11 +36,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
 
         let AddedToBalMoneyTotal = Math.floor(Math.random() * 530) + 1
         if(AddedToBalMoneyTotal == null) AddedToBalMoneyTotal = 0

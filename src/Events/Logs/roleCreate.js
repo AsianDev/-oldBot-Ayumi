@@ -20,8 +20,7 @@ module.exports = new Event("roleCreate", async(client, role) => {
         )
         .setColor("GREEN")
         .setTimestamp()
-        .setFooter({ text
-: role.guild.name });
+        .setFooter({ text: role.guild.name });
 
     if (log) {
         roleCreateEmbed

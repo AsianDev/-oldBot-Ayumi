@@ -4,8 +4,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'wink',
   description: "shows a gif of anime winking",
-  cooldown: 10000,
-  userPermissions: ["SEND_MESSAGES"],
+    cooldown: 4000,  userPermissions: ["SEND_MESSAGES"],
   botPermissions: "ADMINISTRATOR",
  type: "Text",
   async run(message, args, client) {

@@ -14,20 +14,19 @@ module.exports = new Command({
     botPermissions: ["ADMINISTRATOR"],
     cooldown: 4000, 
     nsfw: false,
-
+    maintance: true,
     async run(message, args, client) {
 
         let member = message.mentions.members.first()
 
         let options = args.slice(2).join(' ')
-        let array = ['true', 'false']
+        let array = ['enable', 'disable']
 
         if(!array.includes(options.toLowerCase())) {
             return client.errorEmbed(message, `*Waa~* please choose to either enable or disable passive mode!`);
-
         }
 
-        if(options.toLowerCase() === 'true') {
+        if(options.toLowerCase() === 'enable') {
             try {
                 let ecoData;
 
@@ -46,7 +45,7 @@ module.exports = new Command({
             ]})
         }
 
-        if(options.toLowerCase() === 'false') {
+        if(options.toLowerCase() === 'disable') {
             try {
                 let ecoData;
 

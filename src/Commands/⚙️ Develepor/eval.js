@@ -7,11 +7,12 @@ module.exports = new Command({
 
     name: "e",
     description: "Evaluation cmd",
-    aliases: ["evaluate"],
     type: "Text",
-    userPermissions: "",
+    userPermissions: ["SEND_MESSAGES"],
+    cooldown: 4000,
     botPermissions: ["SEND_MESSAGES"],
     dev: true,
+    
     async run(message, args, client) {
 
         try {

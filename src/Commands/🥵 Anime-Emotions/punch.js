@@ -7,8 +7,7 @@ module.exports = new Command({
   description: "sends a anime punching gif",
   botPermissions: 'SEND_MESSAGES',
   type: "Text",
-  cooldown: 10000,
-  userPermissions: ["SEND_MESSAGES"],
+    cooldown: 4000,  userPermissions: ["SEND_MESSAGES"],
   aliases: ["hit"],
 async run(message, args, client) {
     const member = message.mentions.members.first() || message.author

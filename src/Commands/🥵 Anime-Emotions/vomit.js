@@ -7,7 +7,7 @@ module.exports = {
     
     userPermissions: ["SEND_MESSAGES"],
     aliases: ["spew"],
-    cooldown: 10000,
+    cooldown: 4000,
     async run (message, args, client) {
   
         const image = await nekoapi.reaction.vomit()

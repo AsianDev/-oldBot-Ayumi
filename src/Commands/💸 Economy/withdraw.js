@@ -28,11 +28,12 @@ module.exports = new Command({
             console.log(err);
         }
         if(!ecoData) {
-            let ecoDB = await DB.create({
+           ecoData = await DB.create({
                 userID: member.id
             });
-            ecoDB.save();
+            ecoData.save();
         }
+
 
         const amountWithDrawing = Number(args[1])
         if(isNaN(amountWithDrawing)) return message.channel.send({embeds: [new Discord.MessageEmbed()

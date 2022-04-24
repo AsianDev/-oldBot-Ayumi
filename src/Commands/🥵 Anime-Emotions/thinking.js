@@ -6,8 +6,7 @@ module.exports = {
   
   description: "sends a anime thinking gif",
   userPermissions: ["SEND_MESSAGES"],
-  cooldown: 10000,
-  botPermissions: 'SEND_MESSAGES',
+    cooldown: 4000,  botPermissions: 'SEND_MESSAGES',
   type: "Text",
 aliases: ["thinking"],
 async run(message, args, client) {

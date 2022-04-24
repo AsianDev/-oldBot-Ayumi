@@ -9,7 +9,7 @@ module.exports = new Command({
     description: "Ships you with someone",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: ["SEND_MESSAGES"],
-    cooldown: 10000,
+    cooldown: 4000,
 type: "Text",
 
     async run(message, args, client) {

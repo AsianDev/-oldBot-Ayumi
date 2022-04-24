@@ -22,8 +22,7 @@ module.exports = new Event('channelDelete', async (client, channel) =>{
             "<:icons_updatemember:949375652291809341> A Channel's Pins Has Been Updated"
         )
         .setTimestamp()
-        .setFooter({ text
-: channel.guild.name });
+        .setFooter({ text: channel.guild.name });
 
     if (!log.target) return;
 

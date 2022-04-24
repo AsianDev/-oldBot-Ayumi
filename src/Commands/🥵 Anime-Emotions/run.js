@@ -5,7 +5,7 @@ module.exports = {
     name: 'run',
     description: "sends a running gif / image",
     
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: 'SEND_MESSAGES',
 type: "Text",

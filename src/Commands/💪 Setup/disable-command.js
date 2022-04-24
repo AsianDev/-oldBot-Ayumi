@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const Command = require('../../Handlers/Command.js')
 module.exports = new Command({
         name: "cmd-disable",
-    cooldown: 10000,
+    cooldown: 4000,
     userPermissions: ["MANAGE_GUILD"],
   botPermissions: "SEND_MESSAGES",
  aliases: ["disable-command", "disable-cmd", "disable"],

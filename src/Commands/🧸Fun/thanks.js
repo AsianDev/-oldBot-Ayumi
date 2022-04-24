@@ -11,7 +11,6 @@ module.exports = new Command({
     type: 'Slash',
     userPermissions: "SEND_MESSAGES",
     botPermissions: 'SEND_MESSAGES',
-    cooldown: 86400000, // 24 hours
     slashCommandOptions: [{
         name: "user",
         description: "Who will you give rep points to?",
@@ -33,12 +32,35 @@ module.exports = new Command({
         let reason = interaction.options.getString('reason');
         const member = interaction.guild.members.cache.get(user.id)
         const nickname = member.user.displayName || member.user.username || member.nickname
+        const now = new Date()
+
+        const authorData = await thankDB.findOne({
+            guildId: interaction.guild.id,
+            userId: member.id,
+        })
+
+        if (authorData && authorData.lastGave) {
+            const then = new Date(authorData.lastGave)
+
+            const diff = now.getTime() - then.getTime()
+            const diffHours = Math.round(diff / (1000 * 60 * 60))
+
+            const hours = 24    
+            if (diffHours <= hours) {
+               return interaction.followUp({ embeds: [new Discord.MessageEmbed()
+                .setDescription(`*Sowwy~* but you need to wait ${hours} hours to thank someone again!`)
+                .setColor(c['light red'])
+                .setTitle(`${e.Error} AN ERROR OCCURED`)
+            ]})
+            }
+        }
 
         let data;
         try {
-            data =  await thankDB.findOne({ 
-                GuildID: interaction.guild.id, 
-                UserID: member.id 
+            data = await thankDB.findOne({ 
+                guildId: interaction.guild.id,
+                userId: member.id,
+                lastGave: now,
             })
         } catch (err) {
             console.log(err);

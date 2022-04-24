@@ -40,6 +40,7 @@ Canvas.loadImage('./src/config/assets/image/leave.jpg').then(async (image) => {
 })
 const client = new Client()
 client.slashCommands = new Discord.Collection();
+
 // ------ FUNCTIONS ------- //
 // page
 Object.defineProperty(Array.prototype, "pager", {

@@ -5,7 +5,7 @@ let teaseGifs = soyultro("tease");
 module.exports = {
     name: 'tease',
     
-    cooldown: 10000,
+    cooldown: 4000,
     description: "sends a anime teasing gif",
     userPermissions: ["SEND_MESSAGES"],
     botPermissions: 'SEND_MESSAGES',

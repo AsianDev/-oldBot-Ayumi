@@ -5,8 +5,7 @@ module.exports = {
   description: "Locks a Channel",
   type: "Text",
   aliases: ["lock-channel"],
-  cooldown: 10000,
-  userPermissions: ["MANAGE_CHANNELS"],
+    cooldown: 4000,  userPermissions: ["MANAGE_CHANNELS"],
   botPermissions: "MANAGE_CHANNELS",
 
     async run(message, args, client) {
