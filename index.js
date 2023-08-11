@@ -1,5 +1,6 @@
 /** @format */
 console.clear();
+// please credit all my work.
 const Client = require("./src/Handlers/Client.js")
 const mongoose = require('mongoose')
 const Discord = require("discord.js")
