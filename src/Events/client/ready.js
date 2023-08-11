@@ -43,7 +43,7 @@ module.exports = new Event("ready", (client) => {
       }, 
       header: {
         alignment: 'center',
-        content: "I HAVE LOADED ♡＾▽＾♡"
+        content: "I HAVE LOADED ♡＾▽＾♡ (MAKE SURE YOU CREDIT MY WORK!)"
       }
     };
     console.log(table(data, config))
