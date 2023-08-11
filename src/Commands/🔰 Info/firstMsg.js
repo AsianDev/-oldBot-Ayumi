@@ -24,7 +24,7 @@ module.exports = new Command({
             .addFields(
                 { name: '**Content:**', value: `${msg.content}` },
                 { name: '**Created At:**', value: `${msg.createdAt.toLocaleDateString()}` },
-                { name: '**Message link**', value: `**[Jump the message](${msg.url})**` }
+                { name: '**Message link**', value: `**[Jump to the message](${msg.url})**` }
 
             )
         message.channel.send({ embeds: [embed] })
